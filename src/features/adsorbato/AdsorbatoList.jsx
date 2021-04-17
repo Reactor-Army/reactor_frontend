@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
+import React from "react";
 
 export function AdsorbatoList() {
-  
   const loading = useSelector((state) => state.loading);
   const {adsorbatos} = useSelector((state) => state.adsorbatos);
 
@@ -10,16 +10,16 @@ export function AdsorbatoList() {
       <div className="row">
         <h1>Algo que intenta ser Redux y consumir el back</h1>
       </div>
-      <div className="row">        
+      <div className="row">
         <div className="two columns">
           <button className="button-primary">Agregar Adsorbato</button>
         </div>
       </div>
       <div className="row">
-      {loading ? (
+        {loading ? (
           "Loading..."
         ) : (
-          <table class="u-full-width">
+          <table className="u-full-width">
             <thead>
               <tr>
                 <th>Nombre de Ion</th>
@@ -30,14 +30,16 @@ export function AdsorbatoList() {
             </thead>
             <tbody>
               {adsorbatos.length &&
-                adsorbatos.map(({ id, nombreIon, cargaIon, radioIonico, limiteVertido }, i) => (
-                  <tr key={i}>
-                    <td>{nombreIon}</td>
-                    <td>{cargaIon}</td>
-                    <td>{radioIonico}</td>
-                    <td>{limiteVertido}</td>
-                  </tr>
-            ))}
+                adsorbatos.map(
+                  ({nombreIon, cargaIon, radioIonico, limiteVertido}, i) => (
+                    <tr key={i}>
+                      <td>{nombreIon}</td>
+                      <td>{cargaIon}</td>
+                      <td>{radioIonico}</td>
+                      <td>{limiteVertido}</td>
+                    </tr>
+                  ),
+                )}
             </tbody>
           </table>
         )}
