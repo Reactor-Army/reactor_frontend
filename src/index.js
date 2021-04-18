@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import {Provider} from "react-redux";
 import store from "./store";
-import {fetchAdsorbatos} from "./features/adsorbato/adsorbatosSlice";
+import {fetchAdsorbates} from "./components/AdsorbateList/adsorbatesSlice";
 
-store.dispatch(fetchAdsorbatos());
+store.dispatch(fetchAdsorbates());
 
 ReactDOM.render(
   <Provider store={store}>
