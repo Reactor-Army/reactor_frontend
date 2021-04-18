@@ -1,9 +1,9 @@
 import {useSelector} from "react-redux";
 import React from "react";
 
-export function AdsorbatoList() {
+export function AdsorbateList() {
   const loading = useSelector((state) => state.loading);
-  const {adsorbatos} = useSelector((state) => state.adsorbatos);
+  const {adsorbates} = useSelector((state) => state.adsorbates);
 
   return (
     <div className="container">
@@ -29,8 +29,8 @@ export function AdsorbatoList() {
               </tr>
             </thead>
             <tbody>
-              {adsorbatos.length &&
-                adsorbatos.map(
+              {adsorbates.length &&
+                adsorbates.map(
                   ({nombreIon, cargaIon, radioIonico, limiteVertido}, i) => (
                     <tr key={i}>
                       <td>{nombreIon}</td>

@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import adsorbatoReducer from "./features/adsorbato/adsorbatosSlice";
+import adsorbateReducer from "./components/AdsorbateList/adsorbatesSlice";
 
 export default configureStore({
   reducer: {
-    adsorbatos: adsorbatoReducer,
+    adsorbates: adsorbateReducer,
   },
 });

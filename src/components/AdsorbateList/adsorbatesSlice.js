@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 let url = "https://reactor-a1.herokuapp.com/adsorbato";
-export const fetchAdsorbatos = createAsyncThunk("fetchAdsorbatos", async () => {
+export const fetchAdsorbates = createAsyncThunk("fetchAdsorbates", async () => {
   const response = await fetch(url, {
     method: "GET",
     mode: "cors",
@@ -13,25 +13,25 @@ export const fetchAdsorbatos = createAsyncThunk("fetchAdsorbatos", async () => {
   return await response.json();
 });
 
-const adsorbatosSlice = createSlice({
-  name: "adsorbatos",
+const adsorbatesSlice = createSlice({
+  name: "adsorbates",
   initialState: {
-    adsorbatos: [],
+    adsorbates: [],
     loading: false,
   },
   reducers: {},
   extraReducers: {
-    [fetchAdsorbatos.pending]: (state) => {
+    [fetchAdsorbates.pending]: (state) => {
       state.loading = true;
     },
-    [fetchAdsorbatos.fulfilled]: (state, action) => {
+    [fetchAdsorbates.fulfilled]: (state, action) => {
       state.loading = false;
-      state.adsorbatos = [...state.adsorbatos, ...action.payload];
+      state.adsorbates = [...state.adsorbates, ...action.payload];
     },
-    [fetchAdsorbatos.rejected]: (state) => {
+    [fetchAdsorbates.rejected]: (state) => {
       state.loading = false;
     },
   },
 });
 
-export default adsorbatosSlice.reducer;
+export default adsorbatesSlice.reducer;
