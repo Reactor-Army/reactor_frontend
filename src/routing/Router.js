@@ -3,7 +3,7 @@ import React from "react";
 import {Home} from "./routes/Home";
 import {Adsorbate} from "./routes/Adsorbate";
 
-export const Routes = () => {
+export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
