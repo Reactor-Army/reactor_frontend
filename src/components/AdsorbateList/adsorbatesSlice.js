@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-let url = "https://reactor-a1.herokuapp.com/adsorbate";
+let url = "https://reactor-a1.herokuapp.com/adsorbato";
 export const fetchAdsorbates = createAsyncThunk("fetchAdsorbates", async () => {
   const response = await fetch(url, {
     method: "GET",

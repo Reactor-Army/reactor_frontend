@@ -7,7 +7,7 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={"/adsorbates"} component={Adsorbate} />
+        <Route path={"/adsorbatos"} component={Adsorbate} />
         <Route path={"/"} component={Home} />
       </Switch>
     </BrowserRouter>
