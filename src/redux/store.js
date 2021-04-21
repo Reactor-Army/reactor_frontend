@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import adsorbateReducer from "./components/AdsorbateList/adsorbatesSlice";
+import adsorbateReducer from "./adsorbatesSlice";
 
 export default configureStore({
   reducer: {

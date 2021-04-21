@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import {Provider} from "react-redux";
-import store from "./store";
-import {fetchAdsorbates} from "./components/AdsorbateList/adsorbatesSlice";
+import store from "./redux/store";
+import {fetchAdsorbates} from "./redux/adsorbatesSlice";
 
 store.dispatch(fetchAdsorbates());
 
