@@ -1,17 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {getAdsorbates} from "../services/adsorbates";
 
-let url = "https://reactor-a1.herokuapp.com/adsorbato";
-export const fetchAdsorbates = createAsyncThunk("fetchAdsorbates", async () => {
-  const response = await fetch(url, {
-    method: "GET",
-    mode: "cors",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
-  });
-  return await response.json();
-});
+export const fetchAdsorbates = createAsyncThunk(
+  "fetchAdsorbates",
+  getAdsorbates,
+);
 
 const adsorbatesSlice = createSlice({
   name: "adsorbates",
