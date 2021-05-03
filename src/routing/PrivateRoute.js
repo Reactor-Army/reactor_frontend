@@ -10,7 +10,16 @@ export const PrivateRoute = ({component: Component, authed, ...rest}) => {
       render={(props) => (
         <PageContainer>
           <Sidebar />
-          <Component {...props} />
+          <div
+            style={{
+              background: "green",
+              width: "100%",
+              height: "100vh",
+              display: "flex",
+              marginLeft: "230px",
+            }}>
+            <Component {...props} />
+          </div>
         </PageContainer>
       )}
     />
