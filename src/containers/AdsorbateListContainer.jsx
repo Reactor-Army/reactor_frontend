@@ -4,7 +4,7 @@ import {fetchAdsorbates} from "../redux/adsorbatesSlice";
 import {AdsorbateList} from "../components/AdsorbateList/AdsorbateList";
 import {PageTitle} from "../common/PageTitle";
 import {AddAdsorbateButton} from "../components/AdsorbateList/AddAdsorbateButton";
-import {PageContent} from "../components/PageContent/PageContent";
+import Container from "@material-ui/core/Container";
 
 export function AdsorbateListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -15,10 +15,10 @@ export function AdsorbateListContainer() {
   }, []);
 
   return (
-    <PageContent>
+    <Container>
       <PageTitle title={"Adsorbatos"} />
       <AddAdsorbateButton />
       <AdsorbateList loading={loading} adsorbates={adsorbates} />
-    </PageContent>
+    </Container>
   );
 }
