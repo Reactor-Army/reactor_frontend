@@ -1,11 +1,6 @@
 import React from "react";
+import {AdsorbentList} from "../../components/AdsorbentList/AdsorbentList";
 
 export const AdsorbentsRoute = () => {
-  return (
-    <img
-      src="https://i.imgflip.com/57xq4b.jpg"
-      alt=""
-      style={{marginLeft: "500px"}}
-    />
-  );
+  return <AdsorbentList />;
 };
