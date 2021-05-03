@@ -1,17 +1,33 @@
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Switch} from "react-router-dom";
 import React from "react";
 import {HomeRoute} from "./routes/HomeRoute";
 import {AdsorbatesRoute} from "./routes/AdsorbatesRoute";
 import {AdsorbentsRoute} from "./routes/AdsorbentsRoute";
+import {Sidebar} from "../components/Sidebar/Sidebar";
+import {PageContainer} from "../components/PageContainer/PageContainer";
+import {PrivateRoute} from "./PrivateRoute";
 
 export const Router = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path={"/adsorbatos"} component={AdsorbatesRoute} />
-        <Route path={"/adsorbentes"} component={AdsorbentsRoute} />
-        <Route path={"/"} component={HomeRoute} />
-      </Switch>
+      <PageContainer>
+        <Sidebar />
+        <Switch>
+          <PrivateRoute
+            authed={0}
+            exact
+            path={"/adsorbatos"}
+            component={AdsorbatesRoute}
+          />
+          <PrivateRoute
+            authed={0}
+            exact
+            path={"/adsorbentes"}
+            component={AdsorbentsRoute}
+          />
+          <PrivateRoute authed={0} exact path={"/"} component={HomeRoute} />
+        </Switch>
+      </PageContainer>
     </BrowserRouter>
   );
 };
