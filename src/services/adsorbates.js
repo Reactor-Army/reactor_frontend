@@ -8,7 +8,7 @@ export const getAdsorbates = async () => {
 };
 
 export const searchAdsorbates = async (name, charge) => {
-  const endpoint = `${settings.BACKEND_URL}adsorbato/search/`;
+  const endpoint = `${settings.BACKEND_URL}adsorbato/buscar/`;
   const client = new HttpClient(null);
   return (
     await client.get(endpoint, {
