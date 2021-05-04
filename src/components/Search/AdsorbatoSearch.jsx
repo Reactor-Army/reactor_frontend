@@ -10,7 +10,7 @@ import {Typography} from "@material-ui/core";
 
 export function AdsorbatoSearch() {
   return (
-    <Accordion>
+    <Accordion expanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1d-content"
@@ -19,7 +19,7 @@ export function AdsorbatoSearch() {
       </AccordionSummary>
 
       <AccordionDetails>
-        <Grid container>
+        <Grid container justify={"flex-end"}>
           <Grid item xs={3}>
             <TextField id="outlined-basic" label="Nombre" variant="outlined" />{" "}
           </Grid>
