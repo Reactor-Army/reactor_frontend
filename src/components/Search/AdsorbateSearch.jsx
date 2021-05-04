@@ -13,6 +13,7 @@ export function AdsorbateSearch({
   handleNameChange,
   charge,
   handleChargeChange,
+  onSearchSubmit,
 }) {
   return (
     <Accordion expanded={true}>
@@ -44,7 +45,7 @@ export function AdsorbateSearch({
               onChange={handleChargeChange}
             />
           </Grid>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={onSearchSubmit}>
             Buscar
           </Button>
         </Grid>
