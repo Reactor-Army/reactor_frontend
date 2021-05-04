@@ -7,7 +7,13 @@ export const getAdsorbates = async () => {
   return (await client.get(endpoint)).data;
 };
 
-export const searchAdsorbates = (name, charge) => {
-  console.log(name);
-  console.log(charge);
+export const searchAdsorbates = async (name, charge) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/search/`;
+  const client = new HttpClient(null);
+  return (
+    await client.get(endpoint, {
+      nombre: name || undefined,
+      cargaIon: charge || undefined,
+    })
+  ).data;
 };

@@ -12,8 +12,9 @@ export function AdsorbateSearchContainer() {
     setCharge(parseInt(event.target.value));
   };
 
-  const onSearchSubmit = () => {
-    searchAdsorbates(name, charge);
+  const onSearchSubmit = async () => {
+    const response = await searchAdsorbates(name, charge);
+    console.log(response);
   };
 
   return (
