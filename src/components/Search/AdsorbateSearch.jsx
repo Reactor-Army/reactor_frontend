@@ -8,7 +8,12 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import {Typography} from "@material-ui/core";
 
-export function AdsorbatoSearch() {
+export function AdsorbateSearch({
+  name,
+  handleNameChange,
+  charge,
+  handleChargeChange,
+}) {
   return (
     <Accordion expanded={true}>
       <AccordionSummary
@@ -21,7 +26,13 @@ export function AdsorbatoSearch() {
       <AccordionDetails>
         <Grid container justify={"flex-end"}>
           <Grid item xs={3}>
-            <TextField id="outlined-basic" label="Nombre" variant="outlined" />{" "}
+            <TextField
+              id="outlined-basic"
+              label="Nombre"
+              variant="outlined"
+              value={name}
+              onChange={handleNameChange}
+            />
           </Grid>
           <Grid item xs={3}>
             <TextField
@@ -29,6 +40,8 @@ export function AdsorbatoSearch() {
               label="Carga iónica"
               type="number"
               variant="outlined"
+              value={charge}
+              onChange={handleChargeChange}
             />
           </Grid>
           <Button variant="contained" color="primary">
