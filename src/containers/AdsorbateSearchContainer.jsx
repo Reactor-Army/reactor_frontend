@@ -1,6 +1,7 @@
 import {AdsorbateSearch} from "../components/Search/AdsorbateSearch";
 import React, {useState} from "react";
-import {searchAdsorbates} from "../services/adsorbates";
+import {useDispatch} from "react-redux";
+import {createSearchAdsorbatesThunk} from "../redux/adsorbatesSlice";
 
 export function AdsorbateSearchContainer() {
   const [name, setName] = useState("");
@@ -12,9 +13,9 @@ export function AdsorbateSearchContainer() {
     setCharge(parseInt(event.target.value));
   };
 
+  const dispatch = useDispatch();
   const onSearchSubmit = async () => {
-    const response = await searchAdsorbates(name, charge);
-    console.log(response);
+    dispatch(createSearchAdsorbatesThunk(name, charge)());
   };
 
   return (
