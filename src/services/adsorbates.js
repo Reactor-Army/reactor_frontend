@@ -6,3 +6,14 @@ export const getAdsorbates = async () => {
   const client = new HttpClient(null);
   return (await client.get(endpoint)).data;
 };
+
+export const searchAdsorbates = async (name, charge) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/buscar/`;
+  const client = new HttpClient(null);
+  return (
+    await client.get(endpoint, {
+      nombre: name || undefined,
+      cargaIon: charge || undefined,
+    })
+  ).data;
+};
