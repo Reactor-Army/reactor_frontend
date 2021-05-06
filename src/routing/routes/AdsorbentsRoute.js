@@ -1,6 +1,6 @@
 import React from "react";
-import {AdsorbentList} from "../../components/AdsorbentList/AdsorbentList";
+import {AdsorbentListContainer} from "../../containers/AdsorbentListContainer";
 
 export const AdsorbentsRoute = () => {
-  return <AdsorbentList />;
+  return <AdsorbentListContainer />;
 };

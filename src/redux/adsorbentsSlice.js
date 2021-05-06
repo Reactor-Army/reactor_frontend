@@ -16,10 +16,11 @@ const adsorbentsSlice = createSlice({
   extraReducers: {
     [fetchAdsorbents.pending]: (state) => {
       state.loading = true;
+      state.adsorbents = [];
     },
     [fetchAdsorbents.fulfilled]: (state, action) => {
       state.loading = false;
-      state.adsorbents = [...state.adsorbents, ...action.payload];
+      state.adsorbents = action.payload;
     },
     [fetchAdsorbents.rejected]: (state) => {
       state.loading = false;

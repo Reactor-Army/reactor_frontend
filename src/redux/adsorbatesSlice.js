@@ -24,7 +24,6 @@ const adsorbatesSlice = createSlice({
       state.adsorbates = [];
     },
     [fetchAdsorbates.fulfilled]: (state, action) => {
-      console.log(action);
       state.loading = false;
       state.adsorbates = action.payload;
     },
