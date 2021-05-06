@@ -10,8 +10,8 @@ import {
 } from "./Styles";
 
 export const AdsorbentCard = ({
-  backgroundColor,
-
+  headerBackgroundColor,
+  bodyBackgroundColor,
   header,
   particleSize,
   sBet,
@@ -19,7 +19,9 @@ export const AdsorbentCard = ({
   ph,
 }) => {
   return (
-    <Card backgroundColor={{background: backgroundColor}}>
+    <Card
+      headerBackgroundColor={headerBackgroundColor}
+      bodyBackgroundColor={bodyBackgroundColor}>
       <CardHeader>
         <HeaderText>{header}</HeaderText>
       </CardHeader>

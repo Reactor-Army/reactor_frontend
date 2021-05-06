@@ -19,7 +19,8 @@ export function AdsorbentList({loading, adsorbents}) {
         adsorbents.map(
           ({nombre, particulaT, sBet, vBet, pHCargaCero}, index) => (
             <AdsorbentCard
-              backgroundColor={appColors.adsorbentCard}
+              headerBackgroundColor={appColors.adsorbentCardHeader}
+              bodyBackgroundColor={appColors.adsorbentCardBody}
               header={nombre}
               particleSize={particulaT}
               sBet={sBet}

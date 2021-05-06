@@ -1,7 +1,8 @@
 export const appColors = {
   primary: "#33c3f0",
   white: "#fff",
-  adsorbentCard: "#44F88C",
+  adsorbentCardHeader: "#26a69a",
+  adsorbentCardBody: "#4db6ac",
   gray: "#666",
 };
 
