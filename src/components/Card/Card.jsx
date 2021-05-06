@@ -1,16 +1,11 @@
 import React from "react";
 import {CardContainer} from "./Styles";
 
-export const Card = ({
-  headerBackgroundColor,
-  bodyBackgroundColor,
-  children,
-}) => {
+export const Card = ({backgroundColor, children}) => {
   return (
     <CardContainer
       theme={{
-        headerBackground: headerBackgroundColor,
-        bodyBackground: bodyBackgroundColor,
+        bodyBackground: backgroundColor,
       }}>
       {children}
     </CardContainer>

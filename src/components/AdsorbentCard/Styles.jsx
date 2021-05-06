@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appFontFamily} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
 
 export const CardHeader = styled.div`
   display: flex;
@@ -8,6 +8,7 @@ export const CardHeader = styled.div`
   font-size: 24px;
   font-family: ${appFontFamily.card};
   padding-bottom: 4px;
+  background-color: ${(props) => props.theme.backgroundColor || appColors.white};
 `;
 
 export const CardBody = styled.div`

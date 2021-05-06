@@ -19,10 +19,8 @@ export const AdsorbentCard = ({
   ph,
 }) => {
   return (
-    <Card
-      headerBackgroundColor={headerBackgroundColor}
-      bodyBackgroundColor={bodyBackgroundColor}>
-      <CardHeader>
+    <Card backgroundColor={bodyBackgroundColor}>
+      <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
