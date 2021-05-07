@@ -9,7 +9,7 @@ import {
   CardFooter,
   FooterItem,
   DataLabel,
-} from "../Card/CommonCardStyles";
+} from "../CommonCardStyles";
 import {CardProcess, BodyText} from "./Styles";
 
 export const ProcessCard = ({
