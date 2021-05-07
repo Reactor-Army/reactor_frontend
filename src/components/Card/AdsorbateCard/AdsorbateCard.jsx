@@ -1,23 +1,22 @@
 import React from "react";
-import {Card} from "../Card/Card";
+import {Card} from "../Card";
 import {
   CardHeader,
   HeaderText,
-  ParticleSizeText,
+  BodyText,
   CardBody,
   CardFooter,
   FooterItem,
   DataLabel,
-} from "./Styles";
+} from "../CommonCardStyles";
 
-export const AdsorbentCard = ({
+export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
   header,
-  particleSize,
-  sBet,
-  vBet,
-  ph,
+  ionCharge,
+  ionRadius,
+  dischargeLimit,
 }) => {
   return (
     <Card backgroundColor={bodyBackgroundColor}>
@@ -25,19 +24,16 @@ export const AdsorbentCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <ParticleSizeText>
-          <DataLabel>Tamaño de particula:</DataLabel> {particleSize}
-        </ParticleSizeText>
+        <BodyText>
+          <DataLabel>Carga del ion:</DataLabel> {ionCharge}
+        </BodyText>
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <DataLabel>sBet:</DataLabel> {sBet}
+          <DataLabel>Radio ionico:</DataLabel> {ionRadius}
         </FooterItem>
         <FooterItem>
-          <DataLabel>vBet:</DataLabel> {vBet}
-        </FooterItem>
-        <FooterItem>
-          <DataLabel>ph(carga cero):</DataLabel> {ph}
+          <DataLabel>Limite de vertido:</DataLabel> {dischargeLimit}
         </FooterItem>
       </CardFooter>
     </Card>

@@ -2,7 +2,7 @@ import {useDispatch} from "react-redux"; //, useSelector
 import React, {useEffect} from "react";
 import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
 
-import {AdsorbentCard} from "../../components/AdsorbentCard/AdsorbentCard";
+import {AdsorbentCard} from "../../components/Card/AdsorbentCard/AdsorbentCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 

@@ -3,6 +3,7 @@ import React from "react";
 import {HomeRoute} from "./routes/HomeRoute";
 import {AdsorbatesRoute} from "./routes/AdsorbatesRoute";
 import {AdsorbentsRoute} from "./routes/AdsorbentsRoute";
+import {ProcessesRoute} from "./routes/ProcessesRoute";
 import {PrivateRoute} from "./PrivateRoute";
 
 export const Router = () => {
@@ -20,6 +21,12 @@ export const Router = () => {
           exact
           path={"/adsorbentes"}
           component={AdsorbentsRoute}
+        />
+        <PrivateRoute
+          authed={0}
+          exact
+          path={"/procesos"}
+          component={ProcessesRoute}
         />
         <PrivateRoute authed={0} exact path={"/"} component={HomeRoute} />
       </Switch>

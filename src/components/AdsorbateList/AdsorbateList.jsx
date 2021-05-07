@@ -1,35 +1,42 @@
-import React from "react";
+import {useDispatch} from "react-redux";
+import React, {useEffect} from "react";
+import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import {capitalize} from "../../common/FormatUtils";
 
-export function AdsorbateList({loading, adsorbates}) {
+import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
+import {appColors} from "../../common/styles";
+import {ListContainer} from "./Styles";
+
+export function AdsorbateList({adsorbates}) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAdsorbates());
+  }, []);
+
+  const formatAdsorbateName = (name, nameIUPAC) => {
+    return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
+  };
+
   return (
-    <div className="row">
-      {loading ? (
-        "Loading..."
-      ) : (
-        <table className="u-full-width">
-          <thead>
-            <tr>
-              <th>Nombre de Ion</th>
-              <th>Carga de Ion</th>
-              <th>Radio Ionico</th>
-              <th>Limite de Vertido</th>
-            </tr>
-          </thead>
-          <tbody>
-            {adsorbates.length &&
-              adsorbates.map(
-                ({nombreIon, cargaIon, radioIonico, limiteVertido}, i) => (
-                  <tr key={i}>
-                    <td>{nombreIon}</td>
-                    <td>{cargaIon}</td>
-                    <td>{radioIonico}</td>
-                    <td>{limiteVertido}</td>
-                  </tr>
-                ),
-              )}
-          </tbody>
-        </table>
-      )}
-    </div>
+    <ListContainer>
+      {adsorbates.length &&
+        adsorbates.map(
+          (
+            {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
+            index,
+          ) => (
+            <AdsorbateCard
+              headerBackgroundColor={appColors.adsorbateCardHeader}
+              bodyBackgroundColor={appColors.adsorbentCardBody}
+              header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
+              ionCharge={cargaIon}
+              ionRadius={radioIonico}
+              dischargeLimit={limiteVertido}
+              key={index}
+            />
+          ),
+        )}
+      ;
+    </ListContainer>
   );
 }
