@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {fetchProcesses} from "../../redux/processesSlice";
 import {capitalize} from "../../common/FormatUtils";
 
-import {ProcessCard} from "../../components/ProcessCard/ProcessCard";
+import {ProcessCard} from "../Card/ProcessCard/ProcessCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 

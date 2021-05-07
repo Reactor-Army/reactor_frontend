@@ -1,8 +1,8 @@
 import {Grid} from "@material-ui/core";
 import React from "react";
-import {appColors} from "../../common/styles";
-import {BooleanChip} from "../BooleanChip/BooleanChip";
-import {NameChip} from "../NameChip/NameChip";
+import {appColors} from "../../../common/styles";
+import {BooleanChip} from "../../Chip/BooleanChip/BooleanChip";
+import {NameChip} from "../../Chip/NameChip/NameChip";
 import {
   CardHeader,
   BodyText,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   FooterItem,
   DataLabel,
-} from "../Card/CommonCardStyles";
+} from "../CommonCardStyles";
 import {CardProcess} from "./Styles";
 
 export const ProcessCard = ({

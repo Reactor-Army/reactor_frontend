@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
 import {capitalize} from "../../common/FormatUtils";
 
-import {AdsorbateCard} from "../../components/AdsorbateCard/AdsorbateCard";
+import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 
@@ -13,9 +13,8 @@ export function AdsorbateList({adsorbates}) {
     dispatch(fetchAdsorbates());
   }, []);
 
-  const formatAadsorbateName = (name, nameIUPAC) => {
-    if (nameIUPAC) return `${nameIUPAC} (${name})`;
-    else return name;
+  const formatAdsorbateName = (name, nameIUPAC) => {
+    return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
   return (
@@ -29,7 +28,7 @@ export function AdsorbateList({adsorbates}) {
             <AdsorbateCard
               headerBackgroundColor={appColors.adsorbateCardHeader}
               bodyBackgroundColor={appColors.adsorbentCardBody}
-              header={capitalize(formatAadsorbateName(nombreIon, nombreIUPAC))}
+              header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
               ionCharge={cargaIon}
               ionRadius={radioIonico}
               dischargeLimit={limiteVertido}

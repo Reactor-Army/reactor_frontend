@@ -1,5 +1,5 @@
 import React from "react";
-import {Card} from "../Card/Card";
+import {Card} from "../Card";
 import {
   CardHeader,
   HeaderText,
@@ -8,7 +8,7 @@ import {
   CardFooter,
   FooterItem,
   DataLabel,
-} from "../Card/CommonCardStyles";
+} from "../CommonCardStyles";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
