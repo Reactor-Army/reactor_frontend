@@ -4,7 +4,7 @@ import {appColors, appFontFamily} from "../../common/styles";
 export const CardHeader = styled.div`
   display: flex;
   height: 25%;
-  border-bottom: 1px solid #e1e6e3;
+  box-shadow: 0px 0px 5px #9ea3a1;
   font-size: 24px;
   font-family: ${appFontFamily.card};
   padding-bottom: 4px;
