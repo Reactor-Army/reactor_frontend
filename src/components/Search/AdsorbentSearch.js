@@ -4,26 +4,14 @@ import Grid from "@material-ui/core/Grid";
 import {Search} from "./Search";
 import {Name} from "./Fields/Name";
 
-export function AdsorbateSearch({
+export function AdsorbentSearch({
   name,
   handleNameChange,
-  charge,
-  handleChargeChange,
   onSearchSubmit,
 }) {
   return (
     <Search onSearchSubmit={onSearchSubmit}>
       <Name name={name} handleNameChange={handleNameChange} />
-      <Grid item xs={3}>
-        <TextField
-          id="outlined-basic"
-          label="Carga iónica"
-          type="number"
-          variant="outlined"
-          value={charge}
-          onChange={handleChargeChange}
-        />
-      </Grid>
     </Search>
   );
 }
