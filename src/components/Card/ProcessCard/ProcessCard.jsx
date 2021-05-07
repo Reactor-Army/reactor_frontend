@@ -5,13 +5,12 @@ import {BooleanChip} from "../../Chip/BooleanChip/BooleanChip";
 import {NameChip} from "../../Chip/NameChip/NameChip";
 import {
   CardHeader,
-  BodyText,
   CardBody,
   CardFooter,
   FooterItem,
   DataLabel,
-} from "../CommonCardStyles";
-import {CardProcess} from "./Styles";
+} from "../Card/CommonCardStyles";
+import {CardProcess, BodyText} from "./Styles";
 
 export const ProcessCard = ({
   headerBackgroundColor,

@@ -1,5 +1,13 @@
 import styled from "styled-components/macro";
-import {CardContainer} from "../Styles";
+import {appFontFamily} from "../../common/styles";
+import {CardContainer} from "../Card/Styles";
+
+export const BodyText = styled.div`
+  margin-left: 11px;
+  font-size: 16px;
+  padding-top: 10px;
+  font-family: ${appFontFamily.card};
+`;
 
 export const CardProcess = styled(CardContainer)`
   width: 500px;
