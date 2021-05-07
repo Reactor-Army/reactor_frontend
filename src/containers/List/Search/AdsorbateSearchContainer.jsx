@@ -1,7 +1,7 @@
-import {AdsorbateSearch} from "../components/Search/AdsorbateSearch";
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {createSearchAdsorbatesThunk} from "../redux/adsorbatesSlice";
+import {createSearchAdsorbatesThunk} from "../../../redux/adsorbatesSlice";
+import {AdsorbateSearch} from "../../../components/Search/AdsorbateSearch";
 
 export function AdsorbateSearchContainer() {
   const [name, setName] = useState("");

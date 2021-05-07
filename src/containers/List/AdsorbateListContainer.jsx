@@ -1,10 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
-import {fetchAdsorbates} from "../redux/adsorbatesSlice";
-import {AdsorbateList} from "../components/AdsorbateList/AdsorbateList";
-import {PageTitle} from "../common/PageTitle";
+import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import {AdsorbateList} from "../../components/AdsorbateList/AdsorbateList";
+import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
-import {AdsorbateSearchContainer} from "./AdsorbateSearchContainer";
+import {AdsorbateSearchContainer} from "./Search/AdsorbateSearchContainer";
 
 export function AdsorbateListContainer() {
   const loading = useSelector((state) => state.loading);
