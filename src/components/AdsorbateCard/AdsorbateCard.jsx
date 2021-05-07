@@ -3,12 +3,12 @@ import {Card} from "../Card/Card";
 import {
   CardHeader,
   HeaderText,
-  IonChargeText,
+  BodyText,
   CardBody,
   CardFooter,
   FooterItem,
   DataLabel,
-} from "./Styles";
+} from "../Card/CommonCardStyles";
 
 export const AdsorbateCard = ({
   headerBackgroundColor,
@@ -24,9 +24,9 @@ export const AdsorbateCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <IonChargeText>
+        <BodyText>
           <DataLabel>Carga del ion:</DataLabel> {ionCharge}
-        </IonChargeText>
+        </BodyText>
       </CardBody>
       <CardFooter>
         <FooterItem>

@@ -3,12 +3,12 @@ import {Card} from "../Card/Card";
 import {
   CardHeader,
   HeaderText,
-  ParticleSizeText,
+  BodyText,
   CardBody,
   CardFooter,
   FooterItem,
   DataLabel,
-} from "./Styles";
+} from "../Card/CommonCardStyles";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -25,9 +25,9 @@ export const AdsorbentCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <ParticleSizeText>
+        <BodyText>
           <DataLabel>Tamaño de particula:</DataLabel> {particleSize}
-        </ParticleSizeText>
+        </BodyText>
       </CardBody>
       <CardFooter>
         <FooterItem>

@@ -35,15 +35,15 @@ export const HeaderText = styled.div`
   margin-top: 4px;
 `;
 
-export const IonChargeText = styled.div`
-  margin-left: 11px;
-  font-size: 18px;
-  font-family: ${appFontFamily.card};
-`;
-
 export const FooterItem = styled.div`
   font-size: 18px;
   padding-right: 15px;
+  font-family: ${appFontFamily.card};
+`;
+
+export const BodyText = styled.div`
+  margin-left: 11px;
+  font-size: 18px;
   font-family: ${appFontFamily.card};
 `;
 

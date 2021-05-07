@@ -10,8 +10,8 @@ import {
   CardFooter,
   FooterItem,
   DataLabel,
-  CardProcess,
-} from "./Styles";
+} from "../Card/CommonCardStyles";
+import {CardProcess} from "./Styles";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -31,10 +31,12 @@ export const ProcessCard = ({
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <NameChip
           name={adsorbateName}
-          backgroundColor={appColors.adsorbateCardHeader}></NameChip>
+          backgroundColor={appColors.adsorbateCardHeader}
+        />
         <NameChip
           name={adsorbentName}
-          backgroundColor={appColors.adsorbentCardHeader}></NameChip>
+          backgroundColor={appColors.adsorbentCardHeader}
+        />
       </CardHeader>
       <CardBody>
         <Grid container direction="row" alignItems="left">
@@ -56,17 +58,13 @@ export const ProcessCard = ({
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <BooleanChip value={complexation} text={"Complejacion"}></BooleanChip>
+          <BooleanChip value={complexation} text={"Complejacion"} />
         </FooterItem>
         <FooterItem>
-          <BooleanChip
-            value={ionicInterchange}
-            text={"Intercambio Ionico"}></BooleanChip>
+          <BooleanChip value={ionicInterchange} text={"Intercambio Ionico"} />
         </FooterItem>
         <FooterItem>
-          <BooleanChip
-            value={chemicalReaction}
-            text={"Reaccion Quimica"}></BooleanChip>
+          <BooleanChip value={chemicalReaction} text={"Reaccion Quimica"} />
         </FooterItem>
       </CardFooter>
     </CardProcess>
