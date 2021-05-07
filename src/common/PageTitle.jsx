@@ -1,9 +1,6 @@
 import React from "react";
+import {Row} from "../common/styles";
 
 export function PageTitle({title}) {
-  return (
-    <div className="row">
-      <h1>{title}</h1>
-    </div>
-  );
+  return <Row>{title}</Row>;
 }
