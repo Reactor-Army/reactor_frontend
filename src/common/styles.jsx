@@ -3,9 +3,10 @@ import styled from "styled-components/macro";
 export const appColors = {
   primary: "#33c3f0",
   white: "#fff",
-  adsorbentCardHeader: "#36ffb8",
+  adsorbentCardHeader: "#69f0ae",
   adsorbentCardBody: "#f7f7f7",
-  adsorbateCardHeader: "#ce93d8",
+  adsorbateCardHeader: "#b388ff",
+  processCardHeader: "#ffe082",
   pageBackground: "#fff",
   gray: "#666",
 };
