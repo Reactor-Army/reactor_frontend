@@ -8,7 +8,6 @@ export const CardContainer = styled.div`
   width: 500px;
   height: 130px;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
-  padding: 4px 0 0 0;
   overflow: hidden;
   border-radius: 4px;
 

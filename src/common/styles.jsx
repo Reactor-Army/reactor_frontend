@@ -1,16 +1,17 @@
 export const appColors = {
   primary: "#33c3f0",
   white: "#fff",
-  adsorbentCardHeader: "#26a69a",
-  adsorbentCardBody: "#4db6ac",
+  adsorbentCardHeader: "#36ffb8",
+  adsorbentCardBody: "#f7f7f7",
+  pageBackground: "#fff",
   gray: "#666",
 };
 
 export const appFontColors = {
-  white: "white",
+  white: "#fff",
 };
 
 export const appFontFamily = {
   primary: "Lato, sans-serif",
-  card: "Monsterrat",
+  card: "Roboto, Helvetica, Arial, sans-serif",
 };

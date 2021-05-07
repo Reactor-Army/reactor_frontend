@@ -4,6 +4,7 @@ import {fetchAdsorbents} from "../redux/adsorbentsSlice";
 import {AdsorbentList} from "../components/AdsorbentList/AdsorbentList";
 import {PageTitle} from "../common/PageTitle";
 import Container from "@material-ui/core/Container";
+import {appFontFamily} from "../common/styles";
 
 export function AdsorbentListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -15,7 +16,10 @@ export function AdsorbentListContainer() {
 
   return (
     <Container>
-      <PageTitle title={"Adsorbentes"} />
+      <PageTitle
+        title={"Adsorbentes"}
+        style={{fontFamily: appFontFamily.card}}
+      />
       <AdsorbentList loading={loading} adsorbents={adsorbents} />
     </Container>
   );

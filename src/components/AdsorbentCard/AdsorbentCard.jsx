@@ -7,6 +7,7 @@ import {
   CardBody,
   CardFooter,
   FooterItem,
+  DataLabel,
 } from "./Styles";
 
 export const AdsorbentCard = ({
@@ -24,12 +25,20 @@ export const AdsorbentCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <ParticleSizeText>Tamaño de particula: {particleSize}</ParticleSizeText>
+        <ParticleSizeText>
+          <DataLabel>Tamaño de particula:</DataLabel> {particleSize}
+        </ParticleSizeText>
       </CardBody>
       <CardFooter>
-        <FooterItem>sBet: {sBet}</FooterItem>
-        <FooterItem>vBet: {vBet}</FooterItem>
-        <FooterItem>ph(carga cero): {ph}</FooterItem>
+        <FooterItem>
+          <DataLabel>sBet:</DataLabel> {sBet}
+        </FooterItem>
+        <FooterItem>
+          <DataLabel>vBet:</DataLabel> {vBet}
+        </FooterItem>
+        <FooterItem>
+          <DataLabel>ph(carga cero):</DataLabel> {ph}
+        </FooterItem>
       </CardFooter>
     </Card>
   );
