@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
+import {CardContainer} from "../Card/Styles";
 
 export const CardHeader = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ export const CardHeader = styled.div`
 
 export const CardBody = styled.div`
   height: 45%;
-  margin-top: 15px;
+  margin-top: 10px;
 `;
 
 export const CardFooter = styled.div`
@@ -37,15 +38,20 @@ export const HeaderText = styled.div`
 
 export const BodyText = styled.div`
   margin-left: 11px;
-  font-size: 14px;
+  font-size: 16px;
   padding-top: 10px;
   font-family: ${appFontFamily.card};
 `;
 
 export const FooterItem = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   padding-right: 15px;
   font-family: ${appFontFamily.card};
+`;
+
+export const CardProcess = styled(CardContainer)`
+  width: 500px;
+  height: 180px;
 `;
 
 export const DataLabel = styled.strong``;

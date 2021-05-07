@@ -12,14 +12,6 @@ export function ProcessList({processes}) {
     dispatch(fetchProcesses());
   }, []);
 
-  const formatProcessName = (adsorbateName, adsorbentName) => {
-    return `${adsorbateName} / ${adsorbentName}`;
-  };
-
-  const convertToString = (bool) => {
-    return bool ? "Si" : "No";
-  };
-
   return (
     <ListContainer>
       {processes.length &&
@@ -32,23 +24,21 @@ export function ProcessList({processes}) {
               tiempoEquilibrio,
               temperatura,
               phinicial,
-              complejacion,
-              intercambioIonico,
-              reaccionQuimica,
             },
             index,
           ) => (
             <ProcessCard
               headerBackgroundColor={appColors.processCardHeader}
               bodyBackgroundColor={appColors.adsorbentCardBody}
-              header={formatProcessName(adsorbato.nombreIon, adsorbente.nombre)}
+              adsorbateName={adsorbato.nombreIon}
+              adsorbentName={adsorbente.nombre}
               qMax={qmax}
               equilibriumTime={tiempoEquilibrio}
               temperature={temperatura}
               initialPH={phinicial}
-              complexation={convertToString(complejacion)}
-              ionicInterchange={convertToString(intercambioIonico)}
-              chemicalReaction={convertToString(reaccionQuimica)}
+              complexation={true}
+              ionicInterchange={true}
+              chemicalReaction={true}
               key={index}
             />
           ),

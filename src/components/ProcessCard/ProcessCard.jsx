@@ -1,20 +1,23 @@
 import {Grid} from "@material-ui/core";
 import React from "react";
-import {Card} from "../Card/Card";
+import {appColors} from "../../common/styles";
+import {BooleanChip} from "../BooleanChip/BooleanChip";
+import {NameChip} from "../NameChip/NameChip";
 import {
   CardHeader,
-  HeaderText,
   BodyText,
   CardBody,
   CardFooter,
   FooterItem,
   DataLabel,
+  CardProcess,
 } from "./Styles";
 
 export const ProcessCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
-  header,
+  adsorbateName,
+  adsorbentName,
   qMax,
   equilibriumTime,
   temperature,
@@ -24,9 +27,14 @@ export const ProcessCard = ({
   chemicalReaction,
 }) => {
   return (
-    <Card backgroundColor={bodyBackgroundColor}>
+    <CardProcess backgroundColor={bodyBackgroundColor}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
-        <HeaderText>{header}</HeaderText>
+        <NameChip
+          name={adsorbateName}
+          backgroundColor={appColors.adsorbateCardHeader}></NameChip>
+        <NameChip
+          name={adsorbentName}
+          backgroundColor={appColors.adsorbentCardHeader}></NameChip>
       </CardHeader>
       <CardBody>
         <Grid container direction="row" alignItems="left">
@@ -34,10 +42,12 @@ export const ProcessCard = ({
             <DataLabel>QMax:</DataLabel> {qMax}
           </BodyText>
           <BodyText>
-            <DataLabel>Tiempo de equilibrio:</DataLabel> {equilibriumTime}
+            <DataLabel>Tiempo de equilibrio:</DataLabel> {equilibriumTime} Segs
           </BodyText>
+        </Grid>
+        <Grid container direction="row" alignItems="left">
           <BodyText>
-            <DataLabel>Temperatura:</DataLabel> {temperature}
+            <DataLabel>Temperatura:</DataLabel> {temperature} °C
           </BodyText>
           <BodyText>
             <DataLabel>PH inicial:</DataLabel> {initialPH}
@@ -46,15 +56,19 @@ export const ProcessCard = ({
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <DataLabel>Complejacion:</DataLabel> {complexation}
+          <BooleanChip value={complexation} text={"Complejacion"}></BooleanChip>
         </FooterItem>
         <FooterItem>
-          <DataLabel>Intercambio ionico:</DataLabel> {ionicInterchange}
+          <BooleanChip
+            value={ionicInterchange}
+            text={"Intercambio Ionico"}></BooleanChip>
         </FooterItem>
         <FooterItem>
-          <DataLabel>Reaccion quimica:</DataLabel> {chemicalReaction}
+          <BooleanChip
+            value={chemicalReaction}
+            text={"Reaccion Quimica"}></BooleanChip>
         </FooterItem>
       </CardFooter>
-    </Card>
+    </CardProcess>
   );
 };
