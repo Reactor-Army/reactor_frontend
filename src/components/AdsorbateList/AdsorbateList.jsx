@@ -1,6 +1,7 @@
 import {useDispatch} from "react-redux";
 import React, {useEffect} from "react";
 import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import {capitalize} from "../../common/FormatUtils";
 
 import {AdsorbateCard} from "../../components/AdsorbateCard/AdsorbateCard";
 import {appColors} from "../../common/styles";
@@ -15,10 +16,6 @@ export function AdsorbateList({adsorbates}) {
   const formatAadsorbateName = (name, nameIUPAC) => {
     if (nameIUPAC) return `${nameIUPAC} (${name})`;
     else return name;
-  };
-
-  const capitalize = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   return (

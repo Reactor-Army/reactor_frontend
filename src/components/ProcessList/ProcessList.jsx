@@ -1,6 +1,7 @@
 import {useDispatch} from "react-redux";
 import React, {useEffect} from "react";
 import {fetchProcesses} from "../../redux/processesSlice";
+import {capitalize} from "../../common/FormatUtils";
 
 import {ProcessCard} from "../../components/ProcessCard/ProcessCard";
 import {appColors} from "../../common/styles";
@@ -24,21 +25,24 @@ export function ProcessList({processes}) {
               tiempoEquilibrio,
               temperatura,
               phinicial,
+              complejacion,
+              intercambioIonico,
+              reaccionQuimica,
             },
             index,
           ) => (
             <ProcessCard
               headerBackgroundColor={appColors.processCardHeader}
               bodyBackgroundColor={appColors.adsorbentCardBody}
-              adsorbateName={adsorbato.nombreIon}
+              adsorbateName={capitalize(adsorbato.nombreIon)}
               adsorbentName={adsorbente.nombre}
               qMax={qmax}
               equilibriumTime={tiempoEquilibrio}
               temperature={temperatura}
               initialPH={phinicial}
-              complexation={true}
-              ionicInterchange={true}
-              chemicalReaction={true}
+              complexation={complejacion}
+              ionicInterchange={intercambioIonico}
+              chemicalReaction={reaccionQuimica}
               key={index}
             />
           ),
