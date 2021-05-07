@@ -6,6 +6,7 @@ import {capitalize} from "../../common/FormatUtils";
 import {ProcessCard} from "../Card/ProcessCard/ProcessCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
+import {CircularProgress} from "@material-ui/core";
 
 export function ProcessList({processes}) {
   const dispatch = useDispatch();
@@ -13,10 +14,13 @@ export function ProcessList({processes}) {
     dispatch(fetchProcesses());
   }, []);
 
-  return (
-    <ListContainer>
-      {processes.length &&
-        processes.map(
+  if (!processes.length) {
+    return <CircularProgress />;
+  }
+  if (processes.length > 0) {
+    return (
+      <ListContainer>
+        {processes.map(
           (
             {
               adsorbato,
@@ -47,7 +51,7 @@ export function ProcessList({processes}) {
             />
           ),
         )}
-      ;
-    </ListContainer>
-  );
+      </ListContainer>
+    );
+  }
 }

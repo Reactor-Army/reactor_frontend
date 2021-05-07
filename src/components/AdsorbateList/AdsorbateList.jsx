@@ -6,6 +6,7 @@ import {capitalize} from "../../common/FormatUtils";
 import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
+import {CircularProgress} from "@material-ui/core";
 
 export function AdsorbateList({adsorbates}) {
   const dispatch = useDispatch();
@@ -17,10 +18,13 @@ export function AdsorbateList({adsorbates}) {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
-  return (
-    <ListContainer>
-      {adsorbates.length &&
-        adsorbates.map(
+  if (!adsorbates.length) {
+    return <CircularProgress />;
+  }
+  if (adsorbates.length > 0) {
+    return (
+      <ListContainer>
+        {adsorbates.map(
           (
             {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
             index,
@@ -36,7 +40,7 @@ export function AdsorbateList({adsorbates}) {
             />
           ),
         )}
-      ;
-    </ListContainer>
-  );
+      </ListContainer>
+    );
+  }
 }
