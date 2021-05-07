@@ -5,6 +5,7 @@ import {AdsorbentList} from "../../components/AdsorbentList/AdsorbentList";
 import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
 import {appFontFamily} from "../../common/styles";
+import {AdsorbentSearchContainer} from "./Search/AdsorbentSearchContainer";
 
 export function AdsorbentListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -20,6 +21,7 @@ export function AdsorbentListContainer() {
         title={"Adsorbentes"}
         style={{fontFamily: appFontFamily.card}}
       />
+      <AdsorbentSearchContainer />
       <AdsorbentList loading={loading} adsorbents={adsorbents} />
     </Container>
   );
