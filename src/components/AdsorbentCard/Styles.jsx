@@ -20,7 +20,7 @@ export const CardBody = styled.div`
 export const CardFooter = styled.div`
   display: flex;
   height: 30%;
-  margin-left: 24px;
+  margin-left: 15px;
 `;
 
 export const HeaderText = styled.div`
@@ -36,7 +36,7 @@ export const HeaderText = styled.div`
 `;
 
 export const ParticleSizeText = styled.div`
-  margin-left: 22px;
+  margin-left: 11px;
   font-size: 18px;
   font-family: ${appFontFamily.card};
 `;
