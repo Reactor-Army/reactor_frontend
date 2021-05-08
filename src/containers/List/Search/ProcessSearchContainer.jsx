@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {ProcessSearch} from "../../../components/Search/ProcessSearch";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {idFromName} from "../../../utils/idFromName";
+import {createSearchProcessesThunk} from "../../../redux/processesSlice";
 
 export function ProcessSearchContainer() {
   const [adsorbent, setAdsorbent] = useState("");
@@ -15,10 +16,17 @@ export function ProcessSearchContainer() {
 
   const adsorbents = useSelector((state) => state.adsorbents.adsorbents);
   const adsorbates = useSelector((state) => state.adsorbates.adsorbates);
+  const dispatch = useDispatch();
   const onSearchSubmit = async () => {
-    const adsorbentId = idFromName(adsorbent, adsorbents, "nombre");
-    const adsorbateId = idFromName(adsorbate, adsorbates, "nombreIon");
-    console.log(adsorbentId, adsorbateId);
+    let adsorbateId = idFromName(adsorbate, adsorbates, "nombreIon");
+    if (adsorbate && adsorbateId === null) {
+      adsorbateId = -1;
+    }
+    let adsorbentId = idFromName(adsorbent, adsorbents, "nombre");
+    if (adsorbent && adsorbentId === null) {
+      adsorbentId = -1;
+    }
+    dispatch(createSearchProcessesThunk(adsorbateId, adsorbentId)());
   };
 
   return (
