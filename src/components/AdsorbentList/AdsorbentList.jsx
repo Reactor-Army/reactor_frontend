@@ -6,6 +6,7 @@ import {AdsorbentCard} from "../../components/Card/AdsorbentCard/AdsorbentCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 export function AdsorbentList({adsorbents}) {
   const dispatch = useDispatch();
@@ -13,8 +14,17 @@ export function AdsorbentList({adsorbents}) {
     dispatch(fetchAdsorbents());
   }, []);
 
-  if (!adsorbents || !adsorbents.length) {
+  if (!adsorbents) {
     return <CircularProgress />;
+  }
+
+  if (adsorbents.length === 0) {
+    return (
+      <Typography>
+        No se encontraron adsorbentes para tu búsqueda. Probá con otros
+        parámetros.
+      </Typography>
+    );
   }
   return (
     <ListContainer>
