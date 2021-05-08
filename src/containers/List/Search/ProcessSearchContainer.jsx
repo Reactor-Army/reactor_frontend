@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {ProcessSearch} from "../../../components/Search/ProcessSearch";
+import {useSelector} from "react-redux";
+import {idFromName} from "../../../utils/idFromName";
 
 export function ProcessSearchContainer() {
   const [adsorbent, setAdsorbent] = useState("");
@@ -11,8 +13,12 @@ export function ProcessSearchContainer() {
     setAdsorbate(event.target.value);
   };
 
+  const adsorbents = useSelector((state) => state.adsorbents.adsorbents);
+  const adsorbates = useSelector((state) => state.adsorbates.adsorbates);
   const onSearchSubmit = async () => {
-    console.log(adsorbate, adsorbent);
+    const adsorbentId = idFromName(adsorbent, adsorbents, "nombre");
+    const adsorbateId = idFromName(adsorbate, adsorbates, "nombreIon");
+    console.log(adsorbentId, adsorbateId);
   };
 
   return (
