@@ -5,12 +5,17 @@ import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
 import {AdsorbentCard} from "../../components/Card/AdsorbentCard/AdsorbentCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
+import {CircularProgress} from "@material-ui/core";
 
 export function AdsorbentList({adsorbents}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbents());
   }, []);
+
+  if (!adsorbents || !adsorbents.length) {
+    return <CircularProgress />;
+  }
   return (
     <ListContainer>
       {adsorbents.length &&
@@ -28,7 +33,6 @@ export function AdsorbentList({adsorbents}) {
             />
           ),
         )}
-      ;
     </ListContainer>
   );
 }

@@ -6,6 +6,7 @@ import {capitalize} from "../../common/FormatUtils";
 import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
+import {CircularProgress} from "@material-ui/core";
 
 export function AdsorbateList({adsorbates}) {
   const dispatch = useDispatch();
@@ -17,26 +18,28 @@ export function AdsorbateList({adsorbates}) {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
+  if (!adsorbates || !adsorbates.length) {
+    return <CircularProgress />;
+  }
+
   return (
     <ListContainer>
-      {adsorbates.length &&
-        adsorbates.map(
-          (
-            {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
-            index,
-          ) => (
-            <AdsorbateCard
-              headerBackgroundColor={appColors.adsorbateCardHeader}
-              bodyBackgroundColor={appColors.adsorbentCardBody}
-              header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
-              ionCharge={cargaIon}
-              ionRadius={radioIonico}
-              dischargeLimit={limiteVertido}
-              key={index}
-            />
-          ),
-        )}
-      ;
+      {adsorbates.map(
+        (
+          {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
+          index,
+        ) => (
+          <AdsorbateCard
+            headerBackgroundColor={appColors.adsorbateCardHeader}
+            bodyBackgroundColor={appColors.adsorbentCardBody}
+            header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
+            ionCharge={cargaIon}
+            ionRadius={radioIonico}
+            dischargeLimit={limiteVertido}
+            key={index}
+          />
+        ),
+      )}
     </ListContainer>
   );
 }
