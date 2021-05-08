@@ -1,7 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getProcesses} from "../services/processes";
+import {getProcesses, searchProcesses} from "../services/processes";
 
 export const fetchProcesses = createAsyncThunk("fetchProcesses", getProcesses);
+
+export const createSearchProcessesThunk = (adsorbateId, adsorbentId) => {
+  const callback = () => searchProcesses(adsorbateId, adsorbentId);
+  return createAsyncThunk("fetchProcesses", callback);
+};
 
 const processesSlice = createSlice({
   name: "processes",

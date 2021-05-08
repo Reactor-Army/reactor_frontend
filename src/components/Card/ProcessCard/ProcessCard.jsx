@@ -38,7 +38,7 @@ export const ProcessCard = ({
         />
       </CardHeader>
       <CardBody>
-        <Grid container direction="row" alignItems="left">
+        <Grid container direction="row">
           <BodyText>
             <DataLabel>QMax:</DataLabel> {qMax}
           </BodyText>
@@ -46,7 +46,7 @@ export const ProcessCard = ({
             <DataLabel>Tiempo de equilibrio:</DataLabel> {equilibriumTime} Segs
           </BodyText>
         </Grid>
-        <Grid container direction="row" alignItems="left">
+        <Grid container direction="row">
           <BodyText>
             <DataLabel>Temperatura:</DataLabel> {temperature} °C
           </BodyText>
