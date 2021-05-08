@@ -9,13 +9,13 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function ProcessList({processes}) {
+export function ProcessList({loading, processes}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProcesses());
   }, []);
 
-  if (!processes) {
+  if (loading) {
     return <CircularProgress />;
   }
 
