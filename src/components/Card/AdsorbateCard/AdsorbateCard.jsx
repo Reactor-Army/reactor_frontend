@@ -9,7 +9,7 @@ import {
   FooterItem,
   DataLabel,
 } from "../CommonCardStyles";
-
+import {useHistory} from "react-router-dom";
 export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
@@ -17,9 +17,14 @@ export const AdsorbateCard = ({
   ionCharge,
   ionRadius,
   dischargeLimit,
+  id,
 }) => {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`procesos/?adsorbato=${id}`);
+  };
   return (
-    <Card backgroundColor={bodyBackgroundColor}>
+    <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <HeaderText>{header}</HeaderText>
       </CardHeader>

@@ -33,10 +33,14 @@ export function AdsorbateList({adsorbates}) {
   return (
     <ListContainer>
       {adsorbates.map(
-        (
-          {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
-          index,
-        ) => (
+        ({
+          nombreIon,
+          nombreIUPAC,
+          cargaIon,
+          radioIonico,
+          limiteVertido,
+          id,
+        }) => (
           <AdsorbateCard
             headerBackgroundColor={appColors.adsorbateCardHeader}
             bodyBackgroundColor={appColors.adsorbentCardBody}
@@ -44,7 +48,8 @@ export function AdsorbateList({adsorbates}) {
             ionCharge={cargaIon}
             ionRadius={radioIonico}
             dischargeLimit={limiteVertido}
-            key={index}
+            id={id}
+            key={id}
           />
         ),
       )}
