@@ -18,29 +18,28 @@ export function AdsorbateList({adsorbates}) {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
-  if (!adsorbates.length) {
+  if (!adsorbates || !adsorbates.length) {
     return <CircularProgress />;
   }
-  if (adsorbates.length > 0) {
-    return (
-      <ListContainer>
-        {adsorbates.map(
-          (
-            {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
-            index,
-          ) => (
-            <AdsorbateCard
-              headerBackgroundColor={appColors.adsorbateCardHeader}
-              bodyBackgroundColor={appColors.adsorbentCardBody}
-              header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
-              ionCharge={cargaIon}
-              ionRadius={radioIonico}
-              dischargeLimit={limiteVertido}
-              key={index}
-            />
-          ),
-        )}
-      </ListContainer>
-    );
-  }
+
+  return (
+    <ListContainer>
+      {adsorbates.map(
+        (
+          {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
+          index,
+        ) => (
+          <AdsorbateCard
+            headerBackgroundColor={appColors.adsorbateCardHeader}
+            bodyBackgroundColor={appColors.adsorbentCardBody}
+            header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
+            ionCharge={cargaIon}
+            ionRadius={radioIonico}
+            dischargeLimit={limiteVertido}
+            key={index}
+          />
+        ),
+      )}
+    </ListContainer>
+  );
 }

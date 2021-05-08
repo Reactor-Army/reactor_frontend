@@ -14,44 +14,42 @@ export function ProcessList({processes}) {
     dispatch(fetchProcesses());
   }, []);
 
-  if (!processes.length) {
+  if (!processes || !processes.length) {
     return <CircularProgress />;
   }
-  if (processes.length > 0) {
-    return (
-      <ListContainer>
-        {processes.map(
-          (
-            {
-              adsorbato,
-              adsorbente,
-              qmax,
-              tiempoEquilibrio,
-              temperatura,
-              phinicial,
-              complejacion,
-              intercambioIonico,
-              reaccionQuimica,
-            },
-            index,
-          ) => (
-            <ProcessCard
-              headerBackgroundColor={appColors.processCardHeader}
-              bodyBackgroundColor={appColors.adsorbentCardBody}
-              adsorbateName={capitalize(adsorbato.nombreIon)}
-              adsorbentName={adsorbente.nombre}
-              qMax={qmax}
-              equilibriumTime={tiempoEquilibrio}
-              temperature={temperatura}
-              initialPH={phinicial}
-              complexation={complejacion}
-              ionicInterchange={intercambioIonico}
-              chemicalReaction={reaccionQuimica}
-              key={index}
-            />
-          ),
-        )}
-      </ListContainer>
-    );
-  }
+  return (
+    <ListContainer>
+      {processes.map(
+        (
+          {
+            adsorbato,
+            adsorbente,
+            qmax,
+            tiempoEquilibrio,
+            temperatura,
+            phinicial,
+            complejacion,
+            intercambioIonico,
+            reaccionQuimica,
+          },
+          index,
+        ) => (
+          <ProcessCard
+            headerBackgroundColor={appColors.processCardHeader}
+            bodyBackgroundColor={appColors.adsorbentCardBody}
+            adsorbateName={capitalize(adsorbato.nombreIon)}
+            adsorbentName={adsorbente.nombre}
+            qMax={qmax}
+            equilibriumTime={tiempoEquilibrio}
+            temperature={temperatura}
+            initialPH={phinicial}
+            complexation={complejacion}
+            ionicInterchange={intercambioIonico}
+            chemicalReaction={reaccionQuimica}
+            key={index}
+          />
+        ),
+      )}
+    </ListContainer>
+  );
 }

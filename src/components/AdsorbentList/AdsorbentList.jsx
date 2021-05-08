@@ -13,29 +13,26 @@ export function AdsorbentList({adsorbents}) {
     dispatch(fetchAdsorbents());
   }, []);
 
-  if (!adsorbents.length) {
+  if (!adsorbents || !adsorbents.length) {
     return <CircularProgress />;
   }
-
-  if (adsorbents.length > 0) {
-    return (
-      <ListContainer>
-        {adsorbents.length &&
-          adsorbents.map(
-            ({nombre, particulaT, sBet, vBet, pHCargaCero}, index) => (
-              <AdsorbentCard
-                headerBackgroundColor={appColors.adsorbentCardHeader}
-                bodyBackgroundColor={appColors.adsorbentCardBody}
-                header={nombre}
-                particleSize={particulaT}
-                sBet={sBet}
-                vBet={vBet}
-                ph={pHCargaCero}
-                key={index}
-              />
-            ),
-          )}
-      </ListContainer>
-    );
-  }
+  return (
+    <ListContainer>
+      {adsorbents.length &&
+        adsorbents.map(
+          ({nombre, particulaT, sBet, vBet, pHCargaCero}, index) => (
+            <AdsorbentCard
+              headerBackgroundColor={appColors.adsorbentCardHeader}
+              bodyBackgroundColor={appColors.adsorbentCardBody}
+              header={nombre}
+              particleSize={particulaT}
+              sBet={sBet}
+              vBet={vBet}
+              ph={pHCargaCero}
+              key={index}
+            />
+          ),
+        )}
+    </ListContainer>
+  );
 }
