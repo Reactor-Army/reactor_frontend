@@ -5,6 +5,9 @@ import {ProcessList} from "../components/ProcessList/ProcessList";
 import {PageTitle} from "../common/PageTitle";
 import Container from "@material-ui/core/Container";
 import {appFontFamily} from "../common/styles";
+import {ProcessSearchContainer} from "./List/Search/ProcessSearchContainer";
+import {fetchAdsorbates} from "../redux/adsorbatesSlice";
+import {fetchAdsorbents} from "../redux/adsorbentsSlice";
 
 export function ProcessListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -12,11 +15,14 @@ export function ProcessListContainer() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProcesses());
+    dispatch(fetchAdsorbates());
+    dispatch(fetchAdsorbents());
   }, []);
 
   return (
     <Container>
       <PageTitle title={"Procesos"} style={{fontFamily: appFontFamily.card}} />
+      <ProcessSearchContainer />
       <ProcessList loading={loading} processes={processes} />
     </Container>
   );
