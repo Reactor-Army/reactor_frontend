@@ -7,6 +7,7 @@ import {ProcessCard} from "../Card/ProcessCard/ProcessCard";
 import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 export function ProcessList({processes}) {
   const dispatch = useDispatch();
@@ -14,8 +15,16 @@ export function ProcessList({processes}) {
     dispatch(fetchProcesses());
   }, []);
 
-  if (!processes || !processes.length) {
+  if (!processes) {
     return <CircularProgress />;
+  }
+
+  if (processes.length === 0) {
+    return (
+      <Typography>
+        No se encontraron procesos para tu búsqueda. Probá con otros parámetros.
+      </Typography>
+    );
   }
   return (
     <ListContainer>
