@@ -1,6 +1,4 @@
-import {useDispatch} from "react-redux";
-import React, {useEffect} from "react";
-import {fetchProcesses} from "../../redux/processesSlice";
+import React from "react";
 import {capitalize} from "../../common/FormatUtils";
 
 import {ProcessCard} from "../Card/ProcessCard/ProcessCard";
@@ -10,11 +8,6 @@ import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 export function ProcessList({loading, processes}) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProcesses());
-  }, []);
-
   if (loading) {
     return <CircularProgress />;
   }

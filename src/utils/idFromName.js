@@ -8,3 +8,12 @@ export const idFromName = (name, entities, key) => {
   }
   return null;
 };
+
+export const nameFromId = (id, entities, key) => {
+  console.log(entities);
+  if (!entities || entities.length === 0) {
+    return;
+  }
+  const filtered = entities.filter((entity) => entity.id === parseInt(id));
+  return filtered[0][key];
+};
