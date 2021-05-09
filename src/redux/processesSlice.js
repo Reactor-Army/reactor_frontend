@@ -18,7 +18,7 @@ const processesSlice = createSlice({
   extraReducers: {
     [fetchProcesses.pending]: (state) => {
       state.loading = true;
-      state.processes = [];
+      state.processes = null;
     },
     [fetchProcesses.fulfilled]: (state, action) => {
       state.loading = false;

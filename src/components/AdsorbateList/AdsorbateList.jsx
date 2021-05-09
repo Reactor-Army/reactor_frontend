@@ -9,7 +9,7 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function AdsorbateList({adsorbates}) {
+export function AdsorbateList({adsorbates, loading}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbates());
@@ -19,7 +19,7 @@ export function AdsorbateList({adsorbates}) {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
-  if (!adsorbates) {
+  if (!adsorbates || loading) {
     return <CircularProgress />;
   }
   if (adsorbates.length === 0) {

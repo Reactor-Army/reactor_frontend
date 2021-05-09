@@ -7,8 +7,7 @@ import Container from "@material-ui/core/Container";
 import {appFontFamily} from "../../common/styles";
 
 export function AdsorbentListContainer() {
-  const loading = useSelector((state) => state.loading);
-  const {adsorbents} = useSelector((state) => state.adsorbents);
+  const {adsorbents, loading} = useSelector((state) => state.adsorbents);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbents());

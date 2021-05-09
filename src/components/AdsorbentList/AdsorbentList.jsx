@@ -8,13 +8,13 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function AdsorbentList({adsorbents}) {
+export function AdsorbentList({adsorbents, loading}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbents());
   }, []);
 
-  if (!adsorbents) {
+  if (!adsorbents || loading) {
     return <CircularProgress />;
   }
 

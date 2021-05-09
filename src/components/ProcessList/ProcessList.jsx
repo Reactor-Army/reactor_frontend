@@ -8,7 +8,7 @@ import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 export function ProcessList({loading, processes}) {
-  if (loading) {
+  if (loading || !processes) {
     return <CircularProgress />;
   }
 
