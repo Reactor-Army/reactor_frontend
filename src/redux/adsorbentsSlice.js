@@ -1,10 +1,15 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getAdsorbents} from "../services/adsorbents";
+import {getAdsorbents, searchAdsorbents} from "../services/adsorbents";
 
 export const fetchAdsorbents = createAsyncThunk(
   "fetchAdsorbents",
   getAdsorbents,
 );
+
+export const createSearchAdsorbentsThunk = (name) => {
+  const callback = () => searchAdsorbents(name);
+  return createAsyncThunk("fetchAdsorbents", callback);
+};
 
 const adsorbentsSlice = createSlice({
   name: "adsorbents",
