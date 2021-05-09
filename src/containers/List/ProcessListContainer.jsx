@@ -1,14 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
-import {createSearchProcessesThunk} from "../redux/processesSlice";
-import {ProcessList} from "../components/ProcessList/ProcessList";
-import {PageTitle} from "../common/PageTitle";
+import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
+import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import {createSearchProcessesThunk} from "../../redux/processesSlice";
+import {useQuery} from "../../routing/hooks/useQuery";
+import {ProcessList} from "../../components/ProcessList/ProcessList";
+import {ProcessSearchContainer} from "./Search/ProcessSearchContainer";
+import {appFontFamily} from "../../common/styles";
+import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
-import {appFontFamily} from "../common/styles";
-import {ProcessSearchContainer} from "./List/Search/ProcessSearchContainer";
-import {fetchAdsorbates} from "../redux/adsorbatesSlice";
-import {fetchAdsorbents} from "../redux/adsorbentsSlice";
-import {useQuery} from "../routing/hooks/useQuery";
 
 export function ProcessListContainer() {
   const loading = useSelector((state) => state.loading);
