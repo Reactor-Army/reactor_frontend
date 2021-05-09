@@ -1,6 +1,7 @@
 import React from "react";
 import {Search} from "./Search";
 import {Entity} from "./Fields/Entity";
+import {SearchContainer} from "./Styles";
 
 export function ProcessSearch({
   adsorbate,
@@ -10,17 +11,19 @@ export function ProcessSearch({
   onSearchSubmit,
 }) {
   return (
-    <Search onSearchSubmit={onSearchSubmit}>
-      <Entity
-        name={adsorbate}
-        handleChange={handleAdsorbateChange}
-        formTitle={"Adsorbato"}
-      />
-      <Entity
-        entity={adsorbent}
-        handleChange={handleAdsorbentChange}
-        formTitle={"Adsorbente"}
-      />
-    </Search>
+    <SearchContainer>
+      <Search onSearchSubmit={onSearchSubmit}>
+        <Entity
+          name={adsorbate}
+          handleChange={handleAdsorbateChange}
+          formTitle={"Adsorbato"}
+        />
+        <Entity
+          entity={adsorbent}
+          handleChange={handleAdsorbentChange}
+          formTitle={"Adsorbente"}
+        />
+      </Search>
+    </SearchContainer>
   );
 }
