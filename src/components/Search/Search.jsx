@@ -1,24 +1,16 @@
 import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
 import React from "react";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import {Typography} from "@material-ui/core";
+import {Button} from "./Styles";
 
 export function Search({children, onSearchSubmit}) {
   return (
     <Accordion expanded={true}>
-      <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-        <Typography>Buscar</Typography>
-      </AccordionSummary>
-
       <AccordionDetails>
-        <Grid container justify={"flex-end"}>
+        <Grid container justify={"flex-start"}>
           {children}
-          <Button variant="contained" color="primary" onClick={onSearchSubmit}>
-            Buscar
-          </Button>
+          <Button onClick={onSearchSubmit}>Buscar</Button>
         </Grid>
       </AccordionDetails>
     </Accordion>
