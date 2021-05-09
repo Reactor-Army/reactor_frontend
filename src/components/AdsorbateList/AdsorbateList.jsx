@@ -9,7 +9,7 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function AdsorbateList({adsorbates}) {
+export function AdsorbateList({adsorbates, loading}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbates());
@@ -19,7 +19,7 @@ export function AdsorbateList({adsorbates}) {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };
 
-  if (!adsorbates) {
+  if (!adsorbates || loading) {
     return <CircularProgress />;
   }
   if (adsorbates.length === 0) {
@@ -33,10 +33,14 @@ export function AdsorbateList({adsorbates}) {
   return (
     <ListContainer>
       {adsorbates.map(
-        (
-          {nombreIon, nombreIUPAC, cargaIon, radioIonico, limiteVertido},
-          index,
-        ) => (
+        ({
+          nombreIon,
+          nombreIUPAC,
+          cargaIon,
+          radioIonico,
+          limiteVertido,
+          id,
+        }) => (
           <AdsorbateCard
             headerBackgroundColor={appColors.adsorbateCardHeader}
             bodyBackgroundColor={appColors.adsorbentCardBody}
@@ -44,7 +48,8 @@ export function AdsorbateList({adsorbates}) {
             ionCharge={cargaIon}
             ionRadius={radioIonico}
             dischargeLimit={limiteVertido}
-            key={index}
+            id={id}
+            key={id}
           />
         ),
       )}

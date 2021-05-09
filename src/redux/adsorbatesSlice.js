@@ -21,7 +21,7 @@ const adsorbatesSlice = createSlice({
   extraReducers: {
     [fetchAdsorbates.pending]: (state) => {
       state.loading = true;
-      state.adsorbates = [];
+      state.processes = null;
     },
     [fetchAdsorbates.fulfilled]: (state, action) => {
       state.loading = false;

@@ -7,8 +7,7 @@ import Container from "@material-ui/core/Container";
 import {AdsorbateSearchContainer} from "./Search/AdsorbateSearchContainer";
 
 export function AdsorbateListContainer() {
-  const loading = useSelector((state) => state.loading);
-  const {adsorbates} = useSelector((state) => state.adsorbates);
+  const {adsorbates, loading} = useSelector((state) => state.adsorbates);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbates());

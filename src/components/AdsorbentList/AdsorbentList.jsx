@@ -8,13 +8,13 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function AdsorbentList({adsorbents}) {
+export function AdsorbentList({adsorbents, loading}) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAdsorbents());
   }, []);
 
-  if (!adsorbents) {
+  if (!adsorbents || loading) {
     return <CircularProgress />;
   }
 
@@ -29,20 +29,19 @@ export function AdsorbentList({adsorbents}) {
   return (
     <ListContainer>
       {adsorbents.length &&
-        adsorbents.map(
-          ({nombre, particulaT, sBet, vBet, pHCargaCero}, index) => (
-            <AdsorbentCard
-              headerBackgroundColor={appColors.adsorbentCardHeader}
-              bodyBackgroundColor={appColors.adsorbentCardBody}
-              header={nombre}
-              particleSize={particulaT}
-              sBet={sBet}
-              vBet={vBet}
-              ph={pHCargaCero}
-              key={index}
-            />
-          ),
-        )}
+        adsorbents.map(({nombre, particulaT, sBet, vBet, pHCargaCero, id}) => (
+          <AdsorbentCard
+            headerBackgroundColor={appColors.adsorbentCardHeader}
+            bodyBackgroundColor={appColors.adsorbentCardBody}
+            header={nombre}
+            particleSize={particulaT}
+            sBet={sBet}
+            vBet={vBet}
+            ph={pHCargaCero}
+            id={id}
+            key={id}
+          />
+        ))}
     </ListContainer>
   );
 }

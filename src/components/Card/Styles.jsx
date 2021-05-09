@@ -13,5 +13,6 @@ export const CardContainer = styled.div`
 
   &:hover {
     box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
+    cursor: ${(props) => (props.onClick ? "pointer" : "default")};
   }
 `;

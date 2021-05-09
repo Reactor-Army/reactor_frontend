@@ -19,7 +19,7 @@ export function ProcessSearch({
           formTitle={"Adsorbato"}
         />
         <Entity
-          entity={adsorbent}
+          name={adsorbent}
           handleChange={handleAdsorbentChange}
           formTitle={"Adsorbente"}
         />
