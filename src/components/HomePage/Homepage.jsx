@@ -8,22 +8,39 @@ export function Homepage() {
   return (
     <Container
       maxWidth="md"
-      style={{backgroundColor: appColors.primary, marginTop: "50px"}}>
+      style={{
+        marginTop: "50px",
+      }}>
       <HomeTitle>Reactor App </HomeTitle>
-      <Typography
-        style={{color: appColors.white, fontFamily: appFontFamily.primary}}>
+      <Typography style={{fontSize: "25px", fontFamily: appFontFamily.primary}}>
         <p>
-          <b>Reactor App</b> te permite ver la lista de procesos filtrados por
-          &nbsp;
+          <b>Reactor App</b> es el producto de un trabajo profesional de Ing. en
+          informática en colaboración con el departamento de Química y está
+          enmarcado en el Proyecto de Desarrollo Estratégico{" "}
           <b>
-            <a href="/adsorbentes" style={{color: appColors.white}}>
-              adsorbentes
-            </a>
+            Metodología para el dimensionamiento de un reactor prototipo para el
+            tratamiento de efluentes.
           </b>
-          &nbsp; y adsorbatos. Para esto podes seleccionar el Adsorbente o
-          Adsorbato que te interese estudiar y observar los procesos
-          involucrados.
           <br />
+          El objetivo de la aplicación es brindar una herramienta informática
+          para la resolución de problemas que involucran el diseño de reactores
+          Adsorbato - Adsorbente.
+          <br />
+          <br />
+          <br />
+          <b>Funcionalidades actuales:</b>
+          <br />
+          <a href="/adsorbatos" style={{color: appColors.primary}}>
+            -Listado de Adsorbatos
+          </a>
+          <br />
+          <a href="/adsorbentes" style={{color: appColors.primary}}>
+            -Listado de Adsorbentes
+          </a>
+          <br />
+          <a href="/procesos" style={{color: appColors.primary}}>
+            -Listado de Procesos
+          </a>
           <br />
           <br />
           <br />
