@@ -1,6 +1,4 @@
-import {useDispatch} from "react-redux"; //, useSelector
-import React, {useEffect} from "react";
-import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
+import React from "react";
 
 import {AdsorbentCard} from "../../components/Card/AdsorbentCard/AdsorbentCard";
 import {appColors} from "../../common/styles";
@@ -9,11 +7,6 @@ import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 export function AdsorbentList({adsorbents, loading}) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAdsorbents());
-  }, []);
-
   if (!adsorbents || loading) {
     return <CircularProgress />;
   }

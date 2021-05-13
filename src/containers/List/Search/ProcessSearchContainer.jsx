@@ -19,13 +19,19 @@ export function ProcessSearchContainer({
 
   const adsorbents = useSelector((state) => state.adsorbents.adsorbents);
   const adsorbates = useSelector((state) => state.adsorbates.adsorbates);
+  const adsorbentsWithParticleSize = useSelector(
+    (state) => state.adsorbents.adsorbentsWithParticleSize,
+  );
+  const adsorbatesWithIupacNotation = useSelector(
+    (state) => state.adsorbates.adsorbatesWithIupacNotation,
+  );
 
-  const adsorbentsSearchArray = adsorbents.map((adsorbent) => {
-    return `${adsorbent.nombre} (${adsorbent.particulaT})`;
+  const adsorbentsSearchArray = adsorbentsWithParticleSize.map((adsorbent) => {
+    return adsorbent.nombre;
   });
 
-  const adsorbatesSearchArray = adsorbates.map((adsorbate) => {
-    return `${adsorbate.nombreIon} (${adsorbate.nombreIUPAC})`;
+  const adsorbatesSearchArray = adsorbatesWithIupacNotation.map((adsorbate) => {
+    return adsorbate.nombre;
   });
 
   useEffect(() => {
@@ -64,8 +70,8 @@ export function ProcessSearchContainer({
       handleAdsorbateChange={handleAdsorbateChange}
       handleAdsorbentChange={handleAdsorbentChange}
       onSearchSubmit={onSearchSubmit}
-      adsorbents={adsorbentsSearchArray}
-      adsorbates={adsorbatesSearchArray}
+      adsorbentItems={adsorbentsSearchArray}
+      adsorbateItems={adsorbatesSearchArray}
     />
   );
 }

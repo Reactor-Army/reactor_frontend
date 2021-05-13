@@ -1,6 +1,4 @@
-import {useDispatch} from "react-redux";
-import React, {useEffect} from "react";
-import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import React from "react";
 import {capitalize} from "../../common/FormatUtils";
 
 import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
@@ -10,11 +8,6 @@ import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 export function AdsorbateList({adsorbates, loading}) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAdsorbates());
-  }, []);
-
   const formatAdsorbateName = (name, nameIUPAC) => {
     return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
   };

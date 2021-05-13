@@ -4,7 +4,7 @@ import React from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export const Entity = ({formTitle, name, handleChange, items}) => {
-  const test = items.map((item) => {
+  const inputItems = items.map((item) => {
     return {title: item};
   });
   return (
@@ -12,7 +12,7 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
       <Autocomplete
         freeSolo
         id="combo-box-demo"
-        options={test}
+        options={inputItems}
         getOptionLabel={(option) => option.title}
         style={{width: 270}}
         renderInput={(params) => (
