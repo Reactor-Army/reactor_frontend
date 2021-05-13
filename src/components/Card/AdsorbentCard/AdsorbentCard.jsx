@@ -10,6 +10,8 @@ import {
   DataLabel,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
+import {SBetValue} from "./SBetValue";
+import {VBetValue} from "./VBetValue";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -36,12 +38,8 @@ export const AdsorbentCard = ({
         </BodyText>
       </CardBody>
       <CardFooter>
-        <FooterItem>
-          <DataLabel>sBet:</DataLabel> {sBet}
-        </FooterItem>
-        <FooterItem>
-          <DataLabel>vBet:</DataLabel> {vBet}
-        </FooterItem>
+        <SBetValue sBet={sBet} />
+        <VBetValue vBet={vBet} />
         <FooterItem>
           <DataLabel>ph(carga cero):</DataLabel> {ph}
         </FooterItem>

@@ -7,12 +7,13 @@ export const appColors = {
   adsorbentCardBody: "#f7f7f7",
   adsorbateCardHeader: "#b388ff",
   processCardHeader: "#9e9e9e",
-  pageBackground: "#fff",
+  pageBackground: "#eeeeee",
   gray: "#666",
 };
 
 export const appFontColors = {
   white: "#fff",
+  fontColorMenu: "#eeeeee",
 };
 
 export const appFontFamily = {
