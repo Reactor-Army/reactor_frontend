@@ -20,6 +20,14 @@ export function ProcessSearchContainer({
   const adsorbents = useSelector((state) => state.adsorbents.adsorbents);
   const adsorbates = useSelector((state) => state.adsorbates.adsorbates);
 
+  const adsorbentsSearchArray = adsorbents.map((adsorbent) => {
+    return `${adsorbent.nombre} (${adsorbent.particulaT})`;
+  });
+
+  const adsorbatesSearchArray = adsorbates.map((adsorbate) => {
+    return `${adsorbate.nombreIon} (${adsorbate.nombreIUPAC})`;
+  });
+
   useEffect(() => {
     if (selectedAdsorbateId) {
       let adsorbateName = nameFromId(
@@ -56,6 +64,8 @@ export function ProcessSearchContainer({
       handleAdsorbateChange={handleAdsorbateChange}
       handleAdsorbentChange={handleAdsorbentChange}
       onSearchSubmit={onSearchSubmit}
+      adsorbents={adsorbentsSearchArray}
+      adsorbates={adsorbatesSearchArray}
     />
   );
 }
