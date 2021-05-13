@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 
 export const appColors = {
   primary: "#33c3f0",
-  white: "#eeeeee",
+  white: "#fff",
   adsorbentCardHeader: "#69f0ae",
   adsorbentCardBody: "#f7f7f7",
   adsorbateCardHeader: "#b388ff",
@@ -12,7 +12,8 @@ export const appColors = {
 };
 
 export const appFontColors = {
-  white: "#eeeeee",
+  white: "#fff",
+  fontColorMenu: "#eeeeee",
 };
 
 export const appFontFamily = {

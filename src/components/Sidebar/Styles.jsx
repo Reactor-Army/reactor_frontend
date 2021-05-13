@@ -18,7 +18,7 @@ export const LinkText = styled.div`
   width: 200px;
   padding: 12px 0 0 47px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.white};
+  color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 18px;
 `;
@@ -44,7 +44,7 @@ export const Title = styled.div`
   width: 200px;
   height: 50px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.white};
+  color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 22px;
   justify-content: center;
