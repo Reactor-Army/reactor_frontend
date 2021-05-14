@@ -1,5 +1,6 @@
 import React from "react";
 import {Card} from "../Card";
+import {Grid} from "@material-ui/core";
 import {
   CardHeader,
   HeaderText,
@@ -10,6 +11,7 @@ import {
   DataLabel,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
+import {FormulaLabel} from "./FormulaLabel";
 export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
@@ -17,6 +19,8 @@ export const AdsorbateCard = ({
   ionCharge,
   ionRadius,
   dischargeLimit,
+  formula,
+  ionChargeFormula,
   id,
 }) => {
   const history = useHistory();
@@ -29,9 +33,16 @@ export const AdsorbateCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <BodyText>
-          <DataLabel>Carga del ion:</DataLabel> {ionCharge}
-        </BodyText>
+        <Grid container direction="row">
+          <BodyText>
+            <FormulaLabel
+              formula={formula}
+              ionChargeFormula={ionChargeFormula}></FormulaLabel>
+          </BodyText>
+          <BodyText>
+            <DataLabel>Carga del ion:</DataLabel> {ionCharge}
+          </BodyText>
+        </Grid>
       </CardBody>
       <CardFooter>
         <FooterItem>

@@ -39,6 +39,8 @@ export function AdsorbateList({adsorbates, loading}) {
           cargaIon,
           radioIonico,
           limiteVertido,
+          formula,
+          cargaIonFormula,
           id,
         }) => (
           <AdsorbateCard
@@ -48,6 +50,8 @@ export function AdsorbateList({adsorbates, loading}) {
             ionCharge={cargaIon}
             ionRadius={radioIonico}
             dischargeLimit={limiteVertido}
+            formula={formula}
+            ionChargeFormula={cargaIonFormula}
             id={id}
             key={id}
           />
