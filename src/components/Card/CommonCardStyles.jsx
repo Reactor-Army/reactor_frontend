@@ -42,7 +42,7 @@ export const FooterItem = styled.div`
 `;
 
 export const BodyText = styled.div`
-  margin-left: 11px;
+  margin-left: 15px;
   font-size: 18px;
   font-family: ${appFontFamily.card};
 `;
