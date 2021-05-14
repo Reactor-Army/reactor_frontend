@@ -5,16 +5,16 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 export const Entity = ({formTitle, name, handleChange, items}) => {
   const inputItems = items.map((item) => {
-    return {title: item};
+    return {name: item};
   });
   return (
     <Grid item xs={3}>
       <Autocomplete
-        freeSolo
-        id="combo-box-demo"
         options={inputItems}
-        getOptionLabel={(option) => option.title}
+        getOptionLabel={(option) => option.name}
+        getOptionSelected={(option, value) => option.name === value.name}
         style={{width: 270}}
+        onChange={handleChange}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -22,7 +22,6 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
             label={formTitle}
             variant="outlined"
             value={name}
-            onChange={handleChange}
           />
         )}
       />
