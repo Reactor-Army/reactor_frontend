@@ -12,7 +12,6 @@ export const idFromName = (name, entities, key) => {
 };
 
 export const nameFromId = (id, entities, key) => {
-  console.log(entities);
   if (!entities || entities.length === 0) {
     return;
   }

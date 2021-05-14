@@ -7,12 +7,16 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
   const inputItems = items.map((item) => {
     return {name: item};
   });
+
   return (
     <Grid item xs={3}>
       <Autocomplete
         options={inputItems}
-        getOptionLabel={(option) => option.name}
-        getOptionSelected={(option, value) => option.name === value.name}
+        getOptionSelected={(option, value) => {
+          option.name === value;
+        }}
+        value={name || null}
+        getOptionLabel={(option) => option.name || option}
         style={{width: 270}}
         onChange={handleChange}
         renderInput={(params) => (
@@ -21,7 +25,6 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
             id="outlined-basic"
             label={formTitle}
             variant="outlined"
-            value={name}
           />
         )}
       />
