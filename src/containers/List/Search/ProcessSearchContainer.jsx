@@ -10,39 +10,64 @@ export function ProcessSearchContainer({
 }) {
   const [adsorbent, setAdsorbent] = useState("");
   const handleAdsorbentChange = (event) => {
-    setAdsorbent(event.target.value);
+    setAdsorbent(event.target.innerText);
   };
   const [adsorbate, setAdsorbate] = useState("");
   const handleAdsorbateChange = (event) => {
-    setAdsorbate(event.target.value);
+    setAdsorbate(event.target.innerText);
   };
 
-  const adsorbents = useSelector((state) => state.adsorbents.adsorbents);
-  const adsorbates = useSelector((state) => state.adsorbates.adsorbates);
+  const adsorbentsWithParticleSize = useSelector(
+    (state) => state.adsorbents.adsorbentsWithParticleSize,
+  );
+  const adsorbatesWithIupacNotation = useSelector(
+    (state) => state.adsorbates.adsorbatesWithIupacNotation,
+  );
+
+  const adsorbentsSearchArray = adsorbentsWithParticleSize.map((adsorbent) => {
+    return adsorbent.nombre;
+  });
+
+  const adsorbatesSearchArray = adsorbatesWithIupacNotation.map((adsorbate) => {
+    return adsorbate.nombre;
+  });
 
   useEffect(() => {
     if (selectedAdsorbateId) {
       let adsorbateName = nameFromId(
         selectedAdsorbateId,
-        adsorbates,
-        "nombreIon",
+        adsorbatesWithIupacNotation,
+        "nombre",
       );
       setAdsorbate(adsorbateName);
     }
-  }, [adsorbates]);
+  }, [adsorbatesWithIupacNotation]);
   useEffect(() => {
     if (selectedAdsorbentId) {
-      let adsorbentName = nameFromId(selectedAdsorbentId, adsorbents, "nombre");
+      let adsorbentName = nameFromId(
+        selectedAdsorbentId,
+        adsorbentsWithParticleSize,
+        "nombre",
+      );
       setAdsorbent(adsorbentName);
     }
-  }, [adsorbents]);
+  }, [adsorbentsWithParticleSize]);
   const dispatch = useDispatch();
+
   const onSearchSubmit = async () => {
-    let adsorbateId = idFromName(adsorbate, adsorbates, "nombreIon");
+    let adsorbateId = idFromName(
+      adsorbate,
+      adsorbatesWithIupacNotation,
+      "nombre",
+    );
     if (adsorbate && adsorbateId === null) {
       adsorbateId = -1;
     }
-    let adsorbentId = idFromName(adsorbent, adsorbents, "nombre");
+    let adsorbentId = idFromName(
+      adsorbent,
+      adsorbentsWithParticleSize,
+      "nombre",
+    );
     if (adsorbent && adsorbentId === null) {
       adsorbentId = -1;
     }
@@ -56,6 +81,8 @@ export function ProcessSearchContainer({
       handleAdsorbateChange={handleAdsorbateChange}
       handleAdsorbentChange={handleAdsorbentChange}
       onSearchSubmit={onSearchSubmit}
+      adsorbentItems={adsorbentsSearchArray}
+      adsorbateItems={adsorbatesSearchArray}
     />
   );
 }

@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
-import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
-import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
+import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {createSearchProcessesThunk} from "../../redux/processesSlice";
 import {useQuery} from "../../routing/hooks/useQuery";
 import {ProcessList} from "../../components/ProcessList/ProcessList";
@@ -24,8 +24,8 @@ export function ProcessListContainer() {
         query.get("adsorbente"),
       )(),
     );
-    dispatch(fetchAdsorbates());
-    dispatch(fetchAdsorbents());
+    dispatch(fetchAdsorbatesWithIupacNotation());
+    dispatch(fetchAdsorbentsWithParticleSize());
   }, []);
 
   return (

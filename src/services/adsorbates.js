@@ -17,3 +17,13 @@ export const searchAdsorbates = async (name, charge) => {
     })
   ).data;
 };
+
+export const getAdsorbatesWithIupacNotation = async (name) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/buscar/nombre`;
+  const client = new HttpClient(null);
+  return (
+    await client.get(endpoint, {
+      nombre: name || undefined,
+    })
+  ).data;
+};

@@ -1,9 +1,18 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getAdsorbates, searchAdsorbates} from "../services/adsorbates";
+import {
+  getAdsorbates,
+  searchAdsorbates,
+  getAdsorbatesWithIupacNotation,
+} from "../services/adsorbates";
 
 export const fetchAdsorbates = createAsyncThunk(
   "fetchAdsorbates",
   getAdsorbates,
+);
+
+export const fetchAdsorbatesWithIupacNotation = createAsyncThunk(
+  "fetchAdsorbatesWithIupacNotation",
+  getAdsorbatesWithIupacNotation,
 );
 
 export const createSearchAdsorbatesThunk = (name, charge) => {
@@ -16,6 +25,7 @@ const adsorbatesSlice = createSlice({
   initialState: {
     adsorbates: [],
     loading: false,
+    adsorbatesWithIupacNotation: [],
   },
   reducers: {},
   extraReducers: {
@@ -28,6 +38,17 @@ const adsorbatesSlice = createSlice({
       state.adsorbates = action.payload;
     },
     [fetchAdsorbates.rejected]: (state) => {
+      state.loading = false;
+    },
+    [fetchAdsorbatesWithIupacNotation.pending]: (state) => {
+      state.loading = true;
+      state.processes = null;
+    },
+    [fetchAdsorbatesWithIupacNotation.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.adsorbatesWithIupacNotation = action.payload;
+    },
+    [fetchAdsorbatesWithIupacNotation.rejected]: (state) => {
       state.loading = false;
     },
   },

@@ -9,6 +9,8 @@ export function ProcessSearch({
   adsorbent,
   handleAdsorbentChange,
   onSearchSubmit,
+  adsorbentItems,
+  adsorbateItems,
 }) {
   return (
     <SearchContainer>
@@ -17,11 +19,13 @@ export function ProcessSearch({
           name={adsorbate}
           handleChange={handleAdsorbateChange}
           formTitle={"Adsorbato"}
+          items={adsorbateItems}
         />
         <Entity
           name={adsorbent}
           handleChange={handleAdsorbentChange}
           formTitle={"Adsorbente"}
+          items={adsorbentItems}
         />
       </Search>
     </SearchContainer>

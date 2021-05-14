@@ -16,3 +16,13 @@ export const searchAdsorbents = async (name) => {
     })
   ).data;
 };
+
+export const getAdsorbentsWithParticleSize = async (name) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbente/buscar/nombre`;
+  const client = new HttpClient(null);
+  return (
+    await client.get(endpoint, {
+      nombre: name || undefined,
+    })
+  ).data;
+};
