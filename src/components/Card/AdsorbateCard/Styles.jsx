@@ -16,3 +16,5 @@ export const FormulaContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const ComponentDiv = styled.div``;

@@ -1,9 +1,9 @@
 import React from "react";
-import {SubIndex} from "./Styles";
+import {SubIndex, ComponentDiv} from "./Styles";
 
 export const FormulaComponent = ({component}) => {
   if (isNaN(component)) {
-    return <div>{component}</div>;
+    return <ComponentDiv>{component}</ComponentDiv>;
   } else {
     return <SubIndex>{component}</SubIndex>;
   }
