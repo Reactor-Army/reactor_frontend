@@ -28,7 +28,8 @@ export const Container = styled.div`
   width: 230px;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   position: fixed;
 
   @media screen and (max-width: 1440px) {
