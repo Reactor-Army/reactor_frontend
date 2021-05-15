@@ -1,7 +1,8 @@
-import {Typography} from "@material-ui/core";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import {ProcessDetail} from "../../components/Detail/ProcessDetail";
 
 export const ProcessDetailContainer = ({processId}) => {
   const dispatch = useDispatch();
@@ -10,10 +11,8 @@ export const ProcessDetailContainer = ({processId}) => {
   }, []);
 
   const process = useSelector((store) => store.process.process);
-  return (
-    <div>
-      <Typography>Detalle de proceso ID {processId}!</Typography>
-      {process ? <Typography>{process.id}</Typography> : null}
-    </div>
-  );
+  if (process === null) {
+    return <CircularProgress />;
+  }
+  return <ProcessDetail process={process} />;
 };
