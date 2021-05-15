@@ -5,6 +5,7 @@ import {AdsorbatesRoute} from "./routes/AdsorbatesRoute";
 import {AdsorbentsRoute} from "./routes/AdsorbentsRoute";
 import {ProcessesRoute} from "./routes/ProcessesRoute";
 import {PrivateRoute} from "./PrivateRoute";
+import {ProcessDetailRoute} from "./routes/ProcessDetailRoute";
 
 export const Router = () => {
   return (
@@ -15,6 +16,12 @@ export const Router = () => {
           exact
           path={"/adsorbatos"}
           component={AdsorbatesRoute}
+        />
+        <PrivateRoute
+          authed={0}
+          exact
+          path={"/procesos/:id"}
+          component={ProcessDetailRoute}
         />
         <PrivateRoute
           authed={0}
