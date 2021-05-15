@@ -3,17 +3,13 @@ import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
 import {Label} from "./Label";
 import {SectionHeader} from "./SectionHeader";
-import {capitalizeFirstLetter} from "../../utils/capitalize";
+import {Cards} from "./Cards";
 
 export const ProcessDetail = ({process}) => {
   return (
     <Container>
       <PageTitle title={`Proceso`} />
-      <Label
-        label={"Adsorbato"}
-        value={capitalizeFirstLetter(process.adsorbato.nombreIon)}
-      />
-      <Label label={"Adsorbente"} value={process.adsorbente.nombre} />
+      <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Propiedades</SectionHeader>
       <Label label={"qMax"} value={`${process.qmax} g/mmol`} />
       <Label
