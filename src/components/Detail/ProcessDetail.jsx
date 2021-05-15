@@ -10,24 +10,24 @@ export const ProcessDetail = ({process}) => {
     <Container>
       <PageTitle title={`Proceso`} />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
-      <SectionHeader>Propiedades</SectionHeader>
+      <SectionHeader>Características</SectionHeader>
       <Label label={"qMax"} value={`${process.qmax} g/mmol`} />
       <Label
         label={"Tiempo de equilibrio"}
         value={`${process.tiempoEquilibrio} minutos`}
       />
       <Label label={"pH inicial"} value={process.phinicial} />
-      <SectionHeader>Detalles del proceso</SectionHeader>
+      <SectionHeader>Mecanismos</SectionHeader>
       <Label
-        label={"Es un proceso de complejación"}
+        label={"Complejación"}
         value={booleanToString(process.complejacion)}
       />
       <Label
-        label={"Es un proceso con intercambio iónico"}
+        label={"Intercambio iónico"}
         value={booleanToString(process.intercambioIonico)}
       />
       <Label
-        label={"Es una reacción química"}
+        label={"Reacción química"}
         value={booleanToString(process.reaccionQuimica)}
       />
 
