@@ -6,7 +6,7 @@ export const Label = ({label, value}) => {
   return (
     <LabelContainer>
       <Typography style={{fontWeight: "bold"}}>{label}</Typography>
-      <Typography>: {value}</Typography>
+      <Typography>: {value || "-"}</Typography>
     </LabelContainer>
   );
 };

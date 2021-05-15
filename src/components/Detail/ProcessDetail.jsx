@@ -33,7 +33,7 @@ export const ProcessDetail = ({process}) => {
 
       <SectionHeader>Adicional</SectionHeader>
       <Label label={"Fuente"} value={process.fuente} />
-      <Label label={"Observaciones"} value={process.observacion || "-"} />
+      <Label label={"Observaciones"} value={process.observacion} />
     </Container>
   );
 };
