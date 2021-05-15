@@ -37,7 +37,8 @@ export const AdsorbateCard = ({
           <BodyText>
             <FormulaLabel
               formula={formula}
-              ionChargeFormula={ionChargeFormula}></FormulaLabel>
+              ionChargeFormula={ionChargeFormula}
+            />
           </BodyText>
           <BodyText>
             <DataLabel>Carga del ion:</DataLabel> {ionCharge}
