@@ -11,7 +11,7 @@ export const ProcessDetail = ({process}) => {
       <PageTitle title={`Proceso`} />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Características</SectionHeader>
-      <Label label={"qMax"} value={`${process.qmax} g/mmol`} />
+      <Label label={"qMax"} value={`${process.qmax} mmol/g`} />
       <Label
         label={"Tiempo de equilibrio"}
         value={`${process.tiempoEquilibrio} minutos`}
