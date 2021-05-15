@@ -25,12 +25,13 @@ export const ProcessCard = ({
   complexation,
   ionicInterchange,
   chemicalReaction,
+  browseToProcessDetail,
 }) => {
   return (
     <Card
       backgroundColor={bodyBackgroundColor}
       container={ProcessCardContainer}
-      onClick={() => console.log("Caca")}>
+      onClick={browseToProcessDetail}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <NameChip
           name={adsorbateName}
