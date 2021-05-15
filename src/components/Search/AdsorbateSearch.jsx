@@ -12,8 +12,16 @@ export function AdsorbateSearch({
 }) {
   return (
     <Search onSearchSubmit={onSearchSubmit}>
-      <Name name={name} handleNameChange={handleNameChange} />
-      <IonicCharge charge={charge} handleChargeChange={handleChargeChange} />
+      <Name
+        name={name}
+        handleNameChange={handleNameChange}
+        onKeyPress={onSearchSubmit}
+      />
+      <IonicCharge
+        charge={charge}
+        handleChargeChange={handleChargeChange}
+        onKeyPress={onSearchSubmit}
+      />
     </Search>
   );
 }
