@@ -2,14 +2,15 @@ import React from "react";
 import {PageTitle} from "../../common/PageTitle";
 import {Typography} from "@material-ui/core";
 import Container from "@material-ui/core/Container";
+import {Label} from "./Label";
 
 export const ProcessDetail = ({process}) => {
   return (
     <Container>
-      <PageTitle title={`Detalle del proceso ID ${process.id}`} />
-      <Typography>Adsorbato: ID {process.adsorbato.id}</Typography>
-      <Typography>Adsorbente: ID {process.adsorbente.id}</Typography>
-      <Typography>qMax: {process.qmax} mmol/g</Typography>
+      <PageTitle title={`Detalle del proceso}`} />
+      <Typography>Adsorbato: {process.adsorbato.nombreIon}</Typography>
+      <Typography>Adsorbente: {process.adsorbente.nombre}</Typography>
+      <Label label={"qMax"} value={process.qmax} />
       <Typography>
         Tiempo de equilibrio: {process.tiempoEquilibrio} minutos
       </Typography>

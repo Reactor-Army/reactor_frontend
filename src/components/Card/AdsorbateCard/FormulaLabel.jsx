@@ -10,9 +10,7 @@ export const FormulaLabel = ({formula, ionChargeFormula}) => {
     <DataLabel>
       <FormulaContainer>
         {components.map((value) => {
-          return (
-            <FormulaComponent component={value} key={value}></FormulaComponent>
-          );
+          return <FormulaComponent component={value} key={value} />;
         })}
         <SupIndex>{ionChargeFormula}</SupIndex>
       </FormulaContainer>
