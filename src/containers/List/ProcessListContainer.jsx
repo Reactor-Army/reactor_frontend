@@ -31,7 +31,7 @@ export function ProcessListContainer() {
 
   const history = useHistory();
   const browseToProcessDetail = (processId) => {
-    history.push(`procesos/${processId}/`);
+    history.push(`/procesos/${processId}/`);
   };
 
   return (

@@ -25,7 +25,7 @@ export const AdsorbentCard = ({
 }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`procesos/?adsorbente=${id}`);
+    history.push(`/procesos/?adsorbente=${id}`);
   };
   return (
     <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
