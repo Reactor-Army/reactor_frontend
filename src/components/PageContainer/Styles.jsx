@@ -7,4 +7,5 @@ export const Container = styled.div`
   height: 100%;
   min-height: 100%;
   background-color: ${appColors.pageBackground};
+  background-size: cover;
 `;

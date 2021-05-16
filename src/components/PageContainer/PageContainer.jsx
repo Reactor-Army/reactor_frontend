@@ -1,6 +1,7 @@
 import React from "react";
 import {Container} from "./Styles";
 import {createGlobalStyle} from "styled-components/macro";
+import {appColors} from "../../common/styles";
 
 export const PageContainer = (props) => {
   return (
@@ -13,6 +14,7 @@ export const PageContainer = (props) => {
 
 //This removes the margin from the html body, otherwise a white margin appears
 const GlobalStyle = createGlobalStyle`
-  body {
+  html, body {
     margin: 0;
+    background-color: ${appColors.pageBackground};
   }`;
