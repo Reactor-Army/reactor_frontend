@@ -5,7 +5,11 @@ import {Name} from "./Fields/Name";
 export function AdsorbentSearch({name, handleNameChange, onSearchSubmit}) {
   return (
     <Search onSearchSubmit={onSearchSubmit}>
-      <Name name={name} handleNameChange={handleNameChange} />
+      <Name
+        name={name}
+        handleNameChange={handleNameChange}
+        onKeyPress={onSearchSubmit}
+      />
     </Search>
   );
 }

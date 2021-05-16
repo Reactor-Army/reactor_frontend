@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {createSearchAdsorbatesThunk} from "../../../redux/adsorbatesSlice";
 import {AdsorbateSearch} from "../../../components/Search/AdsorbateSearch";
+import {ENTER_KEY} from "../../../common/constants";
 
 export function AdsorbateSearchContainer() {
   const [name, setName] = useState("");
@@ -14,7 +15,10 @@ export function AdsorbateSearchContainer() {
   };
 
   const dispatch = useDispatch();
-  const onSearchSubmit = async () => {
+  const onSearchSubmit = async (event) => {
+    if (event.key && event.key !== ENTER_KEY) {
+      return;
+    }
     dispatch(createSearchAdsorbatesThunk(name, charge)());
   };
 
