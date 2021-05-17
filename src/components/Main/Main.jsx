@@ -11,17 +11,19 @@ export const Main = () => {
   return (
     <AppThemeProvider>
       <BrowserRouter>
-        <Grid container direction={"column"} spacing={10}>
-          <Grid item>
-            <TopBar />
+        <Container>
+          <Grid container direction={"column"} spacing={10}>
+            <Grid item>
+              <TopBar />
+            </Grid>
+            <Grid item container>
+              <Sidebar />
+              <main>
+                <Router />
+              </main>
+            </Grid>
           </Grid>
-          <Grid item container>
-            <Sidebar />
-            <Container>
-              <Router />
-            </Container>
-          </Grid>
-        </Grid>
+        </Container>
       </BrowserRouter>
     </AppThemeProvider>
   );
