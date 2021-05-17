@@ -5,7 +5,7 @@ import React from "react";
 
 export const Cards = ({adsorbate, adsorbent}) => {
   return (
-    <Grid container direction={"row"}>
+    <Grid container direction={"row"} spacing={4}>
       <Grid item xs={12} lg={6}>
         <AdsorbateCardContainer adsorbate={adsorbate} />
       </Grid>
