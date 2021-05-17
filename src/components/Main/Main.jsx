@@ -4,14 +4,21 @@ import React from "react";
 import AppThemeProvider from "./AppThemeProvider";
 import {Sidebar} from "../Sidebar/Sidebar";
 import {BrowserRouter} from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
 
 export const Main = () => {
   return (
     <AppThemeProvider>
       <BrowserRouter>
-        <TopBar />
-        <Sidebar />
-        <Router />
+        <Grid container direction={"column"}>
+          <Grid item>
+            <TopBar />
+          </Grid>
+          <Grid item container>
+            <Sidebar />
+            <Router />
+          </Grid>
+        </Grid>
       </BrowserRouter>
     </AppThemeProvider>
   );

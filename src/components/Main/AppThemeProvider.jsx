@@ -1,9 +1,13 @@
 import React from "react";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import {appColors} from "../../common/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const theme = createMuiTheme({
   palette: {
+    background: {
+      default: appColors.pageBackground,
+    },
     primary: {
       main: appColors.primary,
     },
@@ -11,5 +15,10 @@ const theme = createMuiTheme({
 });
 
 export default function AppThemeProvider({children}) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
 }
