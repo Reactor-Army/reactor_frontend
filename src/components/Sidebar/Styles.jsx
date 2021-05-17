@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {appFontColors, appFontFamily} from "../../common/styles";
 
 export const LinkContainer = styled.div`
   width: 90%;
@@ -18,24 +18,9 @@ export const LinkText = styled.div`
   width: 200px;
   padding: 12px 0 0 47px;
   font-family: ${appFontFamily.primary};
+  color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 18px;
-`;
-
-export const Container = styled.div`
-  background-color: ${appColors.primary};
-  width: 230px;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  min-height: 100%;
-  position: fixed;
-
-  @media screen and (max-width: 1440px) {
-    top: 0px;
-    position: sticky;
-    padding-bottom: 100vh;
-  }
 `;
 
 export const Title = styled.div`

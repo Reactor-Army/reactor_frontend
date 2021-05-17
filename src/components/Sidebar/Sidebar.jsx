@@ -1,9 +1,8 @@
 import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import {LinkContainer, LinkText} from "./Styles";
+import {LinkContainer, LinkText, Title} from "./Styles";
 import {Link} from "react-router-dom";
-import {Title} from "@material-ui/icons";
 import Container from "@material-ui/core/Container";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {appColors} from "../../common/styles";
