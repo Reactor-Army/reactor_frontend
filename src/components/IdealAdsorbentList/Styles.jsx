@@ -1,7 +1,16 @@
 import styled from "styled-components/macro";
-export const ListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 50px;
-  grid-row-gap: 20px;
+
+export const IdealAdsorbentContainer = styled.div`
+  margin-top: 10px;
+`;
+
+export const ChipContainer = styled.div`
+  margin-left: auto;
+`;
+
+export const MessageContainer = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

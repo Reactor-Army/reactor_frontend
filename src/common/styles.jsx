@@ -7,6 +7,9 @@ export const appColors = {
   adsorbentCardBody: "#f7f7f7",
   adsorbateCardHeader: "#b388ff",
   processCardHeader: "#9e9e9e",
+  idealAdsorbentAccordionHeader: "#e0e0e0",
+  idealAdsorbentQmaxChip: "#ffcc80",
+  idealAdsorbentRemoveAllChip: "#ce93d8",
   pageBackground: "#eeeeee",
   gray: "#666",
 };

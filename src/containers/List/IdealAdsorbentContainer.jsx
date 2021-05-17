@@ -1,13 +1,11 @@
 import React, {useEffect} from "react";
-import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
-import {appFontFamily} from "../../common/styles";
-import {WizardContainer} from "./Styles";
 import {IdealAdsorbentSearchContainer} from "./Search/IdealAdsorbentSearchContainer";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import {IdealAdsorbentList} from "../../components/IdealAdsorbentList/IdealAdsorbentList";
+import {TittleContainer} from "./Styles";
 
 export function IdealAdsorbentContainer() {
   const loading = useSelector((state) => state.loading);
@@ -21,15 +19,12 @@ export function IdealAdsorbentContainer() {
 
   return (
     <Container>
-      <PageTitle
-        title={"Adsorbente Ideal"}
-        style={{fontFamily: appFontFamily.card}}
-      />
+      <TittleContainer>
+        <Typography variant="h5">¿Que adsorbatos queres remover?</Typography>
+      </TittleContainer>
 
-      <WizardContainer>
-        <Typography>¿Que adsorbato queres remover?</Typography>
-      </WizardContainer>
       <IdealAdsorbentSearchContainer />
+
       <IdealAdsorbentList loading={loading} idealAdsorbents={idealAdsorbents} />
     </Container>
   );
