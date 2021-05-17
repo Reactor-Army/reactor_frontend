@@ -26,8 +26,6 @@ export function IdealAdsorbentSearch() {
     (state) => state.adsorbates.adsorbatesWithIupacNotation,
   );
 
-  console.log(useSelector((state) => state.idealAdsorbents));
-
   const adsorbatesSearchArray = adsorbatesWithIupacNotation.map((adsorbate) => {
     return {name: adsorbate.nombre, id: adsorbate.id};
   });
@@ -36,12 +34,12 @@ export function IdealAdsorbentSearch() {
 
   useEffect(() => {}, [adsorbatesWithIupacNotation]);
 
-  let ids = [];
+  let adsorbatesIds = [];
 
   const onSearchSubmit = async () => {
     dispatch(
       fetchIdealAdsorbents(
-        ids.map((item) => {
+        adsorbatesIds.map((item) => {
           return item.id;
         }),
       ),
@@ -55,8 +53,7 @@ export function IdealAdsorbentSearch() {
         options={adsorbatesSearchArray}
         getOptionLabel={(option) => option.name}
         onChange={(event, value) => {
-          ids = value;
-          console.log(ids);
+          adsorbatesIds = value;
         }}
         renderInput={(params) => (
           <TextField
