@@ -33,5 +33,5 @@ export const Title = styled.div`
   font-weight: bold;
   font-size: 22px;
   justify-content: center;
-  margin: 5px 0 10px 0;
+  margin: 30px 0 10px 0;
 `;
