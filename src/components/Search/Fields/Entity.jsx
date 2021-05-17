@@ -11,14 +11,13 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
   return (
     <Grid item xs={3}>
       <Autocomplete
-        multiple
         clearOnBlur={true}
         options={inputItems}
         getOptionSelected={(option, value) => {
           option.name === value;
         }}
         freeSolo
-        value={name || []}
+        value={name || null}
         getOptionLabel={(option) => option.name || option}
         style={{width: 270}}
         onChange={handleChange}

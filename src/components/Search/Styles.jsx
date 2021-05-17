@@ -25,3 +25,9 @@ export const Button = styled.button`
     background-color: ${appColors.primary};
   }
 `;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

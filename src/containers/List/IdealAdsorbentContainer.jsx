@@ -6,6 +6,7 @@ import {WizardContainer} from "./Styles";
 import {IdealAdsorbentSearchContainer} from "./Search/IdealAdsorbentSearchContainer";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {useDispatch} from "react-redux";
+import Typography from "@material-ui/core/Typography";
 
 export function IdealAdsorbentContainer() {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export function IdealAdsorbentContainer() {
       />
 
       <WizardContainer>
-        <p>¿Que adsorbato queres remover?</p>
+        <Typography>¿Que adsorbato queres remover?</Typography>
       </WizardContainer>
       <IdealAdsorbentSearchContainer />
     </Container>
