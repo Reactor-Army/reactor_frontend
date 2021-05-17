@@ -18,7 +18,6 @@ export const LinkText = styled.div`
   width: 200px;
   padding: 12px 0 0 47px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 18px;
 `;
