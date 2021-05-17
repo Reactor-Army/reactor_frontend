@@ -4,10 +4,6 @@ export const IdealAdsorbentContainer = styled.div`
   margin-top: 10px;
 `;
 
-export const ChipContainer = styled.div`
-  margin-left: auto;
-`;
-
 export const MessageContainer = styled.div`
   margin-top: 20px;
   display: flex;
