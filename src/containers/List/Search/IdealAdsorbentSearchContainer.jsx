@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {idFromName} from "../../../utils/idFromName";
 import {fetchIdealAdsorbents} from "../../../redux/idealAdsorbentsSlice";
 import {IdealAdsorbentSearch} from "../../../components/Search/IdealAdsorbentSearch";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 
 export function IdealAdsorbentSearchContainer() {
   const [adsorbate, setAdsorbate] = useState("");
@@ -14,8 +15,10 @@ export function IdealAdsorbentSearchContainer() {
     (state) => state.adsorbates.adsorbatesWithIupacNotation,
   );
 
+  console.log(useSelector((state) => state.idealAdsorbents));
+
   const adsorbatesSearchArray = adsorbatesWithIupacNotation.map((adsorbate) => {
-    return adsorbate.nombre;
+    return {name: adsorbate.nombre, id: adsorbate.id};
   });
 
   const dispatch = useDispatch();
@@ -23,23 +26,41 @@ export function IdealAdsorbentSearchContainer() {
   useEffect(() => {}, [adsorbatesWithIupacNotation]);
 
   const onSearchSubmit = async () => {
-    let adsorbateId = idFromName(
-      adsorbate,
-      adsorbatesWithIupacNotation,
-      "nombre",
+    dispatch(
+      fetchIdealAdsorbents(
+        ids.map((item) => {
+          return item.id;
+        }),
+      ),
     );
-    if (adsorbate && adsorbateId === null) {
-      adsorbateId = -1;
-    }
-    dispatch(fetchIdealAdsorbents(adsorbateId));
   };
 
+  let ids = [];
+
   return (
-    <IdealAdsorbentSearch
-      adsorbate={adsorbate}
-      handleAdsorbateChange={handleAdsorbateChange}
-      onSearchSubmit={onSearchSubmit}
-      adsorbateItems={adsorbatesSearchArray}
-    />
+    <>
+      <Autocomplete
+        multiple
+        options={adsorbatesSearchArray}
+        getOptionLabel={(option) => option.name}
+        onChange={(event, value) => {
+          ids = value;
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            variant="standard"
+            label="Multiple values"
+            placeholder="Favorites"
+          />
+        )}
+      />
+      <IdealAdsorbentSearch
+        adsorbate={adsorbate}
+        handleAdsorbateChange={handleAdsorbateChange}
+        onSearchSubmit={onSearchSubmit}
+        adsorbateItems={adsorbatesSearchArray}
+      />
+    </>
   );
 }
