@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
 
 export const SearchContainer = styled.div`
-  max-width: 1139px;
   margin-bottom: 15px;
 `;
 
