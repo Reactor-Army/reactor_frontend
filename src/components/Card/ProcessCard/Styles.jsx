@@ -9,7 +9,7 @@ export const BodyText = styled.div`
   font-family: ${appFontFamily.card};
 `;
 
-export const CardProcess = styled(CardContainer)`
+export const ProcessCardContainer = styled(CardContainer)`
   width: 500px;
   height: 180px;
 `;

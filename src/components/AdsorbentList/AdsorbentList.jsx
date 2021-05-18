@@ -1,10 +1,9 @@
 import React from "react";
 
-import {AdsorbentCard} from "../../components/Card/AdsorbentCard/AdsorbentCard";
-import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import {AdsorbentCardContainer} from "../Card/AdsorbentCard/AdsorbentCardContainer";
 
 export function AdsorbentList({adsorbents, loading}) {
   if (!adsorbents || loading) {
@@ -22,18 +21,8 @@ export function AdsorbentList({adsorbents, loading}) {
   return (
     <ListContainer>
       {adsorbents.length &&
-        adsorbents.map(({nombre, particulaT, sBet, vBet, pHCargaCero, id}) => (
-          <AdsorbentCard
-            headerBackgroundColor={appColors.adsorbentCardHeader}
-            bodyBackgroundColor={appColors.adsorbentCardBody}
-            header={nombre}
-            particleSize={particulaT}
-            sBet={sBet}
-            vBet={vBet}
-            ph={pHCargaCero}
-            id={id}
-            key={id}
-          />
+        adsorbents.map((adsorbent) => (
+          <AdsorbentCardContainer adsorbent={adsorbent} key={adsorbent.id} />
         ))}
     </ListContainer>
   );

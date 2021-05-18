@@ -7,7 +7,7 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
-export function ProcessList({loading, processes}) {
+export function ProcessList({loading, processes, browseToProcessDetail}) {
   if (loading || !processes) {
     return <CircularProgress />;
   }
@@ -22,20 +22,18 @@ export function ProcessList({loading, processes}) {
   return (
     <ListContainer>
       {processes.map(
-        (
-          {
-            adsorbato,
-            adsorbente,
-            qmax,
-            tiempoEquilibrio,
-            temperatura,
-            phinicial,
-            complejacion,
-            intercambioIonico,
-            reaccionQuimica,
-          },
-          index,
-        ) => (
+        ({
+          adsorbato,
+          adsorbente,
+          id,
+          qmax,
+          tiempoEquilibrio,
+          temperatura,
+          phinicial,
+          complejacion,
+          intercambioIonico,
+          reaccionQuimica,
+        }) => (
           <ProcessCard
             headerBackgroundColor={appColors.processCardHeader}
             bodyBackgroundColor={appColors.adsorbentCardBody}
@@ -48,7 +46,8 @@ export function ProcessList({loading, processes}) {
             complexation={complejacion}
             ionicInterchange={intercambioIonico}
             chemicalReaction={reaccionQuimica}
-            key={index}
+            key={id}
+            browseToProcessDetail={() => browseToProcessDetail(id)}
           />
         ),
       )}

@@ -10,5 +10,6 @@ export default configureStore({
     adsorbents: adsorbentReducer,
     processes: processReducer,
     idealAdsorbents: idealAdsorbentsReducer,
+    process: processReducer,
   },
 });
