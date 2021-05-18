@@ -6,8 +6,14 @@ import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import {useHistory} from "react-router-dom";
 
-export function ProcessList({loading, processes, browseToProcessDetail}) {
+export function ProcessList({loading, processes}) {
+  const history = useHistory();
+  const browseToProcessDetail = (processId) => {
+    history.push(`/procesos/${processId}/`);
+  };
+
   if (loading || !processes) {
     return <CircularProgress />;
   }
