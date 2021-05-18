@@ -17,3 +17,9 @@ export const searchProcesses = async (adsorbateId, adsorbentId) => {
     })
   ).data;
 };
+
+export const getProcess = async (processId) => {
+  const endpoint = `${settings.BACKEND_URL}proceso/${processId}/`;
+  const client = new HttpClient(null);
+  return (await client.get(endpoint)).data;
+};

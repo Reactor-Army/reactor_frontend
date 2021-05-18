@@ -1,17 +1,10 @@
 import React from "react";
-import {capitalize} from "../../common/FormatUtils";
-
-import {AdsorbateCard} from "../../components/Card/AdsorbateCard/AdsorbateCard";
-import {appColors} from "../../common/styles";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import {AdsorbateCardContainer} from "../Card/AdsorbateCard/AdsorbateCardContainer";
 
 export function AdsorbateList({adsorbates, loading}) {
-  const formatAdsorbateName = (name, nameIUPAC) => {
-    return nameIUPAC ? `${nameIUPAC} (${name}) ` : name;
-  };
-
   if (!adsorbates || loading) {
     return <CircularProgress />;
   }
@@ -25,31 +18,9 @@ export function AdsorbateList({adsorbates, loading}) {
   }
   return (
     <ListContainer>
-      {adsorbates.map(
-        ({
-          nombreIon,
-          nombreIUPAC,
-          cargaIon,
-          radioIonico,
-          limiteVertido,
-          formula,
-          cargaIonFormula,
-          id,
-        }) => (
-          <AdsorbateCard
-            headerBackgroundColor={appColors.adsorbateCardHeader}
-            bodyBackgroundColor={appColors.adsorbentCardBody}
-            header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
-            ionCharge={cargaIon}
-            ionRadius={radioIonico}
-            dischargeLimit={limiteVertido}
-            formula={formula}
-            ionChargeFormula={cargaIonFormula}
-            id={id}
-            key={id}
-          />
-        ),
-      )}
+      {adsorbates.map((adsorbate) => (
+        <AdsorbateCardContainer adsorbate={adsorbate} key={adsorbate.id} />
+      ))}
     </ListContainer>
   );
 }

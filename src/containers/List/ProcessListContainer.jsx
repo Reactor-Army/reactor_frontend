@@ -9,6 +9,7 @@ import {ProcessSearchContainer} from "./Search/ProcessSearchContainer";
 import {appFontFamily} from "../../common/styles";
 import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
+import {useHistory} from "react-router-dom";
 
 export function ProcessListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -28,6 +29,11 @@ export function ProcessListContainer() {
     dispatch(fetchAdsorbentsWithParticleSize());
   }, []);
 
+  const history = useHistory();
+  const browseToProcessDetail = (processId) => {
+    history.push(`/procesos/${processId}/`);
+  };
+
   return (
     <Container>
       <PageTitle title={"Procesos"} style={{fontFamily: appFontFamily.card}} />
@@ -35,7 +41,11 @@ export function ProcessListContainer() {
         selectedAdsorbateId={query.get("adsorbato")}
         selectedAdsorbentId={query.get("adsorbente")}
       />
-      <ProcessList loading={loading} processes={processes} />
+      <ProcessList
+        loading={loading}
+        processes={processes}
+        browseToProcessDetail={browseToProcessDetail}
+      />
     </Container>
   );
 }

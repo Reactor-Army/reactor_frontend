@@ -10,7 +10,8 @@ import {
   FooterItem,
   DataLabel,
 } from "../CommonCardStyles";
-import {CardProcess, BodyText} from "./Styles";
+import {ProcessCardContainer, BodyText} from "./Styles";
+import {Card} from "../Card";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -24,9 +25,13 @@ export const ProcessCard = ({
   complexation,
   ionicInterchange,
   chemicalReaction,
+  browseToProcessDetail,
 }) => {
   return (
-    <CardProcess backgroundColor={bodyBackgroundColor}>
+    <Card
+      backgroundColor={bodyBackgroundColor}
+      container={ProcessCardContainer}
+      onClick={browseToProcessDetail}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <NameChip
           name={adsorbateName}
@@ -66,6 +71,6 @@ export const ProcessCard = ({
           <BooleanChip value={chemicalReaction} text={"Reaccion Quimica"} />
         </FooterItem>
       </CardFooter>
-    </CardProcess>
+    </Card>
   );
 };
