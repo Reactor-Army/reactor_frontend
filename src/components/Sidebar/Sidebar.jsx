@@ -2,11 +2,8 @@ import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import {makeStyles} from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import {LinkContainer, LinkText, Title} from "./Styles";
-import {Link} from "react-router-dom";
 import {appColors} from "../../common/styles";
-import {routes} from "./sidebar_routes";
+import {SidebarContent} from "./SidebarContent";
 
 const drawerWidth = 240;
 
@@ -29,20 +26,6 @@ export const Sidebar = (props) => {
   const {window, mobileOpen, handleDrawerToggle} = props;
   const classes = useStyles();
 
-  const drawer = (
-    <Container>
-      <Title>Reactor App</Title>
-      {routes.map((route, index) => {
-        return (
-          <LinkContainer key={index}>
-            <Link to={route.path} style={{textDecoration: "none"}}>
-              <LinkText>{route.name}</LinkText>
-            </Link>
-          </LinkContainer>
-        );
-      })}
-    </Container>
-  );
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -62,7 +45,7 @@ export const Sidebar = (props) => {
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}>
-            {drawer}
+            <SidebarContent />
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
@@ -72,7 +55,7 @@ export const Sidebar = (props) => {
             }}
             variant="permanent"
             open>
-            {drawer}
+            <SidebarContent />
           </Drawer>
         </Hidden>
       </nav>
