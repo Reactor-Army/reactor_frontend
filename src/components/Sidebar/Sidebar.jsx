@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 import {LinkContainer, LinkText, Title} from "./Styles";
 import {Link} from "react-router-dom";
 import {appColors} from "../../common/styles";
+import {routes} from "./sidebar_routes";
 
 const drawerWidth = 240;
 
@@ -31,7 +32,7 @@ export const Sidebar = (props) => {
   const drawer = (
     <Container>
       <Title>Reactor App</Title>
-      {Routes.map((route, index) => {
+      {routes.map((route, index) => {
         return (
           <LinkContainer key={index}>
             <Link to={route.path} style={{textDecoration: "none"}}>
@@ -78,30 +79,3 @@ export const Sidebar = (props) => {
     </>
   );
 };
-
-const Routes = [
-  {
-    path: "/",
-    name: "Inicio",
-  },
-
-  {
-    path: "/adsorbatos",
-    name: "Adsorbatos",
-  },
-
-  {
-    path: "/adsorbentes",
-    name: "Adsorbentes",
-  },
-
-  {
-    path: "/procesos",
-    name: "Procesos",
-  },
-
-  {
-    path: "/adsorbente/ideal",
-    name: "Buscar adsorbente",
-  },
-];
