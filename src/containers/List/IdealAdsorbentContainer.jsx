@@ -10,7 +10,6 @@ import {resetIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 
 export function IdealAdsorbentContainer() {
   const loading = useSelector((state) => state.loading);
-  console.log(useSelector((state) => state.idealAdsorbents));
   const {idealAdsorbents} = useSelector((state) => state.idealAdsorbents);
 
   const dispatch = useDispatch();
