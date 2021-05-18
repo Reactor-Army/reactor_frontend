@@ -3,21 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import {FlexContainer} from "./Styles";
+import {FlexContainer, useStyles} from "./Styles";
 import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  button: {
-    borderRadius: 3,
-    border: 0,
-    color: "white",
-    height: 48,
-    padding: "0 30px",
-    boxShadow: "0 3px 5px 2px var(--box-shadow)",
-    marginTop: "10px",
-  },
-});
 
 export function IdealAdsorbentSearch() {
   const classes = useStyles();

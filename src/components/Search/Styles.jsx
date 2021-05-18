@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const SearchContainer = styled.div`
   margin-bottom: 15px;
@@ -31,3 +32,15 @@ export const FlexContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const useStyles = makeStyles({
+  button: {
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    boxShadow: "0 3px 5px 2px var(--box-shadow)",
+    marginTop: "10px",
+  },
+});
