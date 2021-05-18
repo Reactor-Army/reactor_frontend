@@ -6,7 +6,6 @@ import Container from "@material-ui/core/Container";
 import {LinkContainer, LinkText, Title} from "./Styles";
 import {Link} from "react-router-dom";
 import {appColors} from "../../common/styles";
-import {Router} from "../../routing/Router";
 
 const drawerWidth = 240;
 
@@ -22,10 +21,6 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     background: appColors.primary,
-  },
-  content: {
-    flexGrow: 1,
-    marginTop: theme.spacing(10),
   },
 }));
 
@@ -80,11 +75,6 @@ export const Sidebar = (props) => {
           </Drawer>
         </Hidden>
       </nav>
-      <Container>
-        <main className={classes.content}>
-          <Router />
-        </main>
-      </Container>
     </>
   );
 };

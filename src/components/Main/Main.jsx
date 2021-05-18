@@ -2,9 +2,16 @@ import React from "react";
 import {Sidebar} from "../Sidebar/Sidebar";
 import {makeStyles} from "@material-ui/core/styles";
 import {TopBar} from "./TopBar";
-const useStyles = makeStyles(() => ({
+import Container from "@material-ui/core/Container";
+import {Router} from "../../routing/Router";
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+  },
+  content: {
+    flexGrow: 1,
+    marginTop: theme.spacing(10),
+    margin: theme.spacing(3),
   },
 }));
 
@@ -22,6 +29,11 @@ export const Main = () => {
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
       />
+      <Container>
+        <main className={classes.content}>
+          <Router />
+        </main>
+      </Container>
     </div>
   );
 };
