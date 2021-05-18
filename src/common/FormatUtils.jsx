@@ -9,5 +9,5 @@ export const nameAdsorbent = (adsorbent) => {
 };
 
 export const qmaxIdealAdsorbent = (maxQmax) => {
-  return `QMax Maximo: ${maxQmax} mmol/g`;
+  return `QMax Máximo: ${maxQmax} mmol/g`;
 };

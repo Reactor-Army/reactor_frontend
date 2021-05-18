@@ -22,7 +22,7 @@ export function IdealAdsorbentContainer() {
   return (
     <Container>
       <TittleContainer>
-        <Typography variant="h5">¿Que adsorbatos queres remover?</Typography>
+        <Typography variant="h5">¿Que adsorbatos querés remover?</Typography>
       </TittleContainer>
 
       <IdealAdsorbentSearchContainer />
