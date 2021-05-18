@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const appColors = {
-  primary: "#0288d1",
+  primary: "#1177cf",
   white: "#fff",
   adsorbentCardHeader: "#69f0ae",
   adsorbentCardBody: "#f7f7f7",
