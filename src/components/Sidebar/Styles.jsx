@@ -9,6 +9,7 @@ export const LinkContainer = styled.div`
 
   &:hover {
     background-color: #22d0f7;
+    cursor: "pointer";
   }
 `;
 

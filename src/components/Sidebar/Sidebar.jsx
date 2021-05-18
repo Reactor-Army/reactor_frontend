@@ -45,7 +45,7 @@ export const Sidebar = (props) => {
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}>
-            <SidebarContent />
+            <SidebarContent handleDrawerToggle={handleDrawerToggle} />
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
