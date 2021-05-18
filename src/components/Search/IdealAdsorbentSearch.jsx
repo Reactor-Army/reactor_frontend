@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 import Autocomplete from "@material-ui/lab/Autocomplete";
@@ -31,6 +31,8 @@ export function IdealAdsorbentSearch() {
   });
 
   const dispatch = useDispatch();
+
+  useEffect(() => {}, [adsorbatesWithIupacNotation]);
 
   let adsorbatesIds = [];
 
