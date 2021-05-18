@@ -6,13 +6,24 @@ export const fetchIdealAdsorbents = createAsyncThunk(
   searchIdealAdsorbents,
 );
 
+export const resetIdealAdsorbents = () => {
+  return {type: "idealAdsorbents/reset"};
+};
+
+const initialState = {
+  idealAdsorbents: [],
+  loading: false,
+};
+
 const idealAdsorbentsSlice = createSlice({
   name: "idealAdsorbents",
-  initialState: {
-    idealAdsorbents: [],
-    loading: false,
+  initialState,
+  reducers: {
+    reset: (state) => {
+      state.loading = false;
+      state.idealAdsorbents = [];
+    },
   },
-  reducers: {},
   extraReducers: {
     [fetchIdealAdsorbents.pending]: (state) => {
       state.loading = true;

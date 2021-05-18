@@ -6,15 +6,18 @@ import {useDispatch, useSelector} from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import {IdealAdsorbentList} from "../../components/IdealAdsorbentList/IdealAdsorbentList";
 import {TittleContainer} from "./Styles";
+import {resetIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 
 export function IdealAdsorbentContainer() {
   const loading = useSelector((state) => state.loading);
+  console.log(useSelector((state) => state.idealAdsorbents));
   const {idealAdsorbents} = useSelector((state) => state.idealAdsorbents);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAdsorbatesWithIupacNotation());
+    dispatch(resetIdealAdsorbents());
   }, []);
 
   return (
