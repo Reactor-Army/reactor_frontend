@@ -1,26 +1,8 @@
 import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import {makeStyles} from "@material-ui/core/styles";
-import {appColors} from "../../common/styles";
 import {SidebarContent} from "./SidebarContent";
-
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-    background: appColors.primary,
-  },
-}));
+import {useStyles} from "./Styles";
 
 export const Sidebar = (props) => {
   const {window, mobileOpen, handleDrawerToggle} = props;
