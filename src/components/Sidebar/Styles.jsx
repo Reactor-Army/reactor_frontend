@@ -5,7 +5,7 @@ export const LinkContainer = styled.div`
   width: 90%;
   border-radius: 8px;
   height: 50px;
-  margin: 5px auto;
+  margin: auto;
 
   &:hover {
     background-color: rgba(29, 61, 142, 0.1);
@@ -13,9 +13,11 @@ export const LinkContainer = styled.div`
   }
 `;
 
-export const LinkText = styled.div`
-  display: flex;
+export const LinkText = styled.p`
   text-align: left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   margin-left: 10px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
