@@ -1,13 +1,20 @@
 import {Chip} from "@material-ui/core";
 import React from "react";
 
-export const BooleanChip = ({value, text}) => {
+export const BooleanChip = ({
+  value,
+  text,
+  fontSize = 15,
+  margin = "2px",
+  backgroundColor,
+}) => {
   if (value) {
     return (
       <Chip
         style={{
-          fontSize: 15,
-          margin: "2px",
+          fontSize: fontSize,
+          margin: margin,
+          backgroundColor: backgroundColor,
         }}
         label={text}></Chip>
     );

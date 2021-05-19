@@ -41,4 +41,9 @@ const Routes = [
     path: "/procesos",
     name: "Procesos",
   },
+
+  {
+    path: "/adsorbente/ideal",
+    name: "Buscar adsorbente",
+  },
 ];

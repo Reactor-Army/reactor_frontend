@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const SearchContainer = styled.div`
-  max-width: 1139px;
   margin-bottom: 15px;
 `;
 
@@ -26,3 +26,21 @@ export const Button = styled.button`
     background-color: ${appColors.primary};
   }
 `;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const useStyles = makeStyles({
+  button: {
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    boxShadow: "0 3px 5px 2px var(--box-shadow)",
+    marginTop: "10px",
+  },
+});
