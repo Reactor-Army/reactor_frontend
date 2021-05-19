@@ -39,12 +39,31 @@ export const FooterItem = styled.div`
   font-size: 18px;
   padding-right: 15px;
   font-family: ${appFontFamily.card};
+  @media (max-width: 696px) {
+    font-size: 12px;
+  }
+  @media (max-width: 520px) {
+    font-size: 9px;
+  }
 `;
 
 export const BodyText = styled.div`
   margin-left: 15px;
   font-size: 18px;
   font-family: ${appFontFamily.card};
+  @media (max-width: 660px) {
+    font-size: 14px;
+  }
+  @media (max-width: 520px) {
+    font-size: 12px;
+  }
 `;
 
-export const DataLabel = styled.strong``;
+export const DataLabel = styled.strong`
+  @media (max-width: 520px) {
+    font-size: 15px;
+  }
+  @media (max-width: 520px) {
+    font-size: 13px;
+  }
+`;
