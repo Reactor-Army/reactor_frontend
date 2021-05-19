@@ -20,6 +20,7 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #22d0f7;
+    cursor: pointer;
   }
 
   &:active {

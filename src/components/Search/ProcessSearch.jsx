@@ -2,6 +2,7 @@ import React from "react";
 import {Search} from "./Search";
 import {Entity} from "./Fields/Entity";
 import {SearchContainer} from "./Styles";
+import {SearchButton} from "./SearchButton";
 
 export function ProcessSearch({
   adsorbate,
@@ -27,6 +28,7 @@ export function ProcessSearch({
           formTitle={"Adsorbente"}
           items={adsorbentItems}
         />
+        <SearchButton onClick={onSearchSubmit} />
       </Search>
     </SearchContainer>
   );
