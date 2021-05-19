@@ -8,7 +8,7 @@ export const LinkContainer = styled.div`
   margin: 5px auto;
 
   &:hover {
-    background-color: #22d0f7;
+    background-color: rgba(29, 61, 142, 0.1);
     cursor: "pointer";
   }
 `;
@@ -16,8 +16,7 @@ export const LinkContainer = styled.div`
 export const LinkText = styled.div`
   display: flex;
   text-align: left;
-  width: 200px;
-  padding: 12px 0 0 47px;
+  margin-left: 10px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;

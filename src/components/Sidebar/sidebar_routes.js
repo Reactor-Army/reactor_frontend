@@ -2,25 +2,25 @@
 export const routes = [
   {
     path: "/",
-    name: "Inicio",
+    text: "Inicio",
   },
 
   {
     path: "/adsorbatos",
-    name: "Adsorbatos",
+    text: "Adsorbatos",
   },
 
   {
     path: "/adsorbentes",
-    name: "Adsorbentes",
+    text: "Adsorbentes",
   },
 
   {
     path: "/procesos",
-    name: "Procesos",
+    text: "Procesos",
   },
   {
     path: "/adsorbente/ideal",
-    name: "Buscar adsorbente",
+    text: "Buscar adsorbente",
   },
 ];
