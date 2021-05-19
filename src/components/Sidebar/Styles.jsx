@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
     background: appColors.primary,
   },
 }));
+
 export const LinkContainer = styled.div`
   width: 90%;
   border-radius: 8px;
@@ -25,7 +26,7 @@ export const LinkContainer = styled.div`
 
   &:hover {
     background-color: rgba(29, 61, 142, 0.1);
-    cursor: "pointer";
+    cursor: pointer;
   }
 `;
 
