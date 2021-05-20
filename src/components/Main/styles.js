@@ -6,6 +6,10 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(10),
     margin: theme.spacing(3),
   },
+
+  container: {
+    paddingLeft: 0,
+  },
 }));
 
 export const Root = styled.div`

@@ -19,7 +19,7 @@ export const Main = () => {
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
       />
-      <Container>
+      <Container className={classes.container}>
         <main className={classes.content}>
           <Router />
         </main>
