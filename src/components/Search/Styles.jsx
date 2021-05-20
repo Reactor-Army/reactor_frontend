@@ -17,6 +17,7 @@ export const Button = styled.button`
   width: 100px;
   border: none;
   font-weight: bold;
+  height: 55px;
 
   &:hover {
     background-color: #22d0f7;
@@ -25,6 +26,13 @@ export const Button = styled.button`
 
   &:active {
     background-color: ${appColors.primary};
+  }
+
+  @media (max-width: 847px) {
+    height: 50px;
+    width: 65vw;
+    margin-right: 21px;
+    margin-left: 0;
   }
 `;
 
@@ -45,3 +53,13 @@ export const useStyles = makeStyles({
     marginTop: "10px",
   },
 });
+
+export const TextFieldStyles = {
+  marginRight: "20px",
+  marginBottom: "5px",
+  width: "65vw",
+};
+
+export const SearchBarContainerStyles = {
+  minWidth: "314px",
+};
