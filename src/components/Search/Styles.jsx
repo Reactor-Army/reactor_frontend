@@ -31,7 +31,9 @@ export const Button = styled.button`
   @media (max-width: 847px) {
     height: 50px;
     width: 65vw;
-    margin-right: 21px;
+    position: relative;
+    top: 22%;
+    transform: translateY(-50%);
     margin-left: 0;
   }
 `;
@@ -56,7 +58,13 @@ export const useStyles = makeStyles({
 
 export const getTextFieldStyles = (responsiveMode) => {
   if (responsiveMode) {
-    return {marginRight: "20px", marginBottom: "5px", width: "65vw"};
+    return {
+      position: "relative",
+      top: "50%",
+      transform: "translateY(-50%)",
+      marginBottom: "5px",
+      width: "65vw",
+    };
   }
   return {marginRight: "20px"};
 };
@@ -67,7 +75,13 @@ export const SearchBarContainerStyles = {
 
 export const getAutoCompleteFieldStyles = (responsiveMode) => {
   if (responsiveMode) {
-    return {marginRight: "20px", marginBottom: "5px", width: "65vw"};
+    return {
+      position: "relative",
+      top: "50%",
+      transform: "translateY(-50%)",
+      marginBottom: "5px",
+      width: "65vw",
+    };
   }
   return {width: "260px", marginRight: "20px"};
 };
