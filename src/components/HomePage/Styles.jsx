@@ -8,5 +8,5 @@ export const HomeTitle = styled.div`
   font-weight: bold;
   font-size: 50px;
   justify-content: center;
-  margin: 5px 0 10px 0;
+  margin: 25px 0 10px 0;
 `;

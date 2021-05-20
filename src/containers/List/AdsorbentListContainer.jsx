@@ -3,7 +3,6 @@ import React, {useEffect} from "react";
 import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
 import {AdsorbentList} from "../../components/AdsorbentList/AdsorbentList";
 import {PageTitle} from "../../common/PageTitle";
-import Container from "@material-ui/core/Container";
 import {appFontFamily} from "../../common/styles";
 import {AdsorbentSearchContainer} from "./Search/AdsorbentSearchContainer";
 
@@ -15,13 +14,13 @@ export function AdsorbentListContainer() {
   }, []);
 
   return (
-    <Container>
+    <>
       <PageTitle
         title={"Adsorbentes"}
         style={{fontFamily: appFontFamily.card}}
       />
       <AdsorbentSearchContainer />
       <AdsorbentList loading={loading} adsorbents={adsorbents} />
-    </Container>
+    </>
   );
 }

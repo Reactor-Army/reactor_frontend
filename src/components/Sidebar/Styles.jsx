@@ -1,42 +1,45 @@
 import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {makeStyles} from "@material-ui/core/styles";
+const drawerWidth = 240;
+
+export const useStyles = makeStyles((theme) => ({
+  drawer: {
+    [theme.breakpoints.up("sm")]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+    background: appColors.primary,
+  },
+}));
 
 export const LinkContainer = styled.div`
   width: 90%;
   border-radius: 8px;
   height: 50px;
-  margin: 5px auto;
+  margin: auto;
 
   &:hover {
-    background-color: #22d0f7;
+    background-color: rgba(29, 61, 142, 0.1);
+    cursor: pointer;
   }
 `;
 
-export const LinkText = styled.div`
-  display: flex;
+export const LinkText = styled.p`
   text-align: left;
-  width: 200px;
-  padding: 12px 0 0 47px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 10px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 18px;
-`;
-
-export const Container = styled.div`
-  background-color: ${appColors.primary};
-  width: 230px;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  min-height: 100%;
-  position: fixed;
-
-  @media screen and (max-width: 1440px) {
-    top: 0px;
-    position: sticky;
-    padding-bottom: 100vh;
-  }
 `;
 
 export const Title = styled.div`
@@ -49,5 +52,5 @@ export const Title = styled.div`
   font-weight: bold;
   font-size: 22px;
   justify-content: center;
-  margin: 5px 0 10px 0;
+  margin: 30px 0 10px 0;
 `;

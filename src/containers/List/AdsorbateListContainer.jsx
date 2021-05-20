@@ -3,7 +3,6 @@ import React, {useEffect} from "react";
 import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
 import {AdsorbateList} from "../../components/AdsorbateList/AdsorbateList";
 import {PageTitle} from "../../common/PageTitle";
-import Container from "@material-ui/core/Container";
 import {AdsorbateSearchContainer} from "./Search/AdsorbateSearchContainer";
 
 export function AdsorbateListContainer() {
@@ -14,10 +13,10 @@ export function AdsorbateListContainer() {
   }, []);
 
   return (
-    <Container>
+    <>
       <PageTitle title={"Adsorbatos"} />
       <AdsorbateSearchContainer />
       <AdsorbateList loading={loading} adsorbates={adsorbates} />
-    </Container>
+    </>
   );
 }

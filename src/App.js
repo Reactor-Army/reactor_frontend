@@ -1,6 +1,16 @@
 import React from "react";
-import {Router} from "./routing/Router";
+import {Main} from "./components/Main/Main";
+import AppThemeProvider from "./components/Main/AppThemeProvider";
+import {BrowserRouter} from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 export default function App() {
-  return <Router />;
+  return (
+    <AppThemeProvider>
+      <CssBaseline />
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </AppThemeProvider>
+  );
 }
