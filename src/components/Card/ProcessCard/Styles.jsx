@@ -7,9 +7,14 @@ export const BodyText = styled.div`
   font-size: 16px;
   padding-top: 10px;
   font-family: ${appFontFamily.card};
+
+  @media (max-width: 520px) {
+    font-size: 13px;
+  }
 `;
 
 export const ProcessCardContainer = styled(CardContainer)`
-  width: 500px;
   height: 180px;
+  min-width: 330px;
+  grid-area: auto;
 `;

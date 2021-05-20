@@ -17,13 +17,24 @@ export const Button = styled.button`
   width: 100px;
   border: none;
   font-weight: bold;
+  height: 55px;
 
   &:hover {
     background-color: #22d0f7;
+    cursor: pointer;
   }
 
   &:active {
     background-color: ${appColors.primary};
+  }
+
+  @media (max-width: 847px) {
+    height: 50px;
+    width: 65vw;
+    position: relative;
+    top: 22%;
+    transform: translateY(-50%);
+    margin-left: 0;
   }
 `;
 
@@ -44,3 +55,33 @@ export const useStyles = makeStyles({
     marginTop: "10px",
   },
 });
+
+export const getTextFieldStyles = (responsiveMode) => {
+  if (responsiveMode) {
+    return {
+      position: "relative",
+      top: "50%",
+      transform: "translateY(-50%)",
+      marginBottom: "5px",
+      width: "65vw",
+    };
+  }
+  return {marginRight: "20px"};
+};
+
+export const SearchBarContainerStyles = {
+  minWidth: "314px",
+};
+
+export const getAutoCompleteFieldStyles = (responsiveMode) => {
+  if (responsiveMode) {
+    return {
+      position: "relative",
+      top: "50%",
+      transform: "translateY(-50%)",
+      marginBottom: "5px",
+      width: "65vw",
+    };
+  }
+  return {width: "260px", marginRight: "20px"};
+};
