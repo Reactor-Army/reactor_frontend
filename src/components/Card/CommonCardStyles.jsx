@@ -62,7 +62,7 @@ export const BodyText = styled.div`
 `;
 
 export const DataLabel = styled.strong`
-  @media (max-width: 520px) {
+  @media (max-width: 660px) {
     font-size: 15px;
   }
   @media (max-width: 520px) {
