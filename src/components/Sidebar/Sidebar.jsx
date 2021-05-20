@@ -1,49 +1,46 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {LinkContainer, LinkText, Container, Title} from "./Styles";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import {SidebarContent} from "./SidebarContent";
+import {useStyles} from "./Styles";
 
-export const Sidebar = () => {
+export const Sidebar = (props) => {
+  const {window, mobileOpen, handleDrawerToggle} = props;
+  const classes = useStyles();
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
   return (
-    <div>
-      <Container>
-        <Title>Reactor App</Title>
-        {Routes.map((route, index) => {
-          return (
-            <LinkContainer key={index}>
-              <Link to={route.path} style={{textDecoration: "none"}}>
-                <LinkText>{route.name}</LinkText>
-              </Link>
-            </LinkContainer>
-          );
-        })}
-      </Container>
-    </div>
+    <>
+      <nav className={classes.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}>
+            <SidebarContent handleDrawerToggle={handleDrawerToggle} />
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open>
+            <SidebarContent />
+          </Drawer>
+        </Hidden>
+      </nav>
+    </>
   );
 };
-
-const Routes = [
-  {
-    path: "/",
-    name: "Inicio",
-  },
-
-  {
-    path: "/adsorbatos",
-    name: "Adsorbatos",
-  },
-
-  {
-    path: "/adsorbentes",
-    name: "Adsorbentes",
-  },
-
-  {
-    path: "/procesos",
-    name: "Procesos",
-  },
-
-  {
-    path: "/adsorbente/ideal",
-    name: "Buscar adsorbente",
-  },
-];
