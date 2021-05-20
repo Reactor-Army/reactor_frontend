@@ -39,6 +39,8 @@ export const FooterItem = styled.div`
   font-size: 18px;
   padding-right: 15px;
   font-family: ${appFontFamily.card};
+  white-space: nowrap;
+  overflow: hidden;
   @media (max-width: 696px) {
     font-size: 12px;
   }

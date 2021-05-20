@@ -54,12 +54,20 @@ export const useStyles = makeStyles({
   },
 });
 
-export const TextFieldStyles = {
-  marginRight: "20px",
-  marginBottom: "5px",
-  width: "65vw",
+export const getTextFieldStyles = (responsiveMode) => {
+  if (responsiveMode) {
+    return {marginRight: "20px", marginBottom: "5px", width: "65vw"};
+  }
+  return {marginRight: "20px"};
 };
 
 export const SearchBarContainerStyles = {
   minWidth: "314px",
+};
+
+export const getAutoCompleteFieldStyles = (responsiveMode) => {
+  if (responsiveMode) {
+    return {marginRight: "20px", marginBottom: "5px", width: "65vw"};
+  }
+  return {width: "260px", marginRight: "20px"};
 };
