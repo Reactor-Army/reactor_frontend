@@ -47,7 +47,7 @@ export const AdsorbateCard = ({
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <DataLabel>Radio ionico:</DataLabel> {ionRadius}
+          <DataLabel>Radio iónico:</DataLabel> {ionRadius} Å
         </FooterItem>
         <FooterItem>
           <DataLabel>Limite de vertido:</DataLabel> {dischargeLimit}

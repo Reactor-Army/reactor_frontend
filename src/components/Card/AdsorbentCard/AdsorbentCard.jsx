@@ -34,14 +34,14 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <BodyText>
-          <DataLabel>Tamaño de particula:</DataLabel> {particleSize}
+          <DataLabel>Tamaño de partícula:</DataLabel> {particleSize}
         </BodyText>
       </CardBody>
       <CardFooter>
         <SBetValue sBet={sBet} />
         <VBetValue vBet={vBet} />
         <FooterItem>
-          <DataLabel>ph(carga cero):</DataLabel> {ph}
+          <DataLabel>pH(carga cero):</DataLabel> {ph}
         </FooterItem>
       </CardFooter>
     </Card>
