@@ -41,7 +41,7 @@ export const AdsorbentCard = ({
         <SBetValue sBet={sBet} />
         <VBetValue vBet={vBet} />
         <FooterItem>
-          <DataLabel>ph(carga cero):</DataLabel> {ph}
+          <DataLabel>pH(carga cero):</DataLabel> {ph}
         </FooterItem>
       </CardFooter>
     </Card>
