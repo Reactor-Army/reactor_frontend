@@ -34,7 +34,7 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <BodyText>
-          <DataLabel>Tamaño de particula:</DataLabel> {particleSize}
+          <DataLabel>Tamaño de partícula:</DataLabel> {particleSize}
         </BodyText>
       </CardBody>
       <CardFooter>

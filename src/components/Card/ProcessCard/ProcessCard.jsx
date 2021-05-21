@@ -63,13 +63,13 @@ export const ProcessCard = ({
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <BooleanChip value={complexation} text={"Complejacion"} />
+          <BooleanChip value={complexation} text={"Complejación"} />
         </FooterItem>
         <FooterItem>
-          <BooleanChip value={ionicInterchange} text={"Intercambio Ionico"} />
+          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
         </FooterItem>
         <FooterItem>
-          <BooleanChip value={chemicalReaction} text={"Reaccion Quimica"} />
+          <BooleanChip value={chemicalReaction} text={"Reacción química"} />
         </FooterItem>
       </CardFooter>
     </Card>
