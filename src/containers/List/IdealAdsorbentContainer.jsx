@@ -5,7 +5,7 @@ import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import {IdealAdsorbentList} from "../../components/IdealAdsorbentList/IdealAdsorbentList";
-import {TittleContainer} from "./Styles";
+import {TittleContainer, IdealAdsorbentListContainer} from "./Styles";
 import {resetIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 
 export function IdealAdsorbentContainer() {
@@ -20,14 +20,18 @@ export function IdealAdsorbentContainer() {
   }, []);
 
   return (
-    <Container>
+    <Container style={{paddingLeft: "0", paddingRight: "0"}}>
       <TittleContainer>
         <Typography variant="h5">¿Que adsorbatos querés remover?</Typography>
       </TittleContainer>
 
       <IdealAdsorbentSearchContainer />
-
-      <IdealAdsorbentList loading={loading} idealAdsorbents={idealAdsorbents} />
+      <IdealAdsorbentListContainer>
+        <IdealAdsorbentList
+          loading={loading}
+          idealAdsorbents={idealAdsorbents}
+        />
+      </IdealAdsorbentListContainer>
     </Container>
   );
 }

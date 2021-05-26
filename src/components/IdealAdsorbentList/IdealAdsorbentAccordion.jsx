@@ -56,7 +56,7 @@ export function IdealAdsorbentAccordion({
           </Grid>
         </Grid>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails style={{background: "white"}}>
         <ProcessList loading={loading} processes={processes} />
       </AccordionDetails>
     </Accordion>
