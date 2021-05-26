@@ -9,6 +9,7 @@ import {NameChip} from "../Chip/NameChip/NameChip";
 import {nameAdsorbent, qmaxIdealAdsorbent} from "../../common/FormatUtils";
 import {appColors} from "../../common/styles";
 import Grid from "@material-ui/core/Grid";
+import {AccordionDetailsStyles} from "./Styles";
 
 export function IdealAdsorbentAccordion({
   adsorbent,
@@ -56,7 +57,7 @@ export function IdealAdsorbentAccordion({
           </Grid>
         </Grid>
       </AccordionSummary>
-      <AccordionDetails style={{background: "white"}}>
+      <AccordionDetails style={AccordionDetailsStyles}>
         <ProcessList loading={loading} processes={processes} />
       </AccordionDetails>
     </Accordion>

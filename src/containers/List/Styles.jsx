@@ -9,7 +9,7 @@ export const IdealAdsorbentListContainer = styled.div`
   display: flex;
   justify-content: center;
   @media (max-width: 415px) {
-    margin-right: 13%;
+    margin-right: 8%;
   }
 
   @media (max-width: 359px) {

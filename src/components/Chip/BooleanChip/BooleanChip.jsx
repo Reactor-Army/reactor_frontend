@@ -15,6 +15,7 @@ export const BooleanChip = ({
           fontSize: fontSize,
           margin: margin,
           backgroundColor: backgroundColor,
+          whiteSpace: "no-wrap",
         }}
         label={text}></Chip>
     );
