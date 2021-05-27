@@ -17,7 +17,8 @@ export const BooleanChip = ({
           backgroundColor: backgroundColor,
           whiteSpace: "no-wrap",
         }}
-        label={text}></Chip>
+        label={text}
+      />
     );
   } else {
     return null;

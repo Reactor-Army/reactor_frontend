@@ -4,12 +4,13 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {ProcessList} from "../ProcessList/ProcessList";
-import {BooleanChip} from "../Chip/BooleanChip/BooleanChip";
 import {NameChip} from "../Chip/NameChip/NameChip";
 import {nameAdsorbent, qmaxIdealAdsorbent} from "../../common/FormatUtils";
 import {appColors} from "../../common/styles";
 import Grid from "@material-ui/core/Grid";
 import {AccordionDetailsStyles} from "./Styles";
+import {Chip} from "@material-ui/core";
+import {useScreenWidth} from "../../customHooks/useScreenWidth";
 
 export function IdealAdsorbentAccordion({
   adsorbent,
@@ -19,6 +20,7 @@ export function IdealAdsorbentAccordion({
   processes,
   index,
 }) {
+  const smallScreen = useScreenWidth(560);
   return (
     <Accordion key={index}>
       <AccordionSummary
@@ -49,11 +51,18 @@ export function IdealAdsorbentAccordion({
             />
           </Grid>
           <Grid item xs>
-            <BooleanChip
-              value={removeAllAdsorbates}
-              text={"Remueve todos los adsorbatos"}
-              backgroundColor={appColors.idealAdsorbentRemoveAllChip}
-            />
+            {removeAllAdsorbates && (
+              <Chip
+                style={{
+                  fontSize: 15,
+                  margin: "2px",
+                  backgroundColor: appColors.idealAdsorbentRemoveAllChip,
+                  whiteSpace: "no-wrap",
+                  width: smallScreen && "300px",
+                }}
+                label={"Remueve todos los adsorbatos"}
+              />
+            )}
           </Grid>
         </Grid>
       </AccordionSummary>
