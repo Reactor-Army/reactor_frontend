@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {fetchAdsorbate} from "../../redux/adsorbateSlice";
+import {AdsorbateDetail} from "../../components/Detail/AdsorbateDetail";
 
 export const AdsorbateDetailContainer = ({adsorbateId}) => {
   const dispatch = useDispatch();
@@ -13,5 +14,5 @@ export const AdsorbateDetailContainer = ({adsorbateId}) => {
   if (adsorbate === null) {
     return <CircularProgress />;
   }
-  return <p>{JSON.stringify(adsorbate)}</p>;
+  return <AdsorbateDetail adsorbate={adsorbate} />;
 };
