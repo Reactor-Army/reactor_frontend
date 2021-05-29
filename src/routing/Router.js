@@ -7,6 +7,7 @@ import {ProcessesRoute} from "./routes/ProcessesRoute";
 import {PrivateRoute} from "./PrivateRoute";
 import {IdealAdsorbentRoute} from "./routes/IdealAdsorbentRoute";
 import {ProcessDetailRoute} from "./routes/ProcessDetailRoute";
+import {URLS} from "./urls";
 
 export const Router = () => {
   return (
@@ -14,34 +15,34 @@ export const Router = () => {
       <PrivateRoute
         authed={0}
         exact
-        path={"/adsorbatos"}
+        path={URLS.ADSORBATES_LIST}
         component={AdsorbatesRoute}
       />
       <PrivateRoute
         authed={0}
         exact
-        path={"/adsorbentes"}
+        path={URLS.ADSORBENTS_LIST}
         component={AdsorbentsRoute}
       />
       <PrivateRoute
         authed={0}
         exact
-        path={"/procesos"}
+        path={URLS.PROCESSES_LIST}
         component={ProcessesRoute}
       />
       <PrivateRoute
         authed={0}
         exact
-        path={"/procesos/:id"}
+        path={URLS.PROCESS_DETAIL}
         component={ProcessDetailRoute}
       />
       <PrivateRoute
         authed={0}
         exact
-        path={"/adsorbente/ideal"}
+        path={URLS.BEST_ADSORBENT}
         component={IdealAdsorbentRoute}
       />
-      <PrivateRoute authed={0} exact path={"/"} component={HomeRoute} />
+      <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
     </Switch>
   );
 };

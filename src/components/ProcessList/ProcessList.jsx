@@ -7,11 +7,12 @@ import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {useHistory} from "react-router-dom";
+import {processDetailUrlFor} from "../../routing/urls";
 
 export function ProcessList({loading, processes}) {
   const history = useHistory();
   const browseToProcessDetail = (processId) => {
-    history.push(`/procesos/${processId}/`);
+    history.push(processDetailUrlFor(processId));
   };
 
   if (loading || !processes) {

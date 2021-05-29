@@ -1,26 +1,28 @@
 // Routes shown on the Sidebar, with display name and path
+import {URLS} from "../../routing/urls";
+
 export const routes = [
   {
-    path: "/",
+    path: URLS.HOME,
     text: "Inicio",
   },
 
   {
-    path: "/adsorbatos",
+    path: URLS.ADSORBATES_LIST,
     text: "Adsorbatos",
   },
 
   {
-    path: "/adsorbentes",
+    path: URLS.ADSORBENTS_LIST,
     text: "Adsorbentes",
   },
 
   {
-    path: "/procesos",
+    path: URLS.PROCESSES_LIST,
     text: "Procesos",
   },
   {
-    path: "/adsorbente/ideal",
+    path: URLS.BEST_ADSORBENT,
     text: "Buscar adsorbente",
   },
 ];
