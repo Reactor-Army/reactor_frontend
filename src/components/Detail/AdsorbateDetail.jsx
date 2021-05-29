@@ -4,6 +4,7 @@ import {SectionHeader} from "./SectionHeader";
 import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
+import {spillLimit} from "../../common/formatting/spillLimit";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   return (
@@ -15,7 +16,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
       <Label label={"Radio iónico"} value={`${adsorbate.radioIonico} Å`} />
       <Label
         label={"Límite de vertido (Ley 24051)"}
-        value={`${adsorbate.limiteVertido} L`}
+        value={spillLimit(adsorbate.limiteVertido)}
       />
       <SectionHeader>Fórmula</SectionHeader>
       <FormulaLabel
