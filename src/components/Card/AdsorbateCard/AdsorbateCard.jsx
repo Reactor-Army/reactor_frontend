@@ -12,6 +12,7 @@ import {
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
+import {URLS} from "../../../routing/urls";
 export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
@@ -25,7 +26,7 @@ export const AdsorbateCard = ({
 }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`/procesos/?adsorbato=${id}`);
+    history.push(`${URLS.PROCESSES_LIST}/?adsorbato=${id}`);
   };
   return (
     <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
@@ -50,7 +51,7 @@ export const AdsorbateCard = ({
           <DataLabel>Radio iónico:</DataLabel> {ionRadius} Å
         </FooterItem>
         <FooterItem>
-          <DataLabel>Limite de vertido:</DataLabel> {dischargeLimit}
+          <DataLabel>Límite de vertido:</DataLabel> {dischargeLimit}
         </FooterItem>
       </CardFooter>
     </Card>

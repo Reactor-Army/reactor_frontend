@@ -12,6 +12,7 @@ import {
 import {useHistory} from "react-router-dom";
 import {SBetValue} from "./SBetValue";
 import {VBetValue} from "./VBetValue";
+import {URLS} from "../../../routing/urls";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -25,7 +26,7 @@ export const AdsorbentCard = ({
 }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`/procesos/?adsorbente=${id}`);
+    history.push(`${URLS.PROCESSES_LIST}/?adsorbente=${id}`);
   };
   return (
     <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>

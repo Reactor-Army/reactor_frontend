@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {appColors, appFontFamily} from "../../common/styles";
+import {URLS} from "../../routing/urls";
 
 export function HomepageWallText() {
   return (
@@ -23,20 +24,20 @@ export function HomepageWallText() {
         <br />
         <b>Funcionalidades actuales:</b>
         <br />
-        <a href="/adsorbatos" style={{color: appColors.primary}}>
-          -Listado de Adsorbatos
+        <a href={URLS.ADSORBATES_LIST} style={{color: appColors.primary}}>
+          - Listado de Adsorbatos
         </a>
         <br />
-        <a href="/adsorbentes" style={{color: appColors.primary}}>
-          -Listado de Adsorbentes
+        <a href={URLS.ADSORBENTS_LIST} style={{color: appColors.primary}}>
+          - Listado de Adsorbentes
         </a>
         <br />
-        <a href="/procesos" style={{color: appColors.primary}}>
-          -Listado de Procesos
+        <a href={URLS.PROCESSES_LIST} style={{color: appColors.primary}}>
+          - Listado de Procesos
         </a>
         <br />
-        <a href="/adsorbente/ideal" style={{color: appColors.primary}}>
-          -Busqueda de adsorbente ideal
+        <a href={URLS.BEST_ADSORBENT} style={{color: appColors.primary}}>
+          - Búsqueda del mejor adsorbente
         </a>
         <br />
         <br />
