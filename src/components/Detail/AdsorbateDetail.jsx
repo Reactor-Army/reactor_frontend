@@ -20,7 +20,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
       <SectionHeader>Fórmula</SectionHeader>
       <FormulaLabel
         formula={adsorbate.formula}
-        ionChargeFormula={adsorbate.ionChargeFormula}
+        ionChargeFormula={adsorbate.cargaIonFormula}
       />
     </>
   );
