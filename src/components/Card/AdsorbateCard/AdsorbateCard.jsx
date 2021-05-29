@@ -1,6 +1,5 @@
 import React from "react";
 import {Card} from "../Card";
-import {Grid} from "@material-ui/core";
 import {
   CardHeader,
   HeaderText,
@@ -9,6 +8,7 @@ import {
   CardFooter,
   FooterItem,
   DataLabel,
+  Section,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
@@ -34,7 +34,7 @@ export const AdsorbateCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <Grid container direction="row">
+        <Section displayAsRow={true}>
           <BodyText>
             <FormulaLabel
               formula={formula}
@@ -44,7 +44,7 @@ export const AdsorbateCard = ({
           <BodyText>
             <DataLabel>Carga del ion:</DataLabel> {ionCharge}
           </BodyText>
-        </Grid>
+        </Section>
       </CardBody>
       <CardFooter>
         <FooterItem>

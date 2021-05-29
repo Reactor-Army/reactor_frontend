@@ -10,7 +10,7 @@ import {
   FooterItem,
   DataLabel,
 } from "../CommonCardStyles";
-import {ProcessCardContainer, BodyText} from "./Styles";
+import {BodyText} from "./Styles";
 import {Card} from "../Card";
 
 export const ProcessCard = ({
@@ -28,10 +28,7 @@ export const ProcessCard = ({
   browseToProcessDetail,
 }) => {
   return (
-    <Card
-      backgroundColor={bodyBackgroundColor}
-      container={ProcessCardContainer}
-      onClick={browseToProcessDetail}>
+    <Card backgroundColor={bodyBackgroundColor} onClick={browseToProcessDetail}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <NameChip
           name={adsorbateName}

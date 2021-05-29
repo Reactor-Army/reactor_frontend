@@ -8,13 +8,18 @@ export const CardHeader = styled.div`
   font-size: 24px;
   font-family: ${appFontFamily.card};
   padding-bottom: 4px;
+  margin-bottom: 10px;
   background-color: ${(props) =>
     props.theme.backgroundColor || appColors.white};
 `;
 
+export const Section = styled.div`
+  display: flex;
+  flex-direction: ${(props) => (props.displayAsRow ? "row" : "column")};
+`;
+
 export const CardBody = styled.div`
-  height: 45%;
-  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 export const CardFooter = styled.div`
