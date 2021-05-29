@@ -11,3 +11,7 @@ export const URLS = {
 export const processDetailUrlFor = (processId) => {
   return URLS.PROCESS_DETAIL.replace(":id", processId);
 };
+
+export const adsorbateDetailUrlFor = (adsorbateId) => {
+  return URLS.ADSORBATE_DETAIL.replace(":id", adsorbateId);
+};

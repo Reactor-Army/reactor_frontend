@@ -12,7 +12,7 @@ import {
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
-import {URLS} from "../../../routing/urls";
+import {adsorbateDetailUrlFor, URLS} from "../../../routing/urls";
 import {Link} from "../../../common/styles";
 export const AdsorbateCard = ({
   headerBackgroundColor,
@@ -26,11 +26,14 @@ export const AdsorbateCard = ({
   id,
 }) => {
   const history = useHistory();
-  const onClick = () => {
+  const onProcessClick = () => {
     history.push(`${URLS.PROCESSES_LIST}/?adsorbato=${id}`);
   };
+  const onClick = () => {
+    history.push(adsorbateDetailUrlFor(id));
+  };
   return (
-    <Card backgroundColor={bodyBackgroundColor}>
+    <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <HeaderText>{header}</HeaderText>
       </CardHeader>
@@ -56,7 +59,7 @@ export const AdsorbateCard = ({
         </FooterItem>
       </CardFooter>
       <BodyText>
-        <Link onClick={onClick}>Ver procesos</Link>
+        <Link onClick={onProcessClick}>Ver procesos</Link>
       </BodyText>
     </Card>
   );
