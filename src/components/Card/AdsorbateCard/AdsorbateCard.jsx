@@ -13,6 +13,7 @@ import {
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
 import {URLS} from "../../../routing/urls";
+import {Link} from "../../../common/styles";
 export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
@@ -29,7 +30,7 @@ export const AdsorbateCard = ({
     history.push(`${URLS.PROCESSES_LIST}/?adsorbato=${id}`);
   };
   return (
-    <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
+    <Card backgroundColor={bodyBackgroundColor}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <HeaderText>{header}</HeaderText>
       </CardHeader>
@@ -54,6 +55,9 @@ export const AdsorbateCard = ({
           <DataLabel>Límite de vertido:</DataLabel> {dischargeLimit}
         </FooterItem>
       </CardFooter>
+      <BodyText>
+        <Link onClick={onClick}>Ver procesos</Link>
+      </BodyText>
     </Card>
   );
 };
