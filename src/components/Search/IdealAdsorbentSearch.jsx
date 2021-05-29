@@ -55,7 +55,7 @@ export function IdealAdsorbentSearch() {
           onClick={onSearchSubmit}
           variant="contained"
           color="primary">
-          Buscar adsorbente ideal
+          Buscar el mejor adsorbente
         </Button>
       </FlexContainer>
     </>

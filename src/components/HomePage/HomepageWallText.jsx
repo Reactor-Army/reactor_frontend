@@ -24,19 +24,19 @@ export function HomepageWallText() {
         <b>Funcionalidades actuales:</b>
         <br />
         <a href="/adsorbatos" style={{color: appColors.primary}}>
-          -Listado de Adsorbatos
+          - Listado de Adsorbatos
         </a>
         <br />
         <a href="/adsorbentes" style={{color: appColors.primary}}>
-          -Listado de Adsorbentes
+          - Listado de Adsorbentes
         </a>
         <br />
         <a href="/procesos" style={{color: appColors.primary}}>
-          -Listado de Procesos
+          - Listado de Procesos
         </a>
         <br />
         <a href="/adsorbente/ideal" style={{color: appColors.primary}}>
-          -Busqueda de adsorbente ideal
+          - Búsqueda del mejor adsorbente
         </a>
         <br />
         <br />

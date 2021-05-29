@@ -50,7 +50,7 @@ export const useStyles = makeStyles({
     border: 0,
     color: "white",
     height: 48,
-    padding: "0 30px",
+    padding: "0 15px",
     boxShadow: "0 3px 5px 2px var(--box-shadow)",
     marginTop: "10px",
   },
