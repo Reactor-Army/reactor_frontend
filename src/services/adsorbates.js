@@ -27,3 +27,9 @@ export const getAdsorbatesWithIupacNotation = async (name) => {
     })
   ).data;
 };
+
+export const getAdsorbate = async (adsorbateId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/${adsorbateId}`;
+  const client = new HttpClient(null);
+  return (await client.get(endpoint)).data;
+};

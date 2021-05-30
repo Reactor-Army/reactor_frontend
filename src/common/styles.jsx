@@ -34,3 +34,11 @@ export const Row = styled.div`
   font-family: ${appFontFamily.card};
   font-size: 40px;
 `;
+
+export const Link = styled.a`
+  color: ${appColors.primary};
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+`;

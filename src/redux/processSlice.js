@@ -17,7 +17,6 @@ const processesSlice = createSlice({
     },
     [fetchProcess.fulfilled]: (state, action) => {
       state.loading = false;
-      console.log(action);
       state.process = action.payload;
     },
     [fetchProcess.rejected]: (state) => {
