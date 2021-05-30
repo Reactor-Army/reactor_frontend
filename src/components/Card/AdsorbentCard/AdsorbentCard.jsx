@@ -12,7 +12,8 @@ import {
 import {useHistory} from "react-router-dom";
 import {SBetValue} from "./SBetValue";
 import {VBetValue} from "./VBetValue";
-import {URLS} from "../../../routing/urls";
+import {adsorbentDetailUrlFor, URLS} from "../../../routing/urls";
+import {Link} from "../../../common/styles";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -25,8 +26,12 @@ export const AdsorbentCard = ({
   id,
 }) => {
   const history = useHistory();
-  const onClick = () => {
+  const onProcessClick = (event) => {
+    event.stopPropagation();
     history.push(`${URLS.PROCESSES_LIST}/?adsorbente=${id}`);
+  };
+  const onClick = () => {
+    history.push(adsorbentDetailUrlFor(id));
   };
   return (
     <Card backgroundColor={bodyBackgroundColor} onClick={onClick}>
@@ -45,6 +50,9 @@ export const AdsorbentCard = ({
           <DataLabel>pH(carga cero):</DataLabel> {ph}
         </FooterItem>
       </CardFooter>
+      <BodyText>
+        <Link onClick={onProcessClick}>Ver procesos</Link>
+      </BodyText>
     </Card>
   );
 };
