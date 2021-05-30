@@ -4,6 +4,7 @@ import adsorbentReducer from "./adsorbentsSlice";
 import processesReducer from "./processesSlice";
 import processReducer from "./processSlice";
 import idealAdsorbentsReducer from "./idealAdsorbentsSlice";
+import adsorbateDetailReducer from "./adsorbateSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     processes: processesReducer,
     idealAdsorbents: idealAdsorbentsReducer,
     process: processReducer,
+    adsorbate: adsorbateDetailReducer,
   },
 });
