@@ -1,5 +1,5 @@
 import React from "react";
-import {DataLabel} from "../CommonCardStyles";
+import {FieldLabel} from "../CommonCardStyles";
 
 import {FormulaComponent} from "./FormulaComponent";
 import {FormulaContainer, SupIndex} from "./Styles";
@@ -7,13 +7,13 @@ import {FormulaContainer, SupIndex} from "./Styles";
 export const FormulaLabel = ({formula, ionChargeFormula}) => {
   let components = Array.from(formula);
   return (
-    <DataLabel>
+    <FieldLabel>
       <FormulaContainer>
         {components.map((value) => {
           return <FormulaComponent component={value} key={value} />;
         })}
         <SupIndex>{ionChargeFormula}</SupIndex>
       </FormulaContainer>
-    </DataLabel>
+    </FieldLabel>
   );
 };

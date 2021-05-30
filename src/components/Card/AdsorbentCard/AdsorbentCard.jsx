@@ -7,7 +7,8 @@ import {
   CardBody,
   CardFooter,
   FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {SBetValue} from "./SBetValue";
@@ -35,14 +36,15 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <BodyText>
-          <DataLabel>Tamaño de partícula:</DataLabel> {particleSize}
+          <FieldLabel>Tamaño de partícula: </FieldLabel>{" "}
+          <FieldValue>{particleSize}</FieldValue>
         </BodyText>
       </CardBody>
       <CardFooter>
         <SBetValue sBet={sBet} />
         <VBetValue vBet={vBet} />
         <FooterItem>
-          <DataLabel>pH(carga cero):</DataLabel> {ph}
+          <FieldLabel>pH(carga cero):</FieldLabel> {ph}
         </FooterItem>
       </CardFooter>
     </Card>

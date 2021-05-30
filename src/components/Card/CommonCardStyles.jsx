@@ -23,9 +23,25 @@ export const CardBody = styled.div`
 `;
 
 export const CardFooter = styled.div`
-  display: flex;
-  height: 30%;
-  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+  padding: 0px 0px 10px 15px;
+  @media (max-width: 1370px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 410px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const HeaderText = styled.div`
@@ -49,11 +65,23 @@ export const FooterItem = styled.div`
 `;
 
 export const BodyText = styled.div`
+  display: flex;
   margin-left: 15px;
   font-size: 18px;
   font-family: ${appFontFamily.card};
+  @media (max-width: 350px) {
+    flex-direction: column;
+  }
 `;
 
-export const DataLabel = styled.strong`
-  font-size: 15px;
+export const FieldLabel = styled.strong`
+  font-size: 18px;
+`;
+
+export const FieldValue = styled.div`
+  font-size: 18px;
+  padding-left: 8px;
+  @media (max-width: 350px) {
+    padding: 0;
+  }
 `;

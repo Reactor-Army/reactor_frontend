@@ -7,7 +7,8 @@ import {
   CardBody,
   CardFooter,
   FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
   Section,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
@@ -47,16 +48,17 @@ export const AdsorbateCard = ({
             />
           </BodyText>
           <BodyText>
-            <DataLabel>Carga del ion:</DataLabel> {ionCharge}
+            <FieldLabel>Carga del ion:</FieldLabel>{" "}
+            <FieldValue>{ionCharge}</FieldValue>
           </BodyText>
         </Section>
       </CardBody>
       <CardFooter>
         <FooterItem>
-          <DataLabel>Radio iónico:</DataLabel> {ionRadius} Å
+          <FieldLabel>Radio iónico:</FieldLabel> {ionRadius} Å
         </FooterItem>
         <FooterItem>
-          <DataLabel>Límite de vertido:</DataLabel> {dischargeLimit}
+          <FieldLabel>Límite de vertido:</FieldLabel> {dischargeLimit}
         </FooterItem>
       </CardFooter>
       <BodyText>

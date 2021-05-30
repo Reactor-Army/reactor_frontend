@@ -8,7 +8,8 @@ import {
   CardBody,
   CardFooter,
   FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
 } from "../CommonCardStyles";
 import {BodyText} from "./Styles";
 import {Card} from "../Card";
@@ -42,19 +43,22 @@ export const ProcessCard = ({
       <CardBody>
         <Grid container direction="row">
           <BodyText>
-            <DataLabel>QMax:</DataLabel> {qMax} mmol/g
+            <FieldLabel>QMax:</FieldLabel>{" "}
+            <FieldValue>{qMax} mmol/g</FieldValue>
           </BodyText>
           <BodyText>
-            <DataLabel>Tiempo de equilibrio:</DataLabel> {equilibriumTime}{" "}
-            minutos
+            <FieldLabel>Tiempo de equilibrio:</FieldLabel>{" "}
+            <FieldValue>{equilibriumTime} minutos</FieldValue>
           </BodyText>
         </Grid>
         <Grid container direction="row">
           <BodyText>
-            <DataLabel>Temperatura:</DataLabel> {temperature} °C
+            <FieldLabel>Temperatura:</FieldLabel>{" "}
+            <FieldValue>{temperature} °C</FieldValue>
           </BodyText>
           <BodyText>
-            <DataLabel>pH inicial:</DataLabel> {initialPH}
+            <FieldLabel>pH inicial:</FieldLabel>{" "}
+            <FieldValue>{initialPH}</FieldValue>
           </BodyText>
         </Grid>
       </CardBody>
