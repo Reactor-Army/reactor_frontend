@@ -26,7 +26,8 @@ export const AdsorbateCard = ({
   id,
 }) => {
   const history = useHistory();
-  const onProcessClick = () => {
+  const onProcessClick = (event) => {
+    event.stopPropagation();
     history.push(`${URLS.PROCESSES_LIST}/?adsorbato=${id}`);
   };
   const onClick = () => {
