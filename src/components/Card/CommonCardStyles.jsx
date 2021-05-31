@@ -82,6 +82,7 @@ export const BodyText = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  padding-bottom: 10px;
 `;
 
 export const FieldLabel = styled.strong`
