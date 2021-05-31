@@ -1,4 +1,3 @@
-import {Grid} from "@material-ui/core";
 import React from "react";
 import {appColors} from "../../../common/styles";
 import {BooleanChip} from "../../Chip/BooleanChip/BooleanChip";
@@ -10,9 +9,11 @@ import {
   FooterItem,
   FieldLabel,
   FieldValue,
+  Section,
+  BodyText,
 } from "../CommonCardStyles";
-import {BodyText} from "./Styles";
 import {Card} from "../Card";
+//import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -41,7 +42,7 @@ export const ProcessCard = ({
         />
       </CardHeader>
       <CardBody>
-        <Grid container direction="row">
+        <Section>
           <BodyText>
             <FieldLabel>QMax:</FieldLabel>{" "}
             <FieldValue>{qMax} mmol/g</FieldValue>
@@ -50,8 +51,8 @@ export const ProcessCard = ({
             <FieldLabel>Tiempo de equilibrio:</FieldLabel>{" "}
             <FieldValue>{equilibriumTime} minutos</FieldValue>
           </BodyText>
-        </Grid>
-        <Grid container direction="row">
+        </Section>
+        <Section>
           <BodyText>
             <FieldLabel>Temperatura:</FieldLabel>{" "}
             <FieldValue>{temperature} °C</FieldValue>
@@ -60,7 +61,7 @@ export const ProcessCard = ({
             <FieldLabel>pH inicial:</FieldLabel>{" "}
             <FieldValue>{initialPH}</FieldValue>
           </BodyText>
-        </Grid>
+        </Section>
       </CardBody>
       <CardFooter>
         <FooterItem>

@@ -15,7 +15,14 @@ export const CardHeader = styled.div`
 
 export const Section = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.displayAsRow ? "row" : "column")};
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 350px) {
+    flex-direction: column;
+  }
 `;
 
 export const CardBody = styled.div`
@@ -72,6 +79,9 @@ export const BodyText = styled.div`
   @media (max-width: 350px) {
     flex-direction: column;
   }
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const FieldLabel = styled.strong`
@@ -84,4 +94,7 @@ export const FieldValue = styled.div`
   @media (max-width: 350px) {
     padding: 0;
   }
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;

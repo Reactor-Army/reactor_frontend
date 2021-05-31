@@ -40,7 +40,7 @@ export const AdsorbateCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <Section displayAsRow={true}>
+        <Section>
           <BodyText>
             <FormulaLabel
               formula={formula}

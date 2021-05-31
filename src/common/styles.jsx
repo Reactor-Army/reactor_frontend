@@ -41,4 +41,5 @@ export const Link = styled.a`
   &:hover {
     cursor: pointer;
   }
+  padding-bottom: 10px;
 `;
