@@ -26,3 +26,9 @@ export const getAdsorbentsWithParticleSize = async (name) => {
     })
   ).data;
 };
+
+export const getAdsorbent = async (adsorbentId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbente/${adsorbentId}`;
+  const client = new HttpClient(null);
+  return (await client.get(endpoint)).data;
+};
