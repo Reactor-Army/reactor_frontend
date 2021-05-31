@@ -2,7 +2,7 @@ import React from "react";
 import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {AdsorbateCardContainer} from "../Card/AdsorbateCard/AdsorbateCardContainer";
+import {AdsorbateCardContainer} from "../../Card/AdsorbateCard/AdsorbateCardContainer";
 
 export function AdsorbateList({adsorbates, loading}) {
   if (!adsorbates || loading) {
