@@ -5,7 +5,6 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.bodyBackground || appColors.white};
-  min-height: 130px;
   box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
   overflow: hidden;
   border-radius: 4px;
