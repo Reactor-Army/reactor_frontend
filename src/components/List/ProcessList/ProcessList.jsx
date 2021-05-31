@@ -1,13 +1,13 @@
 import React from "react";
-import {capitalize} from "../../common/FormatUtils";
 
-import {ProcessCard} from "../Card/ProcessCard/ProcessCard";
-import {appColors} from "../../common/styles";
-import {ListContainer} from "./Styles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {useHistory} from "react-router-dom";
-import {processDetailUrlFor} from "../../routing/urls";
+import {capitalize} from "../../../common/FormatUtils";
+import {processDetailUrlFor} from "../../../routing/urls";
+import {appColors} from "../../../common/styles";
+import {ProcessCard} from "../../Card/ProcessCard/ProcessCard";
+import {ListContainer} from "../AdsorbentList/Styles";
 
 export function ProcessList({loading, processes}) {
   const history = useHistory();
