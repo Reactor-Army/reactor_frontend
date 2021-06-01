@@ -14,30 +14,15 @@ export const CardHeader = styled.div`
 `;
 
 export const Section = styled.div`
-  display: flex;
-
-  @media (max-width: 550px) {
-    flex-direction: column;
-  }
-
-  @media (max-width: 350px) {
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-row-gap: 5px;
 `;
 
 export const ChipSection = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 3fr));
   grid-row-gap: 5px;
-
-  @media (max-width: 1250px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 1120px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 `;
 
 export const CardBody = styled.div`

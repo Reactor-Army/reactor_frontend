@@ -47,10 +47,11 @@ export const AdsorbentCard = ({
         <Section>
           <SBetValue sBet={sBet} />
           <VBetValue vBet={vBet} />
+          <BodyText>
+            <FieldLabel>pH(carga cero):</FieldLabel>{" "}
+            <FieldValue>{ph}</FieldValue>
+          </BodyText>
         </Section>
-        <BodyText>
-          <FieldLabel>pH(carga cero):</FieldLabel> <FieldValue>{ph}</FieldValue>
-        </BodyText>
       </CardBody>
       <BodyText>
         <Link onClick={onProcessClick}>Ver procesos</Link>
