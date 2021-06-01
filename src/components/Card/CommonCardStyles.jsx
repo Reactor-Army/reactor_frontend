@@ -25,30 +25,23 @@ export const Section = styled.div`
   }
 `;
 
-export const CardBody = styled.div`
-  margin-bottom: 15px;
-`;
-
-export const CardFooter = styled.div`
+export const ChipSection = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 10px;
-  padding: 0px 0px 10px 15px;
-  @media (max-width: 1370px) {
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+
+  @media (max-width: 1250px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1120px) {
     grid-template-columns: repeat(3, 1fr);
   }
+`;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 410px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+export const CardBody = styled.div`
+  margin-bottom: 15px;
 `;
 
 export const HeaderText = styled.div`
@@ -61,14 +54,6 @@ export const HeaderText = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 4px;
-`;
-
-export const FooterItem = styled.div`
-  font-size: 18px;
-  padding-right: 15px;
-  font-family: ${appFontFamily.card};
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 export const BodyText = styled.div`

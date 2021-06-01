@@ -5,15 +5,13 @@ import {NameChip} from "../../Chip/NameChip/NameChip";
 import {
   CardHeader,
   CardBody,
-  CardFooter,
-  FooterItem,
   FieldLabel,
   FieldValue,
   Section,
+  ChipSection,
   BodyText,
 } from "../CommonCardStyles";
 import {Card} from "../Card";
-//import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -62,18 +60,16 @@ export const ProcessCard = ({
             <FieldValue>{initialPH}</FieldValue>
           </BodyText>
         </Section>
-      </CardBody>
-      <CardFooter>
-        <FooterItem>
+
+        <ChipSection>
           <BooleanChip value={complexation} text={"Complejación"} />
-        </FooterItem>
-        <FooterItem>
           <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-        </FooterItem>
-        <FooterItem>
+          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
+          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
+
           <BooleanChip value={chemicalReaction} text={"Reacción química"} />
-        </FooterItem>
-      </CardFooter>
+        </ChipSection>
+      </CardBody>
     </Card>
   );
 };

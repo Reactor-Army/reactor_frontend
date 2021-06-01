@@ -5,8 +5,6 @@ import {
   HeaderText,
   BodyText,
   CardBody,
-  CardFooter,
-  FooterItem,
   FieldLabel,
   FieldValue,
   Section,
@@ -52,18 +50,22 @@ export const AdsorbateCard = ({
             <FieldValue>{ionCharge}</FieldValue>
           </BodyText>
         </Section>
+
+        <Section>
+          <BodyText>
+            <FieldLabel>Radio iónico:</FieldLabel>{" "}
+            <FieldValue>{ionRadius} Å</FieldValue>
+          </BodyText>
+          <BodyText>
+            <FieldLabel>Límite de vertido:</FieldLabel>{" "}
+            <FieldValue>{dischargeLimit}</FieldValue>
+          </BodyText>
+        </Section>
+
+        <BodyText>
+          <Link onClick={onProcessClick}>Ver procesos</Link>
+        </BodyText>
       </CardBody>
-      <CardFooter>
-        <FooterItem>
-          <FieldLabel>Radio iónico:</FieldLabel> {ionRadius} Å
-        </FooterItem>
-        <FooterItem>
-          <FieldLabel>Límite de vertido:</FieldLabel> {dischargeLimit}
-        </FooterItem>
-      </CardFooter>
-      <BodyText>
-        <Link onClick={onProcessClick}>Ver procesos</Link>
-      </BodyText>
     </Card>
   );
 };
