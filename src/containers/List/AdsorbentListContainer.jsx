@@ -1,10 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
-import {AdsorbentList} from "../../components/AdsorbentList/AdsorbentList";
 import {PageTitle} from "../../common/PageTitle";
 import {appFontFamily} from "../../common/styles";
 import {AdsorbentSearchContainer} from "./Search/AdsorbentSearchContainer";
+import {AdsorbentList} from "../../components/List/AdsorbentList/AdsorbentList";
 
 export function AdsorbentListContainer() {
   const {adsorbents, loading} = useSelector((state) => state.adsorbents);
