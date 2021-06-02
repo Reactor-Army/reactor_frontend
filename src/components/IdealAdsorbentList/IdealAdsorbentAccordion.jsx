@@ -26,6 +26,7 @@ export function IdealAdsorbentAccordion({
       <AccordionSummary
         style={{
           backgroundColor: appColors.idealAdsorbentAccordionHeader,
+          minWidth: "360px",
         }}
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
