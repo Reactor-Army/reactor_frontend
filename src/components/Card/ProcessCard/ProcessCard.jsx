@@ -64,9 +64,6 @@ export const ProcessCard = ({
         <ChipSection>
           <BooleanChip value={complexation} text={"Complejación"} />
           <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-
           <BooleanChip value={chemicalReaction} text={"Reacción química"} />
         </ChipSection>
       </CardBody>

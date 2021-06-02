@@ -1,6 +1,5 @@
 import {Chip} from "@material-ui/core";
 import React from "react";
-//import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 
 export const NameChip = ({
   name,
