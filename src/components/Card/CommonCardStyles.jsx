@@ -3,7 +3,6 @@ import {appColors, appFontFamily} from "../../common/styles";
 
 export const CardHeader = styled.div`
   display: flex;
-  height: 25%;
   box-shadow: 0px 0px 5px #9ea3a1;
   font-size: 24px;
   font-family: ${appFontFamily.card};
@@ -16,6 +15,12 @@ export const CardHeader = styled.div`
 export const Section = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-row-gap: 5px;
+`;
+
+export const ProcessSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 5px;
 `;
 

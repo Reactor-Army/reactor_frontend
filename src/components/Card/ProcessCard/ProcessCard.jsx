@@ -7,7 +7,7 @@ import {
   CardBody,
   FieldLabel,
   FieldValue,
-  Section,
+  ProcessSection,
   ChipSection,
   BodyText,
 } from "../CommonCardStyles";
@@ -40,26 +40,26 @@ export const ProcessCard = ({
         />
       </CardHeader>
       <CardBody>
-        <Section>
+        <ProcessSection>
           <BodyText>
-            <FieldLabel>QMax:</FieldLabel>{" "}
+            <FieldLabel>QMax:</FieldLabel>
             <FieldValue>{qMax} mmol/g</FieldValue>
           </BodyText>
           <BodyText>
-            <FieldLabel>Tiempo de equilibrio:</FieldLabel>{" "}
+            <FieldLabel>Tiempo de equilibrio:</FieldLabel>
             <FieldValue>{equilibriumTime} minutos</FieldValue>
           </BodyText>
-        </Section>
-        <Section>
+        </ProcessSection>
+        <ProcessSection>
           <BodyText>
-            <FieldLabel>Temperatura:</FieldLabel>{" "}
+            <FieldLabel>Temperatura:</FieldLabel>
             <FieldValue>{temperature} °C</FieldValue>
           </BodyText>
           <BodyText>
-            <FieldLabel>pH inicial:</FieldLabel>{" "}
+            <FieldLabel>pH inicial:</FieldLabel>
             <FieldValue>{initialPH}</FieldValue>
           </BodyText>
-        </Section>
+        </ProcessSection>
 
         <ChipSection>
           <BooleanChip value={complexation} text={"Complejación"} />
