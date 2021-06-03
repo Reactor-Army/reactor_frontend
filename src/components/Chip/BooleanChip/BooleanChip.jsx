@@ -16,6 +16,9 @@ export const BooleanChip = ({
           margin: margin,
           backgroundColor: backgroundColor,
           whiteSpace: "no-wrap",
+          maxWidth: 170,
+          textOverflow: "ellipsis",
+          overflow: "hidden",
         }}
         label={text}
       />

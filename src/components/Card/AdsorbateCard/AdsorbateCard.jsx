@@ -1,14 +1,13 @@
 import React from "react";
 import {Card} from "../Card";
-import {Grid} from "@material-ui/core";
 import {
   CardHeader,
   HeaderText,
   BodyText,
   CardBody,
-  CardFooter,
-  FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
+  Section,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
@@ -39,7 +38,7 @@ export const AdsorbateCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <Grid container direction="row">
+        <Section>
           <BodyText>
             <FormulaLabel
               formula={formula}
@@ -47,21 +46,26 @@ export const AdsorbateCard = ({
             />
           </BodyText>
           <BodyText>
-            <DataLabel>Carga del ion:</DataLabel> {ionCharge}
+            <FieldLabel>Carga del ion:</FieldLabel>{" "}
+            <FieldValue>{ionCharge}</FieldValue>
           </BodyText>
-        </Grid>
+        </Section>
+
+        <Section>
+          <BodyText>
+            <FieldLabel>Radio iónico:</FieldLabel>{" "}
+            <FieldValue>{ionRadius} Å</FieldValue>
+          </BodyText>
+          <BodyText>
+            <FieldLabel>Límite de vertido:</FieldLabel>{" "}
+            <FieldValue>{dischargeLimit}</FieldValue>
+          </BodyText>
+        </Section>
+
+        <BodyText>
+          <Link onClick={onProcessClick}>Ver procesos</Link>
+        </BodyText>
       </CardBody>
-      <CardFooter>
-        <FooterItem>
-          <DataLabel>Radio iónico:</DataLabel> {ionRadius} Å
-        </FooterItem>
-        <FooterItem>
-          <DataLabel>Límite de vertido:</DataLabel> {dischargeLimit}
-        </FooterItem>
-      </CardFooter>
-      <BodyText>
-        <Link onClick={onProcessClick}>Ver procesos</Link>
-      </BodyText>
     </Card>
   );
 };

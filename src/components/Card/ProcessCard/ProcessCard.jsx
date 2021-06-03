@@ -1,4 +1,3 @@
-import {Grid} from "@material-ui/core";
 import React from "react";
 import {appColors} from "../../../common/styles";
 import {BooleanChip} from "../../Chip/BooleanChip/BooleanChip";
@@ -6,11 +5,12 @@ import {NameChip} from "../../Chip/NameChip/NameChip";
 import {
   CardHeader,
   CardBody,
-  CardFooter,
-  FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
+  ProcessSection,
+  ChipSection,
+  BodyText,
 } from "../CommonCardStyles";
-import {ProcessCardContainer, BodyText} from "./Styles";
 import {Card} from "../Card";
 
 export const ProcessCard = ({
@@ -28,10 +28,7 @@ export const ProcessCard = ({
   browseToProcessDetail,
 }) => {
   return (
-    <Card
-      backgroundColor={bodyBackgroundColor}
-      container={ProcessCardContainer}
-      onClick={browseToProcessDetail}>
+    <Card backgroundColor={bodyBackgroundColor} onClick={browseToProcessDetail}>
       <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
         <NameChip
           name={adsorbateName}
@@ -43,35 +40,33 @@ export const ProcessCard = ({
         />
       </CardHeader>
       <CardBody>
-        <Grid container direction="row">
+        <ProcessSection>
           <BodyText>
-            <DataLabel>QMax:</DataLabel> {qMax} mmol/g
+            <FieldLabel>QMax:</FieldLabel>
+            <FieldValue>{qMax} mmol/g</FieldValue>
           </BodyText>
           <BodyText>
-            <DataLabel>Tiempo de equilibrio:</DataLabel> {equilibriumTime}{" "}
-            minutos
+            <FieldLabel>Tiempo de equilibrio:</FieldLabel>
+            <FieldValue>{equilibriumTime} minutos</FieldValue>
           </BodyText>
-        </Grid>
-        <Grid container direction="row">
+        </ProcessSection>
+        <ProcessSection>
           <BodyText>
-            <DataLabel>Temperatura:</DataLabel> {temperature} °C
+            <FieldLabel>Temperatura:</FieldLabel>
+            <FieldValue>{temperature} °C</FieldValue>
           </BodyText>
           <BodyText>
-            <DataLabel>pH inicial:</DataLabel> {initialPH}
+            <FieldLabel>pH inicial:</FieldLabel>
+            <FieldValue>{initialPH}</FieldValue>
           </BodyText>
-        </Grid>
-      </CardBody>
-      <CardFooter>
-        <FooterItem>
+        </ProcessSection>
+
+        <ChipSection>
           <BooleanChip value={complexation} text={"Complejación"} />
-        </FooterItem>
-        <FooterItem>
           <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-        </FooterItem>
-        <FooterItem>
           <BooleanChip value={chemicalReaction} text={"Reacción química"} />
-        </FooterItem>
-      </CardFooter>
+        </ChipSection>
+      </CardBody>
     </Card>
   );
 };

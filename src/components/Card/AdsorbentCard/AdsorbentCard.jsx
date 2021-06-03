@@ -5,9 +5,9 @@ import {
   HeaderText,
   BodyText,
   CardBody,
-  CardFooter,
-  FooterItem,
-  DataLabel,
+  FieldLabel,
+  FieldValue,
+  Section,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {SBetValue} from "./SBetValue";
@@ -40,16 +40,19 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <BodyText>
-          <DataLabel>Tamaño de partícula:</DataLabel> {particleSize}
+          <FieldLabel>Tamaño de partícula: </FieldLabel>{" "}
+          <FieldValue>{particleSize}</FieldValue>
         </BodyText>
+
+        <Section>
+          <SBetValue sBet={sBet} />
+          <VBetValue vBet={vBet} />
+          <BodyText>
+            <FieldLabel>pH(carga cero):</FieldLabel>{" "}
+            <FieldValue>{ph}</FieldValue>
+          </BodyText>
+        </Section>
       </CardBody>
-      <CardFooter>
-        <SBetValue sBet={sBet} />
-        <VBetValue vBet={vBet} />
-        <FooterItem>
-          <DataLabel>pH(carga cero):</DataLabel> {ph}
-        </FooterItem>
-      </CardFooter>
       <BodyText>
         <Link onClick={onProcessClick}>Ver procesos</Link>
       </BodyText>

@@ -70,7 +70,7 @@ export const getTextFieldStyles = (responsiveMode) => {
 };
 
 export const SearchBarContainerStyles = {
-  minWidth: "314px",
+  minWidth: "200px",
 };
 
 export const getAutoCompleteFieldStyles = (responsiveMode) => {

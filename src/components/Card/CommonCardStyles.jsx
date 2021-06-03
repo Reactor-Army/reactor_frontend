@@ -3,24 +3,35 @@ import {appColors, appFontFamily} from "../../common/styles";
 
 export const CardHeader = styled.div`
   display: flex;
-  height: 25%;
   box-shadow: 0px 0px 5px #9ea3a1;
   font-size: 24px;
   font-family: ${appFontFamily.card};
   padding-bottom: 4px;
+  margin-bottom: 10px;
   background-color: ${(props) =>
     props.theme.backgroundColor || appColors.white};
 `;
 
-export const CardBody = styled.div`
-  height: 45%;
-  margin-top: 15px;
+export const Section = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-row-gap: 5px;
 `;
 
-export const CardFooter = styled.div`
-  display: flex;
-  height: 30%;
-  margin-left: 15px;
+export const ProcessSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-row-gap: 5px;
+`;
+
+export const ChipSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 3fr));
+  grid-row-gap: 5px;
+`;
+
+export const CardBody = styled.div`
+  margin-bottom: 15px;
 `;
 
 export const HeaderText = styled.div`
@@ -35,37 +46,31 @@ export const HeaderText = styled.div`
   margin-top: 4px;
 `;
 
-export const FooterItem = styled.div`
-  font-size: 18px;
-  padding-right: 15px;
-  font-family: ${appFontFamily.card};
-  white-space: nowrap;
-  overflow: hidden;
-  @media (max-width: 696px) {
-    font-size: 12px;
-  }
-  @media (max-width: 520px) {
-    font-size: 9px;
-  }
-`;
-
 export const BodyText = styled.div`
+  display: flex;
   margin-left: 15px;
   font-size: 18px;
   font-family: ${appFontFamily.card};
-  @media (max-width: 660px) {
-    font-size: 14px;
+  @media (max-width: 350px) {
+    flex-direction: column;
   }
-  @media (max-width: 520px) {
-    font-size: 12px;
-  }
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 10px;
 `;
 
-export const DataLabel = styled.strong`
-  @media (max-width: 660px) {
-    font-size: 15px;
+export const FieldLabel = styled.strong`
+  font-size: 18px;
+`;
+
+export const FieldValue = styled.div`
+  font-size: 18px;
+  padding-left: 8px;
+  @media (max-width: 350px) {
+    padding: 0;
   }
-  @media (max-width: 520px) {
-    font-size: 13px;
-  }
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;

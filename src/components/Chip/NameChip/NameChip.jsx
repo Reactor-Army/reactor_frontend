@@ -1,6 +1,5 @@
 import {Chip} from "@material-ui/core";
 import React from "react";
-import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 
 export const NameChip = ({
   name,
@@ -19,7 +18,7 @@ export const NameChip = ({
         overflowX: "ellipsis",
         overflow: "hidden",
         whiteSpace: "nowrap",
-        width: useScreenWidth(560) && "300px",
+        width: "300px",
       }}
       label={name}></Chip>
   );

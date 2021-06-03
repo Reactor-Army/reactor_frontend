@@ -1,10 +1,14 @@
 import React from "react";
-import {FooterItem, DataLabel} from "../CommonCardStyles";
+import {BodyText, FieldLabel, FieldValue} from "../CommonCardStyles";
+import {Sup} from "./Styles";
 
 export const VBetValue = ({vBet}) => {
   return (
-    <FooterItem>
-      <DataLabel>vBet:</DataLabel> {vBet} cm<sup>3</sup>/g
-    </FooterItem>
+    <BodyText>
+      <FieldLabel>vBet:</FieldLabel>{" "}
+      <FieldValue>
+        {vBet} cm<Sup>3</Sup>/g
+      </FieldValue>
+    </BodyText>
   );
 };
