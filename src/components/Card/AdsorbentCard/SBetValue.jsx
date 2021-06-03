@@ -1,6 +1,6 @@
 import React from "react";
 import {BodyText, FieldLabel, FieldValue} from "../CommonCardStyles";
-import {Sup} from "./Styles";
+import {Sup} from "../../Card/CommonCardStyles";
 
 export const SBetValue = ({sBet}) => {
   return (

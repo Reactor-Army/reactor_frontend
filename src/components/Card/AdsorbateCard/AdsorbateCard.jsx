@@ -5,12 +5,14 @@ import {
   HeaderText,
   BodyText,
   CardBody,
-  FieldLabel,
-  FieldValue,
   Section,
 } from "../CommonCardStyles";
+import {IonCharge} from "./IonCharge";
+import {IonRadius} from "./IonRadius";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
+import {MolarMass} from "./MolarMass";
+import {DischargeLimit} from "./DischargeLimit";
 import {adsorbateDetailUrlFor, URLS} from "../../../routing/urls";
 import {Link} from "../../../common/styles";
 export const AdsorbateCard = ({
@@ -45,28 +47,16 @@ export const AdsorbateCard = ({
               ionChargeFormula={ionChargeFormula}
             />
           </BodyText>
-          <BodyText>
-            <FieldLabel>Carga del ion:</FieldLabel>
-            <FieldValue>{ionCharge}</FieldValue>
-          </BodyText>
+          <IonCharge ionCharge={ionCharge} />
         </Section>
 
         <Section>
-          <BodyText>
-            <FieldLabel>Radio hidrodinámico:</FieldLabel>
-            <FieldValue>{ionRadius} Å</FieldValue>
-          </BodyText>
-          <BodyText>
-            <FieldLabel>Masa Molar:</FieldLabel>
-            <FieldValue>{2000} g/mol</FieldValue>
-          </BodyText>
+          <IonRadius ionRadius={ionRadius} />
+          <MolarMass molarMass={"placeholder"} />
         </Section>
 
         <Section>
-          <BodyText>
-            <FieldLabel>Límite de vertido(Ley 24.051):</FieldLabel>
-            <FieldValue>{dischargeLimit}</FieldValue>
-          </BodyText>
+          <DischargeLimit dischargeLimit={dischargeLimit} />
         </Section>
 
         <BodyText>
