@@ -14,7 +14,7 @@ export const CardHeader = styled.div`
 
 export const Section = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   grid-row-gap: 5px;
 `;
 
@@ -62,6 +62,9 @@ export const BodyText = styled.div`
 
 export const FieldLabel = styled.strong`
   font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const FieldValue = styled.div`

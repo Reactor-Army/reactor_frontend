@@ -46,18 +46,25 @@ export const AdsorbateCard = ({
             />
           </BodyText>
           <BodyText>
-            <FieldLabel>Carga del ion:</FieldLabel>{" "}
+            <FieldLabel>Carga del ion:</FieldLabel>
             <FieldValue>{ionCharge}</FieldValue>
           </BodyText>
         </Section>
 
         <Section>
           <BodyText>
-            <FieldLabel>Radio iónico:</FieldLabel>{" "}
+            <FieldLabel>Radio hidrodinámico:</FieldLabel>
             <FieldValue>{ionRadius} Å</FieldValue>
           </BodyText>
           <BodyText>
-            <FieldLabel>Límite de vertido:</FieldLabel>{" "}
+            <FieldLabel>Masa Molar:</FieldLabel>
+            <FieldValue>{2000} g/mol</FieldValue>
+          </BodyText>
+        </Section>
+
+        <Section>
+          <BodyText>
+            <FieldLabel>Límite de vertido(Ley 24.051):</FieldLabel>
             <FieldValue>{dischargeLimit}</FieldValue>
           </BodyText>
         </Section>
