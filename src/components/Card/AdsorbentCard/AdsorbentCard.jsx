@@ -5,8 +5,6 @@ import {
   HeaderText,
   BodyText,
   CardBody,
-  FieldLabel,
-  FieldValue,
   Section,
 } from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
@@ -14,6 +12,12 @@ import {SBetValue} from "./SBetValue";
 import {VBetValue} from "./VBetValue";
 import {adsorbentDetailUrlFor, URLS} from "../../../routing/urls";
 import {Link} from "../../../common/styles";
+import {Formula} from "./Formula";
+import {ParticleSize} from "./ParticleSize";
+import {Impurities} from "./Impurities";
+import {SpeciesName} from "./SpeciesName";
+import {SampleOrigin} from "./SampleOrigin";
+import {Ph} from "./Ph";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -40,41 +44,23 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <Section>
-          <BodyText>
-            <FieldLabel>Formula: </FieldLabel>
-            <FieldValue>Placeholder</FieldValue>
-          </BodyText>
-          <BodyText>
-            <FieldLabel>Tamaño de partícula: </FieldLabel>
-            <FieldValue>{particleSize}</FieldValue>
-          </BodyText>
+          <Formula formula={"placeholder"} />
+          <ParticleSize particleSize={particleSize} />
         </Section>
 
         <Section>
-          <BodyText>
-            <FieldLabel>Impurezas: </FieldLabel>
-            <FieldValue>Placeholder</FieldValue>
-          </BodyText>
-          <BodyText>
-            <FieldLabel>Nombre de la especie: </FieldLabel>
-            <FieldValue>Placeholder</FieldValue>
-          </BodyText>
+          <Impurities impurities={"placeholder"} />
+          <SpeciesName speciesName={"placeholder"} />
         </Section>
 
         <Section>
-          <BodyText>
-            <FieldLabel>Origen de la muestra: </FieldLabel>
-            <FieldValue>Placeholder</FieldValue>
-          </BodyText>
+          <SampleOrigin sampleOrigin={"placeholder"} />
         </Section>
 
         <Section>
           <SBetValue sBet={sBet} />
           <VBetValue vBet={vBet} />
-          <BodyText>
-            <FieldLabel>pH(carga cero):</FieldLabel>
-            <FieldValue>{ph}</FieldValue>
-          </BodyText>
+          <Ph vBet={ph} />
         </Section>
       </CardBody>
 
