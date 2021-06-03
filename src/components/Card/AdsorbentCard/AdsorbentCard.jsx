@@ -39,20 +39,45 @@ export const AdsorbentCard = ({
         <HeaderText>{header}</HeaderText>
       </CardHeader>
       <CardBody>
-        <BodyText>
-          <FieldLabel>Tamaño de partícula: </FieldLabel>{" "}
-          <FieldValue>{particleSize}</FieldValue>
-        </BodyText>
+        <Section>
+          <BodyText>
+            <FieldLabel>Formula: </FieldLabel>
+            <FieldValue>Placeholder</FieldValue>
+          </BodyText>
+          <BodyText>
+            <FieldLabel>Tamaño de partícula: </FieldLabel>
+            <FieldValue>{particleSize}</FieldValue>
+          </BodyText>
+        </Section>
+
+        <Section>
+          <BodyText>
+            <FieldLabel>Impurezas: </FieldLabel>
+            <FieldValue>Placeholder</FieldValue>
+          </BodyText>
+          <BodyText>
+            <FieldLabel>Nombre de la especie: </FieldLabel>
+            <FieldValue>Placeholder</FieldValue>
+          </BodyText>
+        </Section>
+
+        <Section>
+          <BodyText>
+            <FieldLabel>Origen de la muestra: </FieldLabel>
+            <FieldValue>Placeholder</FieldValue>
+          </BodyText>
+        </Section>
 
         <Section>
           <SBetValue sBet={sBet} />
           <VBetValue vBet={vBet} />
           <BodyText>
-            <FieldLabel>pH(carga cero):</FieldLabel>{" "}
+            <FieldLabel>pH(carga cero):</FieldLabel>
             <FieldValue>{ph}</FieldValue>
           </BodyText>
         </Section>
       </CardBody>
+
       <BodyText>
         <Link onClick={onProcessClick}>Ver procesos</Link>
       </BodyText>
