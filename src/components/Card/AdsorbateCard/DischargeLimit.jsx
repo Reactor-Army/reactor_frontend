@@ -5,7 +5,7 @@ export const DischargeLimit = ({dischargeLimit}) => {
   return (
     <BodyText>
       <FieldLabel>Límite de vertido(Ley 24.051):</FieldLabel>
-      <FieldValue>{dischargeLimit}</FieldValue>
+      <FieldValue>{dischargeLimit ? dischargeLimit : "No Regulado"}</FieldValue>
     </BodyText>
   );
 };

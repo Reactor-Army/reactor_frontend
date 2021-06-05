@@ -11,7 +11,6 @@ import {IonCharge} from "./IonCharge";
 import {IonRadius} from "./IonRadius";
 import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
-import {MolarMass} from "./MolarMass";
 import {DischargeLimit} from "./DischargeLimit";
 import {adsorbateDetailUrlFor, URLS} from "../../../routing/urls";
 import {Link} from "../../../common/styles";
@@ -52,7 +51,6 @@ export const AdsorbateCard = ({
 
         <Section>
           <IonRadius ionRadius={ionRadius} />
-          <MolarMass molarMass={"placeholder"} />
         </Section>
 
         <Section>
