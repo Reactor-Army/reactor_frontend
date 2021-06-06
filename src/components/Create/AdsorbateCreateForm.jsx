@@ -1,10 +1,11 @@
 import React from "react";
 import {CreateForm} from "./CreateForm";
+import {createAdsorbate} from "../../services/adsorbates";
 
 export const AdsorbateCreateForm = () => {
   const items = [
     {
-      key: "nombreIupac",
+      key: "nombreIUPAC",
       label: "Nombre IUPAC",
       required: true,
     },
@@ -32,8 +33,9 @@ export const AdsorbateCreateForm = () => {
       label: "Fórmula",
     },
   ];
-  const onClick = (values) => {
-    console.log(values);
+  const onClick = async (values) => {
+    const response = await createAdsorbate(values);
+    console.log(response);
   };
 
   return <CreateForm onFormSubmit={onClick} items={items} />;
