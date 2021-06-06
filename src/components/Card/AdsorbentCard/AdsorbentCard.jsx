@@ -12,11 +12,7 @@ import {SBetValue} from "./SBetValue";
 import {VBetValue} from "./VBetValue";
 import {adsorbentDetailUrlFor, URLS} from "../../../routing/urls";
 import {Link} from "../../../common/styles";
-import {Formula} from "./Formula";
 import {ParticleSize} from "./ParticleSize";
-import {Impurities} from "./Impurities";
-import {SpeciesName} from "./SpeciesName";
-import {SampleOrigin} from "./SampleOrigin";
 import {Ph} from "./Ph";
 
 export const AdsorbentCard = ({
@@ -44,17 +40,7 @@ export const AdsorbentCard = ({
       </CardHeader>
       <CardBody>
         <Section>
-          <Formula formula={"placeholder"} />
           <ParticleSize particleSize={particleSize} />
-        </Section>
-
-        <Section>
-          <Impurities impurities={"placeholder"} />
-          <SpeciesName speciesName={"placeholder"} />
-        </Section>
-
-        <Section>
-          <SampleOrigin sampleOrigin={"placeholder"} />
         </Section>
 
         <Section>
