@@ -5,13 +5,14 @@ import {createAdsorbate} from "../../services/adsorbates";
 export const AdsorbateCreateForm = () => {
   const items = [
     {
-      key: "nombreIUPAC",
-      label: "Nombre IUPAC",
+      key: "nombreIon",
+      label: "Nombre del ion",
       required: true,
     },
     {
-      key: "nombreIon",
-      label: "Nombre del ion",
+      key: "nombreIUPAC",
+      label: "Nombre IUPAC",
+      required: true,
     },
     {
       key: "cargaIon",
