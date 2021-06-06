@@ -6,9 +6,9 @@ import Button from "@material-ui/core/Button";
 
 export const CreateForm = ({items, onFormSubmit}) => {
   const [values, setValues] = useState({});
-  const setFormValue = (item, value) => {
+  const setFormValue = (itemKey, value) => {
     setValues((prevState) => {
-      return {...prevState, [item]: value};
+      return {...prevState, [itemKey]: value};
     });
   };
   const onClick = () => {
@@ -16,16 +16,16 @@ export const CreateForm = ({items, onFormSubmit}) => {
   };
   return (
     <CreateFormContainer>
-      {items.map(({label, type, required}) => {
+      {items.map(({key, label, type, required}) => {
         return (
-          <FormItem key={label}>
+          <FormItem key={key}>
             <Typography h4>{label}</Typography>
             <TextField
               id="standard-disabled"
               variant="outlined"
               type={type}
               required={required || false}
-              onChange={(e) => setFormValue(label, e.target.value)}
+              onChange={(e) => setFormValue(key, e.target.value)}
             />
           </FormItem>
         );
