@@ -3,6 +3,9 @@ import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import {useHistory} from "react-router-dom";
+import {URLS} from "../../routing/urls";
 
 const ERROR_MESSAGES = {
   REQUIRED_FIELD: "Este campo es obligatorio.",
@@ -22,7 +25,8 @@ export const CreateForm = ({items, onFormSubmit}) => {
   };
 
   const [errors, setErrors] = useState({});
-  const onClick = () => {
+  const history = useHistory();
+  const onClick = async () => {
     let errors = false;
     for (const item of items) {
       if (item.required && !values[item.key]) {
@@ -33,9 +37,19 @@ export const CreateForm = ({items, onFormSubmit}) => {
       }
     }
     if (!errors) {
-      onFormSubmit(values);
+      setLoading(true);
+      const response = await onFormSubmit(values);
+      setLoading(false);
+      if (response) {
+        history.push(URLS.ADSORBATES_LIST);
+      }
     }
   };
+
+  const [loading, setLoading] = useState(false);
+  if (loading) {
+    return <CircularProgress />;
+  }
   return (
     <CreateFormContainer>
       {items.map(({key, label, type, required}) => {
