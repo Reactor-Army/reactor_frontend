@@ -1,16 +1,14 @@
 import {PageTitle} from "../../../common/PageTitle";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import React from "react";
 import {ListHeaderContainer} from "./Styles";
+import {CreateButton} from "./CreateButton";
+import {URLS} from "../../../routing/urls";
 
 export const ListHeader = ({title}) => {
   return (
     <ListHeaderContainer>
       <PageTitle title={title} />
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
+      <CreateButton url={URLS.ADSORBATE_CREATE} />
     </ListHeaderContainer>
   );
 };
