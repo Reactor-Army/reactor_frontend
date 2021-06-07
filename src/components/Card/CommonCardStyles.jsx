@@ -62,6 +62,9 @@ export const BodyText = styled.div`
 
 export const FieldLabel = styled.strong`
   font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const FieldValue = styled.div`
@@ -73,4 +76,9 @@ export const FieldValue = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+`;
+
+export const Sup = styled.sup`
+  vertical-align: top;
+  font-size: 0.6em;
 `;

@@ -18,6 +18,11 @@ export const AdsorbateDetail = ({adsorbate}) => {
         label={"Límite de vertido (Ley 24051)"}
         value={spillLimit(adsorbate.limiteVertido)}
       />
+      <Label
+        label={"Masa molar"}
+        value={adsorbate.masaMolar ? `${adsorbate.masaMolar} g/mol` : "-"}
+      />
+
       <SectionHeader>Fórmula</SectionHeader>
       <FormulaLabel
         formula={adsorbate.formula}

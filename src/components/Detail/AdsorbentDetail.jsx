@@ -14,7 +14,7 @@ export const AdsorbentDetail = ({adsorbent}) => {
       <Label label={"Tamaño de partícula"} value={adsorbent.particulaT} />
       <SBetLabel value={adsorbent.sBet} />
       <VBetLabel value={adsorbent.vBet} />
-      <Label label={"pH(carga cero)"} value={adsorbent.pHCargaCero} />
+      <Label label={"pH (carga cero)"} value={adsorbent.pHCargaCero} />
       <Label label={"Impurezas"} value={adsorbent.impurezas} />
       <Label label={"Origen de la muestra"} value={adsorbent.origenMuestra} />
       <Label label={"Fórmula"} value={adsorbent.formula} />

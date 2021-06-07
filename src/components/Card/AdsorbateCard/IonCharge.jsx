@@ -1,11 +1,11 @@
 import React from "react";
 import {BodyText, FieldLabel, FieldValue} from "../CommonCardStyles";
 
-export const Ph = ({ph}) => {
+export const IonCharge = ({ionCharge}) => {
   return (
     <BodyText>
-      <FieldLabel>pH (carga cero):</FieldLabel>
-      <FieldValue>{ph}</FieldValue>
+      <FieldLabel>Carga del ion:</FieldLabel>
+      <FieldValue>{ionCharge}</FieldValue>
     </BodyText>
   );
 };
