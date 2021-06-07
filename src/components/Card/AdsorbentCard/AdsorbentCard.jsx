@@ -46,7 +46,7 @@ export const AdsorbentCard = ({
         <Section>
           <SBetValue sBet={sBet} />
           <VBetValue vBet={vBet} />
-          <Ph vBet={ph} />
+          <Ph ph={ph} />
         </Section>
       </CardBody>
 
