@@ -35,8 +35,11 @@ export const AdsorbateCreateForm = () => {
     },
   ];
   const onClick = async (values) => {
-    const response = await createAdsorbate(values);
-    return response;
+    try {
+      return await createAdsorbate(values);
+    } catch (e) {
+      return e.response;
+    }
   };
 
   return <CreateForm onFormSubmit={onClick} items={items} />;

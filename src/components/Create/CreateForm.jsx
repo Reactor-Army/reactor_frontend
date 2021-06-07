@@ -13,6 +13,7 @@ const ERROR_MESSAGES = {
 
 export const CreateForm = ({items, onFormSubmit}) => {
   const [values, setValues] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
   const setFormValue = (itemKey, value) => {
     setValues((prevState) => {
       return {...prevState, [itemKey]: value};
@@ -40,9 +41,11 @@ export const CreateForm = ({items, onFormSubmit}) => {
       setLoading(true);
       const response = await onFormSubmit(values);
       setLoading(false);
-      if (response) {
-        history.push(URLS.ADSORBATES_LIST);
+      if (response.data.error) {
+        setErrorMessage(response.data.message);
+        return;
       }
+      history.push(URLS.ADSORBATES_LIST);
     }
   };
 
@@ -52,10 +55,11 @@ export const CreateForm = ({items, onFormSubmit}) => {
   }
   return (
     <CreateFormContainer>
+      {errorMessage && <Typography color={"error"}>{errorMessage}</Typography>}
       {items.map(({key, label, type, required}) => {
         return (
           <FormItem key={key}>
-            <Typography h4>{label}</Typography>
+            <Typography>{`${label}${required ? "*" : ""}`}</Typography>
             <TextField
               id="standard-disabled"
               variant="outlined"
