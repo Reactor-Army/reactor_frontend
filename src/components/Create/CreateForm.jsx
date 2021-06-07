@@ -50,35 +50,37 @@ export const CreateForm = ({items, onFormSubmit}) => {
   };
 
   const [loading, setLoading] = useState(false);
-  if (loading) {
-    return <CircularProgress />;
-  }
   return (
-    <CreateFormContainer>
-      {errorMessage && <Typography color={"error"}>{errorMessage}</Typography>}
-      {items.map(({key, label, type, required}) => {
-        return (
-          <FormItem key={key}>
-            <Typography>{`${label}${required ? "*" : ""}`}</Typography>
-            <TextField
-              id="standard-disabled"
-              variant="outlined"
-              type={type}
-              error={errors[key] || false}
-              helperText={errors[key] && ERROR_MESSAGES[errors[key]]}
-              required={required || false}
-              onChange={(e) => setFormValue(key, e.target.value)}
-            />
-          </FormItem>
-        );
-      })}
-      <Button
-        onClick={onClick}
-        style={{margin: 10}}
-        variant="contained"
-        color="primary">
-        Agregar
-      </Button>
-    </CreateFormContainer>
+    <>
+      {loading ? <CircularProgress /> : null}
+      <CreateFormContainer>
+        {errorMessage && (
+          <Typography color={"error"}>{errorMessage}</Typography>
+        )}
+        {items.map(({key, label, type, required}) => {
+          return (
+            <FormItem key={key}>
+              <Typography>{`${label}${required ? "*" : ""}`}</Typography>
+              <TextField
+                id="standard-disabled"
+                variant="outlined"
+                type={type}
+                error={errors[key] || false}
+                helperText={errors[key] && ERROR_MESSAGES[errors[key]]}
+                required={required || false}
+                onChange={(e) => setFormValue(key, e.target.value)}
+              />
+            </FormItem>
+          );
+        })}
+        <Button
+          onClick={onClick}
+          style={{margin: 10}}
+          variant="contained"
+          color="primary">
+          Agregar
+        </Button>
+      </CreateFormContainer>
+    </>
   );
 };
