@@ -28,7 +28,7 @@ export const CreateFormItem = ({
       // Remove the error message
       setError(null);
     }
-    setFormValue(key, value, !errorDetected);
+    setFormValue(key, value);
   };
   return (
     <FormItemContainer key={key}>
