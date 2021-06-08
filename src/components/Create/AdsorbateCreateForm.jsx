@@ -18,6 +18,9 @@ export const AdsorbateCreateForm = () => {
       key: "cargaIon",
       label: "Carga iónica",
       type: "number",
+      processValue: (v) => {
+        return v.replace(".", "");
+      },
     },
     {
       key: "radioIonico",

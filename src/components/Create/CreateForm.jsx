@@ -57,6 +57,7 @@ export const CreateForm = ({items, onFormSubmit}) => {
           return (
             <CreateFormItem
               key={item.key}
+              value={values[item.key] || ""}
               item={item}
               setFormValue={setFormValue}
               errorType={errors[item.key]}
