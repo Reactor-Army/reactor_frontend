@@ -7,6 +7,6 @@ export const CreateFormContainer = styled.div`
   visibility: ${(props) => (props.hidden ? "hidden" : "visible")};
 `;
 
-export const FormItem = styled.div`
+export const FormItemContainer = styled.div`
   margin: 10px;
 `;

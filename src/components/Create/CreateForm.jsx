@@ -1,15 +1,11 @@
-import {CreateFormContainer, FormItem} from "./Styles";
+import {CreateFormContainer} from "./Styles";
 import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../../routing/urls";
-
-const ERROR_MESSAGES = {
-  REQUIRED_FIELD: "Este campo es obligatorio.",
-};
+import {CreateFormItem} from "./CreateFormItem";
 
 export const CreateForm = ({items, onFormSubmit}) => {
   const [values, setValues] = useState({});
@@ -57,20 +53,14 @@ export const CreateForm = ({items, onFormSubmit}) => {
         {errorMessage && (
           <Typography color={"error"}>{errorMessage}</Typography>
         )}
-        {items.map(({key, label, type, required}) => {
+        {items.map((item) => {
           return (
-            <FormItem key={key}>
-              <Typography>{`${label}${required ? "*" : ""}`}</Typography>
-              <TextField
-                id="standard-disabled"
-                variant="outlined"
-                type={type}
-                error={errors[key] || false}
-                helperText={errors[key] && ERROR_MESSAGES[errors[key]]}
-                required={required || false}
-                onChange={(e) => setFormValue(key, e.target.value)}
-              />
-            </FormItem>
+            <CreateFormItem
+              key={item.key}
+              item={item}
+              setFormValue={setFormValue}
+              errorType={errors[item.key]}
+            />
           );
         })}
         <Button
