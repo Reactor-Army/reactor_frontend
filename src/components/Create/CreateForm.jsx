@@ -6,6 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../../routing/urls";
 import {CreateFormItem} from "./CreateFormItem";
+import {REQUIRED_FIELD} from "./constants";
 
 export const CreateForm = ({items, onFormSubmit}) => {
   const [values, setValues] = useState({});
@@ -14,11 +15,6 @@ export const CreateForm = ({items, onFormSubmit}) => {
     setValues((prevState) => {
       return {...prevState, [itemKey]: value};
     });
-    setErrors((prevState) => {
-      const result = {...prevState};
-      delete result[itemKey];
-      return result;
-    });
   };
 
   const [errors, setErrors] = useState({});
@@ -26,9 +22,13 @@ export const CreateForm = ({items, onFormSubmit}) => {
   const onClick = async () => {
     let errors = false;
     for (const item of items) {
+      if (errors[item.key]) {
+        errors = true;
+        continue;
+      }
       if (item.required && !values[item.key]) {
         setErrors((prevState) => {
-          return {...prevState, [item.key]: "REQUIRED_FIELD"};
+          return {...prevState, [item.key]: REQUIRED_FIELD};
         });
         errors = true;
       }
@@ -61,6 +61,7 @@ export const CreateForm = ({items, onFormSubmit}) => {
               item={item}
               setFormValue={setFormValue}
               errorType={errors[item.key]}
+              setError={(e) => setErrors({...errors, [item.key]: e})}
             />
           );
         })}

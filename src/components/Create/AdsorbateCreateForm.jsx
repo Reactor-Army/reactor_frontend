@@ -26,6 +26,12 @@ export const AdsorbateCreateForm = () => {
       key: "radioIonico",
       label: "Radio iónico",
       type: "number",
+      processValue: (v, setError) => {
+        if (v.includes("-")) {
+          setError("El radio iónico no puede ser negativo.");
+        }
+        return v;
+      },
     },
     {
       key: "limiteVertido",
