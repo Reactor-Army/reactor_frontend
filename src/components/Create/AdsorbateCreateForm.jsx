@@ -38,7 +38,7 @@ export const AdsorbateCreateForm = () => {
     try {
       return await createAdsorbate(values);
     } catch (e) {
-      return e.response;
+      return e.response.data;
     }
   };
 

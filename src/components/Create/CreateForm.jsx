@@ -39,10 +39,10 @@ export const CreateForm = ({items, onFormSubmit}) => {
     }
     if (!errors) {
       setLoading(true);
-      const response = await onFormSubmit(values);
+      const responseData = await onFormSubmit(values);
       setLoading(false);
-      if (response.data.error) {
-        setErrorMessage(response.data.message);
+      if (responseData.error) {
+        setErrorMessage(responseData.message);
         return;
       }
       history.push(URLS.ADSORBATES_LIST);
