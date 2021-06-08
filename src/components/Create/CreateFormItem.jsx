@@ -1,4 +1,4 @@
-import {FormItemContainer} from "./Styles";
+import {FormItemContainer, useStyles} from "./Styles";
 import {Typography} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import React from "react";
@@ -11,6 +11,7 @@ export const CreateFormItem = ({
   errorType,
   setError,
 }) => {
+  const styles = useStyles();
   const {key, label, required, type, processValue} = item;
   const onChange = (e) => {
     let value = e.target.value;
@@ -37,6 +38,7 @@ export const CreateFormItem = ({
         helperText={errorType && (ERROR_MESSAGES[errorType] || errorType)}
         required={required || false}
         onChange={onChange}
+        className={styles.textInput}
         value={value}
       />
     </FormItemContainer>

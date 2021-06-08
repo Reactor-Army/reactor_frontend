@@ -1,4 +1,4 @@
-import {CreateFormContainer} from "./Styles";
+import {CreateFormContainer, useStyles} from "./Styles";
 import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -9,6 +9,7 @@ import {CreateFormItem} from "./CreateFormItem";
 import {REQUIRED_FIELD} from "./constants";
 
 export const CreateForm = ({items, onFormSubmit}) => {
+  const styles = useStyles();
   const [values, setValues] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const setFormValue = (itemKey, value) => {
@@ -67,7 +68,7 @@ export const CreateForm = ({items, onFormSubmit}) => {
         })}
         <Button
           onClick={onClick}
-          style={{margin: 10}}
+          className={styles.button}
           variant="contained"
           color="primary">
           Agregar
