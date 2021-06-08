@@ -15,6 +15,7 @@ export const CreateFormItem = ({
   const {key, label, required, type, processValue} = item;
   const onChange = (e) => {
     let value = e.target.value;
+    // Needed to track if we set errors whenever we process the value
     let errorDetected = false;
     const innerSetError = (e) => {
       setError(e);
@@ -24,6 +25,7 @@ export const CreateFormItem = ({
       value = processValue(value, innerSetError);
     }
     if (!errorDetected) {
+      // Remove the error message
       setError(null);
     }
     setFormValue(key, value, !errorDetected);

@@ -18,6 +18,7 @@ export const AdsorbateCreateForm = () => {
       key: "cargaIon",
       label: "Carga iónica",
       type: "number",
+      // First example: just post-process the value
       processValue: (v) => {
         return v.replace(".", "");
       },
@@ -26,6 +27,7 @@ export const AdsorbateCreateForm = () => {
       key: "radioIonico",
       label: "Radio iónico",
       type: "number",
+      // Another example: call setError whenever we find a problem
       processValue: (v, setError) => {
         if (v.includes("-")) {
           setError("El radio iónico no puede ser negativo.");
