@@ -70,10 +70,18 @@ export const CreateForm = ({items, onFormSubmit}) => {
           onClick={onClick}
           className={styles.button}
           variant="contained"
+          disabled={hasErrors(errors)}
           color="primary">
           Agregar
         </Button>
       </CreateFormContainer>
     </>
   );
+};
+
+const hasErrors = (errors) => {
+  if (!errors) {
+    return false;
+  }
+  return Object.values(errors).some((value) => value !== null);
 };
