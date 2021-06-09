@@ -1,6 +1,7 @@
 import React from "react";
 import {CreateForm} from "./CreateForm";
 import {createAdsorbate} from "../../services/adsorbates";
+import {processNotNegative, removePeriods} from "./validations";
 
 export const AdsorbateCreateForm = () => {
   const items = [
@@ -19,26 +20,20 @@ export const AdsorbateCreateForm = () => {
       label: "Carga iónica",
       type: "number",
       // First example: just post-process the value
-      processValue: (v) => {
-        return v.replace(".", "");
-      },
+      processValue: removePeriods,
     },
     {
       key: "radioIonico",
       label: "Radio iónico",
       type: "number",
       // Another example: call setError whenever we find a problem
-      processValue: (v, setError) => {
-        if (v.includes("-")) {
-          setError("El radio iónico no puede ser negativo.");
-        }
-        return v;
-      },
+      processValue: processNotNegative,
     },
     {
       key: "limiteVertido",
       label: "Límite de vertido",
       type: "number",
+      processValue: processNotNegative,
     },
     {
       key: "formula",
