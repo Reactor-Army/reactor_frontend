@@ -2,6 +2,7 @@ export const URLS = {
   HOME: "/",
   ADSORBATES_LIST: "/adsorbatos",
   ADSORBATE_DETAIL: "/adsorbatos/:id",
+  ADSORBATE_CREATE: "/adsorbatos/agregar",
   ADSORBENTS_LIST: "/adsorbentes",
   ADSORBENT_DETAIL: "/adsorbentes/:id",
   PROCESSES_LIST: "/procesos",

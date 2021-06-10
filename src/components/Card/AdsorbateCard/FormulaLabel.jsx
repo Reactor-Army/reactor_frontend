@@ -5,6 +5,9 @@ import {FormulaComponent} from "./FormulaComponent";
 import {FormulaContainer, SupIndex} from "./Styles";
 
 export const FormulaLabel = ({formula, ionChargeFormula}) => {
+  if (!formula) {
+    return null;
+  }
   let components = Array.from(formula);
   return (
     <FieldLabel>
