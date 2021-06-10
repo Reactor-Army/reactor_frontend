@@ -2,6 +2,7 @@ import React from "react";
 import {CreateForm} from "./CreateForm";
 import {createAdsorbate} from "../../services/adsorbates";
 import {processNotNegative, removePeriods} from "./validations";
+import {URLS} from "../../routing/urls";
 
 export const AdsorbateCreateForm = () => {
   const items = [
@@ -48,5 +49,11 @@ export const AdsorbateCreateForm = () => {
     }
   };
 
-  return <CreateForm onFormSubmit={onClick} items={items} />;
+  return (
+    <CreateForm
+      onFormSubmit={onClick}
+      items={items}
+      url={URLS.ADSORBATES_LIST}
+    />
+  );
 };
