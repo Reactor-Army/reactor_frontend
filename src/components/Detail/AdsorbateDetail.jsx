@@ -9,7 +9,10 @@ import {DetailHeader} from "./DetailHeader";
 export const AdsorbateDetail = ({adsorbate}) => {
   return (
     <>
-      <DetailHeader title={capitalizeFirstLetter(adsorbate.nombreIUPAC)} />
+      <DetailHeader
+        title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
+        id={adsorbate.id}
+      />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
       <Label label={"Carga iónica"} value={adsorbate.cargaIon} />
