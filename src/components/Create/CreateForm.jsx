@@ -1,5 +1,5 @@
 import {CreateFormContainer, useStyles} from "./Styles";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -7,9 +7,17 @@ import {useHistory} from "react-router-dom";
 import {CreateFormItem} from "./CreateFormItem";
 import {REQUIRED_FIELD} from "./constants";
 
-export const CreateForm = ({items, onFormSubmit, url}) => {
+export const CreateForm = ({items, onFormSubmit, initial, url}) => {
   const styles = useStyles();
   const [values, setValues] = useState({});
+
+  useEffect(() => {
+    if (!initial) {
+      return;
+    }
+    setValues(initial);
+  }, [initial]);
+
   const [errorMessage, setErrorMessage] = useState(null);
   const setFormValue = (itemKey, value) => {
     setValues((prevState) => {
