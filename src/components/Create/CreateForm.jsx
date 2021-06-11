@@ -7,7 +7,13 @@ import {useHistory} from "react-router-dom";
 import {CreateFormItem} from "./CreateFormItem";
 import {REQUIRED_FIELD} from "./constants";
 
-export const CreateForm = ({items, onFormSubmit, initial, url}) => {
+export const CreateForm = ({
+  items,
+  onFormSubmit,
+  initial,
+  url,
+  buttonLabel,
+}) => {
   const styles = useStyles();
   const [values, setValues] = useState({});
 
@@ -79,7 +85,7 @@ export const CreateForm = ({items, onFormSubmit, initial, url}) => {
           variant="contained"
           disabled={hasErrors(errors)}
           color="primary">
-          Agregar
+          {buttonLabel}
         </Button>
       </CreateFormContainer>
     </>

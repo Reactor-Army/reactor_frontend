@@ -17,6 +17,7 @@ export const AdsorbateCreateForm = () => {
       onFormSubmit={onClick}
       items={adsorbateFields}
       url={URL.ADSORBATES_LIST}
+      buttonLabel={"Agregar"}
     />
   );
 };

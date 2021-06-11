@@ -27,6 +27,7 @@ export const AdsorbateEditForm = ({id}) => {
       onFormSubmit={onClick}
       items={adsorbateFields}
       initial={adsorbate}
+      buttonLabel={"Modificar"}
     />
   );
 };
