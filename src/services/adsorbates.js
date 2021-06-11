@@ -41,7 +41,7 @@ export const createAdsorbate = async (body) => {
 };
 
 export const editAdsorbate = async (adsorbateId, body) => {
-  const endpoint = `${settings.BACKEND_URL}adsorbato/`;
+  const endpoint = `${settings.BACKEND_URL}adsorbato/${adsorbateId}`;
   const client = new HttpClient(null);
   return (await client.put(endpoint, body)).data;
 };
