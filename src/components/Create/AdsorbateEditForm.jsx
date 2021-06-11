@@ -3,6 +3,7 @@ import {CreateForm} from "./CreateForm";
 import {adsorbateFields} from "./fields";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbate} from "../../redux/adsorbateSlice";
+import {editAdsorbate} from "../../services/adsorbates";
 
 export const AdsorbateEditForm = ({id}) => {
   const dispatch = useDispatch();
@@ -13,8 +14,12 @@ export const AdsorbateEditForm = ({id}) => {
     }
   }, []);
 
-  const onClick = async () => {
-    console.log("edita2");
+  const onClick = async (fields) => {
+    try {
+      return await editAdsorbate(id, fields);
+    } catch (e) {
+      return e.response.data;
+    }
   };
 
   return (

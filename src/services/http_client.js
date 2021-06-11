@@ -14,6 +14,10 @@ export class HttpClient {
     return await this.request(url, "POST", body);
   }
 
+  async put(url, body) {
+    return await this.request(url, "PUT", body);
+  }
+
   async request(url, method, data, headers, params) {
     headers = headers || {};
     headers = {
