@@ -4,11 +4,10 @@ import {Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {useHistory} from "react-router-dom";
-import {URLS} from "../../routing/urls";
 import {CreateFormItem} from "./CreateFormItem";
 import {REQUIRED_FIELD} from "./constants";
 
-export const CreateForm = ({items, onFormSubmit}) => {
+export const CreateForm = ({items, onFormSubmit, url}) => {
   const styles = useStyles();
   const [values, setValues] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
@@ -42,7 +41,7 @@ export const CreateForm = ({items, onFormSubmit}) => {
         setErrorMessage(responseData.message);
         return;
       }
-      history.push(URLS.ADSORBATES_LIST);
+      history.push(url);
     }
   };
 

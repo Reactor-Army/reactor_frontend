@@ -11,6 +11,7 @@ import {URLS} from "./urls";
 import {AdsorbateDetailRoute} from "./routes/AdsorbateDetailRoute";
 import {AdsorbentDetailRoute} from "./routes/AdsorbentDetailRoute";
 import {AdsorbateCreateRoute} from "./routes/AdsorbateCreateRoute";
+import {AdsorbentCreateRoute} from "./routes/AdsorbentCreateRoute";
 
 export const Router = () => {
   return (
@@ -26,6 +27,12 @@ export const Router = () => {
         exact
         path={URLS.ADSORBATE_CREATE}
         component={AdsorbateCreateRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.ADSORBENT_CREATE}
+        component={AdsorbentCreateRoute}
       />
       <PrivateRoute
         authed={0}

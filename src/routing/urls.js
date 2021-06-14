@@ -5,6 +5,7 @@ export const URLS = {
   ADSORBATE_CREATE: "/adsorbatos/agregar",
   ADSORBENTS_LIST: "/adsorbentes",
   ADSORBENT_DETAIL: "/adsorbentes/:id",
+  ADSORBENT_CREATE: "/adsorbentes/agregar",
   PROCESSES_LIST: "/procesos",
   PROCESS_DETAIL: "/procesos/:id",
   BEST_ADSORBENT: "/mejor-adsorbente",

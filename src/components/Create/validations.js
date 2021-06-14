@@ -8,3 +8,14 @@ export const processNotNegative = (value, setError) => {
 export const removePeriods = (value) => {
   return value.replace(".", "");
 };
+
+export const phInRange = (value, setError) => {
+  const lowerBound = 1;
+  const upperBound = 14;
+  if (value < lowerBound || value > upperBound) {
+    setError(
+      `Este valor tiene que estar comprendido en el intervalo ${lowerBound} - ${upperBound}`,
+    );
+  }
+  return value;
+};

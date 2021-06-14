@@ -32,3 +32,9 @@ export const getAdsorbent = async (adsorbentId) => {
   const client = new HttpClient(null);
   return (await client.get(endpoint)).data;
 };
+
+export const createAdsorbent = async (body) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbente/`;
+  const client = new HttpClient(null);
+  return (await client.post(endpoint, body)).data;
+};
