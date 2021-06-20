@@ -34,8 +34,20 @@ export const getAdsorbate = async (adsorbateId) => {
   return (await client.get(endpoint)).data;
 };
 
+export const getAdsorbateProcessCount = async (adsorbateId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/${adsorbateId}/cantidad-procesos`;
+  const client = new HttpClient(null);
+  return (await client.get(endpoint)).data;
+};
+
 export const createAdsorbate = async (body) => {
   const endpoint = `${settings.BACKEND_URL}adsorbato/`;
   const client = new HttpClient(null);
   return (await client.post(endpoint, body)).data;
+};
+
+export const deleteAdsorbate = async (adsorbateId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/${adsorbateId}`;
+  const client = new HttpClient(null);
+  return (await client.delete(endpoint)).data;
 };

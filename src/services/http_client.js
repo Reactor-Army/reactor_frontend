@@ -14,6 +14,11 @@ export class HttpClient {
     return await this.request(url, "POST", body);
   }
 
+  async delete(url, params) {
+    return await this.request(url, "DELETE", params);
+  }
+
+
   async request(url, method, data, headers, params) {
     headers = headers || {};
     headers = {
