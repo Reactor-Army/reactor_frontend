@@ -20,10 +20,14 @@ export const AdsorbateDetail = ({adsorbate}) => {
     <>
       <DetailHeader
         title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
-        id={adsorbate.id}>
-        <EditButton url={adsorbateEditUrlFor(adsorbate.id)} />
-        <DeleteButton onClick={onDeleteClick} />
-      </DetailHeader>
+        id={adsorbate.id}
+        buttons={
+          <>
+            <EditButton url={adsorbateEditUrlFor(adsorbate.id)} />
+            <DeleteButton onClick={onDeleteClick} />
+          </>
+        }
+      />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
       <Label label={"Carga iónica"} value={adsorbate.cargaIon} />
