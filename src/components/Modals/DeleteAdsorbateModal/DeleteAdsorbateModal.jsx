@@ -34,7 +34,7 @@ export const DeleteAdsorbateModal = ({open, onClose, adsorbate}) => {
       history.push(URLS.ADSORBATES_LIST);
     } catch (e) {
       setError(
-        `Ocurrio un error al intentar ejecutar la operacion: ${e.response.data.message}`,
+        `Ocurrió un error al intentar ejecutar la operación: ${e.response.data.message}`,
       );
     }
   };
@@ -48,10 +48,10 @@ export const DeleteAdsorbateModal = ({open, onClose, adsorbate}) => {
       <BodyContainer>
         {!error ? (
           <>
-            <Message>{`Al borrar este adsorbato tambien se borraran ${processCount} 
+            <Message>{`Al borrar este adsorbato también se borrarán ${processCount} 
       procesos asociados. ¿Deseas continuar?`}</Message>
             <Warning>
-              Una vez realizada, esta operacion no se puede deshacer.
+              Una vez realizada, esta operación no se puede deshacer.
             </Warning>
             <ButtonsContainer>
               <Button
