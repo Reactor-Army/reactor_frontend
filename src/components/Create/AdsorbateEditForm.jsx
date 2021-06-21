@@ -4,6 +4,7 @@ import {adsorbateFields} from "./fields";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbate} from "../../redux/adsorbateSlice";
 import {editAdsorbate} from "../../services/adsorbates";
+import {adsorbateDetailUrlFor} from "../../routing/urls";
 
 export const AdsorbateEditForm = ({id}) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const AdsorbateEditForm = ({id}) => {
       onFormSubmit={onClick}
       items={adsorbateFields}
       initial={adsorbate}
+      url={adsorbateDetailUrlFor(id)}
       buttonLabel={"Modificar"}
     />
   );
