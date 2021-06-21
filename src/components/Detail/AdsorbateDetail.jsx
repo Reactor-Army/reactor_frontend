@@ -1,15 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import {PageTitle} from "../../common/PageTitle";
 import {SectionHeader} from "./SectionHeader";
 import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
+import {DeleteButton} from "../List/common/DeleteButton";
+import {Modal} from "../Modal/Modal";
+import {DeleteAdsorbateModalContent} from "../ModalContent.jsx/Adsorbates/DeleteAdsorbateModalContent";
+//import {useHistory} from "react-router-dom";
+//import {URLS} from "../../routing/urls";
 
 export const AdsorbateDetail = ({adsorbate}) => {
+  //const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+  const onDeleteClick = () => {
+    setShowModal(true);
+  };
+
   return (
     <>
       <PageTitle title={capitalizeFirstLetter(adsorbate.nombreIUPAC)} />
+      <DeleteButton onClick={onDeleteClick} />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
       <Label label={"Carga iónica"} value={adsorbate.cargaIon} />
@@ -28,6 +40,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
         formula={adsorbate.formula}
         ionChargeFormula={adsorbate.cargaIonFormula}
       />
+      <Modal open={showModal} body={<DeleteAdsorbateModalContent />} />
     </>
   );
 };
