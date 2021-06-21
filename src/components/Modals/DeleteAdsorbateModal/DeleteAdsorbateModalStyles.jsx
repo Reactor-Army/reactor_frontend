@@ -12,7 +12,11 @@ export const ButtonsContainer = styled.div`
   justify-content: space-evenly;
 
   @media (max-width: 580px) {
-    width: 80vw;
+    width: 65vw;
+  }
+
+  @media (max-width: 320px) {
+    width: 75vw;
   }
 `;
 
