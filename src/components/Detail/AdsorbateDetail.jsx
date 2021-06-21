@@ -1,15 +1,18 @@
 import React from "react";
-import {PageTitle} from "../../common/PageTitle";
 import {SectionHeader} from "./SectionHeader";
 import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
+import {DetailHeader} from "./DetailHeader";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   return (
     <>
-      <PageTitle title={capitalizeFirstLetter(adsorbate.nombreIUPAC)} />
+      <DetailHeader
+        title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
+        id={adsorbate.id}
+      />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
       <Label label={"Carga iónica"} value={adsorbate.cargaIon} />

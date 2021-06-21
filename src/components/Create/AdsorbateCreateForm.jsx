@@ -1,46 +1,10 @@
 import React from "react";
 import {CreateForm} from "./CreateForm";
 import {createAdsorbate} from "../../services/adsorbates";
-import {processNotNegative, removePeriods} from "./validations";
+import {adsorbateFields} from "./fields";
 import {URLS} from "../../routing/urls";
 
 export const AdsorbateCreateForm = () => {
-  const items = [
-    {
-      key: "nombreIon",
-      label: "Nombre del ion",
-      required: true,
-    },
-    {
-      key: "nombreIUPAC",
-      label: "Nombre IUPAC",
-      required: true,
-    },
-    {
-      key: "cargaIon",
-      label: "Carga iónica",
-      type: "number",
-      // First example: just post-process the value
-      processValue: removePeriods,
-    },
-    {
-      key: "radioIonico",
-      label: "Radio iónico",
-      type: "number",
-      // Another example: call setError whenever we find a problem
-      processValue: processNotNegative,
-    },
-    {
-      key: "limiteVertido",
-      label: "Límite de vertido",
-      type: "number",
-      processValue: processNotNegative,
-    },
-    {
-      key: "formula",
-      label: "Fórmula",
-    },
-  ];
   const onClick = async (values) => {
     try {
       return await createAdsorbate(values);
@@ -52,8 +16,9 @@ export const AdsorbateCreateForm = () => {
   return (
     <CreateForm
       onFormSubmit={onClick}
-      items={items}
+      items={adsorbateFields}
       url={URLS.ADSORBATES_LIST}
+      buttonLabel={"Agregar"}
     />
   );
 };

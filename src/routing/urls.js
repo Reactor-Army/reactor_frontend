@@ -3,6 +3,7 @@ export const URLS = {
   ADSORBATES_LIST: "/adsorbatos",
   ADSORBATE_DETAIL: "/adsorbatos/:id",
   ADSORBATE_CREATE: "/adsorbatos/agregar",
+  ADSORBATE_EDIT: "/adsorbatos/:id/modificar",
   ADSORBENTS_LIST: "/adsorbentes",
   ADSORBENT_DETAIL: "/adsorbentes/:id",
   ADSORBENT_CREATE: "/adsorbentes/agregar",
@@ -11,14 +12,22 @@ export const URLS = {
   BEST_ADSORBENT: "/mejor-adsorbente",
 };
 
+const processUrlId = (url, id) => {
+  return url.replace(":id", id);
+};
+
+export const adsorbateEditUrlFor = (adsorbateId) => {
+  return processUrlId(URLS.ADSORBATE_EDIT, adsorbateId);
+};
+
 export const processDetailUrlFor = (processId) => {
-  return URLS.PROCESS_DETAIL.replace(":id", processId);
+  return processUrlId(URLS.PROCESS_DETAIL, processId);
 };
 
 export const adsorbateDetailUrlFor = (adsorbateId) => {
-  return URLS.ADSORBATE_DETAIL.replace(":id", adsorbateId);
+  return processUrlId(URLS.ADSORBATE_DETAIL, adsorbateId);
 };
 
 export const adsorbentDetailUrlFor = (adsorbentId) => {
-  return URLS.ADSORBENT_DETAIL.replace(":id", adsorbentId);
+  return processUrlId(URLS.ADSORBENT_DETAIL, adsorbentId);
 };
