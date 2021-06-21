@@ -2,6 +2,7 @@ import React from "react";
 import {CreateForm} from "./CreateForm";
 import {createAdsorbate} from "../../services/adsorbates";
 import {adsorbateFields} from "./fields";
+import {URLS} from "../../routing/urls";
 
 export const AdsorbateCreateForm = () => {
   const onClick = async (values) => {
@@ -16,7 +17,7 @@ export const AdsorbateCreateForm = () => {
     <CreateForm
       onFormSubmit={onClick}
       items={adsorbateFields}
-      url={URL.ADSORBATES_LIST}
+      url={URLS.ADSORBATES_LIST}
       buttonLabel={"Agregar"}
     />
   );
