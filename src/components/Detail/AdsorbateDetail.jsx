@@ -42,6 +42,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
       <DeleteAdsorbateModal
         open={showModal}
         onClose={() => setShowModal(false)}
+        adsorbate={adsorbate}
       />
     </>
   );
