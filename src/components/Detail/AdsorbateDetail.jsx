@@ -4,12 +4,12 @@ import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
-import {DetailHeader} from "./DetailHeader";
+import {DetailHeaderAdsorbate} from "./DetailHeaderAdsorbate";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   return (
     <>
-      <DetailHeader
+      <DetailHeaderAdsorbate
         title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
         id={adsorbate.id}
       />

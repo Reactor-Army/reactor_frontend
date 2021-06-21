@@ -1,4 +1,4 @@
-import {processNotNegative, removePeriods} from "./validations";
+import {processNotNegative, removePeriods, phInRange} from "./validations";
 
 export const adsorbateFields = [
   {
@@ -34,5 +34,59 @@ export const adsorbateFields = [
   {
     key: "formula",
     label: "Fórmula",
+  },
+];
+
+export const adsorbentFields = [
+  {
+    key: "nombre",
+    label: "Nombre",
+    required: true,
+  },
+  {
+    key: "particulaT",
+    label: "Tamaño de partícula",
+    required: true,
+  },
+  {
+    key: "sBet",
+    label: "sBet",
+    required: false,
+    type: "number",
+    processValue: processNotNegative,
+  },
+  {
+    key: "vBet",
+    label: "vBet",
+    required: false,
+    type: "number",
+    processValue: processNotNegative,
+  },
+  {
+    key: "pHCargaCero",
+    label: "pH (carga cero)",
+    required: false,
+    type: "number",
+    processValue: phInRange,
+  },
+  {
+    key: "impurezas",
+    label: "Impurezas",
+    required: false,
+  },
+  {
+    key: "origenMuestra",
+    label: "Origen de la muestra",
+    required: false,
+  },
+  {
+    key: "formula",
+    label: "Fórmula",
+    required: false,
+  },
+  {
+    key: "nombreEspecie",
+    label: "Nombre de la especie",
+    required: false,
   },
 ];

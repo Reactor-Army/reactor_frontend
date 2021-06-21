@@ -7,6 +7,7 @@ export const URLS = {
   ADSORBENTS_LIST: "/adsorbentes",
   ADSORBENT_DETAIL: "/adsorbentes/:id",
   ADSORBENT_CREATE: "/adsorbentes/agregar",
+  ADSORBENT_EDIT: "/adsorbentes/:id/modificar",
   PROCESSES_LIST: "/procesos",
   PROCESS_DETAIL: "/procesos/:id",
   BEST_ADSORBENT: "/mejor-adsorbente",
@@ -30,4 +31,8 @@ export const adsorbateDetailUrlFor = (adsorbateId) => {
 
 export const adsorbentDetailUrlFor = (adsorbentId) => {
   return processUrlId(URLS.ADSORBENT_DETAIL, adsorbentId);
+};
+
+export const adsorbentEditUrlFor = (adsorbentId) => {
+  return processUrlId(URLS.ADSORBENT_EDIT, adsorbentId);
 };
