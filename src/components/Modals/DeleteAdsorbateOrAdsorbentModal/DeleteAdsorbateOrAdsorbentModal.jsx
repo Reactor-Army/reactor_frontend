@@ -6,22 +6,26 @@ import {
   Warning,
   BodyContainer,
   ButtonsContainer,
-} from "./DeleteAdsorbateModalStyles";
-import {
-  getAdsorbateProcessCount,
-  deleteAdsorbate,
-} from "../../../services/adsorbates";
-import {URLS} from "../../../routing/urls";
+} from "./DeleteAdsorbateOrAdsorbentModalStyles";
+
 import {useHistory} from "react-router-dom";
 
-export const DeleteAdsorbateModal = ({open, onClose, adsorbate}) => {
+export const DeleteAdsorbateOrAdsorbentModal = ({
+  open,
+  onClose,
+  itemToDelete,
+  typeOfItemDeleted,
+  processCountGetter,
+  deleteFunction,
+  successRedirectURL,
+}) => {
   const [processCount, setProcessCount] = useState(0);
   const [error, setError] = useState();
   const history = useHistory();
 
   const getProcessesCount = async () => {
     try {
-      const result = await getAdsorbateProcessCount(adsorbate.id);
+      const result = await processCountGetter(itemToDelete.id);
       setProcessCount(result.cantidadProcesos);
     } catch (e) {
       setError(e.response.data);
@@ -30,8 +34,8 @@ export const DeleteAdsorbateModal = ({open, onClose, adsorbate}) => {
 
   const onDeleteConfirmation = async () => {
     try {
-      await deleteAdsorbate(adsorbate.id);
-      history.push(URLS.ADSORBATES_LIST);
+      await deleteFunction(itemToDelete.id);
+      history.push(successRedirectURL);
     } catch (e) {
       setError(
         `Ocurrió un error al intentar ejecutar la operación: ${e.response.data.message}`,
@@ -48,7 +52,7 @@ export const DeleteAdsorbateModal = ({open, onClose, adsorbate}) => {
       <BodyContainer>
         {!error ? (
           <>
-            <Message>{`Al borrar este adsorbato también se borrarán ${processCount} 
+            <Message>{`Al borrar este ${typeOfItemDeleted} también se borrarán ${processCount} 
       procesos asociados. ¿Deseas continuar?`}</Message>
             <Warning>
               Una vez realizada, esta operación no se puede deshacer.

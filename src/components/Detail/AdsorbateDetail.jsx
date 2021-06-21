@@ -4,11 +4,16 @@ import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
-import {DeleteAdsorbateModal} from "../Modals/DeleteAdsorbateModal/DeleteAdsorbateModal";
+import {DeleteAdsorbateOrAdsorbentModal} from "../Modals/DeleteAdsorbateOrAdsorbentModal/DeleteAdsorbateOrAdsorbentModal";
 import {DetailHeader} from "./DetailHeader";
 import {EditButton} from "../List/common/EditButton";
 import {adsorbateEditUrlFor} from "../../routing/urls";
 import {DeleteButton} from "../List/common/DeleteButton";
+import {URLS} from "../../routing/urls";
+import {
+  getAdsorbateProcessCount,
+  deleteAdsorbate,
+} from "../../services/adsorbates";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -46,10 +51,14 @@ export const AdsorbateDetail = ({adsorbate}) => {
         formula={adsorbate.formula}
         ionChargeFormula={adsorbate.cargaIonFormula}
       />
-      <DeleteAdsorbateModal
+      <DeleteAdsorbateOrAdsorbentModal
         open={showModal}
         onClose={() => setShowModal(false)}
-        adsorbate={adsorbate}
+        itemToDelete={adsorbate}
+        typeOfItemDeleted={"adsorbato"}
+        processCountGetter={getAdsorbateProcessCount}
+        deleteFunction={deleteAdsorbate}
+        successRedirectURL={URLS.ADSORBATES_LIST}
       />
     </>
   );
