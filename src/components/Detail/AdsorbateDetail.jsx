@@ -6,8 +6,7 @@ import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
 import {DeleteButton} from "../List/common/DeleteButton";
-import {Modal} from "../Modal/Modal";
-import {DeleteAdsorbateModalContent} from "../ModalContent.jsx/Adsorbates/DeleteAdsorbateModalContent";
+import {DeleteAdsorbateModal} from "../Modals/DeleteAdsorbateModal/DeleteAdsorbateModal";
 //import {useHistory} from "react-router-dom";
 //import {URLS} from "../../routing/urls";
 
@@ -40,7 +39,10 @@ export const AdsorbateDetail = ({adsorbate}) => {
         formula={adsorbate.formula}
         ionChargeFormula={adsorbate.cargaIonFormula}
       />
-      <Modal open={showModal} body={<DeleteAdsorbateModalContent />} />
+      <DeleteAdsorbateModal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </>
   );
 };

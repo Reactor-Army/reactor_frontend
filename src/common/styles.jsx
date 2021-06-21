@@ -17,6 +17,7 @@ export const appColors = {
 export const appFontColors = {
   white: "#fff",
   fontColorMenu: "#eeeeee",
+  warning: "#ff2121",
 };
 
 export const appFontFamily = {

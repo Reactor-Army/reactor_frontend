@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import {appColors} from "../../common/styles";
 
 export const ModalContainer = styled.div`
-  width: 400px;
+  max-width: 600px;
   background-color: ${appColors.white};
   border: 1px solid ${appColors.gray};
   position: absolute;
