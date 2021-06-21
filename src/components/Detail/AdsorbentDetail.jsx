@@ -4,14 +4,15 @@ import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {Label} from "./Label";
 import {SBetLabel} from "./SBetLabel";
 import {VBetLabel} from "./VBetLabel";
-import {DetailHeaderAdsorbent} from "./DetailHeaderAdsorbent";
+import {DetailHeader} from "./DetailHeader";
+import {adsorbentEditUrlFor} from "../../routing/urls";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   return (
     <>
-      <DetailHeaderAdsorbent
+      <DetailHeader
         title={capitalizeFirstLetter(adsorbent.nombre)}
-        id={adsorbent.id}
+        url={adsorbentEditUrlFor(adsorbent.id)}
       />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Tamaño de partícula"} value={adsorbent.particulaT} />
