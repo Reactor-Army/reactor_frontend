@@ -9,3 +9,7 @@ export const LabelContainer = styled.div`
 export const SectionHeaderContainer = styled.div`
   margin-top: 20px;
 `;
+
+export const ButtonsSection = styled.div`
+  display: flex;
+`;

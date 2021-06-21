@@ -5,3 +5,7 @@ export const ListHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const ButtonContainer = styled.div`
+  margin-left: 10px;
+`;

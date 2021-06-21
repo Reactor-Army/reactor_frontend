@@ -44,3 +44,9 @@ export const Link = styled.a`
   }
   padding-bottom: 10px;
 `;
+
+export const PageHeaderContanier = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

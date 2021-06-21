@@ -51,3 +51,9 @@ export const deleteAdsorbate = async (adsorbateId) => {
   const client = new HttpClient(null);
   return (await client.delete(endpoint)).data;
 };
+
+export const editAdsorbate = async (adsorbateId, body) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbato/${adsorbateId}`;
+  const client = new HttpClient(null);
+  return (await client.put(endpoint, body)).data;
+};

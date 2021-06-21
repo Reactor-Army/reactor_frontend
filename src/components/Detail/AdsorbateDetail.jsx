@@ -1,17 +1,16 @@
 import React, {useState} from "react";
-import {PageTitle} from "../../common/PageTitle";
 import {SectionHeader} from "./SectionHeader";
 import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
-import {DeleteButton} from "../List/common/DeleteButton";
 import {DeleteAdsorbateModal} from "../Modals/DeleteAdsorbateModal/DeleteAdsorbateModal";
-//import {useHistory} from "react-router-dom";
-//import {URLS} from "../../routing/urls";
+import {DetailHeader} from "./DetailHeader";
+import {EditButton} from "../List/common/EditButton";
+import {adsorbateEditUrlFor} from "../../routing/urls";
+import {DeleteButton} from "../List/common/DeleteButton";
 
 export const AdsorbateDetail = ({adsorbate}) => {
-  //const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const onDeleteClick = () => {
     setShowModal(true);
@@ -19,8 +18,12 @@ export const AdsorbateDetail = ({adsorbate}) => {
 
   return (
     <>
-      <PageTitle title={capitalizeFirstLetter(adsorbate.nombreIUPAC)} />
-      <DeleteButton onClick={onDeleteClick} />
+      <DetailHeader
+        title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
+        id={adsorbate.id}>
+        <EditButton url={adsorbateEditUrlFor(adsorbate.id)} />
+        <DeleteButton onClick={onDeleteClick} />
+      </DetailHeader>
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
       <Label label={"Carga iónica"} value={adsorbate.cargaIon} />
