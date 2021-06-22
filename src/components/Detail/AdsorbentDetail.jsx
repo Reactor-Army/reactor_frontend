@@ -6,13 +6,14 @@ import {SBetLabel} from "./SBetLabel";
 import {VBetLabel} from "./VBetLabel";
 import {DetailHeader} from "./DetailHeader";
 import {adsorbentEditUrlFor} from "../../routing/urls";
+import {EditButton} from "../List/common/EditButton";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   return (
     <>
       <DetailHeader
         title={capitalizeFirstLetter(adsorbent.nombre)}
-        url={adsorbentEditUrlFor(adsorbent.id)}
+        buttons={<EditButton url={adsorbentEditUrlFor(adsorbent.id)} />}
       />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Tamaño de partícula"} value={adsorbent.particulaT} />

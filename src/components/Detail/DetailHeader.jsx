@@ -1,13 +1,14 @@
 import React from "react";
 import {PageTitle} from "../../common/PageTitle";
-import {EditButton} from "./EditButton";
 import {PageHeaderContanier} from "../../common/styles";
+import {ButtonsSection} from "./Styles";
 
-export const DetailHeader = ({title, url}) => {
+export const DetailHeader = ({title, buttons}) => {
   return (
     <PageHeaderContanier>
       <PageTitle title={title} />
-      <EditButton url={url} />
+
+      <ButtonsSection>{buttons}</ButtonsSection>
     </PageHeaderContanier>
   );
 };
