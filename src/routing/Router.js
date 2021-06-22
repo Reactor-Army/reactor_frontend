@@ -13,6 +13,7 @@ import {AdsorbentDetailRoute} from "./routes/AdsorbentDetailRoute";
 import {AdsorbateCreateRoute} from "./routes/AdsorbateCreateRoute";
 import {AdsorbentCreateRoute} from "./routes/AdsorbentCreateRoute";
 import {AdsorbateEditRoute} from "./routes/AdsorbateEditRoute";
+import {AdsorbentEditRoute} from "./routes/AdsorbentEditRoute";
 
 export const Router = () => {
   return (
@@ -58,6 +59,12 @@ export const Router = () => {
         exact
         path={URLS.ADSORBENT_DETAIL}
         component={AdsorbentDetailRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.ADSORBENT_EDIT}
+        component={AdsorbentEditRoute}
       />
       <PrivateRoute
         authed={0}

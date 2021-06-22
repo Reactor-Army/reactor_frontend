@@ -1,15 +1,20 @@
 import React from "react";
-import {PageTitle} from "../../common/PageTitle";
 import {SectionHeader} from "./SectionHeader";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {Label} from "./Label";
 import {SBetLabel} from "./SBetLabel";
 import {VBetLabel} from "./VBetLabel";
+import {DetailHeader} from "./DetailHeader";
+import {adsorbentEditUrlFor} from "../../routing/urls";
+import {EditButton} from "../List/common/EditButton";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   return (
     <>
-      <PageTitle title={capitalizeFirstLetter(adsorbent.nombre)} />
+      <DetailHeader
+        title={capitalizeFirstLetter(adsorbent.nombre)}
+        buttons={<EditButton url={adsorbentEditUrlFor(adsorbent.id)} />}
+      />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Tamaño de partícula"} value={adsorbent.particulaT} />
       <SBetLabel value={adsorbent.sBet} />
