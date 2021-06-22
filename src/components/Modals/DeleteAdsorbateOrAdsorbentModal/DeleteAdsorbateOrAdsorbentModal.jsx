@@ -79,7 +79,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
               <Button
                 text={"Aceptar"}
                 onClick={() => {
-                  setError(false);
+                  setError();
                   onClose();
                 }}
               />
