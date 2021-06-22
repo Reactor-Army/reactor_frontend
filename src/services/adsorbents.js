@@ -44,3 +44,15 @@ export const editAdsorbent = async (adsorbentId, body) => {
   const client = new HttpClient(null);
   return (await client.put(endpoint, body)).data;
 };
+
+export const getAdsorbentProcessCount = async (adsorbentId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbente/${adsorbentId}/cantidad-procesos`;
+  const client = new HttpClient(null);
+  return (await client.get(endpoint)).data;
+};
+
+export const deleteAdsorbent = async (adsorbentId) => {
+  const endpoint = `${settings.BACKEND_URL}adsorbente/${adsorbentId}`;
+  const client = new HttpClient(null);
+  return (await client.delete(endpoint)).data;
+};
