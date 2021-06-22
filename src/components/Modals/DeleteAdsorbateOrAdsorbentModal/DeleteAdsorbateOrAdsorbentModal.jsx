@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Modal} from "../Modal";
 import {Button} from "../../Button/Button";
 import {
@@ -7,8 +7,8 @@ import {
   BodyContainer,
   ButtonsContainer,
 } from "./DeleteAdsorbateOrAdsorbentModalStyles";
-
 import {useHistory} from "react-router-dom";
+import {useAsync} from "../../../customHooks/useAsync";
 
 export const DeleteAdsorbateOrAdsorbentModal = ({
   open,
@@ -51,7 +51,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
     return `Estás a punto de borrar este ${typeOfItemDeleted}. ¿Deseas continuar?`;
   };
 
-  useEffect(() => {
+  useAsync(() => {
     getProcessesCount();
   }, [error]);
 
