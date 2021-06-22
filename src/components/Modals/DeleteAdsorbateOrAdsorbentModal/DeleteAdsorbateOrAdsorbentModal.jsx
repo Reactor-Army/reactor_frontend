@@ -45,7 +45,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
 
   useEffect(() => {
     getProcessesCount();
-  }, []);
+  }, [error]);
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -79,6 +79,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
               <Button
                 text={"Aceptar"}
                 onClick={() => {
+                  setError(false);
                   onClose();
                 }}
               />
