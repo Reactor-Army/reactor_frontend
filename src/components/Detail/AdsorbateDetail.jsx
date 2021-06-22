@@ -5,13 +5,14 @@ import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
 import {DetailHeader} from "./DetailHeader";
+import {adsorbateEditUrlFor} from "../../routing/urls";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   return (
     <>
       <DetailHeader
         title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
-        id={adsorbate.id}
+        url={adsorbateEditUrlFor(adsorbate.id)}
       />
       <SectionHeader>Características</SectionHeader>
       <Label label={"Nombre común"} value={adsorbate.nombreIon} />
