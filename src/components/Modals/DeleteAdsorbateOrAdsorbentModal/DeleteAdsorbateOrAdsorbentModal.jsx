@@ -43,6 +43,14 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
     }
   };
 
+  const getMessage = () => {
+    if (processCount) {
+      return `Al borrar este ${typeOfItemDeleted} también se borrarán ${processCount} 
+      procesos asociados. ¿Deseas continuar?`;
+    }
+    return `Estás a punto de borrar este ${typeOfItemDeleted}. ¿Deseas continuar?`;
+  };
+
   useEffect(() => {
     getProcessesCount();
   }, [error]);
@@ -52,8 +60,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
       <BodyContainer>
         {!error ? (
           <>
-            <Message>{`Al borrar este ${typeOfItemDeleted} también se borrarán ${processCount} 
-      procesos asociados. ¿Deseas continuar?`}</Message>
+            <Message>{getMessage()}</Message>
             <Warning>
               Una vez realizada, esta operación no se puede deshacer.
             </Warning>
