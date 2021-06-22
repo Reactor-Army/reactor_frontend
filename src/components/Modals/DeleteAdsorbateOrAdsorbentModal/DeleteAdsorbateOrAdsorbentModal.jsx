@@ -48,7 +48,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
   }, []);
 
   return (
-    <Modal open={open}>
+    <Modal open={open} onClose={onClose}>
       <BodyContainer>
         {!error ? (
           <>
