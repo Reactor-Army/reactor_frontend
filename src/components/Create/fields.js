@@ -83,3 +83,66 @@ export const adsorbentFields = [
     label: "Nombre de la especie",
   },
 ];
+
+export const processFields = [
+  {
+    key: "qmax",
+    label: "QMax",
+    type: "number",
+    required: false,
+    processValue: processNotNegative,
+  },
+  {
+    key: "phinicial",
+    label: "pH Inicial",
+    type: "number",
+    required: false,
+    processValue: phInRange,
+  },
+  {
+    key: "tiempoEquilibrio",
+    label: "Tiempo de equilibrio (minutos)",
+    type: "number",
+    required: false,
+    processValue: processNotNegative,
+  },
+  {
+    key: "temperatura",
+    label: "Temperatura (°C)",
+    required: false,
+    type: "number",
+  },
+  {
+    key: "fuente",
+    label: "Fuente",
+    required: false,
+  },
+  {
+    key: "intercambioIonico",
+    label: "Intercambio Iónico",
+    type: "selector",
+    required: false,
+  },
+  {
+    key: "reaccionQuimica",
+    label: "Reacción química",
+    type: "selector",
+    required: false,
+  },
+  {
+    key: "complejacion",
+    label: "Complejación",
+    type: "selector",
+    required: false,
+  },
+  {
+    key: "nombreEspecie",
+    label: "Nombre de la especie",
+    required: false,
+  },
+  {
+    key: "observacion",
+    label: "Observaciones",
+    required: false,
+  },
+];
