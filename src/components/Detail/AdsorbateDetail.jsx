@@ -14,7 +14,7 @@ import {
   getAdsorbateProcessCount,
   deleteAdsorbate,
 } from "../../services/adsorbates";
-import {ADSORBATE_FIELDS} from "../../common/text";
+import {ADSORBATE_FIELDS} from "../../common/fields";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);

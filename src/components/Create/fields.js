@@ -1,5 +1,5 @@
 import {processNotNegative, removePeriods, phInRange} from "./validations";
-import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/text";
+import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
 
 export const adsorbateFields = [
   {

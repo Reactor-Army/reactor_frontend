@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import React from "react";
 import {getTextFieldStyles} from "../Styles";
 import {useScreenWidth} from "../../../customHooks/useScreenWidth";
-import {ADSORBENT_FIELDS} from "../../../common/text";
+import {ADSORBENT_FIELDS} from "../../../common/fields";
 
 export const Name = ({name, handleNameChange, onKeyPress}) => {
   const responsiveWidth = 848;

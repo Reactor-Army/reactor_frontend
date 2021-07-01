@@ -12,7 +12,7 @@ import {
   BodyText,
 } from "../CommonCardStyles";
 import {Card} from "../Card";
-import {PROCESS_FIELDS} from "../../../common/text";
+import {PROCESS_FIELDS} from "../../../common/fields";
 
 export const ProcessCard = ({
   headerBackgroundColor,

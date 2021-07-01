@@ -1,6 +1,6 @@
 import React from "react";
 import {BodyText, FieldLabel, FieldValue} from "../CommonCardStyles";
-import {ADSORBATE_FIELDS} from "../../../common/text";
+import {ADSORBATE_FIELDS} from "../../../common/fields";
 
 export const IonCharge = ({ionCharge}) => {
   return (

@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import {Label} from "./Label";
 import {SectionHeader} from "./SectionHeader";
 import {Cards} from "./Cards";
-import {PROCESS_FIELDS} from "../../common/text";
+import {PROCESS_FIELDS} from "../../common/fields";
 
 export const ProcessDetail = ({process}) => {
   return (
