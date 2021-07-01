@@ -1,38 +1,28 @@
 import React from "react";
 import {Formik, Form as FormikForm, Field} from "formik";
 import {PageTitle} from "../../common/PageTitle";
-import {FormLayout, FieldContainer} from "./FormStyles";
+import {FormLayout} from "./FormStyles";
+import {TextField} from "./Fields/TextField";
+export const Form = ({title, onSubmit}) => {
+  console.log(onSubmit);
 
-export const Form = (title, fields, onSubmit) => (
-  <>
-    <PageTitle title={(title, fields)} />
-    <Formik
-      initialValues={{
-        username: "",
-        email: "",
-      }}
-      onSubmit={(values) => {
-        // same shape as initial values
-        console.log(values);
-      }}>
-      {() => (
+  return (
+    <>
+      <PageTitle title={title} />
+      <Formik
+        initialValues={{email: "", color: "red", firstName: "", lastName: ""}}
+        onSubmit={onSubmit}>
         <FormikForm>
           <FormLayout>
-            {fields.map((field, index) => {
-              return <FieldContainer key={index}>{field}</FieldContainer>;
-            })}
-
-            <Field name="username" />
-
-            <button type="submit" onClick={onSubmit}>
-              Submit
-            </button>
+            <Field name="test" placeholder="test" component={TextField} />
           </FormLayout>
+
+          <button type="submit">Submit</button>
         </FormikForm>
-      )}
-    </Formik>
-  </>
-);
+      </Formik>
+    </>
+  );
+};
 
 /*
    <Field name="email" validate={validateEmail} />

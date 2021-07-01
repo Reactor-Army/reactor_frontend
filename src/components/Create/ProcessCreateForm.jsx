@@ -4,6 +4,7 @@ import {createProcess} from "../../services/processes";
 //import {processFields} from "./fields";
 //import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
+//import {TextField} from "../Form/Fields/TextField";
 
 export const ProcessCreateForm = () => {
   const onSubmit = async (values) => {
@@ -14,11 +15,7 @@ export const ProcessCreateForm = () => {
     }
   };
 
-  return (
-    <Form
-      onSubmit={onSubmit}
-      title="Test"
-      fields={[<div key={1}>Buenas</div>, <div key={2}>Buenas</div>]}
-    />
-  );
+  //const fields = [{component: <TextField placeholder="aaaaaaaaa" />}];
+
+  return <Form onSubmit={onSubmit} title="Test" />;
 };
