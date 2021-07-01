@@ -14,6 +14,7 @@ import {
   getAdsorbentProcessCount,
   deleteAdsorbent,
 } from "../../services/adsorbents";
+import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/text";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   const [showModal, setShowModal] = useState(false);
@@ -23,6 +24,15 @@ export const AdsorbentDetail = ({adsorbent}) => {
 
   return (
     <>
+      <DeleteAdsorbateOrAdsorbentModal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        itemToDelete={adsorbent}
+        typeOfItemDeleted={"adsorbente"}
+        processCountGetter={getAdsorbentProcessCount}
+        deleteFunction={deleteAdsorbent}
+        successRedirectURL={URLS.ADSORBENTS_LIST}
+      />
       <DetailHeader
         title={capitalizeFirstLetter(adsorbent.nombre)}
         buttons={
@@ -33,22 +43,19 @@ export const AdsorbentDetail = ({adsorbent}) => {
         }
       />
       <SectionHeader>Características</SectionHeader>
-      <Label label={"Tamaño de partícula"} value={adsorbent.particulaT} />
+      <Label
+        label={ADSORBENT_FIELDS.PARTICLE_SIZE}
+        value={adsorbent.particulaT}
+      />
       <SBetLabel value={adsorbent.sBet} />
       <VBetLabel value={adsorbent.vBet} />
-      <Label label={"pH (carga cero)"} value={adsorbent.pHCargaCero} />
-      <Label label={"Impurezas"} value={adsorbent.impurezas} />
-      <Label label={"Origen de la muestra"} value={adsorbent.origenMuestra} />
-      <Label label={"Fórmula"} value={adsorbent.formula} />
-      <Label label={"Nombre de la especie"} value={adsorbent.nombreEspecie} />
-      <DeleteAdsorbateOrAdsorbentModal
-        open={showModal}
-        onClose={() => setShowModal(false)}
-        itemToDelete={adsorbent}
-        typeOfItemDeleted={"adsorbente"}
-        processCountGetter={getAdsorbentProcessCount}
-        deleteFunction={deleteAdsorbent}
-        successRedirectURL={URLS.ADSORBENTS_LIST}
+      <Label label={ADSORBENT_FIELDS.PH} value={adsorbent.pHCargaCero} />
+      <Label label={ADSORBENT_FIELDS.IMPURITIES} value={adsorbent.impurezas} />
+      <Label label={ADSORBENT_FIELDS.SOURCE} value={adsorbent.origenMuestra} />
+      <Label label={ADSORBATE_FIELDS.FORMULA} value={adsorbent.formula} />
+      <Label
+        label={ADSORBENT_FIELDS.SPECIES_NAME}
+        value={adsorbent.nombreEspecie}
       />
     </>
   );

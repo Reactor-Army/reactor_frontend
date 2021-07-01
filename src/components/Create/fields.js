@@ -1,5 +1,5 @@
 import {processNotNegative, removePeriods, phInRange} from "./validations";
-import {ADSORBATE_FIELDS} from "../../common/text";
+import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/text";
 
 export const adsorbateFields = [
   {
@@ -41,46 +41,46 @@ export const adsorbateFields = [
 export const adsorbentFields = [
   {
     key: "nombre",
-    label: "Nombre del adsorbente",
+    label: ADSORBENT_FIELDS.NAME,
     required: true,
   },
   {
     key: "particulaT",
-    label: "Tamaño de partícula",
+    label: ADSORBENT_FIELDS.PARTICLE_SIZE,
     required: true,
   },
   {
     key: "sBet",
-    label: "sBet",
+    label: ADSORBENT_FIELDS.SBET,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "vBet",
-    label: "vBet",
+    label: ADSORBENT_FIELDS.VBET,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "pHCargaCero",
-    label: "pH (carga cero)",
+    label: ADSORBENT_FIELDS.PH,
     type: "number",
     processValue: phInRange,
   },
   {
     key: "formula",
-    label: "Fórmula",
+    label: ADSORBATE_FIELDS.FORMULA,
   },
   {
     key: "impurezas",
-    label: "Impurezas",
+    label: ADSORBENT_FIELDS.IMPURITIES,
   },
   {
     key: "origenMuestra",
-    label: "Origen de la muestra",
+    label: ADSORBENT_FIELDS.SOURCE,
   },
   {
     key: "nombreEspecie",
-    label: "Nombre de la especie",
+    label: ADSORBENT_FIELDS.SPECIES_NAME,
   },
 ];

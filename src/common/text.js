@@ -7,3 +7,14 @@ export const ADSORBATE_FIELDS = {
   FORMULA: "Fórmula",
   MOLAR_MASS: "Masa molar",
 };
+
+export const ADSORBENT_FIELDS = {
+  NAME: "Nombre",
+  PARTICLE_SIZE: "Tamaño de partícula",
+  SBET: "sBet",
+  VBET: "vBet",
+  PH: "pH (carga cero)",
+  IMPURITIES: "Impurezas",
+  SOURCE: "Origen de la muestra",
+  SPECIES_NAME: "Nombre de la especie",
+};
