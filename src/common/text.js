@@ -18,3 +18,15 @@ export const ADSORBENT_FIELDS = {
   SOURCE: "Origen de la muestra",
   SPECIES_NAME: "Nombre de la especie",
 };
+
+export const PROCESS_FIELDS = {
+  QMAX: "qMax",
+  EQUILIBRIUM_TIME: "Tiempo de equilibrio",
+  TEMPERATURE: "Temperatura",
+  INITIAL_PH: "pH inicial",
+  COMPLEXATION: "Complejación",
+  IONIC_INTERCHANGE: "Intercambio iónico",
+  CHEMICAL_REACTION: "Reacción química",
+  SOURCE: "Fuente",
+  NOTES: "Observaciones",
+};
