@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import React from "react";
 import {getTextFieldStyles} from "../Styles";
 import {useScreenWidth} from "../../../customHooks/useScreenWidth";
+import {ADSORBATE_FIELDS} from "../../../common/text";
 
 export const IonicCharge = ({charge, handleChargeChange, onKeyPress}) => {
   const responsiveWidth = 848;
@@ -11,7 +12,7 @@ export const IonicCharge = ({charge, handleChargeChange, onKeyPress}) => {
     <Grid item>
       <TextField
         id="outlined-basic"
-        label="Carga iónica"
+        label={ADSORBATE_FIELDS.ION_CHARGE}
         type="number"
         variant="outlined"
         value={charge}

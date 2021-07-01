@@ -1,39 +1,40 @@
 import {processNotNegative, removePeriods, phInRange} from "./validations";
+import {ADSORBATE_FIELDS} from "../../common/text";
 
 export const adsorbateFields = [
   {
     key: "nombreIon",
-    label: "Nombre del ion",
+    label: ADSORBATE_FIELDS.ION_NAME,
     required: true,
   },
   {
     key: "nombreIUPAC",
-    label: "Nombre IUPAC",
+    label: ADSORBATE_FIELDS.IUPAC_NAME,
     required: true,
   },
   {
     key: "cargaIon",
-    label: "Carga iónica",
+    label: ADSORBATE_FIELDS.ION_CHARGE,
     type: "number",
     // First example: just post-process the value
     processValue: removePeriods,
   },
   {
     key: "radioIonico",
-    label: "Radio iónico",
+    label: ADSORBATE_FIELDS.ION_RADIUS,
     type: "number",
     // Another example: call setError whenever we find a problem
     processValue: processNotNegative,
   },
   {
     key: "limiteVertido",
-    label: "Límite de vertido",
+    label: ADSORBATE_FIELDS.SPILL_LIMIT,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "formula",
-    label: "Fórmula",
+    label: ADSORBATE_FIELDS.FORMULA,
   },
 ];
 
