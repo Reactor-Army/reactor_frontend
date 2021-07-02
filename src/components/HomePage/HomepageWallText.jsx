@@ -33,7 +33,7 @@ export function HomepageWallText() {
         </a>
         <br />
         <a href={URLS.PROCESSES_LIST} style={{color: appColors.primary}}>
-          - Listado de Procesos
+          - Listado de Sistemas
         </a>
         <br />
         <a href={URLS.BEST_ADSORBENT} style={{color: appColors.primary}}>

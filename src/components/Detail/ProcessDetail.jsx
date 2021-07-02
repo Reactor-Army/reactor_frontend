@@ -8,7 +8,7 @@ import {Cards} from "./Cards";
 export const ProcessDetail = ({process}) => {
   return (
     <Container>
-      <PageTitle title={`Proceso`} />
+      <PageTitle title={`Sistema`} />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Características</SectionHeader>
       <Label label={"qMax"} value={`${process.qmax} mmol/g`} />

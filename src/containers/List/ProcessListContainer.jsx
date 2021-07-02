@@ -29,7 +29,7 @@ export function ProcessListContainer() {
 
   return (
     <>
-      <PageTitle title={"Procesos"} style={{fontFamily: appFontFamily.card}} />
+      <PageTitle title={"Sistemas"} style={{fontFamily: appFontFamily.card}} />
       <ProcessSearchContainer
         selectedAdsorbateId={query.get("adsorbato")}
         selectedAdsorbentId={query.get("adsorbente")}

@@ -19,7 +19,7 @@ export const routes = [
 
   {
     path: URLS.PROCESSES_LIST,
-    text: "Procesos",
+    text: "Sistemas",
   },
   {
     path: URLS.BEST_ADSORBENT,
