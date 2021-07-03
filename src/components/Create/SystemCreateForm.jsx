@@ -4,7 +4,7 @@ import {createSystem} from "../../services/processes";
 //import {processFields} from "./fields";
 //import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
-//import {TextField} from "../Form/Fields/TextField";
+import {FormTextField} from "../Form/Fields/FormTextField";
 
 export const SystemCreateForm = () => {
   const onSubmit = async (values) => {
@@ -17,5 +17,14 @@ export const SystemCreateForm = () => {
 
   //const fields = [{component: <TextField placeholder="aaaaaaaaa" />}];
 
-  return <Form onSubmit={onSubmit} title="Agregar Sistema" />;
+  return (
+    <Form
+      onSubmit={onSubmit}
+      title="Agregar Sistema"
+      fields={[
+        <FormTextField placeholder="Test" key={1} />,
+        <FormTextField placeholder="Test" key={2} />,
+      ]}
+    />
+  );
 };

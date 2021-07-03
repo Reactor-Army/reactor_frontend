@@ -1,21 +1,16 @@
 import React from "react";
-import {Formik, Form as FormikForm, Field} from "formik";
+import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
 import {FormLayout} from "./FormStyles";
-import {TextField} from "./Fields/TextField";
-export const Form = ({title, onSubmit}) => {
+export const Form = ({title, fields, onSubmit}) => {
   console.log(onSubmit);
 
   return (
     <>
       <PageTitle title={title} />
-      <Formik
-        initialValues={{email: "", color: "red", firstName: "", lastName: ""}}
-        onSubmit={onSubmit}>
+      <Formik onSubmit={onSubmit}>
         <FormikForm>
-          <FormLayout>
-            <Field name="test" placeholder="test" component={TextField} />
-          </FormLayout>
+          <FormLayout>{fields}</FormLayout>
 
           <button type="submit">Submit</button>
         </FormikForm>

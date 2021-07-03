@@ -5,6 +5,10 @@ export const FormLayout = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 20px;
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const FieldContainer = styled.div``;
