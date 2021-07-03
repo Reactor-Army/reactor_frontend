@@ -25,6 +25,7 @@ export const ProcessDetailContainer = ({processId}) => {
     <>
       <ProcessDetail process={process} onDeleteClick={onDeleteClick} />
       <DeleteProcessModal
+        processId={processId}
         open={showModal}
         onClose={() => setShowModal(false)}
         error={false}
