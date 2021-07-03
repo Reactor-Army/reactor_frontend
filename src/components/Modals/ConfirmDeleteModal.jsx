@@ -27,7 +27,7 @@ export const ConfirmDeleteModal = ({
             </Warning>
             <ButtonsContainer>
               <Button text={"Borrar"} onClick={onDeleteConfirmation} />
-              <Button text={"Cancelar"} onClick={close} />
+              <Button text={"Cancelar"} onClick={closeModal} />
             </ButtonsContainer>
           </>
         ) : (
