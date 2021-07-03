@@ -1,15 +1,24 @@
 import React from "react";
-import {PageTitle} from "../../common/PageTitle";
 import Container from "@material-ui/core/Container";
 import {Label} from "./Label";
 import {SectionHeader} from "./SectionHeader";
 import {Cards} from "./Cards";
 import {PROCESS_FIELDS} from "../../common/fields";
+import {DetailHeader} from "./DetailHeader";
+import {DeleteButton} from "../List/common/DeleteButton";
 
-export const ProcessDetail = ({process}) => {
+export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
     <Container>
-      <PageTitle title={`Sistema`} />
+      <DetailHeader
+        title={"Sistema"}
+        id={process.id}
+        buttons={
+          <>
+            <DeleteButton onClick={onDeleteClick} />
+          </>
+        }
+      />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Características</SectionHeader>
       <Label label={PROCESS_FIELDS.QMAX} value={`${process.qmax} mmol/g`} />
@@ -35,7 +44,6 @@ export const ProcessDetail = ({process}) => {
         label={PROCESS_FIELDS.CHEMICAL_REACTION}
         value={booleanToString(process.reaccionQuimica)}
       />
-
       <SectionHeader>Adicional</SectionHeader>
       <Label label={PROCESS_FIELDS.SOURCE} value={process.fuente} />
       <Label label={PROCESS_FIELDS.NOTES} value={process.observacion} />
