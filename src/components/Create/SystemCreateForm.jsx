@@ -1,15 +1,15 @@
 import React from "react";
 //import {CreateForm} from "./CreateForm";
-import {createProcess} from "../../services/processes";
+import {createSystem} from "../../services/processes";
 //import {processFields} from "./fields";
 //import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
 //import {TextField} from "../Form/Fields/TextField";
 
-export const ProcessCreateForm = () => {
+export const SystemCreateForm = () => {
   const onSubmit = async (values) => {
     try {
-      return await createProcess(values);
+      return await createSystem(values);
     } catch (e) {
       return e.response.data;
     }
@@ -17,5 +17,5 @@ export const ProcessCreateForm = () => {
 
   //const fields = [{component: <TextField placeholder="aaaaaaaaa" />}];
 
-  return <Form onSubmit={onSubmit} title="Test" />;
+  return <Form onSubmit={onSubmit} title="Agregar Sistema" />;
 };
