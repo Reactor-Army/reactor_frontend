@@ -37,12 +37,14 @@ export const FormSelectorField = ({placeholder, handleChange, items, name}) => {
 };
 
 export const FormBooleanField = ({title, name}) => {
+  console.log(name);
   return (
     <Field
       options={booleanValues}
       title={title}
       component={BooleanRadioGroup}
       name={name}
+      formComponentName={name}
     />
   );
 };
@@ -51,12 +53,13 @@ const TextField = ({field, ...props}) => {
   return <MuiTextField variant="outlined" {...field} {...props} />;
 };
 
-const BooleanRadioGroup = ({field, ...props}) => {
-  const [selectedValue, setSelectedValue] = useState("false");
+const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
+  console.log(props);
+  const [selectedValue, setSelectedValue] = useState(false);
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
+    form.setFieldValue(formComponentName, event.target.value);
   };
-
   return (
     <RadioGroup
       selectedValue={selectedValue}
