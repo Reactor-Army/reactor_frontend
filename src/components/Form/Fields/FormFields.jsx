@@ -13,13 +13,14 @@ export const FormTextField = ({placeholder, name}) => {
   return <Field label={placeholder} component={TextField} name={name} />;
 };
 
-export const FormNumericField = ({placeholder, name}) => {
+export const FormNumericField = ({placeholder, name, validateField}) => {
   return (
     <Field
       type="number"
       label={placeholder}
       component={TextField}
       name={name}
+      validate={validateField}
     />
   );
 };
@@ -37,10 +38,6 @@ export const FormBooleanField = ({title, name}) => {
 };
 
 export const FormSelectorField = ({placeholder, items, name}) => {
-  if (items.length > 1000) {
-    console.log(items);
-  }
-
   return (
     <Field
       name={name}
@@ -84,7 +81,6 @@ const SelectorField = ({
       options={items}
       getOptionLabel={(option) => option.label}
       onChange={(event, newValue) => {
-        console.log(newValue);
         form.setFieldValue(formComponentName, newValue.value);
       }}
       renderInput={(params) => (

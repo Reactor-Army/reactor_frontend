@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {createSystem} from "../../services/processes";
-//import {processFields} from "./fields";
-//import {URLS} from "../../routing/urls";
+import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
 import {
   FormTextField,
@@ -12,6 +11,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
+import {inRange, isPositive} from "../Form/Validation/formValidations";
 
 const initialValues = {
   idAdsorbato: 1,
@@ -65,9 +65,9 @@ export const SystemCreateForm = () => {
   }, [adsorbents]);
 
   const onSubmit = async (values) => {
-    console.log("FORM VALUES: ", values);
     try {
-      return await createSystem(values);
+      await createSystem(values);
+      history.push(URLS.PROCESSES_LIST);
     } catch (e) {
       return e.response.data;
     }
@@ -91,15 +91,30 @@ export const SystemCreateForm = () => {
           items={adsorbentItems}
           name="idAdsorbente"
         />,
-        <FormNumericField placeholder="qMax" key={3} name="qmax" />,
+        <FormNumericField
+          placeholder="qMax"
+          key={3}
+          name="qmax"
+          validateField={(value) => isPositive(value)}
+        />,
         <FormNumericField
           placeholder="Tiempo de equilibrio"
           key={4}
           name="tiempoEquilibrio"
+          validateField={(value) => isPositive(value)}
         />,
-        <FormNumericField placeholder="pH Inicial" key={5} name="phinicial" />,
+        <FormNumericField
+          placeholder="pH Inicial"
+          key={5}
+          name="phinicial"
+          validateField={(value) => inRange(value, 1, 14)}
+        />,
         <FormTextField placeholder="Fuente" key={6} name="fuente" />,
-        <FormTextField placeholder="Temperatura" key={7} name="temperatura" />,
+        <FormNumericField
+          placeholder="Temperatura"
+          key={7}
+          name="temperatura"
+        />,
         <FormTextField
           placeholder="Observaciones"
           name="observacion"

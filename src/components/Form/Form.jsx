@@ -14,7 +14,6 @@ export const Form = ({title, fields, initialValues, onSubmit}) => {
         }}>
         <FormikForm>
           <FormLayout>{fields}</FormLayout>
-
           <button type="submit">Submit</button>
         </FormikForm>
       </Formik>
