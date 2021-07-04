@@ -37,7 +37,6 @@ export const FormSelectorField = ({placeholder, handleChange, items, name}) => {
 };
 
 export const FormBooleanField = ({title, name}) => {
-  console.log(name);
   return (
     <Field
       options={booleanValues}
@@ -54,7 +53,6 @@ const TextField = ({field, ...props}) => {
 };
 
 const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
-  console.log(props);
   const [selectedValue, setSelectedValue] = useState(false);
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
