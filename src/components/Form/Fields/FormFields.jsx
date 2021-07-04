@@ -24,18 +24,6 @@ export const FormNumericField = ({placeholder, name}) => {
   );
 };
 
-export const FormSelectorField = ({placeholder, handleChange, items, name}) => {
-  return (
-    <Field
-      name={name}
-      handleChange={handleChange}
-      formTitle={placeholder}
-      items={items}
-      component={SelectorField}
-    />
-  );
-};
-
 export const FormBooleanField = ({title, name}) => {
   return (
     <Field
@@ -43,6 +31,22 @@ export const FormBooleanField = ({title, name}) => {
       title={title}
       component={BooleanRadioGroup}
       name={name}
+      formComponentName={name}
+    />
+  );
+};
+
+export const FormSelectorField = ({placeholder, items, name}) => {
+  if (items.length > 1000) {
+    console.log(items);
+  }
+
+  return (
+    <Field
+      name={name}
+      placeholder={placeholder}
+      items={items}
+      component={SelectorField}
       formComponentName={name}
     />
   );
@@ -68,29 +72,25 @@ const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
   );
 };
 
-const SelectorField = ({...props}) => {
-  const inputItems = props.items.map((item) => {
-    return {name: item};
-  });
+const SelectorField = ({
+  form,
+  formComponentName,
+  items,
+  placeholder,
+  ...props
+}) => {
   return (
     <Autocomplete
-      clearOnBlur={true}
-      options={inputItems}
-      getOptionSelected={(option, value) => {
-        option.name === value;
+      options={items}
+      getOptionLabel={(option) => option.label}
+      onChange={(event, newValue) => {
+        console.log(newValue);
+        form.setFieldValue(formComponentName, newValue.value);
       }}
-      freeSolo
-      value={props.name || null}
-      getOptionLabel={(option) => option.name || option}
-      onChange={props.handleChange}
       renderInput={(params) => (
-        <MuiTextField
-          {...params}
-          id="outlined-basic"
-          label={props.formTitle}
-          variant="outlined"
-        />
+        <MuiTextField {...params} variant="outlined" label={placeholder} />
       )}
+      {...props}
     />
   );
 };

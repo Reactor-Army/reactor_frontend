@@ -3,19 +3,14 @@ import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
 import {FormLayout} from "./FormStyles";
 export const Form = ({title, fields, initialValues, onSubmit}) => {
-  console.log(onSubmit);
-
   return (
     <>
       <PageTitle title={title} />
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          onSubmit(values);
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
+          onSubmit(values, actions);
+          actions.setSubmitting(false);
         }}>
         <FormikForm>
           <FormLayout>{fields}</FormLayout>

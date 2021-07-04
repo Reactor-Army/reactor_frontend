@@ -1,5 +1,5 @@
-import React from "react";
-//import {createSystem} from "../../services/processes";
+import React, {useState, useEffect} from "react";
+import {createSystem} from "../../services/processes";
 //import {processFields} from "./fields";
 //import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
@@ -9,6 +9,9 @@ import {
   FormSelectorField,
   FormBooleanField,
 } from "../Form/Fields/FormFields";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
+import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 
 const initialValues = {
   idAdsorbato: 1,
@@ -21,16 +24,53 @@ const initialValues = {
   intercambioIonico: false,
   reaccionQuimica: false,
   observacion: "",
+  temperatura: 0,
 };
 
 export const SystemCreateForm = () => {
+  const dispatch = useDispatch();
+  const [adsorbateItems, setAdsorbateItems] = useState([]);
+  const [adsorbentItems, setAdsorbentItems] = useState([]);
+
+  const adsorbates = useSelector(
+    (state) => state.adsorbates.adsorbatesWithIupacNotation,
+  );
+
+  const adsorbents = useSelector(
+    (state) => state.adsorbents.adsorbentsWithParticleSize,
+  );
+
+  useEffect(() => {
+    if (!adsorbates.length) {
+      dispatch(fetchAdsorbatesWithIupacNotation());
+    }
+
+    setAdsorbateItems(
+      adsorbates.map((adsorbate) => {
+        return {label: adsorbate.nombre, value: adsorbate.id};
+      }),
+    );
+  }, [adsorbates]);
+
+  useEffect(() => {
+    if (!adsorbents.length) {
+      dispatch(fetchAdsorbentsWithParticleSize());
+    }
+
+    setAdsorbentItems(
+      adsorbents.map((adsorbent) => {
+        return {label: adsorbent.nombre, value: adsorbent.id};
+      }),
+    );
+  }, [adsorbents]);
+
   const onSubmit = async (values) => {
     console.log("FORM VALUES: ", values);
-    /*try {
+    try {
       return await createSystem(values);
     } catch (e) {
       return e.response.data;
-    }*/
+    }
   };
 
   return (
@@ -41,16 +81,14 @@ export const SystemCreateForm = () => {
       fields={[
         <FormSelectorField
           key={1}
-          handleChange={() => {}}
           placeholder="Adsorbato"
-          items={["asdsada", "1111"]}
-          name="=idAdsorbato"
+          items={adsorbateItems}
+          name="idAdsorbato"
         />,
         <FormSelectorField
           key={2}
-          handleChange={() => {}}
           placeholder="Adsorbente"
-          items={["asdsada", "1111"]}
+          items={adsorbentItems}
           name="idAdsorbente"
         />,
         <FormNumericField placeholder="qMax" key={3} name="qmax" />,
@@ -61,21 +99,22 @@ export const SystemCreateForm = () => {
         />,
         <FormNumericField placeholder="pH Inicial" key={5} name="phinicial" />,
         <FormTextField placeholder="Fuente" key={6} name="fuente" />,
-        <FormBooleanField key={7} title="Complejacion" name="complejacion" />,
-        <FormBooleanField
+        <FormTextField placeholder="Temperatura" key={7} name="temperatura" />,
+        <FormTextField
+          placeholder="Observaciones"
+          name="observacion"
           key={8}
+        />,
+        <FormBooleanField key={9} title="Complejacion" name="complejacion" />,
+        <FormBooleanField
+          key={10}
           title="Intercambio Ionico"
           name="intercambioIonico"
         />,
         <FormBooleanField
-          key={9}
+          key={11}
           title="Reaccion Quimica"
           name="reaccionQuimica"
-        />,
-        <FormTextField
-          placeholder="Observaciones"
-          name="observacion"
-          key={10}
         />,
       ]}
     />
