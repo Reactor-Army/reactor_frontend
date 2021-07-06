@@ -1,8 +1,10 @@
 import React from "react";
 import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
-import {FormLayout} from "./FormStyles";
-export const Form = ({title, fields, initialValues, onSubmit}) => {
+import {FormLayout, ButtonContainer} from "./FormStyles";
+import {SubmitButton} from "../Button/Button";
+
+export const Form = ({title, fields, initialValues, onSubmit, errors}) => {
   return (
     <>
       <PageTitle title={title} />
@@ -14,14 +16,12 @@ export const Form = ({title, fields, initialValues, onSubmit}) => {
         }}>
         <FormikForm>
           <FormLayout>{fields}</FormLayout>
-          <button type="submit">Submit</button>
+
+          <ButtonContainer>
+            <SubmitButton text="Submit" disabled={errors} />
+          </ButtonContainer>
         </FormikForm>
       </Formik>
     </>
   );
 };
-
-/*
-   <Field name="email" validate={validateEmail} />
-    <ErrorMessage name="email" />
-*/

@@ -9,18 +9,29 @@ const booleanValues = [
   {label: "No", value: false},
 ];
 
-export const FormTextField = ({placeholder, name}) => {
-  return <Field label={placeholder} component={TextField} name={name} />;
+export const FormTextField = ({placeholder, name, error, ...props}) => {
+  return (
+    <Field
+      label={placeholder}
+      component={TextField}
+      name={name}
+      error={error ? true : false}
+      helperText={error && error}
+      {...props}
+    />
+  );
 };
 
-export const FormNumericField = ({placeholder, name, validateField}) => {
+export const FormNumericField = ({placeholder, name, error, ...props}) => {
   return (
     <Field
       type="number"
       label={placeholder}
       component={TextField}
       name={name}
-      validate={validateField}
+      error={error ? true : false}
+      helperText={error && error}
+      {...props}
     />
   );
 };
@@ -37,7 +48,13 @@ export const FormBooleanField = ({title, name}) => {
   );
 };
 
-export const FormSelectorField = ({placeholder, items, name}) => {
+export const FormSelectorField = ({
+  placeholder,
+  items,
+  name,
+  error,
+  ...props
+}) => {
   return (
     <Field
       name={name}
@@ -45,6 +62,9 @@ export const FormSelectorField = ({placeholder, items, name}) => {
       items={items}
       component={SelectorField}
       formComponentName={name}
+      error={error ? true : false}
+      helperText={error && error}
+      {...props}
     />
   );
 };
@@ -74,6 +94,8 @@ const SelectorField = ({
   formComponentName,
   items,
   placeholder,
+  error,
+  helperText,
   ...props
 }) => {
   return (
@@ -84,7 +106,13 @@ const SelectorField = ({
         form.setFieldValue(formComponentName, newValue.value);
       }}
       renderInput={(params) => (
-        <MuiTextField {...params} variant="outlined" label={placeholder} />
+        <MuiTextField
+          {...params}
+          error={error}
+          helperText={helperText}
+          variant="outlined"
+          label={placeholder}
+        />
       )}
       {...props}
     />

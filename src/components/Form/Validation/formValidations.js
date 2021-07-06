@@ -13,3 +13,11 @@ export const isPositive = (value) => {
   }
   return error;
 };
+
+export const isSet = (value) => {
+  let error;
+  if (!value) {
+    error = `Este valor no puede dejarse en blanco`;
+  }
+  return error;
+};

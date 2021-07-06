@@ -11,7 +11,8 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
-import {inRange, isPositive} from "../Form/Validation/formValidations";
+import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
+import {useHistory} from "react-router";
 
 const initialValues = {
   idAdsorbato: 1,
@@ -28,7 +29,13 @@ const initialValues = {
 };
 
 export const SystemCreateForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState({
+    qmax: null,
+    tiempoEquilibrio: null,
+    phinicial: null,
+  });
   const [adsorbateItems, setAdsorbateItems] = useState([]);
   const [adsorbentItems, setAdsorbentItems] = useState([]);
 
@@ -64,12 +71,20 @@ export const SystemCreateForm = () => {
     );
   }, [adsorbents]);
 
+  let temp = {}; //This temp variable is needed because there's an async issue on the way formik handles the validation, and the values don' update properly
+
+  const errorsSet = Object.keys(errors).some(function (key) {
+    return errors[key] !== undefined;
+  });
+
   const onSubmit = async (values) => {
-    try {
-      await createSystem(values);
-      history.push(URLS.PROCESSES_LIST);
-    } catch (e) {
-      return e.response.data;
+    if (!errorsSet) {
+      try {
+        await createSystem(values);
+        history.push(URLS.PROCESSES_LIST);
+      } catch (e) {
+        return e.response.data;
+      }
     }
   };
 
@@ -78,36 +93,59 @@ export const SystemCreateForm = () => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       title="Agregar Sistema"
+      errors={errorsSet}
       fields={[
         <FormSelectorField
           key={1}
           placeholder="Adsorbato"
           items={adsorbateItems}
           name="idAdsorbato"
+          error={errors["idAdsorbato"]}
+          validate={(value) => {
+            temp["idAdsorbato"] = isSet(value);
+            setErrors({...errors, ...temp});
+          }}
         />,
         <FormSelectorField
           key={2}
           placeholder="Adsorbente"
           items={adsorbentItems}
           name="idAdsorbente"
+          error={errors["idAdsorbente"]}
+          validate={(value) => {
+            temp["idAdsorbente"] = isSet(value);
+            setErrors({...errors, ...temp});
+          }}
         />,
         <FormNumericField
           placeholder="qMax"
           key={3}
           name="qmax"
-          validateField={(value) => isPositive(value)}
+          error={errors["qmax"]}
+          validate={(value) => {
+            temp["qmax"] = isPositive(value);
+            setErrors({...errors, ...temp});
+          }}
         />,
         <FormNumericField
           placeholder="Tiempo de equilibrio"
           key={4}
           name="tiempoEquilibrio"
-          validateField={(value) => isPositive(value)}
+          error={errors["tiempoEquilibrio"]}
+          validate={(value) => {
+            temp["tiempoEquilibrio"] = isPositive(value);
+            setErrors({...errors, ...temp});
+          }}
         />,
         <FormNumericField
           placeholder="pH Inicial"
           key={5}
           name="phinicial"
-          validateField={(value) => inRange(value, 1, 14)}
+          error={errors["phinicial"]}
+          validate={(value) => {
+            temp["phinicial"] = inRange(value, 1, 14);
+            setErrors({...errors, ...temp});
+          }}
         />,
         <FormTextField placeholder="Fuente" key={6} name="fuente" />,
         <FormNumericField
