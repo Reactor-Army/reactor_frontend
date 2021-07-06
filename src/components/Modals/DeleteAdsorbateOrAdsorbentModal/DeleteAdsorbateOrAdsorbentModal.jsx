@@ -46,7 +46,9 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
   const getMessage = () => {
     if (processCount) {
       return `Al borrar este ${typeOfItemDeleted} también se borrarán ${processCount} 
-      procesos asociados. ¿Deseas continuar?`;
+      sistema${processCount === 1 ? "" : "s"} asociado${
+        processCount === 1 ? "" : "s"
+      }. ¿Deseas continuar?`;
     }
     return `Estás a punto de borrar este ${typeOfItemDeleted}. ¿Deseas continuar?`;
   };

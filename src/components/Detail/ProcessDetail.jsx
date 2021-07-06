@@ -9,7 +9,7 @@ import {PROCESS_FIELDS} from "../../common/fields";
 export const ProcessDetail = ({process}) => {
   return (
     <Container>
-      <PageTitle title={`Proceso`} />
+      <PageTitle title={`Sistema`} />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Características</SectionHeader>
       <Label label={PROCESS_FIELDS.QMAX} value={`${process.qmax} mmol/g`} />

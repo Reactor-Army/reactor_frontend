@@ -13,7 +13,7 @@ import {useHistory} from "react-router-dom";
 import {FormulaLabel} from "./FormulaLabel";
 import {DischargeLimit} from "./DischargeLimit";
 import {adsorbateDetailUrlFor, URLS} from "../../../routing/urls";
-import {Link} from "../../../common/styles";
+import {SeeMoreLink} from "../SeeMoreLink";
 export const AdsorbateCard = ({
   headerBackgroundColor,
   bodyBackgroundColor,
@@ -57,9 +57,7 @@ export const AdsorbateCard = ({
           <DischargeLimit dischargeLimit={dischargeLimit} />
         </Section>
 
-        <BodyText>
-          <Link onClick={onProcessClick}>Ver procesos</Link>
-        </BodyText>
+        <SeeMoreLink onProcessClick={onProcessClick} />
       </CardBody>
     </Card>
   );
