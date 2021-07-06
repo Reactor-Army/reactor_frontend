@@ -103,7 +103,7 @@ const SelectorField = ({
       options={items}
       getOptionLabel={(option) => option.label}
       onChange={(event, newValue) => {
-        form.setFieldValue(formComponentName, newValue.value);
+        if (newValue) form.setFieldValue(formComponentName, newValue.value);
       }}
       renderInput={(params) => (
         <MuiTextField

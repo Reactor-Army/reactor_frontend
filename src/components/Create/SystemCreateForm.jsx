@@ -16,8 +16,8 @@ import {useHistory} from "react-router";
 import {PROCESS_FIELDS} from "../../common/fields";
 
 const initialValues = {
-  idAdsorbato: 1,
-  idAdsorbente: 1,
+  idAdsorbato: null,
+  idAdsorbente: null,
   tiempoEquilibrio: 0,
   qmax: 0,
   phinicial: 1,
