@@ -37,40 +37,25 @@ export const SystemCreateForm = () => {
     tiempoEquilibrio: null,
     phinicial: null,
   });
-  const [adsorbateItems, setAdsorbateItems] = useState([]);
-  const [adsorbentItems, setAdsorbentItems] = useState([]);
 
-  const adsorbates = useSelector(
-    (state) => state.adsorbates.adsorbatesWithIupacNotation,
+  const adsorbates = useSelector((state) =>
+    state.adsorbates.adsorbatesWithIupacNotation.map((adsorbate) => {
+      return {label: adsorbate.nombre, value: adsorbate.id};
+    }),
   );
 
-  const adsorbents = useSelector(
-    (state) => state.adsorbents.adsorbentsWithParticleSize,
+  const adsorbents = useSelector((state) =>
+    state.adsorbents.adsorbentsWithParticleSize.map((adsorbent) => {
+      return {label: adsorbent.nombre, value: adsorbent.id};
+    }),
   );
 
   useEffect(() => {
-    if (!adsorbates.length) {
+    if (!adsorbates.length && !adsorbents.length) {
       dispatch(fetchAdsorbatesWithIupacNotation());
-    }
-
-    setAdsorbateItems(
-      adsorbates.map((adsorbate) => {
-        return {label: adsorbate.nombre, value: adsorbate.id};
-      }),
-    );
-  }, [adsorbates]);
-
-  useEffect(() => {
-    if (!adsorbents.length) {
       dispatch(fetchAdsorbentsWithParticleSize());
     }
-
-    setAdsorbentItems(
-      adsorbents.map((adsorbent) => {
-        return {label: adsorbent.nombre, value: adsorbent.id};
-      }),
-    );
-  }, [adsorbents]);
+  }, []);
 
   let temp = {}; //This temp variable is needed because there's an async issue on the way formik handles the validation, and the values don' update properly
 
@@ -99,7 +84,7 @@ export const SystemCreateForm = () => {
         <FormSelectorField
           key={1}
           placeholder={PROCESS_FIELDS.ADSORBATE}
-          items={adsorbateItems}
+          items={adsorbates}
           name="idAdsorbato"
           error={errors["idAdsorbato"]}
           validate={(value) => {
@@ -110,7 +95,7 @@ export const SystemCreateForm = () => {
         <FormSelectorField
           key={2}
           placeholder={PROCESS_FIELDS.ADSORBENT}
-          items={adsorbentItems}
+          items={adsorbents}
           name="idAdsorbente"
           error={errors["idAdsorbente"]}
           validate={(value) => {
