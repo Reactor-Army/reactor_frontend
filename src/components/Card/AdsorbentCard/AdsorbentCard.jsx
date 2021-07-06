@@ -1,19 +1,13 @@
 import React from "react";
 import {Card} from "../Card";
-import {
-  CardHeader,
-  HeaderText,
-  BodyText,
-  CardBody,
-  Section,
-} from "../CommonCardStyles";
+import {CardHeader, HeaderText, CardBody, Section} from "../CommonCardStyles";
 import {useHistory} from "react-router-dom";
 import {SBetValue} from "./SBetValue";
 import {VBetValue} from "./VBetValue";
 import {adsorbentDetailUrlFor, URLS} from "../../../routing/urls";
-import {Link} from "../../../common/styles";
 import {ParticleSize} from "./ParticleSize";
 import {Ph} from "./Ph";
+import {SeeMoreLink} from "../SeeMoreLink";
 
 export const AdsorbentCard = ({
   headerBackgroundColor,
@@ -50,9 +44,7 @@ export const AdsorbentCard = ({
         </Section>
       </CardBody>
 
-      <BodyText>
-        <Link onClick={onProcessClick}>Ver procesos</Link>
-      </BodyText>
+      <SeeMoreLink onProcessClick={onProcessClick} />
     </Card>
   );
 };

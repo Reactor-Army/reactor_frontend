@@ -29,7 +29,7 @@ export function ProcessListContainer() {
 
   return (
     <>
-      <ListHeader title={"Procesos"} creationUrl={URLS.PROCESS_CREATE} />
+      <ListHeader title={"Sistemas"} creationUrl={URLS.PROCESS_CREATE} />
       <ProcessSearchContainer
         selectedAdsorbateId={query.get("adsorbato")}
         selectedAdsorbentId={query.get("adsorbente")}

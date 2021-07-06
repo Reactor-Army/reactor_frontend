@@ -14,6 +14,7 @@ import {
   getAdsorbateProcessCount,
   deleteAdsorbate,
 } from "../../services/adsorbates";
+import {ADSORBATE_FIELDS} from "../../common/fields";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -34,19 +35,22 @@ export const AdsorbateDetail = ({adsorbate}) => {
         }
       />
       <SectionHeader>Características</SectionHeader>
-      <Label label={"Nombre común"} value={adsorbate.nombreIon} />
-      <Label label={"Carga iónica"} value={adsorbate.cargaIon} />
-      <Label label={"Radio iónico"} value={`${adsorbate.radioIonico} Å`} />
+      <Label label={ADSORBATE_FIELDS.ION_NAME} value={adsorbate.nombreIon} />
+      <Label label={ADSORBATE_FIELDS.ION_CHARGE} value={adsorbate.cargaIon} />
       <Label
-        label={"Límite de vertido (Ley 24051)"}
+        label={ADSORBATE_FIELDS.ION_RADIUS}
+        value={`${adsorbate.radioIonico} Å`}
+      />
+      <Label
+        label={ADSORBATE_FIELDS.SPILL_LIMIT}
         value={spillLimit(adsorbate.limiteVertido)}
       />
       <Label
-        label={"Masa molar"}
+        label={ADSORBATE_FIELDS.MOLAR_MASS}
         value={adsorbate.masaMolar ? `${adsorbate.masaMolar} g/mol` : "-"}
       />
 
-      <SectionHeader>Fórmula</SectionHeader>
+      <SectionHeader>{ADSORBATE_FIELDS.FORMULA}</SectionHeader>
       <FormulaLabel
         formula={adsorbate.formula}
         ionChargeFormula={adsorbate.cargaIonFormula}

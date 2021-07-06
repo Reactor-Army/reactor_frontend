@@ -13,6 +13,7 @@ import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
 import {useHistory} from "react-router";
+import {PROCESS_FIELDS} from "../../common/fields";
 
 const initialValues = {
   idAdsorbato: 1,
@@ -97,7 +98,7 @@ export const SystemCreateForm = () => {
       fields={[
         <FormSelectorField
           key={1}
-          placeholder="Adsorbato"
+          placeholder={PROCESS_FIELDS.ADSORBATE}
           items={adsorbateItems}
           name="idAdsorbato"
           error={errors["idAdsorbato"]}
@@ -108,7 +109,7 @@ export const SystemCreateForm = () => {
         />,
         <FormSelectorField
           key={2}
-          placeholder="Adsorbente"
+          placeholder={PROCESS_FIELDS.ADSORBENT}
           items={adsorbentItems}
           name="idAdsorbente"
           error={errors["idAdsorbente"]}
@@ -118,7 +119,7 @@ export const SystemCreateForm = () => {
           }}
         />,
         <FormNumericField
-          placeholder="qMax"
+          placeholder={PROCESS_FIELDS.QMAX}
           key={3}
           name="qmax"
           error={errors["qmax"]}
@@ -128,7 +129,7 @@ export const SystemCreateForm = () => {
           }}
         />,
         <FormNumericField
-          placeholder="Tiempo de equilibrio"
+          placeholder={PROCESS_FIELDS.EQUILIBRIUM_TIME}
           key={4}
           name="tiempoEquilibrio"
           error={errors["tiempoEquilibrio"]}
@@ -138,7 +139,7 @@ export const SystemCreateForm = () => {
           }}
         />,
         <FormNumericField
-          placeholder="pH Inicial"
+          placeholder={PROCESS_FIELDS.INITIAL_PH}
           key={5}
           name="phinicial"
           error={errors["phinicial"]}
@@ -147,26 +148,34 @@ export const SystemCreateForm = () => {
             setErrors({...errors, ...temp});
           }}
         />,
-        <FormTextField placeholder="Fuente" key={6} name="fuente" />,
+        <FormTextField
+          placeholder={PROCESS_FIELDS.SOURCE}
+          key={6}
+          name="fuente"
+        />,
         <FormNumericField
-          placeholder="Temperatura"
+          placeholder={PROCESS_FIELDS.TEMPERATURE}
           key={7}
           name="temperatura"
         />,
         <FormTextField
-          placeholder="Observaciones"
+          placeholder={PROCESS_FIELDS.NOTES}
           name="observacion"
           key={8}
         />,
-        <FormBooleanField key={9} title="Complejacion" name="complejacion" />,
+        <FormBooleanField
+          key={9}
+          title={PROCESS_FIELDS.COMPLEXATION}
+          name="complejacion"
+        />,
         <FormBooleanField
           key={10}
-          title="Intercambio Ionico"
+          title={PROCESS_FIELDS.IONIC_INTERCHANGE}
           name="intercambioIonico"
         />,
         <FormBooleanField
           key={11}
-          title="Reaccion Quimica"
+          title={PROCESS_FIELDS.CHEMICAL_REACTION}
           name="reaccionQuimica"
         />,
       ]}

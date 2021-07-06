@@ -22,7 +22,7 @@ export function ProcessList({loading, processes}) {
   if (processes.length === 0) {
     return (
       <Typography>
-        No se encontraron procesos para tu búsqueda. Probá con otros parámetros.
+        No se encontraron sistemas para tu búsqueda. Probá con otros parámetros.
       </Typography>
     );
   }
