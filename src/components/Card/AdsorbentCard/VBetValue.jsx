@@ -6,7 +6,7 @@ import {ADSORBENT_FIELDS} from "../../../common/fields";
 export const VBetValue = ({vBet}) => {
   return (
     <BodyText>
-      <FieldLabel>{ADSORBENT_FIELDS.VBET}:</FieldLabel>{" "}
+      <FieldLabel>{ADSORBENT_FIELDS.VBET}:</FieldLabel>
       <FieldValue>
         {vBet} cm<Sup>3</Sup>/g
       </FieldValue>

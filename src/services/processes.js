@@ -23,3 +23,9 @@ export const getProcess = async (processId) => {
   const client = new HttpClient(null);
   return (await client.get(endpoint)).data;
 };
+
+export const deleteProcess = async (processId) => {
+  const endpoint = `${settings.BACKEND_URL}proceso/${processId}/`;
+  const client = new HttpClient(null);
+  return (await client.delete(endpoint)).data;
+};

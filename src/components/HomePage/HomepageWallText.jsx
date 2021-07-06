@@ -11,7 +11,7 @@ export function HomepageWallText() {
         informática en colaboración con el LaQuíSiHe (Laboratorio de Química de
         Sistemas Heterogéneos del IQAI (Instituto de Química Aplicado a la
         Ingeniería) y el Departamento de Gestión. Está enmarcado en el Proyecto
-        de Desarrollo Estratégico 032/2020{" "}
+        de Desarrollo Estratégico 032/2020
         <b>
           Metodología para el dimensionamiento de un reactor prototipo para el
           tratamiento de efluentes

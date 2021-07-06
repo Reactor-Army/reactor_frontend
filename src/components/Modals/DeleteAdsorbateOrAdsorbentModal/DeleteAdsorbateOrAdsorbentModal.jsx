@@ -1,14 +1,7 @@
 import React, {useState} from "react";
-import {Modal} from "../Modal";
-import {Button} from "../../Button/Button";
-import {
-  Message,
-  Warning,
-  BodyContainer,
-  ButtonsContainer,
-} from "./DeleteAdsorbateOrAdsorbentModalStyles";
 import {useHistory} from "react-router-dom";
 import {useAsync} from "../../../customHooks/useAsync";
+import {ConfirmDeleteModal} from "../ConfirmDeleteModal";
 
 export const DeleteAdsorbateOrAdsorbentModal = ({
   open,
@@ -58,44 +51,13 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
   }, [error]);
 
   return (
-    <Modal open={open} onClose={onClose}>
-      <BodyContainer>
-        {!error ? (
-          <>
-            <Message>{getMessage()}</Message>
-            <Warning>
-              Una vez realizada, esta operación no se puede deshacer.
-            </Warning>
-            <ButtonsContainer>
-              <Button
-                text={"Borrar"}
-                onClick={() => {
-                  onDeleteConfirmation();
-                }}
-              />
-              <Button
-                text={"Cancelar"}
-                onClick={() => {
-                  onClose();
-                }}
-              />
-            </ButtonsContainer>
-          </>
-        ) : (
-          <>
-            <Message>{error}</Message>
-            <ButtonsContainer>
-              <Button
-                text={"Aceptar"}
-                onClick={() => {
-                  setError();
-                  onClose();
-                }}
-              />
-            </ButtonsContainer>
-          </>
-        )}
-      </BodyContainer>
-    </Modal>
+    <ConfirmDeleteModal
+      open={open}
+      closeModal={onClose}
+      error={error}
+      setError={setError}
+      message={getMessage()}
+      onDeleteConfirmation={onDeleteConfirmation}
+    />
   );
 };
