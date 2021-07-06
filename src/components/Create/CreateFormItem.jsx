@@ -3,7 +3,6 @@ import {Typography} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import React from "react";
 import {ERROR_MESSAGES} from "./constants";
-import {Entity} from "../Search/Fields/Entity";
 
 export const CreateFormItem = ({
   item,
@@ -34,20 +33,16 @@ export const CreateFormItem = ({
   return (
     <FormItemContainer key={key}>
       <Typography>{`${label}${required ? "*" : ""}`}</Typography>
-      {type === "selector" ? (
-        <Entity handleChange={() => {}} formTitle={value} items={[]} />
-      ) : (
-        <TextField
-          variant="outlined"
-          type={type}
-          error={Boolean(errorType) || false}
-          helperText={errorType && (ERROR_MESSAGES[errorType] || errorType)}
-          required={required || false}
-          onChange={onChange}
-          className={styles.textInput}
-          value={value}
-        />
-      )}
+      <TextField
+        variant="outlined"
+        type={type}
+        error={Boolean(errorType) || false}
+        helperText={errorType && (ERROR_MESSAGES[errorType] || errorType)}
+        required={required || false}
+        onChange={onChange}
+        className={styles.textInput}
+        value={value}
+      />
     </FormItemContainer>
   );
 };
