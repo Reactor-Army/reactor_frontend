@@ -1,85 +1,86 @@
 import {processNotNegative, removePeriods, phInRange} from "./validations";
+import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
 
 export const adsorbateFields = [
   {
     key: "nombreIon",
-    label: "Nombre del ion",
+    label: ADSORBATE_FIELDS.ION_NAME,
     required: true,
   },
   {
     key: "nombreIUPAC",
-    label: "Nombre IUPAC",
+    label: ADSORBATE_FIELDS.IUPAC_NAME,
     required: true,
   },
   {
     key: "cargaIon",
-    label: "Carga iónica",
+    label: ADSORBATE_FIELDS.ION_CHARGE,
     type: "number",
     // First example: just post-process the value
     processValue: removePeriods,
   },
   {
     key: "radioIonico",
-    label: "Radio iónico",
+    label: ADSORBATE_FIELDS.ION_RADIUS,
     type: "number",
     // Another example: call setError whenever we find a problem
     processValue: processNotNegative,
   },
   {
     key: "limiteVertido",
-    label: "Límite de vertido",
+    label: ADSORBATE_FIELDS.SPILL_LIMIT,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "formula",
-    label: "Fórmula",
+    label: ADSORBATE_FIELDS.FORMULA,
   },
 ];
 
 export const adsorbentFields = [
   {
     key: "nombre",
-    label: "Nombre del adsorbente",
+    label: ADSORBENT_FIELDS.NAME,
     required: true,
   },
   {
     key: "particulaT",
-    label: "Tamaño de partícula",
+    label: ADSORBENT_FIELDS.PARTICLE_SIZE,
     required: true,
   },
   {
     key: "sBet",
-    label: "sBet",
+    label: ADSORBENT_FIELDS.SBET,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "vBet",
-    label: "vBet",
+    label: ADSORBENT_FIELDS.VBET,
     type: "number",
     processValue: processNotNegative,
   },
   {
     key: "pHCargaCero",
-    label: "pH (carga cero)",
+    label: ADSORBENT_FIELDS.PH,
     type: "number",
     processValue: phInRange,
   },
   {
     key: "formula",
-    label: "Fórmula",
+    label: ADSORBATE_FIELDS.FORMULA,
   },
   {
     key: "impurezas",
-    label: "Impurezas",
+    label: ADSORBENT_FIELDS.IMPURITIES,
   },
   {
     key: "origenMuestra",
-    label: "Origen de la muestra",
+    label: ADSORBENT_FIELDS.SOURCE,
   },
   {
     key: "nombreEspecie",
-    label: "Nombre de la especie",
+    label: ADSORBENT_FIELDS.SPECIES_NAME,
   },
 ];

@@ -12,6 +12,7 @@ import {
   BodyText,
 } from "../CommonCardStyles";
 import {Card} from "../Card";
+import {PROCESS_FIELDS} from "../../../common/fields";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -42,29 +43,38 @@ export const ProcessCard = ({
       <CardBody>
         <ProcessSection>
           <BodyText>
-            <FieldLabel>QMax:</FieldLabel>
+            <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
             <FieldValue>{qMax} mmol/g</FieldValue>
           </BodyText>
           <BodyText>
-            <FieldLabel>Tiempo de equilibrio:</FieldLabel>
+            <FieldLabel>{PROCESS_FIELDS.EQUILIBRIUM_TIME}:</FieldLabel>
             <FieldValue>{equilibriumTime} minutos</FieldValue>
           </BodyText>
         </ProcessSection>
         <ProcessSection>
           <BodyText>
-            <FieldLabel>Temperatura:</FieldLabel>
+            <FieldLabel>{PROCESS_FIELDS.TEMPERATURE}:</FieldLabel>
             <FieldValue>{temperature} °C</FieldValue>
           </BodyText>
           <BodyText>
-            <FieldLabel>pH inicial:</FieldLabel>
+            <FieldLabel>{PROCESS_FIELDS.INITIAL_PH}:</FieldLabel>
             <FieldValue>{initialPH}</FieldValue>
           </BodyText>
         </ProcessSection>
 
         <ChipSection>
-          <BooleanChip value={complexation} text={"Complejación"} />
-          <BooleanChip value={ionicInterchange} text={"Intercambio Iónico"} />
-          <BooleanChip value={chemicalReaction} text={"Reacción química"} />
+          <BooleanChip
+            value={complexation}
+            text={PROCESS_FIELDS.COMPLEXATION}
+          />
+          <BooleanChip
+            value={ionicInterchange}
+            text={PROCESS_FIELDS.IONIC_INTERCHANGE}
+          />
+          <BooleanChip
+            value={chemicalReaction}
+            text={PROCESS_FIELDS.CHEMICAL_REACTION}
+          />
         </ChipSection>
       </CardBody>
     </Card>

@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import React from "react";
 import {getTextFieldStyles} from "../Styles";
 import {useScreenWidth} from "../../../customHooks/useScreenWidth";
+import {ADSORBENT_FIELDS} from "../../../common/fields";
 
 export const Name = ({name, handleNameChange, onKeyPress}) => {
   const responsiveWidth = 848;
@@ -11,7 +12,7 @@ export const Name = ({name, handleNameChange, onKeyPress}) => {
     <Grid item>
       <TextField
         id="outlined-basic"
-        label="Nombre"
+        label={ADSORBENT_FIELDS.NAME}
         variant="outlined"
         value={name}
         onChange={handleNameChange}
