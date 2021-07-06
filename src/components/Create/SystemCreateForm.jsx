@@ -51,8 +51,11 @@ export const SystemCreateForm = () => {
   );
 
   useEffect(() => {
-    if (!adsorbates.length && !adsorbents.length) {
+    if (!adsorbates.length) {
       dispatch(fetchAdsorbatesWithIupacNotation());
+    }
+
+    if (!adsorbents.length) {
       dispatch(fetchAdsorbentsWithParticleSize());
     }
   }, []);

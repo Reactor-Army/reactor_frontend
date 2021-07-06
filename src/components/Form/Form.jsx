@@ -18,7 +18,7 @@ export const Form = ({title, fields, initialValues, onSubmit, errors}) => {
           <FormLayout>{fields}</FormLayout>
 
           <ButtonContainer>
-            <SubmitButton text="Submit" disabled={errors} />
+            <SubmitButton text="Agregar" disabled={errors} />
           </ButtonContainer>
         </FormikForm>
       </Formik>
