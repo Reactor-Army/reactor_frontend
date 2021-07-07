@@ -60,8 +60,6 @@ export const SystemCreateForm = () => {
     }
   }, []);
 
-  let temp = {}; //This temp variable is needed because there's an async issue on the way formik handles the validation, and the values don' update properly
-
   const errorsSet = Object.keys(errors).some(function (key) {
     return errors[key] !== undefined;
   });
@@ -91,8 +89,9 @@ export const SystemCreateForm = () => {
           name="idAdsorbato"
           error={errors["idAdsorbato"]}
           validate={(value) => {
-            temp["idAdsorbato"] = isSet(value);
-            setErrors({...errors, ...temp});
+            setErrors((previousState) => {
+              return {...previousState, idAdsorbato: isSet(value)};
+            });
           }}
         />,
         <FormSelectorField
@@ -102,8 +101,9 @@ export const SystemCreateForm = () => {
           name="idAdsorbente"
           error={errors["idAdsorbente"]}
           validate={(value) => {
-            temp["idAdsorbente"] = isSet(value);
-            setErrors({...errors, ...temp});
+            setErrors((previousState) => {
+              return {...previousState, idAdsorbente: isSet(value)};
+            });
           }}
         />,
         <FormNumericField
@@ -112,8 +112,9 @@ export const SystemCreateForm = () => {
           name="qmax"
           error={errors["qmax"]}
           validate={(value) => {
-            temp["qmax"] = isPositive(value);
-            setErrors({...errors, ...temp});
+            setErrors((previousState) => {
+              return {...previousState, qmax: isPositive(value)};
+            });
           }}
         />,
         <FormNumericField
@@ -122,8 +123,9 @@ export const SystemCreateForm = () => {
           name="tiempoEquilibrio"
           error={errors["tiempoEquilibrio"]}
           validate={(value) => {
-            temp["tiempoEquilibrio"] = isPositive(value);
-            setErrors({...errors, ...temp});
+            setErrors((previousState) => {
+              return {...previousState, tiempoEquilibrio: isPositive(value)};
+            });
           }}
         />,
         <FormNumericField
@@ -132,8 +134,12 @@ export const SystemCreateForm = () => {
           name="phinicial"
           error={errors["phinicial"]}
           validate={(value) => {
-            temp["phinicial"] = inRange(value, 1, 14);
-            setErrors({...errors, ...temp});
+            setErrors((previousState) => {
+              return {
+                ...previousState,
+                phinicial: inRange(value, 1, 14),
+              };
+            });
           }}
         />,
         <FormTextField
