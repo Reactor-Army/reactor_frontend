@@ -24,6 +24,12 @@ export const getProcess = async (processId) => {
   return (await client.get(endpoint)).data;
 };
 
+export const createSystem = async (body) => {
+  const endpoint = `${settings.BACKEND_URL}proceso/`;
+  const client = new HttpClient(null);
+  return (await client.post(endpoint, body)).data;
+};
+
 export const deleteProcess = async (processId) => {
   const endpoint = `${settings.BACKEND_URL}proceso/${processId}/`;
   const client = new HttpClient(null);

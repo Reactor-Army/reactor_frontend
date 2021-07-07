@@ -20,6 +20,8 @@ export const ADSORBENT_FIELDS = {
 };
 
 export const PROCESS_FIELDS = {
+  ADSORBATE: "Adsorbato",
+  ADSORBENT: "Adsorbente",
   QMAX: "qMax",
   EQUILIBRIUM_TIME: "Tiempo de equilibrio",
   TEMPERATURE: "Temperatura",

@@ -5,9 +5,9 @@ import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {createSearchProcessesThunk} from "../../redux/processesSlice";
 import {useQuery} from "../../routing/hooks/useQuery";
 import {ProcessSearchContainer} from "./Search/ProcessSearchContainer";
-import {appFontFamily} from "../../common/styles";
-import {PageTitle} from "../../common/PageTitle";
 import {ProcessList} from "../../components/List/ProcessList/ProcessList";
+import {ListHeader} from "../../components/List/common/ListHeader";
+import {URLS} from "../../routing/urls";
 
 export function ProcessListContainer() {
   const loading = useSelector((state) => state.loading);
@@ -29,7 +29,7 @@ export function ProcessListContainer() {
 
   return (
     <>
-      <PageTitle title={"Sistemas"} style={{fontFamily: appFontFamily.card}} />
+      <ListHeader title={"Sistemas"} creationUrl={URLS.PROCESS_CREATE} />
       <ProcessSearchContainer
         selectedAdsorbateId={query.get("adsorbato")}
         selectedAdsorbentId={query.get("adsorbente")}

@@ -10,6 +10,7 @@ export const URLS = {
   ADSORBENT_EDIT: "/adsorbentes/:id/modificar",
   PROCESSES_LIST: "/sistemas",
   PROCESS_DETAIL: "/sistemas/:id",
+  PROCESS_CREATE: "/sistemas/agregar",
   BEST_ADSORBENT: "/mejor-adsorbente",
 };
 
