@@ -123,6 +123,7 @@ const SelectorField = ({
     <Autocomplete
       options={items}
       getOptionLabel={(option) => option.label}
+      getOptionSelected={(option, item) => option.value === item.value}
       onChange={(event, newValue) => {
         if (newValue) {
           form.setFieldValue(formComponentName, newValue.value);
