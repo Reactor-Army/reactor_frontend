@@ -11,6 +11,7 @@ export const URLS = {
   PROCESSES_LIST: "/sistemas",
   PROCESS_DETAIL: "/sistemas/:id",
   PROCESS_CREATE: "/sistemas/agregar",
+  PROCESS_EDIT: "/sistemas/:id/modificar",
   BEST_ADSORBENT: "/mejor-adsorbente",
 };
 
@@ -24,6 +25,10 @@ export const adsorbateEditUrlFor = (adsorbateId) => {
 
 export const processDetailUrlFor = (processId) => {
   return processUrlId(URLS.PROCESS_DETAIL, processId);
+};
+
+export const processEditUrlFor = (processId) => {
+  return processUrlId(URLS.PROCESS_EDIT, processId);
 };
 
 export const adsorbateDetailUrlFor = (adsorbateId) => {
