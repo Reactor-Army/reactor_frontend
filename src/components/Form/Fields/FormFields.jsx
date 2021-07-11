@@ -36,7 +36,7 @@ export const FormNumericField = ({placeholder, name, error, ...props}) => {
   );
 };
 
-export const FormBooleanField = ({title, name}) => {
+export const FormBooleanField = ({title, name, value}) => {
   return (
     <Field
       options={booleanValues}
@@ -44,6 +44,7 @@ export const FormBooleanField = ({title, name}) => {
       component={BooleanRadioGroup}
       name={name}
       formComponentName={name}
+      value={value}
     />
   );
 };
@@ -53,8 +54,10 @@ export const FormSelectorField = ({
   items,
   name,
   error,
+  value,
   ...props
 }) => {
+  const [selectedValue, setSelectedValue] = useState(value);
   return (
     <Field
       name={name}
@@ -62,8 +65,10 @@ export const FormSelectorField = ({
       items={items}
       component={SelectorField}
       formComponentName={name}
+      value={selectedValue}
       error={error ? true : false}
       helperText={error && error}
+      setSelectedValue={setSelectedValue}
       {...props}
     />
   );
@@ -73,8 +78,14 @@ const TextField = ({field, ...props}) => {
   return <MuiTextField variant="outlined" {...field} {...props} />;
 };
 
-const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
-  const [selectedValue, setSelectedValue] = useState(false);
+const BooleanRadioGroup = ({
+  formComponentName,
+  form,
+  field,
+  value,
+  ...props
+}) => {
+  const [selectedValue, setSelectedValue] = useState(value);
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
     form.setFieldValue(formComponentName, event.target.value);
@@ -96,19 +107,26 @@ const SelectorField = ({
   placeholder,
   error,
   helperText,
+  value,
+  setSelectedValue,
   ...props
 }) => {
+  const selectedItem = value
+    ? items.find((item) => item.value === value)
+    : null;
   return (
     <Autocomplete
       options={items}
       getOptionLabel={(option) => option.label}
       onChange={(event, newValue) => {
         if (newValue) {
+          setSelectedValue(newValue.value);
           form.setFieldValue(formComponentName, newValue.value);
         } else {
           form.setFieldValue(formComponentName, null);
         }
       }}
+      value={selectedItem}
       renderInput={(params) => (
         <MuiTextField
           {...params}

@@ -8,20 +8,6 @@ export const SystemCreateRoute = () => {
   const [errors, setErrors] = useState(true);
   const history = useHistory();
 
-  const initialValues = {
-    idAdsorbato: null,
-    idAdsorbente: null,
-    tiempoEquilibrio: 0,
-    qmax: 0,
-    phinicial: 1,
-    fuente: "",
-    complejacion: false,
-    intercambioIonico: false,
-    reaccionQuimica: false,
-    observacion: "",
-    temperatura: 0,
-  };
-
   const onSubmit = async (values) => {
     if (!errors) {
       try {
@@ -32,11 +18,5 @@ export const SystemCreateRoute = () => {
       }
     }
   };
-  return (
-    <SystemCreateForm
-      onSubmit={onSubmit}
-      setErrors={setErrors}
-      initialValues={initialValues}
-    />
-  );
+  return <SystemCreateForm onSubmit={onSubmit} setErrors={setErrors} />;
 };

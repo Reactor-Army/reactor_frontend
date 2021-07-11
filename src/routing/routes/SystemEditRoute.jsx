@@ -20,33 +20,13 @@ export const SystemEditRoute = () => {
     }
   }, []);
 
-  const getInitialValues = () => {
-    if (system) {
-      return {
-        idAdsorbato: system.idAdsorbato,
-        idAdsorbente: system.idAdsorbente,
-        tiempoEquilibrio: system.tiempoEquilibrio,
-        qmax: system.qmax,
-        phinicial: system.phinicial,
-        fuente: system.fuente,
-        complejacion: system.complejacion,
-        intercambioIonico: system.intercambioIonico,
-        reaccionQuimica: system.reaccionQuimica,
-        observacion: system.observacion,
-        temperatura: system.temperatura,
-      };
-    }
-  };
-
-  console.log(system);
   const onSubmit = async (values) => {
     if (!errors) {
-      const data = {...values, id: system.id};
       try {
-        await updateSystem(data);
+        await updateSystem(id, {...values, id: parseInt(id)});
         history.push(URLS.PROCESSES_LIST);
       } catch (e) {
-        return e.response.data;
+        return e;
       }
     }
   };
@@ -54,7 +34,7 @@ export const SystemEditRoute = () => {
     <SystemCreateForm
       onSubmit={onSubmit}
       setErrors={setErrors}
-      initialValues={getInitialValues()}
+      initialValues={system}
     />
   );
 };
