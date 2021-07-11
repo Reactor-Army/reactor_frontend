@@ -9,6 +9,7 @@ export const Form = ({title, fields, initialValues, onSubmit, errors}) => {
     <>
       <PageTitle title={title} />
       <Formik
+        enableReinitialize
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           onSubmit(values, actions);

@@ -18,7 +18,7 @@ export const SystemEditRoute = () => {
     if (!system) {
       dispatch(fetchProcess(id));
     }
-  }, []);
+  }, [system]);
 
   const onSubmit = async (values) => {
     if (!errors) {
@@ -32,8 +32,11 @@ export const SystemEditRoute = () => {
   };
   return (
     <SystemCreateForm
+      title="Modificar Sistema"
       onSubmit={onSubmit}
-      setErrors={setErrors}
+      setErrors={(value) => {
+        setErrors(value);
+      }}
       initialValues={system}
     />
   );

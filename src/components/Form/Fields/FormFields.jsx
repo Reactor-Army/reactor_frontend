@@ -3,6 +3,7 @@ import {TextField as MuiTextField} from "@material-ui/core";
 import {Field} from "formik";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
+import {useEffect} from "react";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -36,7 +37,7 @@ export const FormNumericField = ({placeholder, name, error, ...props}) => {
   );
 };
 
-export const FormBooleanField = ({title, name, value}) => {
+export const FormBooleanField = ({title, name}) => {
   return (
     <Field
       options={booleanValues}
@@ -44,7 +45,6 @@ export const FormBooleanField = ({title, name, value}) => {
       component={BooleanRadioGroup}
       name={name}
       formComponentName={name}
-      value={value}
     />
   );
 };
@@ -54,10 +54,8 @@ export const FormSelectorField = ({
   items,
   name,
   error,
-  value,
   ...props
 }) => {
-  const [selectedValue, setSelectedValue] = useState(value);
   return (
     <Field
       name={name}
@@ -65,10 +63,8 @@ export const FormSelectorField = ({
       items={items}
       component={SelectorField}
       formComponentName={name}
-      value={selectedValue}
       error={error ? true : false}
       helperText={error && error}
-      setSelectedValue={setSelectedValue}
       {...props}
     />
   );
@@ -78,18 +74,20 @@ const TextField = ({field, ...props}) => {
   return <MuiTextField variant="outlined" {...field} {...props} />;
 };
 
-const BooleanRadioGroup = ({
-  formComponentName,
-  form,
-  field,
-  value,
-  ...props
-}) => {
-  const [selectedValue, setSelectedValue] = useState(value);
+const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
+  const [selectedValue, setSelectedValue] = useState(false);
+
+  useEffect(() => {
+    if (field.value) {
+      setSelectedValue(field.value);
+    }
+  }, [field.value]);
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
     form.setFieldValue(formComponentName, event.target.value);
   };
+
   return (
     <RadioGroup
       selectedValue={selectedValue}
@@ -107,20 +105,26 @@ const SelectorField = ({
   placeholder,
   error,
   helperText,
-  value,
-  setSelectedValue,
+  field,
   ...props
 }) => {
-  const selectedItem = value
+  /*const selectedItem = value
     ? items.find((item) => item.value === value)
-    : null;
+    : null;*/
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  useEffect(() => {
+    if (field.value) {
+      setSelectedItem(items.find((item) => item.value === field.value));
+    }
+  }, [field.value]);
+
   return (
     <Autocomplete
       options={items}
       getOptionLabel={(option) => option.label}
       onChange={(event, newValue) => {
         if (newValue) {
-          setSelectedValue(newValue.value);
           form.setFieldValue(formComponentName, newValue.value);
         } else {
           form.setFieldValue(formComponentName, null);

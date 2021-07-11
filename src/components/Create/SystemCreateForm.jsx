@@ -13,8 +13,13 @@ import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 
-export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
-  let initial = SYSTEM_FORM_INITIAL_VALUES;
+export const SystemCreateForm = ({
+  title,
+  onSubmit,
+  setErrors,
+  initialValues,
+}) => {
+  const [initial, setInitial] = useState(SYSTEM_FORM_INITIAL_VALUES);
   const dispatch = useDispatch();
 
   const [errorValues, setErrorValues] = useState({
@@ -35,21 +40,23 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
     }),
   );
 
-  if (initialValues) {
-    initial = {
-      idAdsorbato: initialValues.adsorbato.id,
-      idAdsorbente: initialValues.adsorbente.id,
-      tiempoEquilibrio: initialValues.tiempoEquilibrio,
-      qmax: initialValues.qmax,
-      phinicial: initialValues.phinicial,
-      fuente: initialValues.fuente,
-      complejacion: initialValues.complejacion,
-      intercambioIonico: initialValues.intercambioIonico,
-      reaccionQuimica: initialValues.reaccionQuimica,
-      observacion: initialValues.observacion,
-      temperatura: initialValues.temperatura,
-    };
-  }
+  useEffect(() => {
+    if (initialValues) {
+      setInitial({
+        idAdsorbato: initialValues.adsorbato.id,
+        idAdsorbente: initialValues.adsorbente.id,
+        tiempoEquilibrio: initialValues.tiempoEquilibrio,
+        qmax: initialValues.qmax,
+        phinicial: initialValues.phinicial,
+        fuente: initialValues.fuente,
+        complejacion: initialValues.complejacion,
+        intercambioIonico: initialValues.intercambioIonico,
+        reaccionQuimica: initialValues.reaccionQuimica,
+        observacion: initialValues.observacion,
+        temperatura: initialValues.temperatura,
+      });
+    }
+  }, [initialValues]);
 
   useEffect(() => {
     if (!adsorbates.length) {
@@ -66,12 +73,11 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
   });
 
   setErrors(errorsSet);
-
   return (
     <Form
       initialValues={initial}
       onSubmit={onSubmit}
-      title="Agregar Sistema"
+      title={title}
       errors={errorsSet}
       fields={[
         <FormSelectorField
@@ -80,7 +86,6 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
           items={adsorbates}
           name="idAdsorbato"
           error={errorValues["idAdsorbato"]}
-          value={initial.idAdsorbato}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {...previousState, idAdsorbato: isSet(value)};
@@ -92,7 +97,6 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
           placeholder={PROCESS_FIELDS.ADSORBENT}
           items={adsorbents}
           name="idAdsorbente"
-          value={initial.idAdsorbente}
           error={errorValues["idAdsorbente"]}
           validate={(value) => {
             setErrorValues((previousState) => {
@@ -104,6 +108,7 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
           placeholder={PROCESS_FIELDS.QMAX}
           key={3}
           name="qmax"
+          defaultValue={initial.value}
           error={errorValues["qmax"]}
           validate={(value) => {
             setErrorValues((previousState) => {
@@ -155,19 +160,16 @@ export const SystemCreateForm = ({onSubmit, setErrors, initialValues}) => {
           key={9}
           title={PROCESS_FIELDS.COMPLEXATION}
           name="complejacion"
-          value={initial.complejacion}
         />,
         <FormBooleanField
           key={10}
           title={PROCESS_FIELDS.IONIC_INTERCHANGE}
           name="intercambioIonico"
-          value={initial.intercambioIonico}
         />,
         <FormBooleanField
           key={11}
           title={PROCESS_FIELDS.CHEMICAL_REACTION}
           name="reaccionQuimica"
-          value={initial.reaccionQuimica}
         />,
       ]}
     />

@@ -18,5 +18,11 @@ export const SystemCreateRoute = () => {
       }
     }
   };
-  return <SystemCreateForm onSubmit={onSubmit} setErrors={setErrors} />;
+  return (
+    <SystemCreateForm
+      title="Agregar Sistema"
+      onSubmit={onSubmit}
+      setErrors={setErrors}
+    />
+  );
 };
