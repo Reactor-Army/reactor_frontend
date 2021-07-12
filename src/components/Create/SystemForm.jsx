@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from "react";
-import {createSystem} from "../../services/processes";
-import {URLS} from "../../routing/urls";
 import {Form} from "../Form/Form";
 import {
   FormTextField,
@@ -12,27 +10,20 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
-import {useHistory} from "react-router";
 import {PROCESS_FIELDS} from "../../common/fields";
+import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 
-const initialValues = {
-  idAdsorbato: null,
-  idAdsorbente: null,
-  tiempoEquilibrio: 0,
-  qmax: 0,
-  phinicial: 1,
-  fuente: "",
-  complejacion: false,
-  intercambioIonico: false,
-  reaccionQuimica: false,
-  observacion: "",
-  temperatura: 0,
-};
-
-export const SystemCreateForm = () => {
-  const history = useHistory();
+export const SystemForm = ({
+  title,
+  onSubmit,
+  buttonLabel,
+  setErrors,
+  initialValues,
+}) => {
+  const [initial, setInitial] = useState(SYSTEM_FORM_INITIAL_VALUES);
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState({
+
+  const [errorValues, setErrorValues] = useState({
     qmax: null,
     tiempoEquilibrio: null,
     phinicial: null,
@@ -51,6 +42,24 @@ export const SystemCreateForm = () => {
   );
 
   useEffect(() => {
+    if (initialValues) {
+      setInitial({
+        idAdsorbato: initialValues.adsorbato.id,
+        idAdsorbente: initialValues.adsorbente.id,
+        tiempoEquilibrio: initialValues.tiempoEquilibrio,
+        qmax: initialValues.qmax,
+        phinicial: initialValues.phinicial,
+        fuente: initialValues.fuente,
+        complejacion: initialValues.complejacion,
+        intercambioIonico: initialValues.intercambioIonico,
+        reaccionQuimica: initialValues.reaccionQuimica,
+        observacion: initialValues.observacion,
+        temperatura: initialValues.temperatura,
+      });
+    }
+  }, [initialValues]);
+
+  useEffect(() => {
     if (!adsorbates.length) {
       dispatch(fetchAdsorbatesWithIupacNotation());
     }
@@ -60,26 +69,20 @@ export const SystemCreateForm = () => {
     }
   }, []);
 
-  const errorsSet = Object.keys(errors).some(function (key) {
-    return errors[key] !== undefined;
+  const errorsSet = Object.keys(errorValues).some((key) => {
+    return errorValues[key] !== undefined;
   });
 
-  const onSubmit = async (values) => {
-    if (!errorsSet) {
-      try {
-        await createSystem(values);
-        history.push(URLS.PROCESSES_LIST);
-      } catch (e) {
-        return e.response.data;
-      }
-    }
-  };
+  useEffect(() => {
+    setErrors(errorsSet);
+  }, [errorsSet]);
 
   return (
     <Form
-      initialValues={initialValues}
+      initialValues={initial}
       onSubmit={onSubmit}
-      title="Agregar Sistema"
+      title={title}
+      buttonLabel={buttonLabel}
       errors={errorsSet}
       fields={[
         <FormSelectorField
@@ -87,9 +90,9 @@ export const SystemCreateForm = () => {
           placeholder={PROCESS_FIELDS.ADSORBATE}
           items={adsorbates}
           name="idAdsorbato"
-          error={errors["idAdsorbato"]}
+          error={errorValues["idAdsorbato"]}
           validate={(value) => {
-            setErrors((previousState) => {
+            setErrorValues((previousState) => {
               return {...previousState, idAdsorbato: isSet(value)};
             });
           }}
@@ -99,9 +102,9 @@ export const SystemCreateForm = () => {
           placeholder={PROCESS_FIELDS.ADSORBENT}
           items={adsorbents}
           name="idAdsorbente"
-          error={errors["idAdsorbente"]}
+          error={errorValues["idAdsorbente"]}
           validate={(value) => {
-            setErrors((previousState) => {
+            setErrorValues((previousState) => {
               return {...previousState, idAdsorbente: isSet(value)};
             });
           }}
@@ -110,9 +113,10 @@ export const SystemCreateForm = () => {
           placeholder={PROCESS_FIELDS.QMAX}
           key={3}
           name="qmax"
-          error={errors["qmax"]}
+          defaultValue={initial.value}
+          error={errorValues["qmax"]}
           validate={(value) => {
-            setErrors((previousState) => {
+            setErrorValues((previousState) => {
               return {...previousState, qmax: isPositive(value)};
             });
           }}
@@ -121,9 +125,9 @@ export const SystemCreateForm = () => {
           placeholder={PROCESS_FIELDS.EQUILIBRIUM_TIME}
           key={4}
           name="tiempoEquilibrio"
-          error={errors["tiempoEquilibrio"]}
+          error={errorValues["tiempoEquilibrio"]}
           validate={(value) => {
-            setErrors((previousState) => {
+            setErrorValues((previousState) => {
               return {...previousState, tiempoEquilibrio: isPositive(value)};
             });
           }}
@@ -132,9 +136,9 @@ export const SystemCreateForm = () => {
           placeholder={PROCESS_FIELDS.INITIAL_PH}
           key={5}
           name="phinicial"
-          error={errors["phinicial"]}
+          error={errorValues["phinicial"]}
           validate={(value) => {
-            setErrors((previousState) => {
+            setErrorValues((previousState) => {
               return {
                 ...previousState,
                 phinicial: inRange(value, 1, 14),

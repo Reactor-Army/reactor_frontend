@@ -3,6 +3,7 @@ import {TextField as MuiTextField} from "@material-ui/core";
 import {Field} from "formik";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
+import {useEffect} from "react";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -75,10 +76,18 @@ const TextField = ({field, ...props}) => {
 
 const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
   const [selectedValue, setSelectedValue] = useState(false);
+
+  useEffect(() => {
+    if (field.value) {
+      setSelectedValue(field.value);
+    }
+  }, [field.value]);
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
     form.setFieldValue(formComponentName, event.target.value);
   };
+
   return (
     <RadioGroup
       selectedValue={selectedValue}
@@ -96,12 +105,22 @@ const SelectorField = ({
   placeholder,
   error,
   helperText,
+  field,
   ...props
 }) => {
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  useEffect(() => {
+    if (field.value !== null && field.value !== undefined) {
+      setSelectedItem(items.find((item) => item.value === field.value));
+    }
+  }, [field.value]);
+
   return (
     <Autocomplete
       options={items}
       getOptionLabel={(option) => option.label}
+      getOptionSelected={(option, item) => option.value === item.value}
       onChange={(event, newValue) => {
         if (newValue) {
           form.setFieldValue(formComponentName, newValue.value);
@@ -109,6 +128,7 @@ const SelectorField = ({
           form.setFieldValue(formComponentName, null);
         }
       }}
+      value={selectedItem}
       renderInput={(params) => (
         <MuiTextField
           {...params}

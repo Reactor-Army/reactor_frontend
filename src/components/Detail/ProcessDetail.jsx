@@ -6,6 +6,8 @@ import {Cards} from "./Cards";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {DetailHeader} from "./DetailHeader";
 import {DeleteButton} from "../List/common/DeleteButton";
+import {processEditUrlFor} from "../../routing/urls";
+import {EditButton} from "../List/common/EditButton";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -15,6 +17,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         id={process.id}
         buttons={
           <>
+            <EditButton url={processEditUrlFor(process.id)} />
             <DeleteButton onClick={onDeleteClick} />
           </>
         }
