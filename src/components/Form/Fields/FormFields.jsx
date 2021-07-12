@@ -108,9 +108,6 @@ const SelectorField = ({
   field,
   ...props
 }) => {
-  /*const selectedItem = value
-    ? items.find((item) => item.value === value)
-    : null;*/
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
