@@ -13,7 +13,7 @@ import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 
-export const SystemCreateForm = ({
+export const SystemForm = ({
   title,
   onSubmit,
   buttonLabel,

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {SystemCreateForm} from "../../components/Create/SystemCreateForm";
+import {SystemForm} from "../../components/Create/SystemForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {updateSystem} from "../../services/processes";
@@ -31,7 +31,7 @@ export const SystemEditRoute = () => {
     }
   };
   return (
-    <SystemCreateForm
+    <SystemForm
       title="Modificar Sistema"
       buttonLabel="Actualizar"
       onSubmit={onSubmit}

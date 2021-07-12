@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {SystemCreateForm} from "../../components/Create/SystemCreateForm";
+import {SystemForm} from "../../components/Create/SystemForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createSystem} from "../../services/processes";
@@ -19,7 +19,7 @@ export const SystemCreateRoute = () => {
     }
   };
   return (
-    <SystemCreateForm
+    <SystemForm
       title="Agregar Sistema"
       buttonLabel="Agregar"
       onSubmit={onSubmit}
