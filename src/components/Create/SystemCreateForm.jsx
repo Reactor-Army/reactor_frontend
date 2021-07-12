@@ -16,6 +16,7 @@ import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 export const SystemCreateForm = ({
   title,
   onSubmit,
+  buttonLabel,
   setErrors,
   initialValues,
 }) => {
@@ -81,6 +82,7 @@ export const SystemCreateForm = ({
       initialValues={initial}
       onSubmit={onSubmit}
       title={title}
+      buttonLabel={buttonLabel}
       errors={errorsSet}
       fields={[
         <FormSelectorField

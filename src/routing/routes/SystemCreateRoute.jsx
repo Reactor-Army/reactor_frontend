@@ -21,6 +21,7 @@ export const SystemCreateRoute = () => {
   return (
     <SystemCreateForm
       title="Agregar Sistema"
+      buttonLabel="Agregar"
       onSubmit={onSubmit}
       setErrors={setErrors}
     />

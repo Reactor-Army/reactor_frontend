@@ -4,7 +4,14 @@ import {PageTitle} from "../../common/PageTitle";
 import {FormLayout, ButtonContainer} from "./FormStyles";
 import {SubmitButton} from "../Button/Button";
 
-export const Form = ({title, fields, initialValues, onSubmit, errors}) => {
+export const Form = ({
+  title,
+  fields,
+  initialValues,
+  onSubmit,
+  buttonLabel,
+  errors,
+}) => {
   return (
     <>
       <PageTitle title={title} />
@@ -19,7 +26,7 @@ export const Form = ({title, fields, initialValues, onSubmit, errors}) => {
           <FormLayout>{fields}</FormLayout>
 
           <ButtonContainer>
-            <SubmitButton text="Agregar" disabled={errors} />
+            <SubmitButton text={buttonLabel} disabled={errors} />
           </ButtonContainer>
         </FormikForm>
       </Formik>

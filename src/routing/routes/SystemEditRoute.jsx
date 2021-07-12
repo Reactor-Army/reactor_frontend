@@ -33,6 +33,7 @@ export const SystemEditRoute = () => {
   return (
     <SystemCreateForm
       title="Modificar Sistema"
+      buttonLabel="Actualizar"
       onSubmit={onSubmit}
       setErrors={(value) => {
         setErrors(value);
