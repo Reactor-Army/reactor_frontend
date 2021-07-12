@@ -111,7 +111,7 @@ const SelectorField = ({
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    if (field.value) {
+    if (field.value !== null && field.value !== undefined) {
       setSelectedItem(items.find((item) => item.value === field.value));
     }
   }, [field.value]);
