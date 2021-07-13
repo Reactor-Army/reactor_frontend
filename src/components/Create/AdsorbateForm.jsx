@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form} from "../Form/Form";
 import {FormTextField, FormNumericField} from "../Form/Fields/FormFields";
 import {ADSORBATE_FIELDS} from "../../common/fields";
-import {isSet, isPositive} from "../Form/Validation/formValidations";
+import {isSet, isPositive, isInteger} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 
 export const AdsorbateForm = ({
@@ -80,7 +80,10 @@ export const AdsorbateForm = ({
           error={errorValues["cargaIon"]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, cargaIon: isSet(value)};
+              return {
+                ...previousState,
+                cargaIon: isSet(value) || isInteger(value),
+              };
             });
           }}
         />,

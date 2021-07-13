@@ -21,3 +21,11 @@ export const isSet = (value) => {
   }
   return error;
 };
+
+export const isInteger = (value) => {
+  let error;
+  if (!Number.isInteger(value)) {
+    error = `Este valor debe ser entero`;
+  }
+  return error;
+};
