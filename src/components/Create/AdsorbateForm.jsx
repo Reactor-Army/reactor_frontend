@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form} from "../Form/Form";
 import {FormTextField, FormNumericField} from "../Form/Fields/FormFields";
 import {ADSORBATE_FIELDS} from "../../common/fields";
-import {isSet} from "../Form/Validation/formValidations";
+import {isSet, isPositive} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 
 export const AdsorbateForm = ({
@@ -18,6 +18,8 @@ export const AdsorbateForm = ({
     nombreIon: null,
     nombreIUPAC: null,
     cargaIon: null,
+    radioIonico: null,
+    limiteVertido: null,
   });
 
   useEffect(() => {
@@ -86,11 +88,23 @@ export const AdsorbateForm = ({
           placeholder={ADSORBATE_FIELDS.ION_RADIUS}
           key={4}
           name="radioIonico"
+          error={errorValues["radioIonico"]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {...previousState, radioIonico: isPositive(value)};
+            });
+          }}
         />,
         <FormNumericField
           placeholder={ADSORBATE_FIELDS.SPILL_LIMIT}
           key={5}
           name="limiteVertido"
+          error={errorValues["limiteVertido"]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {...previousState, limiteVertido: isPositive(value)};
+            });
+          }}
         />,
         <FormTextField
           placeholder={ADSORBATE_FIELDS.FORMULA}
