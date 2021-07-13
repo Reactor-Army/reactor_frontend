@@ -94,7 +94,7 @@ export const AdsorbateForm = ({
         />,
         <FormTextField
           placeholder={ADSORBATE_FIELDS.FORMULA}
-          key={2}
+          key={6}
           name="formula"
         />,
       ]}
