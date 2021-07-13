@@ -13,3 +13,12 @@ export const SYSTEM_FORM_INITIAL_VALUES = {
   observacion: "",
   temperatura: 0,
 };
+
+export const ADSORBATE_FORM_INITIAL_VALUES = {
+  nombreIon: "",
+  nombreIUPAC: "",
+  cargaIon: 0,
+  radioIonico: 0,
+  limiteVertido: 0,
+  formula: "",
+};
