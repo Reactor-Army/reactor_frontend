@@ -22,3 +22,15 @@ export const ADSORBATE_FORM_INITIAL_VALUES = {
   limiteVertido: 0,
   formula: "",
 };
+
+export const ADSORBENT_FORM_INITIAL_VALUES = {
+  nombre: "",
+  particulaT: null,
+  sBet: null,
+  vBet: null,
+  pHCargaCero: null,
+  formula: "",
+  impuerzas: "",
+  origenMuestra: "",
+  nombreEspecie: "",
+};

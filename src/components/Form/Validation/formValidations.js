@@ -1,5 +1,8 @@
 export const inRange = (value, lowerBound, upperBound) => {
   let error;
+  if (value === null || value === undefined) {
+    return null;
+  }
   if (value < lowerBound || value > upperBound) {
     error = `Este valor tiene que estar comprendido en el intervalo ${lowerBound} - ${upperBound}`;
   }

@@ -17,7 +17,7 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
         clearOnBlur={true}
         options={inputItems}
         getOptionSelected={(option, value) => {
-          option.name === value;
+          return option.name === value;
         }}
         freeSolo
         value={name || null}
