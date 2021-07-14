@@ -12,6 +12,8 @@ import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
+import {allNullKeys} from "../../utils/allNullKeys";
+import {filterBlank} from "./validations";
 
 export const SystemForm = ({
   title,
@@ -43,19 +45,7 @@ export const SystemForm = ({
 
   useEffect(() => {
     if (initialValues) {
-      setInitial({
-        idAdsorbato: initialValues.adsorbato.id,
-        idAdsorbente: initialValues.adsorbente.id,
-        tiempoEquilibrio: initialValues.tiempoEquilibrio,
-        qmax: initialValues.qmax,
-        phinicial: initialValues.phinicial,
-        fuente: initialValues.fuente,
-        complejacion: initialValues.complejacion,
-        intercambioIonico: initialValues.intercambioIonico,
-        reaccionQuimica: initialValues.reaccionQuimica,
-        observacion: initialValues.observacion,
-        temperatura: initialValues.temperatura,
-      });
+      setInitial(allNullKeys(SYSTEM_FORM_INITIAL_VALUES));
     }
   }, [initialValues]);
 
@@ -69,13 +59,9 @@ export const SystemForm = ({
     }
   }, []);
 
-  const errorsSet = Object.keys(errorValues).some((key) => {
-    return errorValues[key] !== undefined;
-  });
-
   useEffect(() => {
-    setErrors(errorsSet);
-  }, [errorsSet]);
+    setErrors(filterBlank(errorValues));
+  }, [filterBlank(errorValues)]);
 
   return (
     <Form
@@ -83,7 +69,7 @@ export const SystemForm = ({
       onSubmit={onSubmit}
       title={title}
       buttonLabel={buttonLabel}
-      errors={errorsSet}
+      errors={filterBlank(errorValues)}
       fields={[
         <FormSelectorField
           key={1}
