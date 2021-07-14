@@ -25,7 +25,7 @@ export const ADSORBATE_FORM_INITIAL_VALUES = {
 
 export const ADSORBENT_FORM_INITIAL_VALUES = {
   nombre: "",
-  particulaT: null,
+  particulaT: "",
   sBet: null,
   vBet: null,
   pHCargaCero: null,

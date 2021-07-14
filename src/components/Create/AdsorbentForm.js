@@ -49,7 +49,7 @@ export const AdsorbentForm = ({
             });
           }}
         />,
-        <FormNumericField
+        <FormTextField
           placeholder={ADSORBENT_FIELDS.PARTICLE_SIZE}
           key={2}
           name="particulaT"
