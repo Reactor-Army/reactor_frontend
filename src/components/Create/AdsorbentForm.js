@@ -5,6 +5,7 @@ import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
 import {isSet, isPositive, inRange} from "../Form/Validation/formValidations";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
+import {allNullKeys} from "../../utils/allNullKeys";
 
 export const AdsorbentForm = ({
   title,
@@ -16,13 +17,7 @@ export const AdsorbentForm = ({
   const [initial, setInitial] = useState(ADSORBENT_FORM_INITIAL_VALUES);
 
   const [errorValues, setErrorValues] = useState(
-    Object.keys(ADSORBENT_FORM_INITIAL_VALUES)
-      .map((k) => {
-        return {[k]: null};
-      })
-      .reduce((prev, cur) => {
-        return {...prev, ...cur};
-      }),
+    allNullKeys(ADSORBENT_FORM_INITIAL_VALUES),
   );
 
   useEffect(() => {
