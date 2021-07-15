@@ -15,6 +15,7 @@ import {
   deleteAdsorbent,
 } from "../../services/adsorbents";
 import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
+import {LongText} from "./LongText";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   const [showModal, setShowModal] = useState(false);
@@ -57,7 +58,10 @@ export const AdsorbentDetail = ({adsorbent}) => {
         label={ADSORBENT_FIELDS.SPECIES_NAME}
         value={adsorbent.nombreEspecie}
       />
-      <Label label={ADSORBENT_FIELDS.NOTES} value={adsorbent.observaciones} />
+      <LongText
+        label={ADSORBENT_FIELDS.NOTES}
+        value={adsorbent.observaciones}
+      />
     </>
   );
 };
