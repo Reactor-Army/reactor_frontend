@@ -16,17 +16,13 @@ export const AdsorbateForm = ({
 }) => {
   const [initial, setInitial] = useState(ADSORBATE_FORM_INITIAL_VALUES);
 
-  const [errorValues, setErrorValues] = useState({
-    nombreIon: null,
-    nombreIUPAC: null,
-    cargaIon: null,
-    radioIonico: null,
-    limiteVertido: null,
-  });
+  const [errorValues, setErrorValues] = useState(
+    allNullKeys(ADSORBATE_FORM_INITIAL_VALUES),
+  );
 
   useEffect(() => {
     if (initialValues) {
-      setInitial(allNullKeys(ADSORBATE_FORM_INITIAL_VALUES));
+      setInitial(initialValues);
     }
   }, [initialValues]);
 

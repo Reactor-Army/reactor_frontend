@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Form} from "../Form/Form";
-import {FormTextField, FormNumericField} from "../Form/Fields/FormFields";
+import {
+  FormTextField,
+  FormNumericField,
+  FormBigTextField,
+} from "../Form/Fields/FormFields";
 import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
 import {isSet, isPositive, inRange} from "../Form/Validation/formValidations";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
@@ -118,6 +122,11 @@ export const AdsorbentForm = ({
           placeholder={ADSORBENT_FIELDS.SPECIES_NAME}
           key={9}
           name="nombreEspecie"
+        />,
+        <FormBigTextField
+          placeholder={ADSORBENT_FIELDS.NOTES}
+          key={10}
+          name="observaciones"
         />,
       ]}
     />

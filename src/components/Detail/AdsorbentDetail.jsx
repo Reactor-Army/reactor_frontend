@@ -57,6 +57,7 @@ export const AdsorbentDetail = ({adsorbent}) => {
         label={ADSORBENT_FIELDS.SPECIES_NAME}
         value={adsorbent.nombreEspecie}
       />
+      <Label label={ADSORBENT_FIELDS.NOTES} value={adsorbent.observaciones} />
     </>
   );
 };
