@@ -13,6 +13,7 @@ import {
 } from "../CommonCardStyles";
 import {Card} from "../Card";
 import {PROCESS_FIELDS} from "../../../common/fields";
+import {UNITS} from "../../../common/fields";
 
 export const ProcessCard = ({
   headerBackgroundColor,
@@ -44,17 +45,17 @@ export const ProcessCard = ({
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
-            <FieldValue>{qMax} mmol/g</FieldValue>
+            <FieldValue>{`${qMax} ${UNITS.QMAX}`}</FieldValue>
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.EQUILIBRIUM_TIME}:</FieldLabel>
-            <FieldValue>{equilibriumTime} minutos</FieldValue>
+            <FieldValue>{`${equilibriumTime} ${UNITS.EQUILIBRIUM_TIME}`}</FieldValue>
           </BodyText>
         </ProcessSection>
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.TEMPERATURE}:</FieldLabel>
-            <FieldValue>{temperature} °C</FieldValue>
+            <FieldValue>{`${temperature} ${UNITS.TEMPERATURE}`}</FieldValue>
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.INITIAL_PH}:</FieldLabel>

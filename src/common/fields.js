@@ -40,6 +40,6 @@ export const UNITS = {
   SBET: "m²/g",
   VBET: "cm³/g",
   QMAX: "mmol/g",
-  EQUILIBRIUM_TIME: "Minutos",
+  EQUILIBRIUM_TIME: "minutos",
   TEMPERATURE: "°C",
 };

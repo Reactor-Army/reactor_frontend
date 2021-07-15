@@ -15,6 +15,7 @@ import {
   deleteAdsorbate,
 } from "../../services/adsorbates";
 import {ADSORBATE_FIELDS} from "../../common/fields";
+import {UNITS} from "../../common/fields";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -39,7 +40,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
       <Label label={ADSORBATE_FIELDS.ION_CHARGE} value={adsorbate.cargaIon} />
       <Label
         label={ADSORBATE_FIELDS.ION_RADIUS}
-        value={`${adsorbate.radioIonico} Å`}
+        value={`${adsorbate.radioIonico} ${UNITS.ION_RADIUS}`}
       />
       <Label
         label={ADSORBATE_FIELDS.SPILL_LIMIT}
@@ -47,7 +48,11 @@ export const AdsorbateDetail = ({adsorbate}) => {
       />
       <Label
         label={ADSORBATE_FIELDS.MOLAR_MASS}
-        value={adsorbate.masaMolar ? `${adsorbate.masaMolar} g/mol` : "-"}
+        value={
+          adsorbate.masaMolar
+            ? `${adsorbate.masaMolar} ${UNITS.MOLAR_MASS}`
+            : "-"
+        }
       />
 
       <SectionHeader>{ADSORBATE_FIELDS.FORMULA}</SectionHeader>
