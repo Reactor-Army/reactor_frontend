@@ -4,7 +4,7 @@ import {LabelContainer, LongTextContainer} from "./Styles";
 
 export const LongText = ({label, value}) => {
   return (
-    <div>
+    <>
       <LabelContainer>
         <Typography style={{fontWeight: "bold"}}>{label}:</Typography>
       </LabelContainer>
@@ -12,6 +12,6 @@ export const LongText = ({label, value}) => {
       <LongTextContainer>
         <Typography>{value || "-"}</Typography>
       </LongTextContainer>
-    </div>
+    </>
   );
 };
