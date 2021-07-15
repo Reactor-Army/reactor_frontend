@@ -6,6 +6,7 @@ import {isSet, isPositive, inRange} from "../Form/Validation/formValidations";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
+import {UNITS} from "../../common/fields";
 
 export const AdsorbentForm = ({
   title,
@@ -61,7 +62,7 @@ export const AdsorbentForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={ADSORBENT_FIELDS.SBET}
+          placeholder={`${ADSORBENT_FIELDS.SBET} (${UNITS.SBET})`}
           key={3}
           name="sBet"
           error={errorValues["sBet"]}
@@ -75,7 +76,7 @@ export const AdsorbentForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={ADSORBENT_FIELDS.VBET}
+          placeholder={`${ADSORBENT_FIELDS.VBET} (${UNITS.VBET})`}
           key={4}
           name="vBet"
           error={errorValues["vBet"]}

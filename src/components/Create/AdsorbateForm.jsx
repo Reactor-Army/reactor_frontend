@@ -6,6 +6,7 @@ import {isSet, isPositive, isInteger} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
+import {UNITS} from "../../common/fields";
 
 export const AdsorbateForm = ({
   title,
@@ -79,7 +80,7 @@ export const AdsorbateForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={ADSORBATE_FIELDS.ION_RADIUS}
+          placeholder={`${ADSORBATE_FIELDS.ION_RADIUS} (${UNITS.ION_RADIUS})`}
           key={4}
           name="radioIonico"
           error={errorValues["radioIonico"]}
@@ -90,7 +91,7 @@ export const AdsorbateForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={ADSORBATE_FIELDS.SPILL_LIMIT}
+          placeholder={`${ADSORBATE_FIELDS.SPILL_LIMIT} (${UNITS.SPILL_LIMIT})`}
           key={5}
           name="limiteVertido"
           error={errorValues["limiteVertido"]}
