@@ -32,3 +32,14 @@ export const PROCESS_FIELDS = {
   SOURCE: "Fuente",
   NOTES: "Observaciones",
 };
+
+export const UNITS = {
+  ION_RADIUS: "Å",
+  SPILL_LIMIT: "L",
+  MOLAR_MASS: "g/mol",
+  SBET: "m²/g",
+  VBET: "cm³/g",
+  QMAX: "mmol/g",
+  EQUILIBRIUM_TIME: "Minutos",
+  TEMPERATURE: "°C",
+};
