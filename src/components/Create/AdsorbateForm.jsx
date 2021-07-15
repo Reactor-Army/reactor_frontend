@@ -101,6 +101,17 @@ export const AdsorbateForm = ({
           key={6}
           name="formula"
         />,
+        <FormNumericField
+          placeholder={ADSORBATE_FIELDS.MOLAR_MASS}
+          key={7}
+          name="masaMolar"
+          error={errorValues["masaMolar"]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {...previousState, masaMolar: isPositive(value)};
+            });
+          }}
+        />,
       ]}
     />
   );
