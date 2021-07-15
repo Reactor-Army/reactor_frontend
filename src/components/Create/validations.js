@@ -19,3 +19,9 @@ export const phInRange = (value, setError) => {
   }
   return value;
 };
+
+export const filterBlank = (errorValues) => {
+  return Object.keys(errorValues).some((key) => {
+    return errorValues[key] !== undefined && errorValues[key] !== null;
+  });
+};

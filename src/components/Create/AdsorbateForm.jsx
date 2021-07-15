@@ -4,6 +4,8 @@ import {FormTextField, FormNumericField} from "../Form/Fields/FormFields";
 import {ADSORBATE_FIELDS} from "../../common/fields";
 import {isSet, isPositive, isInteger} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
+import {filterBlank} from "./validations";
+import {allNullKeys} from "../../utils/allNullKeys";
 
 export const AdsorbateForm = ({
   title,
@@ -24,24 +26,13 @@ export const AdsorbateForm = ({
 
   useEffect(() => {
     if (initialValues) {
-      setInitial({
-        nombreIon: initialValues.nombreIon,
-        nombreIUPAC: initialValues.nombreIUPAC,
-        cargaIon: initialValues.cargaIon,
-        radioIonico: initialValues.radioIonico,
-        limiteVertido: initialValues.limiteVertido,
-        formula: initialValues.formula,
-      });
+      setInitial(allNullKeys(ADSORBATE_FORM_INITIAL_VALUES));
     }
   }, [initialValues]);
 
-  const errorsSet = Object.keys(errorValues).some((key) => {
-    return errorValues[key] !== undefined;
-  });
-
   useEffect(() => {
-    setErrors(errorsSet);
-  }, [errorsSet]);
+    setErrors(filterBlank(errorValues));
+  }, [filterBlank(errorValues)]);
 
   return (
     <Form
@@ -49,7 +40,7 @@ export const AdsorbateForm = ({
       onSubmit={onSubmit}
       title={title}
       buttonLabel={buttonLabel}
-      errors={errorsSet}
+      errors={filterBlank(errorValues)}
       fields={[
         <FormTextField
           placeholder={ADSORBATE_FIELDS.ION_NAME}
