@@ -17,6 +17,7 @@ export const ADSORBENT_FIELDS = {
   IMPURITIES: "Impurezas",
   SOURCE: "Origen de la muestra",
   SPECIES_NAME: "Nombre de la especie",
+  NOTES: "Observaciones",
 };
 
 export const PROCESS_FIELDS = {
