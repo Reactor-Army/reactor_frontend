@@ -104,7 +104,7 @@ export const AdsorbateForm = ({
           name="formula"
         />,
         <FormNumericField
-          placeholder={ADSORBATE_FIELDS.MOLAR_MASS}
+          placeholder={`${ADSORBATE_FIELDS.MOLAR_MASS} (${UNITS.MOLAR_MASS})`}
           key={7}
           name="masaMolar"
           error={errorValues["masaMolar"]}
