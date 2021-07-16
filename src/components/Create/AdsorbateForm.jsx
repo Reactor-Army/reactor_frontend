@@ -7,6 +7,7 @@ import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
 import {UNITS} from "../../common/fields";
+import {formInitialValuesFromObject} from "../../utils/formInitialValuesFromObject";
 
 export const AdsorbateForm = ({
   title,
@@ -17,17 +18,13 @@ export const AdsorbateForm = ({
 }) => {
   const [initial, setInitial] = useState(ADSORBATE_FORM_INITIAL_VALUES);
 
-  const [errorValues, setErrorValues] = useState({
-    nombreIon: null,
-    nombreIUPAC: null,
-    cargaIon: null,
-    radioIonico: null,
-    limiteVertido: null,
-  });
+  const [errorValues, setErrorValues] = useState(
+    allNullKeys(ADSORBATE_FORM_INITIAL_VALUES),
+  );
 
   useEffect(() => {
     if (initialValues) {
-      setInitial(allNullKeys(ADSORBATE_FORM_INITIAL_VALUES));
+      setInitial(formInitialValuesFromObject(initialValues));
     }
   }, [initialValues]);
 
@@ -105,6 +102,17 @@ export const AdsorbateForm = ({
           placeholder={ADSORBATE_FIELDS.FORMULA}
           key={6}
           name="formula"
+        />,
+        <FormNumericField
+          placeholder={ADSORBATE_FIELDS.MOLAR_MASS}
+          key={7}
+          name="masaMolar"
+          error={errorValues["masaMolar"]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {...previousState, masaMolar: isPositive(value)};
+            });
+          }}
         />,
       ]}
     />

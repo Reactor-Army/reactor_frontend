@@ -6,6 +6,11 @@ export const LabelContainer = styled.div`
   text-overflow: ellipsis;
 `;
 
+export const LongTextContainer = styled.div`
+  display: flex;
+  white-space: pre-wrap;
+`;
+
 export const SectionHeaderContainer = styled.div`
   margin-top: 20px;
 `;

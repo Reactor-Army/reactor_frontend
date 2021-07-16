@@ -46,7 +46,19 @@ export const SystemForm = ({
 
   useEffect(() => {
     if (initialValues) {
-      setInitial(allNullKeys(SYSTEM_FORM_INITIAL_VALUES));
+      setInitial({
+        idAdsorbato: initialValues.adsorbato.id,
+        idAdsorbente: initialValues.adsorbente.id,
+        tiempoEquilibrio: initialValues.tiempoEquilibrio,
+        qmax: initialValues.qmax,
+        phinicial: initialValues.phinicial,
+        fuente: initialValues.fuente,
+        complejacion: initialValues.complejacion,
+        intercambioIonico: initialValues.intercambioIonico,
+        reaccionQuimica: initialValues.reaccionQuimica,
+        observacion: initialValues.observacion,
+        temperatura: initialValues.temperatura,
+      });
     }
   }, [initialValues]);
 
@@ -60,9 +72,13 @@ export const SystemForm = ({
     }
   }, []);
 
+  const errorsSet = Object.keys(errorValues).some((key) => {
+    return errorValues[key] !== undefined;
+  });
+
   useEffect(() => {
-    setErrors(filterBlank(errorValues));
-  }, [filterBlank(errorValues)]);
+    setErrors(errorsSet);
+  }, [errorsSet]);
 
   return (
     <Form
@@ -70,7 +86,7 @@ export const SystemForm = ({
       onSubmit={onSubmit}
       title={title}
       buttonLabel={buttonLabel}
-      errors={filterBlank(errorValues)}
+      errors={errorsSet}
       fields={[
         <FormSelectorField
           key={1}

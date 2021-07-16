@@ -142,3 +142,41 @@ const SelectorField = ({
     />
   );
 };
+
+export const FormBigTextField = ({placeholder, name, error, ...props}) => {
+  return (
+    <Field
+      label={placeholder}
+      component={BigTextField}
+      name={name}
+      error={error ? true : false}
+      {...props}
+    />
+  );
+};
+
+const CHARACTER_LIMIT = 2000;
+
+const BigTextField = ({field, ...props}) => {
+  const [textLength, setTextLength] = useState(0);
+
+  useEffect(() => {
+    if (field.value) {
+      setTextLength(field.value.length);
+    }
+  }, [field.value]);
+
+  return (
+    <MuiTextField
+      variant="outlined"
+      multiline
+      rows={8}
+      inputProps={{
+        maxLength: CHARACTER_LIMIT,
+      }}
+      helperText={`${textLength}/${CHARACTER_LIMIT}`}
+      {...field}
+      {...props}
+    />
+  );
+};
