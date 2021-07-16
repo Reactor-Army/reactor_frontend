@@ -17,20 +17,22 @@ export const SYSTEM_FORM_INITIAL_VALUES = {
 export const ADSORBATE_FORM_INITIAL_VALUES = {
   nombreIon: "",
   nombreIUPAC: "",
-  cargaIon: 0,
-  radioIonico: 0,
-  limiteVertido: 0,
+  cargaIon: "",
+  radioIonico: "",
+  limiteVertido: "",
   formula: "",
+  masaMolar: "",
 };
 
 export const ADSORBENT_FORM_INITIAL_VALUES = {
   nombre: "",
   particulaT: "",
-  sBet: null,
-  vBet: null,
-  pHCargaCero: null,
+  sBet: "",
+  vBet: "",
+  pHCargaCero: "",
   formula: "",
-  impuerzas: "",
+  impurezas: "",
   origenMuestra: "",
   nombreEspecie: "",
+  observaciones: "",
 };

@@ -10,6 +10,7 @@ import {isSet, isPositive, inRange} from "../Form/Validation/formValidations";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
+import {formInitialValuesFromObject} from "../../utils/formInitialValuesFromObject";
 
 export const AdsorbentForm = ({
   title,
@@ -26,7 +27,7 @@ export const AdsorbentForm = ({
 
   useEffect(() => {
     if (initialValues) {
-      setInitial(initialValues);
+      setInitial(formInitialValuesFromObject(initialValues));
     }
   }, [initialValues]);
 
