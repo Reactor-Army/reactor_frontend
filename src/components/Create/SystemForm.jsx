@@ -12,6 +12,7 @@ import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
+import {UNITS} from "../../common/fields";
 
 export const SystemForm = ({
   title,
@@ -110,7 +111,7 @@ export const SystemForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={PROCESS_FIELDS.QMAX}
+          placeholder={`${PROCESS_FIELDS.QMAX} (${UNITS.QMAX})`}
           key={3}
           name="qmax"
           defaultValue={initial.value}
@@ -122,7 +123,7 @@ export const SystemForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={PROCESS_FIELDS.EQUILIBRIUM_TIME}
+          placeholder={`${PROCESS_FIELDS.EQUILIBRIUM_TIME} (${UNITS.EQUILIBRIUM_TIME})`}
           key={4}
           name="tiempoEquilibrio"
           error={errorValues["tiempoEquilibrio"]}
@@ -152,7 +153,7 @@ export const SystemForm = ({
           name="fuente"
         />,
         <FormNumericField
-          placeholder={PROCESS_FIELDS.TEMPERATURE}
+          placeholder={`${PROCESS_FIELDS.TEMPERATURE} (${UNITS.TEMPERATURE})`}
           key={7}
           name="temperatura"
         />,

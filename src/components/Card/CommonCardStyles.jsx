@@ -77,8 +77,3 @@ export const FieldValue = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
 `;
-
-export const Sup = styled.sup`
-  vertical-align: top;
-  font-size: 0.6em;
-`;

@@ -1,3 +1,5 @@
+import {UNITS} from "./fields";
+
 export const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
@@ -9,5 +11,5 @@ export const nameAdsorbent = (adsorbent) => {
 };
 
 export const qmaxIdealAdsorbent = (maxQmax) => {
-  return `QMax Máximo: ${maxQmax} mmol/g`;
+  return `QMax Máximo: ${maxQmax} ${UNITS.QMAX}`;
 };

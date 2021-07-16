@@ -8,6 +8,7 @@ import {DetailHeader} from "./DetailHeader";
 import {DeleteButton} from "../List/common/DeleteButton";
 import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
+import {UNITS} from "../../common/fields";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -24,14 +25,17 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
       <SectionHeader>Características</SectionHeader>
-      <Label label={PROCESS_FIELDS.QMAX} value={`${process.qmax} mmol/g`} />
+      <Label
+        label={PROCESS_FIELDS.QMAX}
+        value={`${process.qmax} ${UNITS.QMAX}`}
+      />
       <Label
         label={PROCESS_FIELDS.EQUILIBRIUM_TIME}
-        value={`${process.tiempoEquilibrio} minutos`}
+        value={`${process.tiempoEquilibrio} ${UNITS.EQUILIBRIUM_TIME}`}
       />
       <Label
         label={PROCESS_FIELDS.TEMPERATURE}
-        value={`${process.temperatura} °C`}
+        value={`${process.temperatura} ${UNITS.TEMPERATURE}`}
       />
       <Label label={PROCESS_FIELDS.INITIAL_PH} value={process.phinicial} />
       <SectionHeader>Mecanismos</SectionHeader>
