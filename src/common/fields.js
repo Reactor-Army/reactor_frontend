@@ -55,7 +55,18 @@ export const ADSORBATE_REQUEST_FIELDS = {
   MOLAR_MASS: "masaMolar",
 };
 
-export const ADSORBENT_REQUEST_FIELDS = {};
+export const ADSORBENT_REQUEST_FIELDS = {
+  NAME: "nombre",
+  PARTICLE_SIZE: "particulaT",
+  SBET: "sBet",
+  VBET: "vBet",
+  PH: "pHCargaCero",
+  FORMULA: "formula",
+  IMPURITIES: "impurezas",
+  SOURCE: "origenMuestra",
+  SPECIES_NAME: "nombreEspecie",
+  NOTES: "observaciones",
+};
 
 export const SYSTEM_REQUEST_FIELDS = {
   ADSORBATE: "idAdsorbato",
