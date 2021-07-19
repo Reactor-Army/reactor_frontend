@@ -44,3 +44,23 @@ export const UNITS = {
   EQUILIBRIUM_TIME: "minutos",
   TEMPERATURE: "°C",
 };
+
+export const ADSORBATE_REQUEST_FIELDS = {};
+
+export const ADSORBENT_REQUEST_FIELDS = {};
+
+export const SYSTEM_REQUEST_FIELDS = {
+  ADSORBATE: "idAdsorbato",
+  ADSORBENT: "idAdsorbente",
+  QMAX: "qmax",
+  EQUILIBRIUM_TIME: "tiempoEquilibrio",
+  PH: "phinicial",
+  SOURCE: "fuente",
+  TEMPERATURE: "temperatura",
+  NOTES: "observacion",
+  COMPLEXATION: "complejacion",
+  IONIC_INTERCHANGE: "intercambioIonico",
+  CHEMICAL_REACTION: "reaccionQuimica",
+  KINETIC_CONSTANT: "constanteCinetica",
+  REACTION_ORDER: "orderReaccion",
+};

@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
-import {PROCESS_FIELDS} from "../../common/fields";
+import {PROCESS_FIELDS, SYSTEM_REQUEST_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 import {UNITS} from "../../common/fields";
 
@@ -90,8 +90,8 @@ export const SystemForm = ({
           key={1}
           placeholder={PROCESS_FIELDS.ADSORBATE}
           items={adsorbates}
-          name="idAdsorbato"
-          error={errorValues["idAdsorbato"]}
+          name={SYSTEM_REQUEST_FIELDS.ADSORBATE}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBATE]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {...previousState, idAdsorbato: isSet(value)};
@@ -102,8 +102,8 @@ export const SystemForm = ({
           key={2}
           placeholder={PROCESS_FIELDS.ADSORBENT}
           items={adsorbents}
-          name="idAdsorbente"
-          error={errorValues["idAdsorbente"]}
+          name={SYSTEM_REQUEST_FIELDS.ADSORBENT}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBENT]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {...previousState, idAdsorbente: isSet(value)};
@@ -113,9 +113,9 @@ export const SystemForm = ({
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.QMAX} (${UNITS.QMAX})`}
           key={3}
-          name="qmax"
+          name={SYSTEM_REQUEST_FIELDS.QMAX}
           defaultValue={initial.value}
-          error={errorValues["qmax"]}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.QMAX]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {...previousState, qmax: isPositive(value)};
@@ -125,8 +125,8 @@ export const SystemForm = ({
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.EQUILIBRIUM_TIME} (${UNITS.EQUILIBRIUM_TIME})`}
           key={4}
-          name="tiempoEquilibrio"
-          error={errorValues["tiempoEquilibrio"]}
+          name={SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {...previousState, tiempoEquilibrio: isPositive(value)};
@@ -136,8 +136,8 @@ export const SystemForm = ({
         <FormNumericField
           placeholder={PROCESS_FIELDS.INITIAL_PH}
           key={5}
-          name="phinicial"
-          error={errorValues["phinicial"]}
+          name={SYSTEM_REQUEST_FIELDS.PH}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.PH]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {
@@ -150,32 +150,32 @@ export const SystemForm = ({
         <FormTextField
           placeholder={PROCESS_FIELDS.SOURCE}
           key={6}
-          name="fuente"
+          name={SYSTEM_REQUEST_FIELDS.SOURCE}
         />,
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.TEMPERATURE} (${UNITS.TEMPERATURE})`}
           key={7}
-          name="temperatura"
+          name={SYSTEM_REQUEST_FIELDS.TEMPERATURE}
         />,
         <FormTextField
           placeholder={PROCESS_FIELDS.NOTES}
-          name="observacion"
+          name={SYSTEM_REQUEST_FIELDS.NOTES}
           key={8}
         />,
         <FormBooleanField
           key={9}
           title={PROCESS_FIELDS.COMPLEXATION}
-          name="complejacion"
+          name={SYSTEM_REQUEST_FIELDS.COMPLEXATION}
         />,
         <FormBooleanField
           key={10}
           title={PROCESS_FIELDS.IONIC_INTERCHANGE}
-          name="intercambioIonico"
+          name={SYSTEM_REQUEST_FIELDS.IONIC_INTERCHANGE}
         />,
         <FormBooleanField
           key={11}
           title={PROCESS_FIELDS.CHEMICAL_REACTION}
-          name="reaccionQuimica"
+          name={SYSTEM_REQUEST_FIELDS.CHEMICAL_REACTION}
         />,
       ]}
     />
