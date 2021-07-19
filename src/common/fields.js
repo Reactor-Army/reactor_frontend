@@ -45,7 +45,15 @@ export const UNITS = {
   TEMPERATURE: "°C",
 };
 
-export const ADSORBATE_REQUEST_FIELDS = {};
+export const ADSORBATE_REQUEST_FIELDS = {
+  ION_NAME: "nombreIon",
+  IUPAC_NAME: "nombreIUPAC",
+  ION_CHARGE: "cargaIon",
+  ION_RADIUS: "radioIonico",
+  SPILL_LIMIT: "limiteVertido",
+  FORMULA: "formula",
+  MOLAR_MASS: "masaMolar",
+};
 
 export const ADSORBENT_REQUEST_FIELDS = {};
 
