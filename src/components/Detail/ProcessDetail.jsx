@@ -11,6 +11,16 @@ import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
+  const getKineticConstantUnits = () => {
+    if (process.ordenReaccion) {
+      if (process.ordenReaccion === 1) {
+        return UNITS.KINETIC_CONSTANT_FIRST_ORDER;
+      }
+      return UNITS.KINETIC_CONSTANT_SECOND_ORDER;
+    }
+    return "";
+  };
+
   return (
     <Container>
       <DetailHeader
@@ -38,6 +48,16 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         value={`${process.temperatura} ${UNITS.TEMPERATURE}`}
       />
       <Label label={PROCESS_FIELDS.INITIAL_PH} value={process.phinicial} />
+      <Label
+        label={PROCESS_FIELDS.KINETIC_CONSTANT}
+        value={`${
+          process.constanteCinetica ? process.constanteCinetica : "-"
+        } ${getKineticConstantUnits()}`}
+      />
+      <Label
+        label={PROCESS_FIELDS.REACTION_ORDER}
+        value={process.ordenReaccion}
+      />
       <SectionHeader>Mecanismos</SectionHeader>
       <Label
         label={PROCESS_FIELDS.COMPLEXATION}

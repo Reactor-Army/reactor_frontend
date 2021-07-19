@@ -27,6 +27,8 @@ export const PROCESS_FIELDS = {
   EQUILIBRIUM_TIME: "Tiempo de equilibrio",
   TEMPERATURE: "Temperatura",
   INITIAL_PH: "pH inicial",
+  KINETIC_CONSTANT: "Contante cinética",
+  REACTION_ORDER: "Orden de reacción",
   COMPLEXATION: "Complejación",
   IONIC_INTERCHANGE: "Intercambio iónico",
   CHEMICAL_REACTION: "Reacción química",
@@ -43,4 +45,6 @@ export const UNITS = {
   QMAX: "mmol/g",
   EQUILIBRIUM_TIME: "minutos",
   TEMPERATURE: "°C",
+  KINETIC_CONSTANT_FIRST_ORDER: "1/min",
+  KINETIC_CONSTANT_SECOND_ORDER: "1/(min*mmol)",
 };
