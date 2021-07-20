@@ -10,6 +10,7 @@ import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
+import {Button} from "../Button/Button";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -25,6 +26,8 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         }
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
+      <Button text={"Volumen efectivo"} />
+
       <SectionHeader>Características</SectionHeader>
       <Label
         label={PROCESS_FIELDS.QMAX}
