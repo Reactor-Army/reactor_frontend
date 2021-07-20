@@ -1,6 +1,6 @@
-import {PageTitle} from "../common/PageTitle";
 import React from "react";
+import {CalculateVolumeView} from "../components/CalculateVolumeView/CalculateVolumeView";
 
 export const CalculateVolumeViewContainer = () => {
-  return <PageTitle title={"hola"} />;
+  return <CalculateVolumeView />;
 };

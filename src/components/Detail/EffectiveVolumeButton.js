@@ -4,7 +4,7 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {EffectiveVolumeButtonContainer} from "./Styles";
 
-export const EffectiveVolumeButton = (processId) => {
+export const EffectiveVolumeButton = ({processId}) => {
   const history = useHistory();
   return (
     <EffectiveVolumeButtonContainer>
