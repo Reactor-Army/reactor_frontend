@@ -10,7 +10,7 @@ import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
-import {Button} from "../Button/Button";
+import {EffectiveVolumeButton} from "./EffectiveVolumeButton";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -26,7 +26,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         }
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
-      <Button text={"Volumen efectivo"} />
+      <EffectiveVolumeButton processId={process.id} />
 
       <SectionHeader>Características</SectionHeader>
       <Label

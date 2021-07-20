@@ -43,3 +43,7 @@ export const adsorbentDetailUrlFor = (adsorbentId) => {
 export const adsorbentEditUrlFor = (adsorbentId) => {
   return processUrlId(URLS.ADSORBENT_EDIT, adsorbentId);
 };
+
+export const processVolumeUrlFor = (processId) => {
+  return processUrlId(URLS.PROCESS_EFFECTIVE_VOLUME, processId);
+};

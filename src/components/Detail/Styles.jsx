@@ -18,3 +18,7 @@ export const SectionHeaderContainer = styled.div`
 export const ButtonsSection = styled.div`
   display: flex;
 `;
+
+export const EffectiveVolumeButtonContainer = styled.div`
+  margin-top: 10px;
+`;
