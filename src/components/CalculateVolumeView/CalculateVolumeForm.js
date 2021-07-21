@@ -5,22 +5,19 @@ import {CalculateVolumeFormContainer} from "./Styles";
 import {isPositive, isSet} from "../Form/Validation/formValidations";
 import {allNullKeys} from "../../utils/allNullKeys";
 import {UNITS} from "../../common/fields";
-
-const initial = {
-  caudal: "",
-  concentracionInicial: "",
-  concentracionFinal: "",
-};
+import {CALCULATE_VOLUME_FORM_INITIAL_VALUES} from "../../common/constants";
 
 export const CalculateVolumeForm = ({onSubmit}) => {
-  const [errorValues, setErrorValues] = useState(allNullKeys(initial));
+  const [errorValues, setErrorValues] = useState(
+    allNullKeys(CALCULATE_VOLUME_FORM_INITIAL_VALUES),
+  );
   const errorsSet = Object.keys(errorValues).some((key) => {
     return errorValues[key] !== undefined;
   });
   return (
     <CalculateVolumeFormContainer>
       <Form
-        initialValues={initial}
+        initialValues={CALCULATE_VOLUME_FORM_INITIAL_VALUES}
         errors={errorsSet}
         buttonLabel={"Calcular"}
         onSubmit={onSubmit}
