@@ -41,9 +41,13 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <Label label={PROCESS_FIELDS.INITIAL_PH} value={process.phinicial} />
       <Label
         label={PROCESS_FIELDS.KINETIC_CONSTANT}
-        value={`${
-          process.constanteCinetica ? process.constanteCinetica : "-"
-        } ${getKineticConstantUnits(process.ordenReaccion)}`}
+        value={
+          process.constanteCinetica
+            ? `${process.constanteCinetica} ${getKineticConstantUnits(
+                process.ordenReaccion,
+              )}`
+            : "-"
+        }
       />
       <Label
         label={PROCESS_FIELDS.REACTION_ORDER}

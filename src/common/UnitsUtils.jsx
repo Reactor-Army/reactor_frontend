@@ -6,8 +6,5 @@ export const getKineticConstantUnits = (reactionOrder) => {
     2: UNITS.KINETIC_CONSTANT_FIRST_ORDER,
   };
 
-  if (reactionOrder) {
-    return unitValues[reactionOrder];
-  }
-  return "";
+  return unitValues[reactionOrder];
 };
