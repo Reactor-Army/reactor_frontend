@@ -2,18 +2,10 @@ import React from "react";
 
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {useHistory} from "react-router-dom";
-import {capitalize} from "../../../common/FormatUtils";
-import {processDetailUrlFor} from "../../../routing/urls";
-import {ProcessCard} from "../../Card/ProcessCard/ProcessCard";
 import {ListContainer} from "../AdsorbentList/Styles";
+import {ProcessCardWrapper} from "../../Card/ProcessCard/ProcessCardWrapper";
 
 export function ProcessList({loading, processes}) {
-  const history = useHistory();
-  const browseToProcessDetail = (processId) => {
-    history.push(processDetailUrlFor(processId));
-  };
-
   if (loading || !processes) {
     return <CircularProgress />;
   }
@@ -27,34 +19,9 @@ export function ProcessList({loading, processes}) {
   }
   return (
     <ListContainer>
-      {processes.map(
-        ({
-          adsorbato,
-          adsorbente,
-          id,
-          qmax,
-          tiempoEquilibrio,
-          temperatura,
-          phinicial,
-          complejacion,
-          intercambioIonico,
-          reaccionQuimica,
-        }) => (
-          <ProcessCard
-            adsorbateName={capitalize(adsorbato.nombreIon)}
-            adsorbentName={adsorbente.nombre}
-            qMax={qmax}
-            equilibriumTime={tiempoEquilibrio}
-            temperature={temperatura}
-            initialPH={phinicial}
-            complexation={complejacion}
-            ionicInterchange={intercambioIonico}
-            chemicalReaction={reaccionQuimica}
-            key={id}
-            browseToProcessDetail={() => browseToProcessDetail(id)}
-          />
-        ),
-      )}
+      {processes.map((process) => (
+        <ProcessCardWrapper process={process} key={process.id} />
+      ))}
     </ListContainer>
   );
 }
