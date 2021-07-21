@@ -5,7 +5,6 @@ import Typography from "@material-ui/core/Typography";
 import {useHistory} from "react-router-dom";
 import {capitalize} from "../../../common/FormatUtils";
 import {processDetailUrlFor} from "../../../routing/urls";
-import {appColors} from "../../../common/styles";
 import {ProcessCard} from "../../Card/ProcessCard/ProcessCard";
 import {ListContainer} from "../AdsorbentList/Styles";
 
@@ -42,8 +41,6 @@ export function ProcessList({loading, processes}) {
           reaccionQuimica,
         }) => (
           <ProcessCard
-            headerBackgroundColor={appColors.processCardHeader}
-            bodyBackgroundColor={appColors.adsorbentCardBody}
             adsorbateName={capitalize(adsorbato.nombreIon)}
             adsorbentName={adsorbente.nombre}
             qMax={qmax}

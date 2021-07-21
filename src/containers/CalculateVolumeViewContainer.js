@@ -25,11 +25,7 @@ export const CalculateVolumeViewContainer = ({id}) => {
       {process === null ? (
         <CircularProgress />
       ) : (
-        <CalculateVolumeView
-          onSubmit={onSubmit}
-          reactionOrder={process.ordenReaccion}
-          constanteCinetica={process.constanteCinetica}
-        />
+        <CalculateVolumeView onSubmit={onSubmit} process={process} />
       )}
       {volume !== null && <VolumeResults volume={volume} />}
     </>
