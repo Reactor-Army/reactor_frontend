@@ -9,18 +9,9 @@ import {DeleteButton} from "../List/common/DeleteButton";
 import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
+import {getKineticConstantUnits} from "../../common/UnitsUtils";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
-  const getKineticConstantUnits = () => {
-    if (process.ordenReaccion) {
-      if (process.ordenReaccion === 1) {
-        return UNITS.KINETIC_CONSTANT_FIRST_ORDER;
-      }
-      return UNITS.KINETIC_CONSTANT_SECOND_ORDER;
-    }
-    return "";
-  };
-
   return (
     <Container>
       <DetailHeader
@@ -52,7 +43,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         label={PROCESS_FIELDS.KINETIC_CONSTANT}
         value={`${
           process.constanteCinetica ? process.constanteCinetica : "-"
-        } ${getKineticConstantUnits()}`}
+        } ${getKineticConstantUnits(process.ordenReaccion)}`}
       />
       <Label
         label={PROCESS_FIELDS.REACTION_ORDER}
