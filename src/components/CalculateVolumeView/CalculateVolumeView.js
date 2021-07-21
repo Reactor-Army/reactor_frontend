@@ -6,6 +6,7 @@ import {Label} from "../Detail/Label";
 import {SectionHeader} from "../Detail/SectionHeader";
 import {ProcessCardWrapper} from "../Card/ProcessCard/ProcessCardWrapper";
 import {CardContainer} from "./Styles";
+import {getKineticConstantUnits} from "../../common/UnitsUtils";
 
 export const CalculateVolumeView = ({process, onSubmit}) => {
   return (
@@ -23,7 +24,9 @@ export const CalculateVolumeView = ({process, onSubmit}) => {
       </CardContainer>
       <Label
         label={"Constante cinética (K)"}
-        value={process.constanteCinetica}
+        value={`${process.constanteCinetica} ${getKineticConstantUnits(
+          process.ordenReaccion,
+        )}`}
       />
       <Label label={"Orden de la reacción (n)"} value={process.ordenReaccion} />
       <CalculateVolumeForm onSubmit={onSubmit} />
