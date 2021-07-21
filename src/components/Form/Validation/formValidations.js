@@ -1,5 +1,6 @@
 export const inRange = (value, lowerBound, upperBound) => {
   let error;
+  if (value === "") return;
   if (value === null || value === undefined) {
     return null;
   }
@@ -9,10 +10,17 @@ export const inRange = (value, lowerBound, upperBound) => {
   return error;
 };
 
-export const isPositive = (value) => {
+export const isPositive = (value, allowZero = false) => {
   let error;
-  if (value < 0) {
-    error = `Este valor no puede ser negativo`;
+  if (!value) return;
+  if (!allowZero) {
+    if (value && value <= 0) {
+      error = `Este valor debe ser mayor a cero`;
+    }
+  } else {
+    if (value < 0) {
+      error = `Este valor debe ser mayor o igual a cero`;
+    }
   }
   return error;
 };
@@ -27,6 +35,7 @@ export const isSet = (value) => {
 
 export const isInteger = (value) => {
   let error;
+  if (!value) return;
   if (!Number.isInteger(value)) {
     error = `Este valor debe ser entero`;
   }

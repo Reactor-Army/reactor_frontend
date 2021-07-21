@@ -18,6 +18,7 @@ import {
 import {PROCESS_FIELDS, SYSTEM_REQUEST_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 import {UNITS} from "../../common/fields";
+import {getKineticConstantUnits} from "../../common/UnitsUtils";
 
 export const SystemForm = ({
   title,
@@ -27,12 +28,16 @@ export const SystemForm = ({
   initialValues,
 }) => {
   const [initial, setInitial] = useState(SYSTEM_FORM_INITIAL_VALUES);
+  const [reactionOrder, setReactionOrder] = useState(0);
+  const [kineticConstantUnits, setKineticConstantUnits] = useState("");
   const dispatch = useDispatch();
 
   const [errorValues, setErrorValues] = useState({
     qmax: null,
     tiempoEquilibrio: null,
     phinicial: null,
+    ordenReaccion: null,
+    constanteCinetica: null,
   });
 
   const adsorbates = useSelector((state) =>
@@ -85,6 +90,14 @@ export const SystemForm = ({
     setErrors(errorsSet);
   }, [errorsSet]);
 
+  useEffect(() => {
+    if (reactionOrder === 1 || reactionOrder === 2) {
+      setKineticConstantUnits(getKineticConstantUnits(reactionOrder));
+    } else {
+      setKineticConstantUnits("");
+    }
+  }, [reactionOrder]);
+
   return (
     <Form
       initialValues={initial}
@@ -125,7 +138,7 @@ export const SystemForm = ({
           error={errorValues[SYSTEM_REQUEST_FIELDS.QMAX]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, qmax: isPositive(value)};
+              return {...previousState, qmax: isPositive(value, true)};
             });
           }}
         />,
@@ -136,7 +149,10 @@ export const SystemForm = ({
           error={errorValues[SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, tiempoEquilibrio: isPositive(value)};
+              return {
+                ...previousState,
+                tiempoEquilibrio: isPositive(value, true),
+              };
             });
           }}
         />,
@@ -175,6 +191,7 @@ export const SystemForm = ({
           name={SYSTEM_REQUEST_FIELDS.REACTION_ORDER}
           error={errorValues[SYSTEM_REQUEST_FIELDS.REACTION_ORDER]}
           validate={(value) => {
+            setReactionOrder(value);
             setErrorValues((previousState) => {
               return {
                 ...previousState,
@@ -184,7 +201,8 @@ export const SystemForm = ({
           }}
         />,
         <FormNumericField
-          placeholder={PROCESS_FIELDS.KINETIC_CONSTANT}
+          placeholder={`${PROCESS_FIELDS.KINETIC_CONSTANT} ${kineticConstantUnits}`}
+          disabled={reactionOrder !== 1 && reactionOrder !== 2}
           key={10}
           name={SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT}
           error={errorValues[SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT]}

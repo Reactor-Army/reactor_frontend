@@ -12,6 +12,8 @@ export const SYSTEM_FORM_INITIAL_VALUES = {
   reaccionQuimica: false,
   observacion: "",
   temperatura: 0,
+  ordenReaccion: "",
+  constanteCinetica: "",
 };
 
 export const ADSORBATE_FORM_INITIAL_VALUES = {
