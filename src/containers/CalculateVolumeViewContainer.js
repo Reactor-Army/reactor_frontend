@@ -17,7 +17,12 @@ export const CalculateVolumeViewContainer = ({id}) => {
 
   const [volume, setVolume] = useState(null);
   const onSubmit = async (values) => {
-    const response = await calculateVolume(id, values);
+    const body = {
+      ...values,
+    };
+    body.concentracionInicial /= 1000;
+    body.concentracionFinal /= 1000;
+    const response = await calculateVolume(id, body);
     setVolume(response.volumen);
   };
   return (

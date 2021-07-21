@@ -4,6 +4,7 @@ import {FormNumericField} from "../Form/Fields/FormFields";
 import {CalculateVolumeFormContainer} from "./Styles";
 import {isPositive, isSet} from "../Form/Validation/formValidations";
 import {allNullKeys} from "../../utils/allNullKeys";
+import {UNITS} from "../../common/fields";
 
 const initial = {
   caudal: "",
@@ -27,7 +28,7 @@ export const CalculateVolumeForm = ({onSubmit}) => {
           <FormNumericField
             key={0}
             name={"caudal"}
-            placeholder={"Caudal"}
+            placeholder={`Caudal (${UNITS.DISCHARGE})`}
             validate={(value) => {
               setErrorValues((previousState) => {
                 return {
@@ -41,7 +42,7 @@ export const CalculateVolumeForm = ({onSubmit}) => {
             key={1}
             name={"concentracionInicial"}
             error={errorValues.concentracionInicial}
-            placeholder={"Concentración inicial"}
+            placeholder={`Concentración inicial (${UNITS.CONCENTRATION})`}
             validate={(value) => {
               setErrorValues((previousState) => {
                 return {
@@ -54,7 +55,7 @@ export const CalculateVolumeForm = ({onSubmit}) => {
           <FormNumericField
             key={2}
             name={"concentracionFinal"}
-            placeholder={"Concentración final"}
+            placeholder={`Concentración final (${UNITS.CONCENTRATION})`}
             error={errorValues.concentracionFinal}
             validate={(value) => {
               setErrorValues((previousState) => {
