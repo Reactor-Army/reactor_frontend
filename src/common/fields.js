@@ -27,7 +27,7 @@ export const PROCESS_FIELDS = {
   EQUILIBRIUM_TIME: "Tiempo de equilibrio",
   TEMPERATURE: "Temperatura",
   INITIAL_PH: "pH inicial",
-  KINETIC_CONSTANT: "Contante cinética",
+  KINETIC_CONSTANT: "Constante cinética",
   REACTION_ORDER: "Orden de reacción",
   COMPLEXATION: "Complejación",
   IONIC_INTERCHANGE: "Intercambio iónico",
@@ -85,5 +85,5 @@ export const SYSTEM_REQUEST_FIELDS = {
   IONIC_INTERCHANGE: "intercambioIonico",
   CHEMICAL_REACTION: "reaccionQuimica",
   KINETIC_CONSTANT: "constanteCinetica",
-  REACTION_ORDER: "orderReaccion",
+  REACTION_ORDER: "ordenReaccion",
 };

@@ -35,4 +35,6 @@ export const ADSORBENT_FORM_INITIAL_VALUES = {
   origenMuestra: "",
   nombreEspecie: "",
   observaciones: "",
+  ordenReaccion: "",
+  constanteCinetica: "",
 };

@@ -9,7 +9,12 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
-import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
+import {
+  inRange,
+  isPositive,
+  isSet,
+  isInteger,
+} from "../Form/Validation/formValidations";
 import {PROCESS_FIELDS, SYSTEM_REQUEST_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 import {UNITS} from "../../common/fields";
@@ -56,6 +61,8 @@ export const SystemForm = ({
         reaccionQuimica: initialValues.reaccionQuimica,
         observacion: initialValues.observacion,
         temperatura: initialValues.temperatura,
+        ordenReaccion: initialValues.ordenReaccion,
+        constanteCinetica: initialValues.constanteCinetica,
       });
     }
   }, [initialValues]);
@@ -162,18 +169,46 @@ export const SystemForm = ({
           name={SYSTEM_REQUEST_FIELDS.NOTES}
           key={8}
         />,
-        <FormBooleanField
+        <FormNumericField
+          placeholder={PROCESS_FIELDS.REACTION_ORDER}
           key={9}
+          name={SYSTEM_REQUEST_FIELDS.REACTION_ORDER}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.REACTION_ORDER]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {
+                ...previousState,
+                ordenReaccion: isInteger(value) || inRange(value, 1, 2),
+              };
+            });
+          }}
+        />,
+        <FormNumericField
+          placeholder={PROCESS_FIELDS.KINETIC_CONSTANT}
+          key={10}
+          name={SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {
+                ...previousState,
+                constanteCinetica: isPositive(value),
+              };
+            });
+          }}
+        />,
+        <FormBooleanField
+          key={11}
           title={PROCESS_FIELDS.COMPLEXATION}
           name={SYSTEM_REQUEST_FIELDS.COMPLEXATION}
         />,
         <FormBooleanField
-          key={10}
+          key={12}
           title={PROCESS_FIELDS.IONIC_INTERCHANGE}
           name={SYSTEM_REQUEST_FIELDS.IONIC_INTERCHANGE}
         />,
         <FormBooleanField
-          key={11}
+          key={13}
           title={PROCESS_FIELDS.CHEMICAL_REACTION}
           name={SYSTEM_REQUEST_FIELDS.CHEMICAL_REACTION}
         />,
