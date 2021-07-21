@@ -11,19 +11,18 @@ const initial = {
   concentracionFinal: "",
 };
 
-export const CalculateVolumeForm = () => {
+export const CalculateVolumeForm = ({onSubmit}) => {
   const [errorValues, setErrorValues] = useState(allNullKeys(initial));
-  // eslint-disable-next-line no-unused-vars
-  const [values, _setValues] = useState(initial);
   const errorsSet = Object.keys(errorValues).some((key) => {
     return errorValues[key] !== undefined;
   });
   return (
     <CalculateVolumeFormContainer>
       <Form
-        initialValues={values}
+        initialValues={initial}
         errors={errorsSet}
         buttonLabel={"Calcular"}
+        onSubmit={onSubmit}
         fields={[
           <FormNumericField
             key={0}
@@ -41,6 +40,7 @@ export const CalculateVolumeForm = () => {
           <FormNumericField
             key={1}
             name={"concentracionInicial"}
+            error={errorValues.concentracionInicial}
             placeholder={"Concentración inicial"}
             validate={(value) => {
               setErrorValues((previousState) => {
@@ -55,6 +55,7 @@ export const CalculateVolumeForm = () => {
             key={2}
             name={"concentracionFinal"}
             placeholder={"Concentración final"}
+            error={errorValues.concentracionFinal}
             validate={(value) => {
               setErrorValues((previousState) => {
                 return {

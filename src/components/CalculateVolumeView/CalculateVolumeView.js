@@ -5,7 +5,11 @@ import {CalculateVolumeForm} from "./CalculateVolumeForm";
 import {Label} from "../Detail/Label";
 import {SectionHeader} from "../Detail/SectionHeader";
 
-export const CalculateVolumeView = ({reactionOrder, constanteCinetica}) => {
+export const CalculateVolumeView = ({
+  reactionOrder,
+  constanteCinetica,
+  onSubmit,
+}) => {
   return (
     <>
       <PageTitle title={"Calcular Volumen Efectivo"} />
@@ -18,7 +22,7 @@ export const CalculateVolumeView = ({reactionOrder, constanteCinetica}) => {
       <SectionHeader>Datos relevantes del sistema</SectionHeader>
       <Label label={"Constante cinética (K)"} value={constanteCinetica} />
       <Label label={"Orden de la reacción (n)"} value={reactionOrder} />
-      <CalculateVolumeForm />
+      <CalculateVolumeForm onSubmit={onSubmit} />
     </>
   );
 };
