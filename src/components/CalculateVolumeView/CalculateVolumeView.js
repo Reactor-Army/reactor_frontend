@@ -4,6 +4,8 @@ import {Typography} from "@material-ui/core";
 import {CalculateVolumeForm} from "./CalculateVolumeForm";
 import {Label} from "../Detail/Label";
 import {SectionHeader} from "../Detail/SectionHeader";
+import {ProcessCardWrapper} from "../Card/ProcessCard/ProcessCardWrapper";
+import {CardContainer} from "./Styles";
 
 export const CalculateVolumeView = ({process, onSubmit}) => {
   return (
@@ -16,6 +18,9 @@ export const CalculateVolumeView = ({process, onSubmit}) => {
         medio.
       </Typography>
       <SectionHeader>Datos relevantes del sistema</SectionHeader>
+      <CardContainer>
+        <ProcessCardWrapper process={process} />
+      </CardContainer>
       <Label
         label={"Constante cinética (K)"}
         value={process.constanteCinetica}
