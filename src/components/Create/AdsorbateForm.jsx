@@ -47,7 +47,10 @@ export const AdsorbateForm = ({
           error={errorValues[ADSORBATE_REQUEST_FIELDS.ION_NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombreIon: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.ION_NAME]: isSet(value),
+              };
             });
           }}
         />,
@@ -58,7 +61,10 @@ export const AdsorbateForm = ({
           error={errorValues[ADSORBATE_REQUEST_FIELDS.IUPAC_NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombreIUPAC: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.IUPAC_NAME]: isSet(value),
+              };
             });
           }}
         />,
@@ -71,7 +77,8 @@ export const AdsorbateForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                cargaIon: isSet(value) || isInteger(value),
+                [ADSORBATE_REQUEST_FIELDS.ION_CHARGE]:
+                  isSet(value) || isInteger(value),
               };
             });
           }}
@@ -83,7 +90,10 @@ export const AdsorbateForm = ({
           error={errorValues[ADSORBATE_REQUEST_FIELDS.ION_RADIUS]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, radioIonico: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.ION_RADIUS]: isPositive(value),
+              };
             });
           }}
         />,
@@ -94,7 +104,10 @@ export const AdsorbateForm = ({
           error={errorValues[ADSORBATE_REQUEST_FIELDS.SPILL_LIMIT]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, limiteVertido: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.SPILL_LIMIT]: isPositive(value),
+              };
             });
           }}
         />,
@@ -110,7 +123,10 @@ export const AdsorbateForm = ({
           error={errorValues[ADSORBATE_REQUEST_FIELDS.MOLAR_MASS]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, masaMolar: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.MOLAR_MASS]: isPositive(value),
+              };
             });
           }}
         />,

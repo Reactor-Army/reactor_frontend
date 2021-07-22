@@ -7,7 +7,7 @@ export const SBetLabel = ({value}) => {
   return (
     <LabelContainer>
       <Typography style={{fontWeight: "bold"}}>sBet</Typography>
-      <Typography>: {`${value} ${UNITS.SBET}` || "-"}</Typography>
+      <Typography>: {value ? `${value} ${UNITS.SBET}` : "-"}</Typography>
     </LabelContainer>
   );
 };

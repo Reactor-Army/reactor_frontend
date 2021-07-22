@@ -114,7 +114,10 @@ export const SystemForm = ({
           error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBATE]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, idAdsorbato: isSet(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.ADSORBATE]: isSet(value),
+              };
             });
           }}
         />,
@@ -126,7 +129,10 @@ export const SystemForm = ({
           error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBENT]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, idAdsorbente: isSet(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.ADSORBENT]: isSet(value),
+              };
             });
           }}
         />,
@@ -138,7 +144,10 @@ export const SystemForm = ({
           error={errorValues[SYSTEM_REQUEST_FIELDS.QMAX]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, qmax: isPositive(value, true)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.QMAX]: isPositive(value, true),
+              };
             });
           }}
         />,
@@ -151,7 +160,10 @@ export const SystemForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                tiempoEquilibrio: isPositive(value, true),
+                [SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME]: isPositive(
+                  value,
+                  true,
+                ),
               };
             });
           }}
@@ -165,7 +177,7 @@ export const SystemForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                phinicial: inRange(value, 1, 14),
+                [SYSTEM_REQUEST_FIELDS.PH]: inRange(value, 1, 14),
               };
             });
           }}
@@ -195,7 +207,8 @@ export const SystemForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                ordenReaccion: isInteger(value) || inRange(value, 1, 2),
+                [SYSTEM_REQUEST_FIELDS.REACTION_ORDER]:
+                  isInteger(value) || inRange(value, 1, 2),
               };
             });
           }}
@@ -210,7 +223,7 @@ export const SystemForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                constanteCinetica: isPositive(value),
+                [SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT]: isPositive(value),
               };
             });
           }}

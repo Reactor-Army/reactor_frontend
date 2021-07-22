@@ -51,7 +51,10 @@ export const AdsorbentForm = ({
           error={errorValues[ADSORBENT_REQUEST_FIELDS.NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombre: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.NAME]: isSet(value),
+              };
             });
           }}
         />,
@@ -62,7 +65,10 @@ export const AdsorbentForm = ({
           error={errorValues[ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, particulaT: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE]: isSet(value),
+              };
             });
           }}
         />,
@@ -75,7 +81,7 @@ export const AdsorbentForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                sBet: isPositive(value),
+                [ADSORBENT_REQUEST_FIELDS.SBET]: isPositive(value),
               };
             });
           }}
@@ -87,7 +93,10 @@ export const AdsorbentForm = ({
           error={errorValues[ADSORBENT_REQUEST_FIELDS.VBET]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, vBet: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.VBET]: isPositive(value),
+              };
             });
           }}
         />,
@@ -100,7 +109,7 @@ export const AdsorbentForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                pHCargaCero: inRange(value, 1, 14),
+                [ADSORBENT_REQUEST_FIELDS.PH]: inRange(value, 1, 14),
               };
             });
           }}
