@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CalculateVolumeFormContainer = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 export const CardContainer = styled.div`
