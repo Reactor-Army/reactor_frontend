@@ -6,7 +6,7 @@ import {isSet, isPositive, isInteger} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
-import {UNITS} from "../../common/fields";
+import {UNITS, ADSORBATE_REQUEST_FIELDS} from "../../common/fields";
 import {formInitialValuesFromObject} from "../../utils/formInitialValuesFromObject";
 
 export const AdsorbateForm = ({
@@ -43,35 +43,42 @@ export const AdsorbateForm = ({
         <FormTextField
           placeholder={ADSORBATE_FIELDS.ION_NAME}
           key={1}
-          name="nombreIon"
-          error={errorValues["nombreIon"]}
+          name={ADSORBATE_REQUEST_FIELDS.ION_NAME}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.ION_NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombreIon: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.ION_NAME]: isSet(value),
+              };
             });
           }}
         />,
         <FormTextField
           placeholder={ADSORBATE_FIELDS.IUPAC_NAME}
           key={2}
-          name="nombreIUPAC"
-          error={errorValues["nombreIUPAC"]}
+          name={ADSORBATE_REQUEST_FIELDS.IUPAC_NAME}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.IUPAC_NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombreIUPAC: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.IUPAC_NAME]: isSet(value),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={ADSORBATE_FIELDS.ION_CHARGE}
           key={3}
-          name="cargaIon"
-          error={errorValues["cargaIon"]}
+          name={ADSORBATE_REQUEST_FIELDS.ION_CHARGE}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.ION_CHARGE]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                cargaIon: isSet(value) || isInteger(value),
+                [ADSORBATE_REQUEST_FIELDS.ION_CHARGE]:
+                  isSet(value) || isInteger(value),
               };
             });
           }}
@@ -79,38 +86,47 @@ export const AdsorbateForm = ({
         <FormNumericField
           placeholder={`${ADSORBATE_FIELDS.ION_RADIUS} (${UNITS.ION_RADIUS})`}
           key={4}
-          name="radioIonico"
-          error={errorValues["radioIonico"]}
+          name={ADSORBATE_REQUEST_FIELDS.ION_RADIUS}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.ION_RADIUS]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, radioIonico: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.ION_RADIUS]: isPositive(value),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={`${ADSORBATE_FIELDS.SPILL_LIMIT} (${UNITS.SPILL_LIMIT})`}
           key={5}
-          name="limiteVertido"
-          error={errorValues["limiteVertido"]}
+          name={ADSORBATE_REQUEST_FIELDS.SPILL_LIMIT}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.SPILL_LIMIT]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, limiteVertido: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.SPILL_LIMIT]: isPositive(value),
+              };
             });
           }}
         />,
         <FormTextField
           placeholder={ADSORBATE_FIELDS.FORMULA}
           key={6}
-          name="formula"
+          name={ADSORBATE_REQUEST_FIELDS.FORMULA}
         />,
         <FormNumericField
           placeholder={`${ADSORBATE_FIELDS.MOLAR_MASS} (${UNITS.MOLAR_MASS})`}
           key={7}
-          name="masaMolar"
-          error={errorValues["masaMolar"]}
+          name={ADSORBATE_REQUEST_FIELDS.MOLAR_MASS}
+          error={errorValues[ADSORBATE_REQUEST_FIELDS.MOLAR_MASS]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, masaMolar: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBATE_REQUEST_FIELDS.MOLAR_MASS]: isPositive(value),
+              };
             });
           }}
         />,

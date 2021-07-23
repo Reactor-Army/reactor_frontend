@@ -10,7 +10,7 @@ import {isSet, isPositive, inRange} from "../Form/Validation/formValidations";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
-import {UNITS} from "../../common/fields";
+import {UNITS, ADSORBENT_REQUEST_FIELDS} from "../../common/fields";
 import {formInitialValuesFromObject} from "../../utils/formInitialValuesFromObject";
 
 export const AdsorbentForm = ({
@@ -47,35 +47,41 @@ export const AdsorbentForm = ({
         <FormTextField
           placeholder={ADSORBENT_FIELDS.NAME}
           key={1}
-          name="nombre"
-          error={errorValues["nombre"]}
+          name={ADSORBENT_REQUEST_FIELDS.NAME}
+          error={errorValues[ADSORBENT_REQUEST_FIELDS.NAME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, nombre: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.NAME]: isSet(value),
+              };
             });
           }}
         />,
         <FormTextField
           placeholder={ADSORBENT_FIELDS.PARTICLE_SIZE}
           key={2}
-          name="particulaT"
-          error={errorValues["particulaT"]}
+          name={ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE}
+          error={errorValues[ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, particulaT: isSet(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE]: isSet(value),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={`${ADSORBENT_FIELDS.SBET} (${UNITS.SBET})`}
           key={3}
-          name="sBet"
-          error={errorValues["sBet"]}
+          name={ADSORBENT_REQUEST_FIELDS.SBET}
+          error={errorValues[ADSORBENT_REQUEST_FIELDS.SBET]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                sBet: isPositive(value),
+                [ADSORBENT_REQUEST_FIELDS.SBET]: isPositive(value),
               };
             });
           }}
@@ -83,24 +89,27 @@ export const AdsorbentForm = ({
         <FormNumericField
           placeholder={`${ADSORBENT_FIELDS.VBET} (${UNITS.VBET})`}
           key={4}
-          name="vBet"
-          error={errorValues["vBet"]}
+          name={ADSORBENT_REQUEST_FIELDS.VBET}
+          error={errorValues[ADSORBENT_REQUEST_FIELDS.VBET]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, vBet: isPositive(value)};
+              return {
+                ...previousState,
+                [ADSORBENT_REQUEST_FIELDS.VBET]: isPositive(value),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={ADSORBENT_FIELDS.PH}
           key={5}
-          name="pHCargaCero"
-          error={errorValues["pHCargaCero"]}
+          name={ADSORBENT_REQUEST_FIELDS.PH}
+          error={errorValues[ADSORBENT_REQUEST_FIELDS.PH]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                pHCargaCero: inRange(value, 1, 14),
+                [ADSORBENT_REQUEST_FIELDS.PH]: inRange(value, 1, 14),
               };
             });
           }}
@@ -108,27 +117,27 @@ export const AdsorbentForm = ({
         <FormTextField
           placeholder={ADSORBATE_FIELDS.FORMULA}
           key={6}
-          name="formula"
+          name={ADSORBENT_REQUEST_FIELDS.FORMULA}
         />,
         <FormTextField
           placeholder={ADSORBENT_FIELDS.IMPURITIES}
           key={7}
-          name="impurezas"
+          name={ADSORBENT_REQUEST_FIELDS.IMPURITIES}
         />,
         <FormTextField
           placeholder={ADSORBENT_FIELDS.SOURCE}
           key={8}
-          name="origenMuestra"
+          name={ADSORBENT_REQUEST_FIELDS.SOURCE}
         />,
         <FormTextField
           placeholder={ADSORBENT_FIELDS.SPECIES_NAME}
           key={9}
-          name="nombreEspecie"
+          name={ADSORBENT_REQUEST_FIELDS.SPECIES_NAME}
         />,
         <FormBigTextField
           placeholder={ADSORBENT_FIELDS.NOTES}
           key={10}
-          name="observaciones"
+          name={ADSORBENT_REQUEST_FIELDS.NOTES}
         />,
       ]}
     />

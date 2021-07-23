@@ -9,10 +9,16 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
-import {inRange, isPositive, isSet} from "../Form/Validation/formValidations";
-import {PROCESS_FIELDS} from "../../common/fields";
+import {
+  inRange,
+  isPositive,
+  isSet,
+  isInteger,
+} from "../Form/Validation/formValidations";
+import {PROCESS_FIELDS, SYSTEM_REQUEST_FIELDS} from "../../common/fields";
 import {SYSTEM_FORM_INITIAL_VALUES} from "../../common/constants";
 import {UNITS} from "../../common/fields";
+import {getKineticConstantUnits} from "../../common/UnitsUtils";
 
 export const SystemForm = ({
   title,
@@ -22,12 +28,16 @@ export const SystemForm = ({
   initialValues,
 }) => {
   const [initial, setInitial] = useState(SYSTEM_FORM_INITIAL_VALUES);
+  const [reactionOrder, setReactionOrder] = useState(0);
+  const [kineticConstantUnits, setKineticConstantUnits] = useState("");
   const dispatch = useDispatch();
 
   const [errorValues, setErrorValues] = useState({
     qmax: null,
     tiempoEquilibrio: null,
     phinicial: null,
+    ordenReaccion: null,
+    constanteCinetica: null,
   });
 
   const adsorbates = useSelector((state) =>
@@ -56,6 +66,8 @@ export const SystemForm = ({
         reaccionQuimica: initialValues.reaccionQuimica,
         observacion: initialValues.observacion,
         temperatura: initialValues.temperatura,
+        ordenReaccion: initialValues.ordenReaccion,
+        constanteCinetica: initialValues.constanteCinetica,
       });
     }
   }, [initialValues]);
@@ -78,6 +90,14 @@ export const SystemForm = ({
     setErrors(errorsSet);
   }, [errorsSet]);
 
+  useEffect(() => {
+    if (reactionOrder === 1 || reactionOrder === 2) {
+      setKineticConstantUnits(getKineticConstantUnits(reactionOrder));
+    } else {
+      setKineticConstantUnits("");
+    }
+  }, [reactionOrder]);
+
   return (
     <Form
       initialValues={initial}
@@ -90,11 +110,14 @@ export const SystemForm = ({
           key={1}
           placeholder={PROCESS_FIELDS.ADSORBATE}
           items={adsorbates}
-          name="idAdsorbato"
-          error={errorValues["idAdsorbato"]}
+          name={SYSTEM_REQUEST_FIELDS.ADSORBATE}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBATE]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, idAdsorbato: isSet(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.ADSORBATE]: isSet(value),
+              };
             });
           }}
         />,
@@ -102,47 +125,59 @@ export const SystemForm = ({
           key={2}
           placeholder={PROCESS_FIELDS.ADSORBENT}
           items={adsorbents}
-          name="idAdsorbente"
-          error={errorValues["idAdsorbente"]}
+          name={SYSTEM_REQUEST_FIELDS.ADSORBENT}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.ADSORBENT]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, idAdsorbente: isSet(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.ADSORBENT]: isSet(value),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.QMAX} (${UNITS.QMAX})`}
           key={3}
-          name="qmax"
+          name={SYSTEM_REQUEST_FIELDS.QMAX}
           defaultValue={initial.value}
-          error={errorValues["qmax"]}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.QMAX]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, qmax: isPositive(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.QMAX]: isPositive(value, true),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.EQUILIBRIUM_TIME} (${UNITS.EQUILIBRIUM_TIME})`}
           key={4}
-          name="tiempoEquilibrio"
-          error={errorValues["tiempoEquilibrio"]}
+          name={SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME]}
           validate={(value) => {
             setErrorValues((previousState) => {
-              return {...previousState, tiempoEquilibrio: isPositive(value)};
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.EQUILIBRIUM_TIME]: isPositive(
+                  value,
+                  true,
+                ),
+              };
             });
           }}
         />,
         <FormNumericField
           placeholder={PROCESS_FIELDS.INITIAL_PH}
           key={5}
-          name="phinicial"
-          error={errorValues["phinicial"]}
+          name={SYSTEM_REQUEST_FIELDS.PH}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.PH]}
           validate={(value) => {
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                phinicial: inRange(value, 1, 14),
+                [SYSTEM_REQUEST_FIELDS.PH]: inRange(value, 1, 14),
               };
             });
           }}
@@ -150,32 +185,63 @@ export const SystemForm = ({
         <FormTextField
           placeholder={PROCESS_FIELDS.SOURCE}
           key={6}
-          name="fuente"
+          name={SYSTEM_REQUEST_FIELDS.SOURCE}
         />,
         <FormNumericField
           placeholder={`${PROCESS_FIELDS.TEMPERATURE} (${UNITS.TEMPERATURE})`}
           key={7}
-          name="temperatura"
+          name={SYSTEM_REQUEST_FIELDS.TEMPERATURE}
         />,
         <FormTextField
           placeholder={PROCESS_FIELDS.NOTES}
-          name="observacion"
+          name={SYSTEM_REQUEST_FIELDS.NOTES}
           key={8}
         />,
-        <FormBooleanField
+        <FormNumericField
+          placeholder={PROCESS_FIELDS.REACTION_ORDER}
           key={9}
-          title={PROCESS_FIELDS.COMPLEXATION}
-          name="complejacion"
+          name={SYSTEM_REQUEST_FIELDS.REACTION_ORDER}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.REACTION_ORDER]}
+          validate={(value) => {
+            setReactionOrder(value);
+            setErrorValues((previousState) => {
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.REACTION_ORDER]:
+                  isInteger(value) || inRange(value, 1, 2),
+              };
+            });
+          }}
         />,
-        <FormBooleanField
+        <FormNumericField
+          placeholder={`${PROCESS_FIELDS.KINETIC_CONSTANT} ${kineticConstantUnits}`}
+          disabled={reactionOrder !== 1 && reactionOrder !== 2}
           key={10}
-          title={PROCESS_FIELDS.IONIC_INTERCHANGE}
-          name="intercambioIonico"
+          name={SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT}
+          error={errorValues[SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {
+                ...previousState,
+                [SYSTEM_REQUEST_FIELDS.KINETIC_CONSTANT]: isPositive(value),
+              };
+            });
+          }}
         />,
         <FormBooleanField
           key={11}
+          title={PROCESS_FIELDS.COMPLEXATION}
+          name={SYSTEM_REQUEST_FIELDS.COMPLEXATION}
+        />,
+        <FormBooleanField
+          key={12}
+          title={PROCESS_FIELDS.IONIC_INTERCHANGE}
+          name={SYSTEM_REQUEST_FIELDS.IONIC_INTERCHANGE}
+        />,
+        <FormBooleanField
+          key={13}
           title={PROCESS_FIELDS.CHEMICAL_REACTION}
-          name="reaccionQuimica"
+          name={SYSTEM_REQUEST_FIELDS.CHEMICAL_REACTION}
         />,
       ]}
     />

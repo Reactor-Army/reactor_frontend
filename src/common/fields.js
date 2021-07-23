@@ -27,7 +27,7 @@ export const PROCESS_FIELDS = {
   EQUILIBRIUM_TIME: "Tiempo de equilibrio",
   TEMPERATURE: "Temperatura",
   INITIAL_PH: "pH inicial",
-  KINETIC_CONSTANT: "Contante cinética",
+  KINETIC_CONSTANT: "Constante cinética",
   REACTION_ORDER: "Orden de reacción",
   COMPLEXATION: "Complejación",
   IONIC_INTERCHANGE: "Intercambio iónico",
@@ -45,9 +45,48 @@ export const UNITS = {
   QMAX: "mmol/g",
   EQUILIBRIUM_TIME: "minutos",
   TEMPERATURE: "°C",
-  KINETIC_CONSTANT_FIRST_ORDER: "min⁻¹",
+  KINETIC_CONSTANT_FIRST_ORDER: "(min)⁻¹",
   KINETIC_CONSTANT_SECOND_ORDER: "(min*mmol)⁻¹",
   DISCHARGE: "mL/min",
   CONCENTRATION: "mmol/L",
   VOLUME: "mL",
+};
+
+export const ADSORBATE_REQUEST_FIELDS = {
+  ION_NAME: "nombreIon",
+  IUPAC_NAME: "nombreIUPAC",
+  ION_CHARGE: "cargaIon",
+  ION_RADIUS: "radioIonico",
+  SPILL_LIMIT: "limiteVertido",
+  FORMULA: "formula",
+  MOLAR_MASS: "masaMolar",
+};
+
+export const ADSORBENT_REQUEST_FIELDS = {
+  NAME: "nombre",
+  PARTICLE_SIZE: "particulaT",
+  SBET: "sBet",
+  VBET: "vBet",
+  PH: "pHCargaCero",
+  FORMULA: "formula",
+  IMPURITIES: "impurezas",
+  SOURCE: "origenMuestra",
+  SPECIES_NAME: "nombreEspecie",
+  NOTES: "observaciones",
+};
+
+export const SYSTEM_REQUEST_FIELDS = {
+  ADSORBATE: "idAdsorbato",
+  ADSORBENT: "idAdsorbente",
+  QMAX: "qmax",
+  EQUILIBRIUM_TIME: "tiempoEquilibrio",
+  PH: "phinicial",
+  SOURCE: "fuente",
+  TEMPERATURE: "temperatura",
+  NOTES: "observacion",
+  COMPLEXATION: "complejacion",
+  IONIC_INTERCHANGE: "intercambioIonico",
+  CHEMICAL_REACTION: "reaccionQuimica",
+  KINETIC_CONSTANT: "constanteCinetica",
+  REACTION_ORDER: "ordenReaccion",
 };

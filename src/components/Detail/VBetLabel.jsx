@@ -7,7 +7,7 @@ export const VBetLabel = ({value}) => {
   return (
     <LabelContainer>
       <Typography style={{fontWeight: "bold"}}>vBet</Typography>
-      <Typography>: {`${value} ${UNITS.VBET}` || "-"}</Typography>
+      <Typography>: {value ? `${value} ${UNITS.VBET}` : "-"}</Typography>
     </LabelContainer>
   );
 };

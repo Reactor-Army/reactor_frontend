@@ -5,5 +5,5 @@ export const spillLimit = (limit) => {
   if (!limit) {
     return NO_LIMIT;
   }
-  return `${limit} ${UNITS.spillLimit}`;
+  return `${limit} ${UNITS.SPILL_LIMIT}`;
 };

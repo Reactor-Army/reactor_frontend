@@ -3,15 +3,17 @@ export const ENTER_KEY = "Enter";
 export const SYSTEM_FORM_INITIAL_VALUES = {
   idAdsorbato: null,
   idAdsorbente: null,
-  tiempoEquilibrio: 0,
-  qmax: 0,
-  phinicial: 1,
+  tiempoEquilibrio: "",
+  qmax: "",
+  phinicial: "",
   fuente: "",
   complejacion: false,
   intercambioIonico: false,
   reaccionQuimica: false,
   observacion: "",
-  temperatura: 0,
+  temperatura: "",
+  ordenReaccion: "",
+  constanteCinetica: "",
 };
 
 export const ADSORBATE_FORM_INITIAL_VALUES = {
@@ -35,6 +37,8 @@ export const ADSORBENT_FORM_INITIAL_VALUES = {
   origenMuestra: "",
   nombreEspecie: "",
   observaciones: "",
+  ordenReaccion: "",
+  constanteCinetica: "",
 };
 
 export const CALCULATE_VOLUME_FORM_INITIAL_VALUES = {
