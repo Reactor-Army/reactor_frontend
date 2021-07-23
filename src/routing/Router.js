@@ -16,6 +16,7 @@ import {SystemCreateRoute} from "./routes/SystemCreateRoute";
 import {SystemEditRoute} from "./routes/SystemEditRoute";
 import {AdsorbateEditRoute} from "./routes/AdsorbateEditRoute";
 import {AdsorbentEditRoute} from "./routes/AdsorbentEditRoute";
+import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
 
 export const Router = () => {
   return (
@@ -97,6 +98,12 @@ export const Router = () => {
         exact
         path={URLS.BEST_ADSORBENT}
         component={IdealAdsorbentRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.PROCESS_EFFECTIVE_VOLUME}
+        component={CalculateVolumeRoute}
       />
       <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
     </Switch>

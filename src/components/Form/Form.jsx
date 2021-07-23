@@ -14,7 +14,7 @@ export const Form = ({
 }) => {
   return (
     <>
-      <PageTitle title={title} />
+      {title && <PageTitle title={title} />}
       <Formik
         enableReinitialize
         initialValues={initialValues}

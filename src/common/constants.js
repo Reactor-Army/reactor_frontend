@@ -36,3 +36,9 @@ export const ADSORBENT_FORM_INITIAL_VALUES = {
   nombreEspecie: "",
   observaciones: "",
 };
+
+export const CALCULATE_VOLUME_FORM_INITIAL_VALUES = {
+  caudal: "",
+  concentracionInicial: "",
+  concentracionFinal: "",
+};
