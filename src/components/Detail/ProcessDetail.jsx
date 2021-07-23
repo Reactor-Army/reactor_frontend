@@ -26,7 +26,6 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         }
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
-      <EffectiveVolumeButton processId={process.id} />
 
       <SectionHeader>Características</SectionHeader>
       <Label
@@ -72,6 +71,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <SectionHeader>Adicional</SectionHeader>
       <Label label={PROCESS_FIELDS.SOURCE} value={process.fuente} />
       <Label label={PROCESS_FIELDS.NOTES} value={process.observacion} />
+      <EffectiveVolumeButton processId={process.id} />
     </Container>
   );
 };
