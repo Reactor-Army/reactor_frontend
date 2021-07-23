@@ -10,6 +10,7 @@ import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
+import {EffectiveVolumeButton} from "./EffectiveVolumeButton";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -25,6 +26,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         }
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
+
       <SectionHeader>Características</SectionHeader>
       <Label
         label={PROCESS_FIELDS.QMAX}
@@ -69,6 +71,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <SectionHeader>Adicional</SectionHeader>
       <Label label={PROCESS_FIELDS.SOURCE} value={process.fuente} />
       <Label label={PROCESS_FIELDS.NOTES} value={process.observacion} />
+      <EffectiveVolumeButton processId={process.id} />
     </Container>
   );
 };

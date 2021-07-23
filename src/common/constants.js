@@ -40,3 +40,9 @@ export const ADSORBENT_FORM_INITIAL_VALUES = {
   ordenReaccion: "",
   constanteCinetica: "",
 };
+
+export const CALCULATE_VOLUME_FORM_INITIAL_VALUES = {
+  caudal: "",
+  concentracionInicial: "",
+  concentracionFinal: "",
+};

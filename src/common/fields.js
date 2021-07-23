@@ -47,6 +47,9 @@ export const UNITS = {
   TEMPERATURE: "°C",
   KINETIC_CONSTANT_FIRST_ORDER: "(min)⁻¹",
   KINETIC_CONSTANT_SECOND_ORDER: "(min*mmol)⁻¹",
+  DISCHARGE: "mL/min",
+  CONCENTRATION: "mmol/L",
+  VOLUME: "mL",
 };
 
 export const ADSORBATE_REQUEST_FIELDS = {

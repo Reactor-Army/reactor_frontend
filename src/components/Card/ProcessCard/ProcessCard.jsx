@@ -16,8 +16,6 @@ import {PROCESS_FIELDS} from "../../../common/fields";
 import {UNITS} from "../../../common/fields";
 
 export const ProcessCard = ({
-  headerBackgroundColor,
-  bodyBackgroundColor,
   adsorbateName,
   adsorbentName,
   qMax,
@@ -30,8 +28,10 @@ export const ProcessCard = ({
   browseToProcessDetail,
 }) => {
   return (
-    <Card backgroundColor={bodyBackgroundColor} onClick={browseToProcessDetail}>
-      <CardHeader theme={{backgroundColor: headerBackgroundColor}}>
+    <Card
+      backgroundColor={appColors.adsorbentCardBody}
+      onClick={browseToProcessDetail}>
+      <CardHeader theme={{backgroundColor: appColors.processCardHeader}}>
         <NameChip
           name={adsorbateName}
           backgroundColor={appColors.adsorbateCardHeader}
