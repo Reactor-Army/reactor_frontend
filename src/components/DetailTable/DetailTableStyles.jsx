@@ -8,6 +8,7 @@ export const TableWrapper = styled.table`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 18px;
 `;
 
 export const Title = styled.div`

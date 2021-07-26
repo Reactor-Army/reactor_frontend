@@ -36,7 +36,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
         }
       />
 
-      <DetailTableContainer>
+      <DetailTableContainer rows={2}>
         <DetailTable title="Características">
           <DetailTableRow
             label={ADSORBATE_FIELDS.ION_NAME}
