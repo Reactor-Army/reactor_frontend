@@ -1,23 +1,36 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
 
-export const TableWrapper = styled.div``;
+export const TableWrapper = styled.table`
+  width: 100%;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Title = styled.div`
   font-family: ${appFontFamily.primary};
   font-size: 20px;
-  margin: 0 0 10px 5px;
+  margin: 0 0 10px 10px;
   font-weight: bold;
 `;
 
-export const Value = styled.div`
+export const Value = styled.td`
   font-size: 16px;
   font-family: ${appFontFamily.primary};
   white-space: pre-wrap;
-  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    white-space: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 40%;
+  }
 `;
 
-export const Label = styled.div`
+export const Label = styled.td`
   font-weight: bold;
   font-size: 16px;
   font-family: ${appFontFamily.primary};
@@ -32,7 +45,7 @@ export const Row = styled.tr`
   border-bottom: 1px solid ${appColors.gray};
 `;
 
-export const RowContainer = styled.div`
+export const RowContainer = styled.tbody`
   margin-bottom: 15px;
   tr:first-child {
     border-radius: 5px 5px 0 0;

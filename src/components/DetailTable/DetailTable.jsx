@@ -6,14 +6,17 @@ import {
   Value,
   RowContainer,
   TableWrapper,
+  Container,
 } from "./DetailTableStyles";
 
 export const DetailTable = ({title = "", children}) => {
   return (
-    <TableWrapper>
+    <Container>
       <Title>{title}</Title>
-      <RowContainer>{children}</RowContainer>
-    </TableWrapper>
+      <TableWrapper>
+        <RowContainer>{children}</RowContainer>
+      </TableWrapper>
+    </Container>
   );
 };
 
