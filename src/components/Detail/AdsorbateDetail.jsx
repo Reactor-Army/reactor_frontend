@@ -16,6 +16,7 @@ import {
 } from "../../services/adsorbates";
 import {ADSORBATE_FIELDS} from "../../common/fields";
 import {UNITS} from "../../common/fields";
+import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -35,6 +36,22 @@ export const AdsorbateDetail = ({adsorbate}) => {
           </>
         }
       />
+
+      <DetailTable title="test">
+        <DetailTableRow
+          label={ADSORBATE_FIELDS.ION_NAME}
+          value={adsorbate.nombreIon}
+        />
+        <DetailTableRow
+          label={ADSORBATE_FIELDS.ION_NAME}
+          value={adsorbate.nombreIon}
+        />
+        <DetailTableRow
+          label={ADSORBATE_FIELDS.ION_NAME}
+          value={adsorbate.nombreIon}
+        />
+      </DetailTable>
+
       <SectionHeader>Características</SectionHeader>
       <Label label={ADSORBATE_FIELDS.ION_NAME} value={adsorbate.nombreIon} />
       <Label label={ADSORBATE_FIELDS.ION_CHARGE} value={adsorbate.cargaIon} />
