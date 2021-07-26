@@ -1,12 +1,19 @@
 import React from "react";
-import {Title, Row, Label, Value, RowContainer} from "./DetailTableStyles";
+import {
+  Title,
+  Row,
+  Label,
+  Value,
+  RowContainer,
+  TableWrapper,
+} from "./DetailTableStyles";
 
 export const DetailTable = ({title = "", children}) => {
   return (
-    <>
+    <TableWrapper>
       <Title>{title}</Title>
       <RowContainer>{children}</RowContainer>
-    </>
+    </TableWrapper>
   );
 };
 

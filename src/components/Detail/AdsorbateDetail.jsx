@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import {SectionHeader} from "./SectionHeader";
-import {Label} from "./Label";
 import {FormulaLabel} from "../Card/AdsorbateCard/FormulaLabel";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
@@ -17,6 +15,7 @@ import {
 import {ADSORBATE_FIELDS} from "../../common/fields";
 import {UNITS} from "../../common/fields";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
+import {DetailTableContainer} from "./Styles";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -37,46 +36,47 @@ export const AdsorbateDetail = ({adsorbate}) => {
         }
       />
 
-      <DetailTable title="test">
-        <DetailTableRow
-          label={ADSORBATE_FIELDS.ION_NAME}
-          value={adsorbate.nombreIon}
-        />
-        <DetailTableRow
-          label={ADSORBATE_FIELDS.ION_NAME}
-          value={adsorbate.nombreIon}
-        />
-        <DetailTableRow
-          label={ADSORBATE_FIELDS.ION_NAME}
-          value={adsorbate.nombreIon}
-        />
-      </DetailTable>
+      <DetailTableContainer>
+        <DetailTable title="Características">
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.ION_NAME}
+            value={adsorbate.nombreIon}
+          />
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.ION_CHARGE}
+            value={adsorbate.cargaIon}
+          />
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.ION_RADIUS}
+            value={`${adsorbate.radioIonico} ${UNITS.ION_RADIUS}`}
+          />
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.SPILL_LIMIT}
+            value={spillLimit(adsorbate.limiteVertido)}
+          />
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.MOLAR_MASS}
+            value={
+              adsorbate.masaMolar
+                ? `${adsorbate.masaMolar} ${UNITS.MOLAR_MASS}`
+                : "-"
+            }
+          />
+        </DetailTable>
 
-      <SectionHeader>Características</SectionHeader>
-      <Label label={ADSORBATE_FIELDS.ION_NAME} value={adsorbate.nombreIon} />
-      <Label label={ADSORBATE_FIELDS.ION_CHARGE} value={adsorbate.cargaIon} />
-      <Label
-        label={ADSORBATE_FIELDS.ION_RADIUS}
-        value={`${adsorbate.radioIonico} ${UNITS.ION_RADIUS}`}
-      />
-      <Label
-        label={ADSORBATE_FIELDS.SPILL_LIMIT}
-        value={spillLimit(adsorbate.limiteVertido)}
-      />
-      <Label
-        label={ADSORBATE_FIELDS.MOLAR_MASS}
-        value={
-          adsorbate.masaMolar
-            ? `${adsorbate.masaMolar} ${UNITS.MOLAR_MASS}`
-            : "-"
-        }
-      />
+        <DetailTable title="Información Adicional">
+          <DetailTableRow
+            label={ADSORBATE_FIELDS.FORMULA}
+            value={
+              <FormulaLabel
+                formula={adsorbate.formula}
+                ionChargeFormula={adsorbate.cargaIonFormula}
+              />
+            }
+          />
+        </DetailTable>
+      </DetailTableContainer>
 
-      <SectionHeader>{ADSORBATE_FIELDS.FORMULA}</SectionHeader>
-      <FormulaLabel
-        formula={adsorbate.formula}
-        ionChargeFormula={adsorbate.cargaIonFormula}
-      />
       <DeleteAdsorbateOrAdsorbentModal
         open={showModal}
         onClose={() => setShowModal(false)}

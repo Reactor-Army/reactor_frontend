@@ -1,21 +1,25 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
 
+export const TableWrapper = styled.div``;
+
 export const Title = styled.div`
   font-family: ${appFontFamily.primary};
-  font-size: 16px;
-  margin-left: 5px;
+  font-size: 20px;
+  margin: 0 0 10px 5px;
   font-weight: bold;
 `;
 
 export const Value = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   font-family: ${appFontFamily.primary};
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 
 export const Label = styled.div`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   font-family: ${appFontFamily.primary};
 `;
 
@@ -29,6 +33,7 @@ export const Row = styled.tr`
 `;
 
 export const RowContainer = styled.div`
+  margin-bottom: 15px;
   tr:first-child {
     border-radius: 5px 5px 0 0;
     border-top: 1px solid ${appColors.gray};
