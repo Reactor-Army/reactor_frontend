@@ -27,7 +27,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
-      <DetailTableContainer rows={3}>
+      <DetailTableContainer cols={3}>
         <DetailTable title="Características">
           <DetailTableRow
             label={PROCESS_FIELDS.QMAX}
