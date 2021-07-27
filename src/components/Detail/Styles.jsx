@@ -34,7 +34,7 @@ export const DetailTableContainer = styled.div`
   margin-top: 15px;
   margin-bottom: 15px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
