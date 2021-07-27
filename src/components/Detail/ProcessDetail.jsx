@@ -10,7 +10,7 @@ import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {EffectiveVolumeButton} from "./EffectiveVolumeButton";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
-import {DetailTableContainer} from "./Styles";
+import {DetailTableGrid} from "./Styles";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -27,7 +27,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
-      <DetailTableContainer cols={3}>
+      <DetailTableGrid cols={3}>
         <DetailTable title="Características">
           <DetailTableRow
             label={PROCESS_FIELDS.QMAX}
@@ -94,7 +94,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
             value={process.observacion ? process.observacion : "-"}
           />
         </DetailTable>
-      </DetailTableContainer>
+      </DetailTableGrid>
       <EffectiveVolumeButton processId={process.id} />
     </Container>
   );

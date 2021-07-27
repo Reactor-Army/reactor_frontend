@@ -26,7 +26,7 @@ export const EffectiveVolumeStyledButton = styled(StyledButton)`
   width: 280px;
 `;
 
-export const DetailTableContainer = styled.div`
+export const DetailTableGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(${(props) => props.cols}, 1fr);
   grid-column-gap: 50px;

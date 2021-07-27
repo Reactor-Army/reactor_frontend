@@ -15,7 +15,7 @@ import {
 import {ADSORBATE_FIELDS} from "../../common/fields";
 import {UNITS} from "../../common/fields";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
-import {DetailTableContainer} from "./Styles";
+import {DetailTableGrid} from "./Styles";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -36,7 +36,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
         }
       />
 
-      <DetailTableContainer cols={2}>
+      <DetailTableGrid cols={2}>
         <DetailTable title="Características">
           <DetailTableRow
             label={ADSORBATE_FIELDS.ION_NAME}
@@ -75,7 +75,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
             }
           />
         </DetailTable>
-      </DetailTableContainer>
+      </DetailTableGrid>
 
       <DeleteAdsorbateOrAdsorbentModal
         open={showModal}
