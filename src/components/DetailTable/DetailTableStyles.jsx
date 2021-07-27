@@ -41,16 +41,16 @@ export const Row = styled.tr`
   display: flex;
   justify-content: space-between;
   padding: 20px 10px;
-  border-left: 1px solid ${appColors.gray};
-  border-right: 1px solid ${appColors.gray};
-  border-bottom: 1px solid ${appColors.gray};
+  border-left: 1px solid ${appColors.lightGray};
+  border-right: 1px solid ${appColors.lightGray};
+  border-bottom: 1px solid ${appColors.lightGray};
 `;
 
 export const RowContainer = styled.tbody`
   margin-bottom: 15px;
   tr:first-child {
     border-radius: 5px 5px 0 0;
-    border-top: 1px solid ${appColors.gray};
+    border-top: 1px solid ${appColors.lightGray};
   }
 
   tr:last-child {

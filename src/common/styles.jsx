@@ -12,6 +12,7 @@ export const appColors = {
   idealAdsorbentRemoveAllChip: "#ce93d8",
   pageBackground: "#eeeeee",
   gray: "#666",
+  lightGray: "#aaa",
 };
 
 export const appFontColors = {

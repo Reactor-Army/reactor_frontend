@@ -30,7 +30,7 @@ export const DetailTableContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(${(props) => props.rows}, 1fr);
   grid-column-gap: 50px;
-  grid-row-gap: 70px;
+  grid-row-gap: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
 
