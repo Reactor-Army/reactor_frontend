@@ -1,9 +1,5 @@
 import React, {useState} from "react";
-import {SectionHeader} from "./SectionHeader";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
-import {Label} from "./Label";
-import {SBetLabel} from "./SBetLabel";
-import {VBetLabel} from "./VBetLabel";
 import {DetailHeader} from "./DetailHeader";
 import {adsorbentEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
@@ -15,7 +11,8 @@ import {
   deleteAdsorbent,
 } from "../../services/adsorbents";
 import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
-import {LongText} from "./LongText";
+import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
+import {UNITS} from "../../common/fields";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   const [showModal, setShowModal] = useState(false);
@@ -43,25 +40,49 @@ export const AdsorbentDetail = ({adsorbent}) => {
           </>
         }
       />
-      <SectionHeader>Características</SectionHeader>
-      <Label
-        label={ADSORBENT_FIELDS.PARTICLE_SIZE}
-        value={adsorbent.particulaT}
-      />
-      <SBetLabel value={adsorbent.sBet} />
-      <VBetLabel value={adsorbent.vBet} />
-      <Label label={ADSORBENT_FIELDS.PH} value={adsorbent.pHCargaCero} />
-      <Label label={ADSORBENT_FIELDS.IMPURITIES} value={adsorbent.impurezas} />
-      <Label label={ADSORBENT_FIELDS.SOURCE} value={adsorbent.origenMuestra} />
-      <Label label={ADSORBATE_FIELDS.FORMULA} value={adsorbent.formula} />
-      <Label
-        label={ADSORBENT_FIELDS.SPECIES_NAME}
-        value={adsorbent.nombreEspecie}
-      />
-      <LongText
-        label={ADSORBENT_FIELDS.NOTES}
-        value={adsorbent.observaciones}
-      />
+
+      <DetailTable title="Características">
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.PARTICLE_SIZE}
+          value={adsorbent.particulaT}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.SBET}
+          value={adsorbent.sBet ? `${adsorbent.sBet} ${UNITS.SBET} ` : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.VBET}
+          value={adsorbent.vBet ? `${adsorbent.vBet} ${UNITS.VBET} ` : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.PH}
+          value={adsorbent.pHCargaCero ? adsorbent.pHCargaCero : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.IMPURITIES}
+          value={adsorbent.impurezas ? adsorbent.impurezas : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.SOURCE}
+          value={adsorbent.origenMuestra ? adsorbent.origenMuestra : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.IMPURITIES}
+          value={adsorbent.impurezas ? adsorbent.impurezas : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBATE_FIELDS.FORMULA}
+          value={adsorbent.formula ? adsorbent.formula : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.SPECIES_NAME}
+          value={adsorbent.nombreEspecie ? adsorbent.nombreEspecie : "-"}
+        />
+        <DetailTableRow
+          label={ADSORBENT_FIELDS.NOTES}
+          value={adsorbent.observaciones ? adsorbent.observaciones : "-"}
+        />
+      </DetailTable>
     </>
   );
 };

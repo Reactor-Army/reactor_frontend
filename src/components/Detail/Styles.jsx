@@ -7,11 +7,6 @@ export const LabelContainer = styled.div`
   text-overflow: ellipsis;
 `;
 
-export const LongTextContainer = styled.div`
-  display: flex;
-  white-space: pre-wrap;
-`;
-
 export const SectionHeaderContainer = styled.div`
   margin-top: 20px;
 `;
@@ -22,9 +17,24 @@ export const ButtonsSection = styled.div`
 
 export const EffectiveVolumeButtonContainer = styled.div`
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const EffectiveVolumeStyledButton = styled(StyledButton)`
   height: 60px;
-  width: 150px;
+  width: 280px;
+`;
+
+export const DetailTableGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${(props) => props.cols}, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
