@@ -95,7 +95,10 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
           />
         </DetailTable>
       </DetailTableGrid>
-      <EffectiveVolumeButton processId={process.id} />
+      <EffectiveVolumeButton
+        disabled={!process.ordenReaccion || !process.constanteCinetica}
+        processId={process.id}
+      />
     </Container>
   );
 };
