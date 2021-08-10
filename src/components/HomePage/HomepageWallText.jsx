@@ -1,14 +1,15 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import {appColors, appFontFamily} from "../../common/styles";
+import {appFontFamily} from "../../common/styles";
 import {URLS} from "../../routing/urls";
+import {Paragraph, Link} from "./Styles";
 
 export function HomepageWallText() {
   return (
     <Typography
       component={"span"}
       style={{fontSize: "25px", fontFamily: appFontFamily.primary}}>
-      <p>
+      <Paragraph>
         <b>Reactor App</b> es el producto de un trabajo profesional de Ing. en
         informática en colaboración con el LaQuíSiHe (Laboratorio de Química de
         Sistemas Heterogéneos del IQAI (Instituto de Química Aplicado a la
@@ -25,23 +26,16 @@ export function HomepageWallText() {
         Adsorbato - Adsorbente de bajo costo apuntando al tratamiento de aguas
         contaminadas.
         <br />
+        <br />
         <b>Funcionalidades actuales:</b>
         <br />
-        <a href={URLS.ADSORBATES_LIST} style={{color: appColors.primary}}>
-          - Listado de Adsorbatos
-        </a>
+        <Link href={URLS.ADSORBATES_LIST}>- Listado de Adsorbatos</Link>
         <br />
-        <a href={URLS.ADSORBENTS_LIST} style={{color: appColors.primary}}>
-          - Listado de Adsorbentes
-        </a>
+        <Link href={URLS.ADSORBENTS_LIST}>- Listado de Adsorbentes</Link>
         <br />
-        <a href={URLS.PROCESSES_LIST} style={{color: appColors.primary}}>
-          - Listado de Sistemas
-        </a>
+        <Link href={URLS.PROCESSES_LIST}>- Listado de Sistemas</Link>
         <br />
-        <a href={URLS.BEST_ADSORBENT} style={{color: appColors.primary}}>
-          - Búsqueda del mejor adsorbente
-        </a>
+        <Link href={URLS.BEST_ADSORBENT}>- Búsqueda del mejor adsorbente</Link>
         <br />
         <br />
         <b>Autores:</b>
@@ -49,7 +43,7 @@ export function HomepageWallText() {
         - Lucas Lavandeira <br />
         - Santiago Pinto <br />
         - Matias Reimondo <br />
-      </p>
+      </Paragraph>
     </Typography>
   );
 }
