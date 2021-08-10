@@ -24,11 +24,18 @@ export const CalculateVolumeView = ({process, onSubmit}) => {
       </CardContainer>
       <Label
         label={"Constante cinética (K)"}
-        value={`${process.constanteCinetica} ${getKineticConstantUnits(
-          process.ordenReaccion,
-        )}`}
+        value={
+          process.constanteCinetica
+            ? `${process.constanteCinetica} ${getKineticConstantUnits(
+                process.ordenReaccion,
+              )}`
+            : "-"
+        }
       />
-      <Label label={"Orden de la reacción (n)"} value={process.ordenReaccion} />
+      <Label
+        label={"Orden de la reacción (n)"}
+        value={process.ordenReaccion ? process.ordenReaccion : "-"}
+      />
       <CalculateVolumeForm onSubmit={onSubmit} />
     </>
   );
