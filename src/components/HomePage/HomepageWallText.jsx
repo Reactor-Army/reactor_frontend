@@ -5,17 +5,20 @@ import {URLS} from "../../routing/urls";
 
 export function HomepageWallText() {
   return (
-    <Typography style={{fontSize: "25px", fontFamily: appFontFamily.primary}}>
+    <Typography
+      component={"span"}
+      style={{fontSize: "25px", fontFamily: appFontFamily.primary}}>
       <p>
         <b>Reactor App</b> es el producto de un trabajo profesional de Ing. en
         informática en colaboración con el LaQuíSiHe (Laboratorio de Química de
         Sistemas Heterogéneos del IQAI (Instituto de Química Aplicado a la
         Ingeniería) y el Departamento de Gestión. Está enmarcado en el Proyecto
-        de Desarrollo Estratégico 032/2020
+        de Desarrollo Estratégico 032/2020&nbsp;
         <b>
           Metodología para el dimensionamiento de un reactor prototipo para el
           tratamiento de efluentes
         </b>
+        <br />
         <br />
         El objetivo de esta aplicación es brindar una herramienta informática
         para la resolución de problemas que involucran el diseño de reactores
