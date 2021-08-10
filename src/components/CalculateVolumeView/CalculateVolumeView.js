@@ -40,7 +40,7 @@ export const CalculateVolumeView = ({process, onSubmit}) => {
       {validForm && (
         <InvalidFormMessage>
           *No se puede calcular el volumen efectivo para este sistema dado que
-          no tiene asignada una constante cinética o un orden de reacción.
+          no tiene asignada una constante cinética y un orden de reacción.
         </InvalidFormMessage>
       )}
       <CalculateVolumeForm onSubmit={onSubmit} forceDisable={validForm} />
