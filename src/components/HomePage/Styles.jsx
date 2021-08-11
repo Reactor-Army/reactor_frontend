@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appColors, appFontFamily} from "../../common/styles";
+import {appFontFamily} from "../../common/styles";
 
 export const HomeTitle = styled.div`
   display: flex;
@@ -15,8 +15,4 @@ export const Paragraph = styled.p`
   font-size: 25px;
   line-height: 1.5;
   font-family: ${appFontFamily.primary};
-`;
-
-export const Link = styled.a`
-  color: ${appColors.primary};
 `;
