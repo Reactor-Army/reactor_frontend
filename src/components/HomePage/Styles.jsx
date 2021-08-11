@@ -10,3 +10,9 @@ export const HomeTitle = styled.div`
   justify-content: center;
   margin: 25px 0 10px 0;
 `;
+
+export const Paragraph = styled.p`
+  font-size: 25px;
+  line-height: 1.5;
+  font-family: ${appFontFamily.primary};
+`;
