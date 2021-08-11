@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import {StyledButton} from "../Button/ButtonStyles";
+import {appColors} from "../../common/styles";
 
 export const LabelContainer = styled.div`
   display: flex;
@@ -24,6 +25,11 @@ export const EffectiveVolumeButtonContainer = styled.div`
 export const EffectiveVolumeStyledButton = styled(StyledButton)`
   height: 60px;
   width: 280px;
+
+  &:disabled {
+    background: ${appColors.gray};
+    cursor: arrow;
+  }
 `;
 
 export const DetailTableGrid = styled.div`

@@ -7,7 +7,7 @@ import {allNullKeys} from "../../utils/allNullKeys";
 import {UNITS} from "../../common/fields";
 import {CALCULATE_VOLUME_FORM_INITIAL_VALUES} from "../../common/constants";
 
-export const CalculateVolumeForm = ({onSubmit}) => {
+export const CalculateVolumeForm = ({onSubmit, forceDisable}) => {
   const [errorValues, setErrorValues] = useState(
     allNullKeys(CALCULATE_VOLUME_FORM_INITIAL_VALUES),
   );
@@ -21,6 +21,7 @@ export const CalculateVolumeForm = ({onSubmit}) => {
         errors={errorsSet}
         buttonLabel={"Calcular"}
         onSubmit={onSubmit}
+        forceDisable={forceDisable}
         fields={[
           <FormNumericField
             key={0}

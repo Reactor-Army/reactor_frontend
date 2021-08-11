@@ -6,11 +6,12 @@ import {
   EffectiveVolumeStyledButton,
 } from "./Styles";
 
-export const EffectiveVolumeButton = ({processId}) => {
+export const EffectiveVolumeButton = ({processId, disabled}) => {
   const history = useHistory();
   return (
     <EffectiveVolumeButtonContainer>
       <EffectiveVolumeStyledButton
+        disabled={disabled}
         onClick={() => {
           history.push(processVolumeUrlFor(processId));
         }}>

@@ -11,6 +11,7 @@ export const Form = ({
   onSubmit,
   buttonLabel,
   errors,
+  forceDisable,
 }) => {
   return (
     <>
@@ -26,7 +27,10 @@ export const Form = ({
           <FormLayout>{fields}</FormLayout>
 
           <ButtonContainer>
-            <SubmitButton text={buttonLabel} disabled={errors} />
+            <SubmitButton
+              text={buttonLabel}
+              disabled={errors || forceDisable}
+            />
           </ButtonContainer>
         </FormikForm>
       </Formik>
