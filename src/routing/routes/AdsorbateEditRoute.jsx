@@ -6,6 +6,7 @@ import {editAdsorbate} from "../../services/adsorbates";
 import {useDispatch, useSelector} from "react-redux";
 import {URLS} from "../urls";
 import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
+import {CommonPage} from "../../components/CommonPage/CommonPage";
 
 export const AdsorbateEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -31,14 +32,16 @@ export const AdsorbateEditRoute = () => {
     }
   };
   return (
-    <AdsorbateForm
-      title="Modificar Adsorbato"
-      buttonLabel="Actualizar"
-      onSubmit={onSubmit}
-      setErrors={(value) => {
-        setErrors(value);
-      }}
-      initialValues={adsorbate}
-    />
+    <CommonPage>
+      <AdsorbateForm
+        title="Modificar Adsorbato"
+        buttonLabel="Actualizar"
+        onSubmit={onSubmit}
+        setErrors={(value) => {
+          setErrors(value);
+        }}
+        initialValues={adsorbate}
+      />
+    </CommonPage>
   );
 };

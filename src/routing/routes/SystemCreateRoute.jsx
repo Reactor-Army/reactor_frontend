@@ -3,6 +3,7 @@ import {SystemForm} from "../../components/Create/SystemForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createSystem} from "../../services/processes";
+import {CommonPage} from "../../components/CommonPage/CommonPage";
 
 export const SystemCreateRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -19,11 +20,13 @@ export const SystemCreateRoute = () => {
     }
   };
   return (
-    <SystemForm
-      title="Agregar Sistema"
-      buttonLabel="Agregar"
-      onSubmit={onSubmit}
-      setErrors={setErrors}
-    />
+    <CommonPage>
+      <SystemForm
+        title="Agregar Sistema"
+        buttonLabel="Agregar"
+        onSubmit={onSubmit}
+        setErrors={setErrors}
+      />
+    </CommonPage>
   );
 };

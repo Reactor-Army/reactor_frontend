@@ -6,6 +6,7 @@ import {updateSystem} from "../../services/processes";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
+import {CommonPage} from "../../components/CommonPage/CommonPage";
 
 export const SystemEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -31,14 +32,16 @@ export const SystemEditRoute = () => {
     }
   };
   return (
-    <SystemForm
-      title="Modificar Sistema"
-      buttonLabel="Actualizar"
-      onSubmit={onSubmit}
-      setErrors={(value) => {
-        setErrors(value);
-      }}
-      initialValues={system}
-    />
+    <CommonPage>
+      <SystemForm
+        title="Modificar Sistema"
+        buttonLabel="Actualizar"
+        onSubmit={onSubmit}
+        setErrors={(value) => {
+          setErrors(value);
+        }}
+        initialValues={system}
+      />
+    </CommonPage>
   );
 };

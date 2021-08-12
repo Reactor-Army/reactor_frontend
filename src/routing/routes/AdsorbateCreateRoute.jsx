@@ -3,6 +3,7 @@ import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createAdsorbate} from "../../services/adsorbates";
+import {CommonPage} from "../../components/CommonPage/CommonPage";
 
 export const AdsorbateCreateRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -19,11 +20,13 @@ export const AdsorbateCreateRoute = () => {
     }
   };
   return (
-    <AdsorbateForm
-      title="Agregar Adsorbato"
-      buttonLabel="Agregar"
-      onSubmit={onSubmit}
-      setErrors={setErrors}
-    />
+    <CommonPage>
+      <AdsorbateForm
+        title="Agregar Adsorbato"
+        buttonLabel="Agregar"
+        onSubmit={onSubmit}
+        setErrors={setErrors}
+      />
+    </CommonPage>
   );
 };
