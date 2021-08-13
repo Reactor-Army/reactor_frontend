@@ -17,7 +17,7 @@ import {SystemEditRoute} from "./routes/SystemEditRoute";
 import {AdsorbateEditRoute} from "./routes/AdsorbateEditRoute";
 import {AdsorbentEditRoute} from "./routes/AdsorbentEditRoute";
 import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
-import {NotFoundRoute} from "./routes/NotFoundRoute";
+import {NotFoundRoute} from "./routes/NotFoundRoute/NotFoundRoute";
 
 export const Router = () => {
   return (
