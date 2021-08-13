@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import {appFontFamily, appColors} from "../../../common/styles";
+import {Link} from "../../../common/styles";
 
 export const Image = styled.img`
   max-width: 100%;
@@ -26,7 +27,7 @@ export const NotFoundText = styled.div`
   font-family: ${appFontFamily.card};
   font-size: 30px;
   text-align: center;
-  padding: 60px;
+  padding: 60px 0 10px 0;
   max-width: 100%;
   font-weight: bold;
   color: ${appColors.primary};
@@ -46,5 +47,15 @@ export const ErrorCodeText = styled.div`
 
   @media (max-width: 500px) {
     font-size: 60px;
+  }
+`;
+
+export const HomeLink = styled(Link)`
+  text-decoration: none;
+  font-size: 18px;
+  font-family: ${appFontFamily.primary};
+
+  &:hover {
+    font-weight: bold;
   }
 `;

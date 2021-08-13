@@ -6,6 +6,7 @@ import {URLS} from "../../routing/urls";
 import {useHistory} from "react-router-dom";
 import {AdsorbentForm} from "./AdsorbentForm";
 import {Redirect} from "react-router-dom";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const AdsorbentEditForm = ({id}) => {
   const [errors, setErrors] = useState(true);
@@ -31,7 +32,7 @@ export const AdsorbentEditForm = ({id}) => {
     }
   };
 
-  if (adsorbent === 400 || adsorbent === 404) {
+  if (errorCodes.has(adsorbent)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (

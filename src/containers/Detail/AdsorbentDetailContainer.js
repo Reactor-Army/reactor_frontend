@@ -5,6 +5,7 @@ import {fetchAdsorbent} from "../../redux/adsorbentSlice";
 import {AdsorbentDetail} from "../../components/Detail/AdsorbentDetail";
 import {Redirect} from "react-router-dom";
 import {URLS} from "../../routing/urls";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const AdsorbentDetailContainer = ({adsorbentId}) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const AdsorbentDetailContainer = ({adsorbentId}) => {
   if (adsorbent === null) {
     return <CircularProgress />;
   }
-  if (adsorbent === 400 || adsorbent === 404) {
+  if (errorCodes.has(adsorbent)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return <AdsorbentDetail adsorbent={adsorbent} />;

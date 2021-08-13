@@ -6,6 +6,7 @@ import {ProcessDetail} from "../../components/Detail/ProcessDetail";
 import {DeleteProcessModal} from "../../components/Modals/DeleteProcessModal";
 import {Redirect} from "react-router-dom";
 import {URLS} from "../../routing/urls";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const ProcessDetailContainer = ({processId}) => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const ProcessDetailContainer = ({processId}) => {
   if (process === null) {
     return <CircularProgress />;
   }
-  if (process === 400 || process === 404) {
+  if (errorCodes.has(process)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   } else {
     return (
