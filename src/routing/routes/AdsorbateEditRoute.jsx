@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {URLS} from "../urls";
 import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
 import {CommonPage} from "../../components/CommonPage/CommonPage";
+import {Redirect} from "react-router-dom";
 
 export const AdsorbateEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -31,6 +32,10 @@ export const AdsorbateEditRoute = () => {
       }
     }
   };
+
+  if (adsorbate === 400 || adsorbate === 404) {
+    return <Redirect to={URLS.NOT_FOUND} />;
+  }
   return (
     <CommonPage>
       <AdsorbateForm

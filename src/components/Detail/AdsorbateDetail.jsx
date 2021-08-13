@@ -22,7 +22,6 @@ export const AdsorbateDetail = ({adsorbate}) => {
   const onDeleteClick = () => {
     setShowModal(true);
   };
-
   return (
     <>
       <DetailHeader
