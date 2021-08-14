@@ -24,7 +24,7 @@ export const ProcessDetailContainer = ({processId}) => {
   if (process === null) {
     return <CircularProgress />;
   }
-  if (errorCodes.has(process)) {
+  if (errorCodes.includes(process)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   } else {
     return (

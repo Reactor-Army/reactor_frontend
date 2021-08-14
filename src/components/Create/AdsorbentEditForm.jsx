@@ -32,7 +32,7 @@ export const AdsorbentEditForm = ({id}) => {
     }
   };
 
-  if (errorCodes.has(adsorbent)) {
+  if (errorCodes.includes(adsorbent)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (

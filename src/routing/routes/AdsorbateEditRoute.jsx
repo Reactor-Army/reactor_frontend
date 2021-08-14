@@ -34,7 +34,7 @@ export const AdsorbateEditRoute = () => {
     }
   };
 
-  if (errorCodes.has(adsorbate)) {
+  if (errorCodes.includes(adsorbate)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (

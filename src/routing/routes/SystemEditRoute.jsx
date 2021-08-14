@@ -34,7 +34,7 @@ export const SystemEditRoute = () => {
     }
   };
 
-  if (errorCodes.has(system)) {
+  if (errorCodes.includes(system)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (
