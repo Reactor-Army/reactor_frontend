@@ -6,7 +6,6 @@ import {editAdsorbate} from "../../services/adsorbates";
 import {useDispatch, useSelector} from "react-redux";
 import {URLS} from "../urls";
 import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
-import {CommonPage} from "../../components/CommonPage/CommonPage";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 
@@ -34,20 +33,18 @@ export const AdsorbateEditRoute = () => {
     }
   };
 
-  if (errorCodes.includes(adsorbate)) {
+  if (adsorbate && errorCodes.includes(adsorbate.status)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (
-    <CommonPage>
-      <AdsorbateForm
-        title="Modificar Adsorbato"
-        buttonLabel="Actualizar"
-        onSubmit={onSubmit}
-        setErrors={(value) => {
-          setErrors(value);
-        }}
-        initialValues={adsorbate}
-      />
-    </CommonPage>
+    <AdsorbateForm
+      title="Modificar Adsorbato"
+      buttonLabel="Actualizar"
+      onSubmit={onSubmit}
+      setErrors={(value) => {
+        setErrors(value);
+      }}
+      initialValues={adsorbate}
+    />
   );
 };

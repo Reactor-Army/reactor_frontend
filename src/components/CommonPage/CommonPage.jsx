@@ -4,11 +4,7 @@ import {Sidebar} from "../Sidebar/Sidebar";
 import Container from "@material-ui/core/Container";
 import {useStyles, SidebarWrapper} from "./CommonPageStyles";
 
-export const CommonPage = ({
-  children,
-  showSideBar = true,
-  showTopBar = true,
-}) => {
+export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {

@@ -107,7 +107,12 @@ export const Router = () => {
         component={CalculateVolumeRoute}
       />
       <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
-      <PrivateRoute authed={0} component={NotFoundRoute} />
+      <PrivateRoute
+        authed={0}
+        component={NotFoundRoute}
+        showSideBar={false}
+        showTopBar={false}
+      />
     </Switch>
   );
 };

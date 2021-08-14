@@ -20,7 +20,6 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 export const NotFoundText = styled.div`
@@ -47,6 +46,7 @@ export const ErrorCodeText = styled.div`
 
   @media (max-width: 500px) {
     font-size: 60px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -54,6 +54,7 @@ export const HomeLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   font-family: ${appFontFamily.primary};
+  text-align: center;
 
   &:hover {
     font-weight: bold;

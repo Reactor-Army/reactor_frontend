@@ -17,7 +17,7 @@ export const AdsorbateDetailContainer = ({adsorbateId}) => {
   if (adsorbate === null) {
     return <CircularProgress />;
   }
-  if (errorCodes.includes(adsorbate)) {
+  if (adsorbate && errorCodes.includes(adsorbate.status)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return <AdsorbateDetail adsorbate={adsorbate} />;

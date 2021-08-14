@@ -6,7 +6,6 @@ import {updateSystem} from "../../services/processes";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
-import {CommonPage} from "../../components/CommonPage/CommonPage";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 
@@ -34,20 +33,18 @@ export const SystemEditRoute = () => {
     }
   };
 
-  if (errorCodes.includes(system)) {
+  if (system && errorCodes.includes(system.status)) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (
-    <CommonPage>
-      <SystemForm
-        title="Modificar Sistema"
-        buttonLabel="Actualizar"
-        onSubmit={onSubmit}
-        setErrors={(value) => {
-          setErrors(value);
-        }}
-        initialValues={system}
-      />
-    </CommonPage>
+    <SystemForm
+      title="Modificar Sistema"
+      buttonLabel="Actualizar"
+      onSubmit={onSubmit}
+      setErrors={(value) => {
+        setErrors(value);
+      }}
+      initialValues={system}
+    />
   );
 };

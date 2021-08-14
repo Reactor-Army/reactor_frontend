@@ -14,7 +14,12 @@ export class HttpClient {
       undefined,
       params,
     ).catch((error) => {
-      return {data: error.response.status};
+      return {
+        data: {
+          status: error.response.status,
+          response: error.response.data,
+        },
+      };
     });
     return response;
   }
