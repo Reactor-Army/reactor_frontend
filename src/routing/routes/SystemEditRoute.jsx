@@ -6,6 +6,8 @@ import {updateSystem} from "../../services/processes";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
+import {Redirect} from "react-router-dom";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const SystemEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -30,6 +32,10 @@ export const SystemEditRoute = () => {
       }
     }
   };
+
+  if (system && errorCodes.includes(system.status)) {
+    return <Redirect to={URLS.NOT_FOUND} />;
+  }
   return (
     <SystemForm
       title="Modificar Sistema"

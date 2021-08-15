@@ -6,6 +6,8 @@ import {editAdsorbate} from "../../services/adsorbates";
 import {useDispatch, useSelector} from "react-redux";
 import {URLS} from "../urls";
 import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
+import {Redirect} from "react-router-dom";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const AdsorbateEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -30,6 +32,10 @@ export const AdsorbateEditRoute = () => {
       }
     }
   };
+
+  if (adsorbate && errorCodes.includes(adsorbate.status)) {
+    return <Redirect to={URLS.NOT_FOUND} />;
+  }
   return (
     <AdsorbateForm
       title="Modificar Adsorbato"

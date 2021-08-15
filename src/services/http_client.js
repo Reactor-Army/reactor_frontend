@@ -7,7 +7,21 @@ export class HttpClient {
   }
 
   async get(url, params) {
-    return await this.request(url, "GET", undefined, undefined, params);
+    const response = await this.request(
+      url,
+      "GET",
+      undefined,
+      undefined,
+      params,
+    ).catch((error) => {
+      return {
+        data: {
+          status: error.response.status,
+          response: error.response.data,
+        },
+      };
+    });
+    return response;
   }
 
   async post(url, body) {

@@ -4,9 +4,13 @@ import {fetchProcess} from "../../redux/processSlice";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {ProcessDetail} from "../../components/Detail/ProcessDetail";
 import {DeleteProcessModal} from "../../components/Modals/DeleteProcessModal";
+import {Redirect} from "react-router-dom";
+import {URLS} from "../../routing/urls";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const ProcessDetailContainer = ({processId}) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchProcess(processId));
   }, []);
@@ -20,16 +24,19 @@ export const ProcessDetailContainer = ({processId}) => {
   if (process === null) {
     return <CircularProgress />;
   }
-
-  return (
-    <>
-      <ProcessDetail process={process} onDeleteClick={onDeleteClick} />
-      <DeleteProcessModal
-        processId={processId}
-        open={showModal}
-        onClose={() => setShowModal(false)}
-        error={false}
-      />
-    </>
-  );
+  if (process && errorCodes.includes(process.status)) {
+    return <Redirect to={URLS.NOT_FOUND} />;
+  } else {
+    return (
+      <>
+        <ProcessDetail process={process} onDeleteClick={onDeleteClick} />
+        <DeleteProcessModal
+          processId={processId}
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          error={false}
+        />
+      </>
+    );
+  }
 };
