@@ -13,6 +13,7 @@ export const appColors = {
   pageBackground: "#eeeeee",
   gray: "#666",
   lightGray: "#aaa",
+  black: "#000",
 };
 
 export const appFontColors = {
