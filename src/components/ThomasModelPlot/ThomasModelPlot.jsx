@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {FunctionPlot} from "../FunctionPlot/FunctionPlot";
 import {ErrorMessage, ErrorMessageContainer} from "./ThomasModelPlotStyles";
+import {THOMAS_MODEL_AXIS_LABELS} from "../../common/fields";
 
 export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
   const [validParamters, setValidParameters] = useState(false);
@@ -21,8 +22,8 @@ export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
         <FunctionPlot
           expression={expression}
           points={points}
-          xAxisLabel="T [min]"
-          yAxisLabel="C/C₀"
+          xAxisLabel={THOMAS_MODEL_AXIS_LABELS.X_LABEL}
+          yAxisLabel={THOMAS_MODEL_AXIS_LABELS.Y_LABEL}
         />
       ) : (
         <ErrorMessageContainer>

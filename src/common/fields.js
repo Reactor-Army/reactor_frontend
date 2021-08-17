@@ -90,3 +90,8 @@ export const SYSTEM_REQUEST_FIELDS = {
   KINETIC_CONSTANT: "constanteCinetica",
   REACTION_ORDER: "ordenReaccion",
 };
+
+export const THOMAS_MODEL_AXIS_LABELS = {
+  X_LABEL: "Vef [L]",
+  Y_LABEL: "C/C₀",
+};
