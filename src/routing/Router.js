@@ -18,6 +18,7 @@ import {AdsorbateEditRoute} from "./routes/AdsorbateEditRoute";
 import {AdsorbentEditRoute} from "./routes/AdsorbentEditRoute";
 import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
 import {NotFoundRoute} from "./routes/NotFoundRoute/NotFoundRoute";
+import {ThomasRoute} from "./routes/ThomasRoute";
 
 export const Router = () => {
   return (
@@ -107,6 +108,12 @@ export const Router = () => {
         component={CalculateVolumeRoute}
       />
       <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.THOMAS}
+        component={ThomasRoute}
+      />
       <PrivateRoute
         authed={0}
         component={NotFoundRoute}
