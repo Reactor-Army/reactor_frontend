@@ -180,3 +180,7 @@ const BigTextField = ({field, ...props}) => {
     />
   );
 };
+
+export const FileField = ({onChange}) => {
+  return <input id="file" name="file" type="file" onChange={onChange} />;
+};

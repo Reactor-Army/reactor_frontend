@@ -95,3 +95,16 @@ export const THOMAS_MODEL_AXIS_LABELS = {
   X_LABEL: "Vef [L]",
   Y_LABEL: "C/C₀",
 };
+
+export const THOMAS_FIELDS = {
+  FLOW: "Caudal volumétrico (F)",
+  INITIAL_CONCENTRATION: "Concentración Inicial (C0)",
+  ADSORBENT_MASS: "Masa del adsorbente (W)",
+};
+
+export const THOMAS_REQUEST_FIELDS = {
+  FILE: "observaciones",
+  FLOW: "caudalVolumetrico",
+  INITIAL_CONCENTRATION: "concentracionInicial",
+  ADSORBENT_MASS: "sorbenteReactor",
+};
