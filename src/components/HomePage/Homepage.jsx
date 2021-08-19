@@ -1,5 +1,4 @@
 import React from "react";
-
 import {HomeTitle} from "./Styles";
 import {HomepageWallText} from "./HomepageWallText";
 
