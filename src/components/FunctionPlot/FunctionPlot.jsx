@@ -42,20 +42,11 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     if (points.length > 0) {
-      const maxCoordinates = points.reduce((a, b) => {
-        const result = [];
-        if (a[0] > b[0]) {
-          result[0] = a[0];
-        } else {
-          result[0] = b[0];
-        }
-
-        if (a[1] > b[1]) {
-          result[1] = a[1];
-        } else {
-          result[1] = b[1];
-        }
-        return result;
+      const maxCoordinates = points.reduce((firstPoint, secondPoint) => {
+        return [
+          Math.max(firstPoint[0], secondPoint[0]),
+          Math.max(firstPoint[1], secondPoint[1]),
+        ];
       });
 
       setMaxAbscissa(maxCoordinates[0]);
