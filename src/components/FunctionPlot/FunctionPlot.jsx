@@ -20,11 +20,12 @@ export const FunctionPlot = ({
   };
 
   useEffect(() => {
+    const scaleFactor = 1.25;
     functionPlot({
       target: "#plot",
       width: wrapperWidth,
       yAxis: {domain: [0, maxOrdinate], label: yAxisLabel},
-      xAxis: {domain: [0, maxAbscissa * 1.25], label: xAxisLabel},
+      xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
       data: [
         {
@@ -37,26 +38,28 @@ export const FunctionPlot = ({
         },
       ],
     });
-  }, [wrapperWidth, points, maxAbscissa, maxOrdinate]);
+  }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expression]);
 
   useEffect(() => {
-    let maxX = 0;
-    let maxY = 0;
     if (points.length > 0) {
-      points.map((point) => {
-        const x = point[0];
-        const y = point[1];
-
-        if (x > maxX) {
-          maxX = x;
+      const maxCoordinates = points.reduce((a, b) => {
+        const result = [];
+        if (a[0] > b[0]) {
+          result[0] = a[0];
+        } else {
+          result[0] = b[0];
         }
 
-        if (y > maxY) {
-          maxY = y;
+        if (a[1] > b[1]) {
+          result[1] = a[1];
+        } else {
+          result[1] = b[1];
         }
+        return result;
       });
-      setMaxAbscissa(maxX);
-      setMaxOrdinate(maxY);
+
+      setMaxAbscissa(maxCoordinates[0]);
+      setMaxOrdinate(maxCoordinates[1]);
     }
 
     window.addEventListener("resize", onWindowResize);

@@ -4,7 +4,7 @@ import {ErrorMessage, ErrorMessageContainer} from "./ThomasModelPlotStyles";
 import {THOMAS_MODEL_AXIS_LABELS} from "../../common/fields";
 
 export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
-  const [validParamters, setValidParameters] = useState(false);
+  const [validParamters, setValidParameters] = useState();
   const [expression, setExpression] = useState();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
     } else {
       setValidParameters(false);
     }
-  }, [F]);
+  }, [Kth, F, q0, W, C0, points]);
 
   return (
     <>
