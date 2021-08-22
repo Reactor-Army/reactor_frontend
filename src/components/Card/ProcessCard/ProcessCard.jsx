@@ -45,21 +45,31 @@ export const ProcessCard = ({
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
-            <FieldValue>{`${qMax} ${UNITS.QMAX}`}</FieldValue>
+            <FieldValue>
+              {qMax !== null ? `${qMax} ${UNITS.QMAX}` : "-"}
+            </FieldValue>
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.EQUILIBRIUM_TIME}:</FieldLabel>
-            <FieldValue>{`${equilibriumTime} ${UNITS.EQUILIBRIUM_TIME}`}</FieldValue>
+            <FieldValue>
+              {equilibriumTime !== null
+                ? `${equilibriumTime} ${UNITS.EQUILIBRIUM_TIME} `
+                : "-"}
+            </FieldValue>
           </BodyText>
         </ProcessSection>
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.TEMPERATURE}:</FieldLabel>
-            <FieldValue>{`${temperature} ${UNITS.TEMPERATURE}`}</FieldValue>
+            <FieldValue>
+              {temperature !== null
+                ? `${temperature} ${UNITS.TEMPERATURE}`
+                : "-"}
+            </FieldValue>
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.INITIAL_PH}:</FieldLabel>
-            <FieldValue>{initialPH}</FieldValue>
+            <FieldValue>{initialPH !== null ? initialPH : "-"}</FieldValue>
           </BodyText>
         </ProcessSection>
 

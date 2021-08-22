@@ -47,7 +47,11 @@ export const AdsorbateDetail = ({adsorbate}) => {
           />
           <DetailTableRow
             label={ADSORBATE_FIELDS.ION_RADIUS}
-            value={`${adsorbate.radioIonico} ${UNITS.ION_RADIUS}`}
+            value={
+              adsorbate.radioIonico !== null
+                ? `${adsorbate.radioIonico} ${UNITS.ION_RADIUS}`
+                : "-"
+            }
           />
           <DetailTableRow
             label={ADSORBATE_FIELDS.SPILL_LIMIT}

@@ -6,7 +6,7 @@ export const Ph = ({ph}) => {
   return (
     <BodyText>
       <FieldLabel>{ADSORBENT_FIELDS.PH}:</FieldLabel>
-      <FieldValue>{ph}</FieldValue>
+      <FieldValue>{ph !== null ? `${ph}` : "-"}</FieldValue>
     </BodyText>
   );
 };

@@ -8,7 +8,7 @@ export const IonRadius = ({ionRadius}) => {
     <BodyText>
       <FieldLabel>{ADSORBATE_FIELDS.ION_RADIUS}:</FieldLabel>
       <FieldValue>
-        {ionRadius} {UNITS.ION_RADIUS}
+        {ionRadius !== null ? `${ionRadius} ${UNITS.ION_RADIUS}` : "-"}
       </FieldValue>
     </BodyText>
   );

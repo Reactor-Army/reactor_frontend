@@ -7,7 +7,7 @@ export const VBetValue = ({vBet}) => {
   return (
     <BodyText>
       <FieldLabel>{ADSORBENT_FIELDS.VBET}:</FieldLabel>
-      <FieldValue>{`${vBet} ${UNITS.VBET}`}</FieldValue>
+      <FieldValue>{vBet !== null ? `${vBet} ${UNITS.VBET}` : "-"}</FieldValue>
     </BodyText>
   );
 };

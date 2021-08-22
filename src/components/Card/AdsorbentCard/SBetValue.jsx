@@ -7,7 +7,7 @@ export const SBetValue = ({sBet}) => {
   return (
     <BodyText>
       <FieldLabel>{ADSORBENT_FIELDS.SBET}:</FieldLabel>
-      <FieldValue>{`${sBet} ${UNITS.SBET}`}</FieldValue>
+      <FieldValue>{sBet !== null ? `${sBet} ${UNITS.SBET}` : "-"}</FieldValue>
     </BodyText>
   );
 };
