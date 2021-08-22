@@ -7,10 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(10),
     margin: theme.spacing(1),
   },
-
-  container: {
-    paddingLeft: 0,
-  },
 }));
 
 export const SidebarWrapper = styled.div`
