@@ -4,6 +4,8 @@ import {Field} from "formik";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
 import {useEffect} from "react";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -182,5 +184,33 @@ const BigTextField = ({field, ...props}) => {
 };
 
 export const FileField = ({onChange}) => {
-  return <input id="file" name="file" type="file" onChange={onChange} />;
+  const [label, setLabel] = useState("");
+  const _onChange = (event) => {
+    setLabel(event.currentTarget.files[0].name);
+    onChange(event);
+  };
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: 400,
+      }}>
+      <Typography>{label}</Typography>
+      <input
+        hidden
+        style={{display: "none"}}
+        id="raised-button-file"
+        multiple
+        onChange={_onChange}
+        type="file"
+      />
+      <label htmlFor="raised-button-file">
+        <Button variant="text" component="span">
+          Upload
+        </Button>
+      </label>
+    </div>
+  );
 };
