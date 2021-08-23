@@ -23,8 +23,10 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
           />
         </SidebarWrapper>
       )}
-      <Container className={classes.container}>
-        <main className={classes.content}>{children}</main>
+      <Container>
+        <main className={showTopBar && showSideBar && classes.content}>
+          {children}
+        </main>
       </Container>
     </>
   );

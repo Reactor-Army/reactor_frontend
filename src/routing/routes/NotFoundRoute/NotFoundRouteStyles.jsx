@@ -12,14 +12,13 @@ export const ImageContainer = styled.div`
   max-height: 380px;
 `;
 
-export const Content = styled.div``;
-
 export const PageContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 export const NotFoundText = styled.div`
