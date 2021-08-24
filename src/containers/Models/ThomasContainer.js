@@ -8,6 +8,7 @@ import {
   THOMAS_RESPONSE_FIELDS,
 } from "../../common/fields";
 import {ThomasModelPlot} from "../../components/ChemicalModels/Thomas/ThomasModelPlot/ThomasModelPlot";
+import {FormLayout} from "../../components/Form/FormStyles";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -29,14 +30,16 @@ export const ThomasContainer = () => {
 
   return (
     <>
-      <PageTitle title={"Thomas"} />
-      <ThomasModelForm onSubmit={onSubmit} />
-      {response && (
-        <>
-          <ThomasModelPlot {...response} />
-          <ThomasResults kth={response.Kth} q0={response.q0} />
-        </>
-      )}
+      <PageTitle title={"Modelo de Thomas"} />
+      <FormLayout>
+        <ThomasModelForm onSubmit={onSubmit} />
+        {response && (
+          <>
+            <ThomasModelPlot {...response} />
+            <ThomasResults kth={response.Kth} q0={response.q0} />
+          </>
+        )}
+      </FormLayout>
     </>
   );
 };

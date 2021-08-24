@@ -25,4 +25,8 @@ export const routes = [
     path: URLS.BEST_ADSORBENT,
     text: "Buscar adsorbente",
   },
+  {
+    path: URLS.THOMAS,
+    text: "Modelo de Thomas",
+  },
 ];

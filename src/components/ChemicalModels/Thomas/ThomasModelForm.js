@@ -19,7 +19,7 @@ export const ThomasModelForm = ({onSubmit}) => {
   };
 
   return (
-    <>
+    <div>
       <FileField onChange={onFileChange} />
       <Form
         initialValues={THOMAS_FORM_INITIAL_VALUES}
@@ -74,6 +74,6 @@ export const ThomasModelForm = ({onSubmit}) => {
           />,
         ]}
       />
-    </>
+    </div>
   );
 };
