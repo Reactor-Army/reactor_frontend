@@ -1,13 +1,14 @@
 import React from "react";
-import {BodyText, FieldLabel, FieldValue} from "../CommonCardStyles";
+import {BodyText, FieldLabel} from "../CommonCardStyles";
 import {spillLimit} from "../../../common/formatting/spillLimit";
 import {ADSORBATE_FIELDS} from "../../../common/fields";
+import {CardValue} from "../CardValue/CardValue";
 
 export const DischargeLimit = ({dischargeLimit}) => {
   return (
     <BodyText>
       <FieldLabel>{ADSORBATE_FIELDS.SPILL_LIMIT}:</FieldLabel>
-      <FieldValue>{spillLimit(dischargeLimit)}</FieldValue>
+      <CardValue value={spillLimit(dischargeLimit)} />
     </BodyText>
   );
 };

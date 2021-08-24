@@ -1,12 +1,11 @@
-import {Typography} from "@material-ui/core";
 import React from "react";
-import {LabelContainer} from "./Styles";
+import {LabelContainer, Value, Tag} from "./Styles";
 
 export const Label = ({label, value}) => {
   return (
     <LabelContainer>
-      <Typography style={{fontWeight: "bold"}}>{label}</Typography>
-      <Typography>: {value || "-"}</Typography>
+      <Tag>{label}</Tag>
+      <Value>: {value || "-"}</Value>
     </LabelContainer>
   );
 };

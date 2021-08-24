@@ -1,6 +1,17 @@
 import styled from "styled-components/macro";
 import {StyledButton} from "../Button/ButtonStyles";
-import {appColors} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
+
+export const Tag = styled.div`
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: ${appFontFamily.primary};
+`;
+
+export const Value = styled.div`
+  font-size: 1rem;
+  font-family: ${appFontFamily.primary};
+`;
 
 export const LabelContainer = styled.div`
   display: flex;

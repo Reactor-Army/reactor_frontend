@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardBody,
   FieldLabel,
-  FieldValue,
   ProcessSection,
   ChipSection,
   BodyText,
@@ -14,6 +13,7 @@ import {
 import {Card} from "../Card";
 import {PROCESS_FIELDS} from "../../../common/fields";
 import {UNITS} from "../../../common/fields";
+import {CardValue} from "../CardValue/CardValue";
 
 export const ProcessCard = ({
   adsorbateName,
@@ -45,21 +45,21 @@ export const ProcessCard = ({
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
-            <FieldValue>{`${qMax} ${UNITS.QMAX}`}</FieldValue>
+            <CardValue value={qMax} units={UNITS.QMAX} />
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.EQUILIBRIUM_TIME}:</FieldLabel>
-            <FieldValue>{`${equilibriumTime} ${UNITS.EQUILIBRIUM_TIME}`}</FieldValue>
+            <CardValue value={equilibriumTime} units={UNITS.EQUILIBRIUM_TIME} />
           </BodyText>
         </ProcessSection>
         <ProcessSection>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.TEMPERATURE}:</FieldLabel>
-            <FieldValue>{`${temperature} ${UNITS.TEMPERATURE}`}</FieldValue>
+            <CardValue value={temperature} units={UNITS.TEMPERATURE} />
           </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.INITIAL_PH}:</FieldLabel>
-            <FieldValue>{initialPH}</FieldValue>
+            <CardValue value={initialPH} />
           </BodyText>
         </ProcessSection>
 

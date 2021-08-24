@@ -48,39 +48,37 @@ export const AdsorbentDetail = ({adsorbent}) => {
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.SBET}
-          value={adsorbent.sBet ? `${adsorbent.sBet} ${UNITS.SBET} ` : "-"}
+          value={adsorbent.sBet}
+          units={UNITS.SBET}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.VBET}
-          value={adsorbent.vBet ? `${adsorbent.vBet} ${UNITS.VBET} ` : "-"}
+          value={adsorbent.vBet}
+          units={UNITS.VBET}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.PH}
-          value={adsorbent.pHCargaCero ? adsorbent.pHCargaCero : "-"}
+          value={adsorbent.pHCargaCero}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.IMPURITIES}
-          value={adsorbent.impurezas ? adsorbent.impurezas : "-"}
+          value={adsorbent.impurezas}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.SOURCE}
-          value={adsorbent.origenMuestra ? adsorbent.origenMuestra : "-"}
-        />
-        <DetailTableRow
-          label={ADSORBENT_FIELDS.IMPURITIES}
-          value={adsorbent.impurezas ? adsorbent.impurezas : "-"}
+          value={adsorbent.origenMuestra}
         />
         <DetailTableRow
           label={ADSORBATE_FIELDS.FORMULA}
-          value={adsorbent.formula ? adsorbent.formula : "-"}
+          value={adsorbent.formula}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.SPECIES_NAME}
-          value={adsorbent.nombreEspecie ? adsorbent.nombreEspecie : "-"}
+          value={adsorbent.nombreEspecie}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.NOTES}
-          value={adsorbent.observaciones ? adsorbent.observaciones : "-"}
+          value={adsorbent.observaciones}
         />
       </DetailTable>
     </>

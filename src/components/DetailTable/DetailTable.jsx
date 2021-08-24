@@ -20,11 +20,20 @@ export const DetailTable = ({title = "", children}) => {
   );
 };
 
-export const DetailTableRow = ({label, value}) => {
+export const DetailTableRow = ({label, value, units = ""}) => {
   return (
     <Row>
       <Label>{label}</Label>
-      <Value>{value}</Value>
+      <Value>{value ? `${value} ${units}` : "-"}</Value>
+    </Row>
+  );
+};
+
+export const DetailTableFormulaRow = ({label, value}) => {
+  return (
+    <Row>
+      <Label>{label}</Label>
+      <Value>{value ? value : "-"}</Value>
     </Row>
   );
 };
