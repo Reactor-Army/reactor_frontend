@@ -12,13 +12,17 @@ import {
 import React, {useState} from "react";
 import {THOMAS_FORM_INITIAL_VALUES} from "../../common/constants";
 import {PageTitle} from "../../common/PageTitle";
+import {thomas} from "../../services/models";
+import {Paragraph} from "../../components/HomePage/Styles";
 
 export const ThomasContainer = () => {
   const [file, setFile] = useState(null);
-  const onSubmit = (values) => {
-    console.log(values);
-    console.log(file);
+  const [response, setResponse] = useState(null);
+  const onSubmit = async (values) => {
+    const apiResponse = await thomas(file, values);
+    setResponse(apiResponse);
   };
+
   const buttonLabel = "Calcular";
   const [errorValues, setErrorValues] = useState({});
   const onFileChange = (event) => {
@@ -82,6 +86,17 @@ export const ThomasContainer = () => {
           />,
         ]}
       />
+      {response && (
+        <div>
+          <Paragraph>
+            Constante de Thomas (Kth): {response.constanteThomas}
+          </Paragraph>
+          <Paragraph>
+            Concentración máxima soluto (q0):{" "}
+            {response.concentracionMaximaSoluto}
+          </Paragraph>
+        </div>
+      )}
     </>
   );
 };
