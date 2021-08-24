@@ -22,6 +22,7 @@ export const ThomasModelForm = ({onSubmit}) => {
     <div>
       <FileField onChange={onFileChange} />
       <Form
+        singleColumn={true}
         initialValues={THOMAS_FORM_INITIAL_VALUES}
         onSubmit={_onSubmit}
         buttonLabel={"Calcular"}
