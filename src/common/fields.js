@@ -108,3 +108,9 @@ export const THOMAS_REQUEST_FIELDS = {
   INITIAL_CONCENTRATION: "concentracionInicial",
   ADSORBENT_MASS: "sorbenteReactor",
 };
+
+export const THOMAS_RESPONSE_FIELDS = {
+  KTH: "constanteThomas",
+  Q0: "concentracionMaximaSoluto",
+  OBSERVATIONS: "observaciones",
+};

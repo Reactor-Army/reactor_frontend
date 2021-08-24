@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {FunctionPlot} from "../FunctionPlot/FunctionPlot";
 import {ErrorMessage, ErrorMessageContainer} from "./ThomasModelPlotStyles";
-import {THOMAS_MODEL_AXIS_LABELS} from "../../common/fields";
+import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
+import {THOMAS_MODEL_AXIS_LABELS} from "../../../../common/fields";
 
 export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
   const [validParamters, setValidParameters] = useState();
