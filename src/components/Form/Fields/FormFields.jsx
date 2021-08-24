@@ -5,7 +5,6 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
 import {useEffect} from "react";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -172,7 +171,6 @@ const BigTextField = ({field, ...props}) => {
     <MuiTextField
       variant="outlined"
       multiline
-      rows={8}
       inputProps={{
         maxLength: CHARACTER_LIMIT,
       }}
@@ -195,9 +193,13 @@ export const FileField = ({onChange}) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        width: 400,
       }}>
-      <Typography>{label}</Typography>
+      <MuiTextField
+        variant="outlined"
+        disabled={true}
+        placeholder={"Archivo de observaciones"}
+        value={label}
+      />
       <input
         hidden
         style={{display: "none"}}
@@ -207,7 +209,7 @@ export const FileField = ({onChange}) => {
         type="file"
       />
       <label htmlFor="raised-button-file">
-        <Button variant="text" component="span">
+        <Button variant="outlined" style={{marginLeft: 15}} component="span">
           Upload
         </Button>
       </label>

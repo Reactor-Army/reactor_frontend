@@ -20,7 +20,6 @@ export const ThomasModelForm = ({onSubmit}) => {
 
   return (
     <div>
-      <FileField onChange={onFileChange} />
       <Form
         singleColumn={true}
         initialValues={THOMAS_FORM_INITIAL_VALUES}
@@ -28,6 +27,8 @@ export const ThomasModelForm = ({onSubmit}) => {
         buttonLabel={"Calcular"}
         errors={filterBlank(errorValues)}
         fields={[
+          // Este field ni siquiera pertenece a Formik pero lo encajás acá y funciona igual. Viva Javascript
+          <FileField key={0} onChange={onFileChange} />,
           <FormNumericField
             placeholder={THOMAS_FIELDS.FLOW}
             key={1}
