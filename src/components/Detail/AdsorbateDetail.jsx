@@ -14,7 +14,11 @@ import {
 } from "../../services/adsorbates";
 import {ADSORBATE_FIELDS} from "../../common/fields";
 import {UNITS} from "../../common/fields";
-import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
+import {
+  DetailTable,
+  DetailTableRow,
+  DetailTableFormulaRow,
+} from "../DetailTable/DetailTable";
 import {DetailTableGrid} from "./Styles";
 
 export const AdsorbateDetail = ({adsorbate}) => {
@@ -68,7 +72,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
         </DetailTable>
 
         <DetailTable title="Información Adicional">
-          <DetailTableRow
+          <DetailTableFormulaRow
             label={ADSORBATE_FIELDS.FORMULA}
             value={
               <FormulaLabel

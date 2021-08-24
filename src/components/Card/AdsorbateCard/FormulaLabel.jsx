@@ -5,6 +5,7 @@ import {FormulaComponent} from "./FormulaComponent";
 import {FormulaContainer, SupIndex} from "./Styles";
 
 export const FormulaLabel = ({formula, ionChargeFormula}) => {
+  console.log(formula);
   if (!formula) {
     return null;
   }

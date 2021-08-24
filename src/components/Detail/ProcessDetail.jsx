@@ -31,41 +31,34 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         <DetailTable title="Características">
           <DetailTableRow
             label={PROCESS_FIELDS.QMAX}
-            value={process.qmax ? `${process.qmax} ${UNITS.QMAX}` : "-"}
+            value={process.qmax}
+            units={UNITS.QMAX}
           />
           <DetailTableRow
             label={PROCESS_FIELDS.EQUILIBRIUM_TIME}
-            value={
-              process.tiempoEquilibrio
-                ? `${process.tiempoEquilibrio} ${UNITS.EQUILIBRIUM_TIME}`
-                : "-"
-            }
+            value={process.tiempoEquilibrio}
+            units={UNITS.EQUILIBRIUM_TIME}
           />
           <DetailTableRow
             label={PROCESS_FIELDS.TEMPERATURE}
-            value={
-              process.temperatura
-                ? `${process.temperatura} ${UNITS.TEMPERATURE}`
-                : "-"
-            }
+            value={process.temperatura}
+            units={UNITS.TEMPERATURE}
           />
           <DetailTableRow
             label={PROCESS_FIELDS.INITIAL_PH}
-            value={process.phinicial ? process.phinicial : "-"}
+            value={process.phinicial}
           />
           <DetailTableRow
             label={PROCESS_FIELDS.KINETIC_CONSTANT}
-            value={
-              process.constanteCinetica
-                ? `${process.constanteCinetica} ${getKineticConstantUnits(
-                    process.ordenReaccion,
-                  )}`
-                : "-"
+            value={process.constanteCinetica}
+            units={
+              process.constanteCinetica &&
+              getKineticConstantUnits(process.ordenReaccion)
             }
           />
           <DetailTableRow
             label={PROCESS_FIELDS.REACTION_ORDER}
-            value={process.ordenReaccion ? process.ordenReaccion : "-"}
+            value={process.ordenReaccion}
           />
         </DetailTable>
 
@@ -87,11 +80,11 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
         <DetailTable title="Información Adicional">
           <DetailTableRow
             label={PROCESS_FIELDS.SOURCE}
-            value={process.fuente ? process.fuente : "-"}
+            value={process.fuente}
           />
           <DetailTableRow
             label={PROCESS_FIELDS.NOTES}
-            value={process.observacion ? process.observacion : "-"}
+            value={process.observacion}
           />
         </DetailTable>
       </DetailTableGrid>
