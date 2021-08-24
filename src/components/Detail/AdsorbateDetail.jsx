@@ -63,11 +63,8 @@ export const AdsorbateDetail = ({adsorbate}) => {
           />
           <DetailTableRow
             label={ADSORBATE_FIELDS.MOLAR_MASS}
-            value={
-              adsorbate.masaMolar
-                ? `${adsorbate.masaMolar} ${UNITS.MOLAR_MASS}`
-                : "-"
-            }
+            value={adsorbate.masaMolar}
+            units={UNITS.MOLAR_MASS}
           />
         </DetailTable>
 
