@@ -9,6 +9,7 @@ import {
 } from "../../common/fields";
 import {ThomasModelPlot} from "../../components/ChemicalModels/Thomas/ThomasModelPlot/ThomasModelPlot";
 import {FormLayout} from "../../components/Form/FormStyles";
+import {ResultsTitle} from "../../components/ChemicalModels/ResultsTitle";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -34,10 +35,11 @@ export const ThomasContainer = () => {
       <FormLayout>
         <ThomasModelForm onSubmit={onSubmit} />
         {response && (
-          <>
+          <div>
+            <ResultsTitle />
             <ThomasModelPlot {...response} />
             <ThomasResults kth={response.Kth} q0={response.q0} />
-          </>
+          </div>
         )}
       </FormLayout>
     </>
