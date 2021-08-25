@@ -15,6 +15,7 @@ export const URLS = {
   PROCESS_EFFECTIVE_VOLUME: "/sistemas/:id/volumen",
   BEST_ADSORBENT: "/mejor-adsorbente",
   NOT_FOUND: "/not-found",
+  ABOUT_US: "/about-us",
 };
 
 const processUrlId = (url, id) => {

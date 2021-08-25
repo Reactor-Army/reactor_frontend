@@ -2,9 +2,9 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {appFontFamily, Link} from "../../common/styles";
 import {URLS} from "../../routing/urls";
-import {Paragraph} from "./Styles";
+import {Paragraph} from "./AboutUsStyles";
 
-export function HomepageWallText() {
+export function AboutUsWallText() {
   return (
     <Typography
       component={"span"}
