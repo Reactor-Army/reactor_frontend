@@ -10,6 +10,7 @@ import {
 import {ThomasModelPlot} from "../../components/ChemicalModels/Thomas/ThomasModelPlot/ThomasModelPlot";
 import {ResultsTitle} from "../../components/ChemicalModels/ResultsTitle";
 import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/Styles";
+import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -32,6 +33,7 @@ export const ThomasContainer = () => {
   return (
     <>
       <PageTitle title={"Modelo de Thomas"} />
+      <ThomasHelpText />
       <ThomasPageLayout>
         <ThomasModelForm onSubmit={onSubmit} />
         {response && (

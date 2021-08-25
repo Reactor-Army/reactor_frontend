@@ -6,11 +6,18 @@ export const ResultsTitleContanier = styled(Paragraph)`
   margin-left: 15px;
 `;
 
-export const ResultsField = styled.div`
-  margin-left: 15px;
+const Text = styled.div`
   font-size: 1rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.00938em;
+`;
+
+export const ResultsField = styled(Text)`
+  margin-left: 15px;
+`;
+
+export const HelpText = styled(Text)`
+  padding-bottom: 20px;
 `;
