@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const fileFieldStyles = makeStyles({
   textField: {
-    minWidth: "80%",
+    width: "80%",
   },
   dummyInput: {
     display: "none",
