@@ -5,6 +5,11 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
 import {useEffect} from "react";
 import Button from "@material-ui/core/Button";
+import {
+  FileFieldContainer,
+  fileFieldStyles,
+  uploadButtonStyles,
+} from "./Styles";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -187,35 +192,42 @@ export const FileField = ({onChange}) => {
     setLabel(event.currentTarget.files[0].name);
     onChange(event);
   };
+  const classes = fileFieldStyles();
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}>
+    <FileFieldContainer>
       <MuiTextField
         variant="outlined"
         disabled={true}
         placeholder={"Archivo de observaciones"}
         value={label}
-        style={{minWidth: "80%"}}
+        className={classes.textField}
       />
-      <input
-        hidden
-        style={{display: "none"}}
-        id="raised-button-file"
-        multiple
-        onChange={_onChange}
-        type="file"
-      />
-      <label
-        htmlFor="raised-button-file"
-        style={{height: "100%", marginLeft: 15, textAlign: "center"}}>
-        <Button variant="outlined" component="span" style={{height: "100%"}}>
-          Subir
-        </Button>
+      <DummyInput className={classes.dummyInput} onChange={_onChange} />
+      <label htmlFor="raised-button-file" className={classes.label}>
+        <UploadButton />
       </label>
-    </div>
+    </FileFieldContainer>
+  );
+};
+
+export const UploadButton = () => {
+  const classes = uploadButtonStyles();
+
+  return (
+    <Button variant="outlined" component="span" className={classes.button}>
+      Subir
+    </Button>
+  );
+};
+
+export const DummyInput = ({className, onChange}) => {
+  return (
+    <input
+      hidden
+      className={className}
+      id="raised-button-file"
+      onChange={onChange}
+      type="file"
+    />
   );
 };
