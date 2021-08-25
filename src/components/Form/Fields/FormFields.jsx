@@ -199,6 +199,7 @@ export const FileField = ({onChange}) => {
         disabled={true}
         placeholder={"Archivo de observaciones"}
         value={label}
+        style={{minWidth: "80%"}}
       />
       <input
         hidden
@@ -208,9 +209,11 @@ export const FileField = ({onChange}) => {
         onChange={_onChange}
         type="file"
       />
-      <label htmlFor="raised-button-file">
-        <Button variant="outlined" style={{marginLeft: 15}} component="span">
-          Upload
+      <label
+        htmlFor="raised-button-file"
+        style={{height: "100%", marginLeft: 15, textAlign: "center"}}>
+        <Button variant="outlined" component="span" style={{height: "100%"}}>
+          Subir
         </Button>
       </label>
     </div>
