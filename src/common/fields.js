@@ -98,7 +98,7 @@ export const THOMAS_MODEL_AXIS_LABELS = {
 
 export const THOMAS_FIELDS = {
   FLOW: "Caudal volumétrico (F)",
-  INITIAL_CONCENTRATION: "Concentración Inicial (C0)",
+  INITIAL_CONCENTRATION: "Concentración Inicial (C₀)",
   ADSORBENT_MASS: "Masa del adsorbente (W)",
 };
 
@@ -113,4 +113,12 @@ export const THOMAS_RESPONSE_FIELDS = {
   KTH: "constanteThomas",
   Q0: "concentracionMaximaSoluto",
   OBSERVATIONS: "observaciones",
+};
+
+export const MODEL_UNITS = {
+  FLOW: "ml/min",
+  ADSORBENT_MASS: "g",
+  INITIAL_CONCENTRATION: "mmol/l",
+  Q0: "mmol/g",
+  KTH: "cm³/(g*min)",
 };

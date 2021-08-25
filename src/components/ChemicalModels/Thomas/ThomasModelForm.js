@@ -2,7 +2,11 @@ import {FileField, FormNumericField} from "../../Form/Fields/FormFields";
 import {Form} from "../../Form/Form";
 import {THOMAS_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {filterBlank} from "../../Create/validations";
-import {THOMAS_FIELDS, THOMAS_REQUEST_FIELDS} from "../../../common/fields";
+import {
+  MODEL_UNITS,
+  THOMAS_FIELDS,
+  THOMAS_REQUEST_FIELDS,
+} from "../../../common/fields";
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
 
@@ -30,7 +34,7 @@ export const ThomasModelForm = ({onSubmit}) => {
           // Este field ni siquiera pertenece a Formik pero lo encajás acá y funciona igual. Viva Javascript
           <FileField key={0} onChange={onFileChange} />,
           <FormNumericField
-            placeholder={THOMAS_FIELDS.FLOW}
+            placeholder={`${THOMAS_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}
             key={1}
             name={THOMAS_REQUEST_FIELDS.FLOW}
             error={errorValues[THOMAS_REQUEST_FIELDS.FLOW]}
@@ -45,7 +49,7 @@ export const ThomasModelForm = ({onSubmit}) => {
             }}
           />,
           <FormNumericField
-            placeholder={THOMAS_FIELDS.INITIAL_CONCENTRATION}
+            placeholder={`${THOMAS_FIELDS.INITIAL_CONCENTRATION} [${MODEL_UNITS.INITIAL_CONCENTRATION}]`}
             key={2}
             name={THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION}
             error={errorValues[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION]}
@@ -60,7 +64,7 @@ export const ThomasModelForm = ({onSubmit}) => {
             }}
           />,
           <FormNumericField
-            placeholder={THOMAS_FIELDS.ADSORBENT_MASS}
+            placeholder={`${THOMAS_FIELDS.ADSORBENT_MASS} [${MODEL_UNITS.ADSORBENT_MASS}]`}
             key={3}
             name={THOMAS_REQUEST_FIELDS.ADSORBENT_MASS}
             error={errorValues[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS]}
