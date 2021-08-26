@@ -47,4 +47,9 @@ export const Image = styled.img`
 export const CardsContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  & > div {
+    margin: 5px;
+  }
 `;

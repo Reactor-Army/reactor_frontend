@@ -43,6 +43,28 @@ export const HomeRoute = () => {
           }}
         />
       </CardsContainer>
+      <CardsContainer>
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+      </CardsContainer>
     </HomePageContainer>
   );
 };

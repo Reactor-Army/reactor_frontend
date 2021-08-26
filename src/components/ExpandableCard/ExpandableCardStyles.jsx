@@ -3,11 +3,11 @@ import {appColors} from "../../common/styles";
 
 export const ExpandableCardContainer = styled.div`
   transition: 0.1s linear;
-  width: 400px;
-  height: 280px;
+  width: 350px;
+  height: 240px;
   border-radius: 15px;
-  border: 1px solid ${appColors.lightGray};
-  background: ${appColors.white};
+  border: 1px solid ${appColors.white};
+  background: ${appColors.primary};
   cursor: pointer;
 
   &:hover {
