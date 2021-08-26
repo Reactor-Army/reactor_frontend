@@ -6,7 +6,7 @@ import {
   THOMAS_REQUEST_FIELDS,
   THOMAS_RESPONSE_FIELDS,
 } from "../../common/fields";
-import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/Styles";
+import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {Paragraph} from "../../components/HomePage/Styles";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
