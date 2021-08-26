@@ -2,16 +2,14 @@ import React, {useState} from "react";
 import {PageTitle} from "../../common/PageTitle";
 import {thomas} from "../../services/models";
 import {ThomasModelForm} from "../../components/ChemicalModels/Thomas/ThomasModelForm";
-import {ThomasResultFields} from "../../components/ChemicalModels/Thomas/ThomasResultFields";
 import {
   THOMAS_REQUEST_FIELDS,
   THOMAS_RESPONSE_FIELDS,
 } from "../../common/fields";
-import {ThomasModelPlot} from "../../components/ChemicalModels/Thomas/ThomasModelPlot/ThomasModelPlot";
-import {ResultsTitle} from "../../components/ChemicalModels/ResultsTitle";
 import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/Styles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {Paragraph} from "../../components/HomePage/Styles";
+import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -48,13 +46,7 @@ export const ThomasContainer = () => {
       <ThomasHelpText />
       <ThomasPageLayout>
         <ThomasModelForm onSubmit={onSubmit} />
-        {response && (
-          <div>
-            <ResultsTitle />
-            <ThomasModelPlot {...response} />
-            <ThomasResultFields kth={response.Kth} q0={response.q0} />
-          </div>
-        )}
+        {response && <ThomasResults response={response} />}
         {error && <Paragraph>{error}</Paragraph>}
       </ThomasPageLayout>
     </>
