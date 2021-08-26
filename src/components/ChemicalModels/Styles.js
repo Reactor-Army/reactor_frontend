@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Paragraph} from "../HomePage/Styles";
+import {appFontFamily} from "../../common/styles";
 
 export const ResultsTitleContanier = styled(Paragraph)`
   margin-top: 0;
@@ -8,7 +9,7 @@ export const ResultsTitleContanier = styled(Paragraph)`
 
 const Text = styled.div`
   font-size: 1rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: ${appFontFamily.primary};
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.00938em;
