@@ -1,5 +1,9 @@
 import styled from "styled-components/macro";
-import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {
+  appColors,
+  appFontColors,
+  appFontFamily,
+} from "../../../../common/styles";
 
 export const ErrorMessageContainer = styled.div`
   width: 100%;

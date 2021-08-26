@@ -4,6 +4,12 @@ import {Field} from "formik";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
 import {useEffect} from "react";
+import Button from "@material-ui/core/Button";
+import {
+  FileFieldContainer,
+  fileFieldStyles,
+  uploadButtonStyles,
+} from "./Styles";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -177,6 +183,52 @@ const BigTextField = ({field, ...props}) => {
       helperText={`${textLength}/${CHARACTER_LIMIT}`}
       {...field}
       {...props}
+    />
+  );
+};
+
+export const FileField = ({onChange}) => {
+  const [label, setLabel] = useState("");
+  const _onChange = (event) => {
+    setLabel(event.currentTarget.files[0].name);
+    onChange(event);
+  };
+  const classes = fileFieldStyles();
+  return (
+    <FileFieldContainer>
+      <MuiTextField
+        variant="outlined"
+        disabled={true}
+        placeholder={"Archivo de observaciones"}
+        value={label}
+        className={classes.textField}
+      />
+      <DummyInput className={classes.dummyInput} onChange={_onChange} />
+      <label htmlFor="raised-button-file" className={classes.label}>
+        <UploadButton />
+      </label>
+    </FileFieldContainer>
+  );
+};
+
+export const UploadButton = () => {
+  const classes = uploadButtonStyles();
+
+  return (
+    <Button variant="outlined" component="span" className={classes.button}>
+      Subir
+    </Button>
+  );
+};
+
+export const DummyInput = ({className, onChange}) => {
+  return (
+    <input
+      hidden
+      className={className}
+      id="raised-button-file"
+      onChange={onChange}
+      type="file"
     />
   );
 };

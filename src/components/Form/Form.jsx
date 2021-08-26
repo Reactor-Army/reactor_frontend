@@ -1,7 +1,11 @@
 import React from "react";
 import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
-import {FormLayout, ButtonContainer} from "./FormStyles";
+import {
+  FormLayout,
+  ButtonContainer,
+  SingleColumnFormLayout,
+} from "./FormStyles";
 import {SubmitButton} from "../Button/Button";
 
 export const Form = ({
@@ -12,7 +16,9 @@ export const Form = ({
   buttonLabel,
   errors,
   forceDisable,
+  singleColumn = false,
 }) => {
+  const Layout = singleColumn ? SingleColumnFormLayout : FormLayout;
   return (
     <>
       {title && <PageTitle title={title} />}
@@ -24,7 +30,7 @@ export const Form = ({
           actions.setSubmitting(false);
         }}>
         <FormikForm>
-          <FormLayout>{fields}</FormLayout>
+          <Layout>{fields}</Layout>
 
           <ButtonContainer>
             <SubmitButton
