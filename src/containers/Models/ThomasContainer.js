@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {PageTitle} from "../../common/PageTitle";
 import {thomas} from "../../services/models";
 import {ThomasModelForm} from "../../components/ChemicalModels/Thomas/ThomasModelForm";
-import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
+import {ThomasResultFields} from "../../components/ChemicalModels/Thomas/ThomasResultFields";
 import {
   THOMAS_REQUEST_FIELDS,
   THOMAS_RESPONSE_FIELDS,
@@ -35,10 +35,9 @@ export const ThomasContainer = () => {
       C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
       Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
       q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
-      points: apiResponse[THOMAS_RESPONSE_FIELDS.OBSERVATIONS].map((x) => [
-        x.x,
-        x.y,
-      ]),
+      points: apiResponse[
+        THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+      ].map((observation) => [observation.x, observation.y]),
     });
     setError(null);
   };
@@ -53,7 +52,7 @@ export const ThomasContainer = () => {
           <div>
             <ResultsTitle />
             <ThomasModelPlot {...response} />
-            <ThomasResults kth={response.Kth} q0={response.q0} />
+            <ThomasResultFields kth={response.Kth} q0={response.q0} />
           </div>
         )}
         {error && <Paragraph>{error}</Paragraph>}
