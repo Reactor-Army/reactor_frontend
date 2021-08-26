@@ -1,12 +1,8 @@
 import {Modal} from "./Modal";
-import {
-  BodyContainer,
-  ButtonsContainer,
-  Message,
-  Warning,
-} from "./DeleteAdsorbateOrAdsorbentModal/DeleteAdsorbateOrAdsorbentModalStyles";
+import {Warning} from "./DeleteAdsorbateOrAdsorbentModal/DeleteAdsorbateOrAdsorbentModalStyles";
 import {Button} from "../Button/Button";
 import React from "react";
+import {BodyContainer, ButtonsContainer, Message} from "./ModalStyles";
 
 export const ConfirmDeleteModal = ({
   closeModal,
