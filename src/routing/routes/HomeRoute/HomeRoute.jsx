@@ -7,6 +7,7 @@ import {
   Header,
   ImageContainer,
   Image,
+  CardsContainer,
 } from "./HomeRouteStyles";
 import fiubaLogo from "../../../resources/images/fiuba.png";
 import chemistry from "../../../resources/images/quimica.png";
@@ -20,13 +21,28 @@ export const HomeRoute = () => {
         <Image src={chemistry} alt="Logo Fiuba" />
         <Image src={fiubaLogo} alt="Logo Fiuba" />
       </ImageContainer>
-      {false && (
+      <CardsContainer>
         <ExpandableCard
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);
           }}
         />
-      )}
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+        <ExpandableCard
+          onClick={() => {
+            history.push(URLS.ADSORBATES_LIST);
+          }}
+        />
+      </CardsContainer>
     </HomePageContainer>
   );
 };

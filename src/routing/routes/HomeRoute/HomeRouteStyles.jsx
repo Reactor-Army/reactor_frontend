@@ -31,9 +31,20 @@ export const ImageContainer = styled.div`
 export const Image = styled.img`
   max-width: 300px;
   max-height: 200px;
+  margin: 0 20px;
+
+  @media (max-width: 600px) {
+    max-width: 200px;
+    max-height: 150px;
+  }
+
+  @media (max-width: 400px) {
+    max-width: 150px;
+    max-height: 100px;
+  }
 `;
 
 export const CardsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 `;
