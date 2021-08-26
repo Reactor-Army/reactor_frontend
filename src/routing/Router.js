@@ -113,7 +113,14 @@ export const Router = () => {
         path={URLS.ABOUT_US}
         component={AboutUsRoute}
       />
-      <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.HOME}
+        component={HomeRoute}
+        showSideBar={false}
+        showTopBar={false}
+      />
       <PrivateRoute
         authed={0}
         component={NotFoundRoute}

@@ -2,7 +2,7 @@ import React from "react";
 
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {ListContainer} from "../AdsorbentList/Styles";
+import {ListContainer} from "./ProcessListStyles";
 import {ProcessCardWrapper} from "../../Card/ProcessCard/ProcessCardWrapper";
 
 export function ProcessList({loading, processes}) {

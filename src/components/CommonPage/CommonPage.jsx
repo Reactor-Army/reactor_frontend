@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {TopBar} from "../Main/TopBar";
 import {Sidebar} from "../Sidebar/Sidebar";
-import Container from "@material-ui/core/Container";
 import {useStyles, SidebarWrapper} from "./CommonPageStyles";
+import {Container} from "./CommonPageStyles";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
