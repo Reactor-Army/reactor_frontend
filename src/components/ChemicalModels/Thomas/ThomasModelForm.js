@@ -28,6 +28,7 @@ export const ThomasModelForm = ({onSubmit}) => {
       initialValues={THOMAS_FORM_INITIAL_VALUES}
       onSubmit={_onSubmit}
       buttonLabel={"Calcular"}
+      forceDisable={file === null}
       errors={filterBlank(errorValues)}
       fields={[
         // Este field ni siquiera pertenece a Formik pero lo encajás acá y funciona igual. Viva Javascript
