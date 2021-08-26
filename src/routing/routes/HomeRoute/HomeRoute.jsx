@@ -42,8 +42,7 @@ export const HomeRoute = () => {
             history.push(URLS.ADSORBATES_LIST);
           }}
         />
-      </CardsContainer>
-      <CardsContainer>
+
         <ExpandableCard
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);

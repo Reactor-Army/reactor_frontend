@@ -14,4 +14,9 @@ export const ExpandableCardContainer = styled.div`
     transition: 0.1s linear;
     transform: scale(1.2, 1.2);
   }
+
+  @media (max-width: 380px) {
+    width: 260px;
+    height: 173px;
+  }
 `;

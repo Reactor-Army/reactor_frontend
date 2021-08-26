@@ -12,6 +12,7 @@ export const Header = styled.div`
   display: flex;
   font-size: 72px;
   font-family: ${appFontFamily.card};
+  font-weight: bold;
   color: ${appColors.primary};
   text-transform: uppercase;
   padding: 50px 0;
@@ -45,11 +46,21 @@ export const Image = styled.img`
 `;
 
 export const CardsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 30px;
+  margin: 15px 0;
 
-  & > div {
-    margin: 5px;
+  @media (max-width: 1500px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
