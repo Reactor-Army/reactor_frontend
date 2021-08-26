@@ -8,7 +8,6 @@ import {
 } from "../../common/fields";
 import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
-import {Paragraph} from "../../components/HomePage/Styles";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 
@@ -46,7 +45,6 @@ export const ThomasContainer = () => {
       <ThomasPageLayout>
         <ThomasModelForm onSubmit={onSubmit} />
         {response && <ThomasResults response={response} />}
-        {error && <Paragraph>{error}</Paragraph>}
       </ThomasPageLayout>
       <ErrorModal closeModal={() => setError(null)} error={error} />
     </>
