@@ -176,6 +176,7 @@ const BigTextField = ({field, ...props}) => {
     <MuiTextField
       variant="outlined"
       multiline
+      rows={8}
       inputProps={{
         maxLength: CHARACTER_LIMIT,
       }}
