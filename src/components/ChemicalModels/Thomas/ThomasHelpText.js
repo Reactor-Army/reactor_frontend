@@ -1,4 +1,4 @@
-import {HelpText} from "../Styles";
+import {HelpText} from "../ChemicalModelStyles";
 import React from "react";
 
 export const ThomasHelpText = () => {

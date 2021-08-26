@@ -1,5 +1,5 @@
 import React from "react";
-import {ResultsTitleContanier} from "./Styles";
+import {ResultsTitleContanier} from "./ChemicalModelStyles";
 
 export const ResultsTitle = () => {
   return <ResultsTitleContanier>Resultados</ResultsTitleContanier>;

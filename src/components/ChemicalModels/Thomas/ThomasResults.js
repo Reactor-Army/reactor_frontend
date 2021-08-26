@@ -1,6 +1,6 @@
 import React from "react";
 import {MODEL_UNITS} from "../../../common/fields";
-import {ResultsField} from "../Styles";
+import {ResultsField} from "../ChemicalModelStyles";
 
 export const ThomasResults = ({kth, q0}) => {
   return (
