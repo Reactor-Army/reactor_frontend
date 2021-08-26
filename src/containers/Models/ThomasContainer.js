@@ -11,11 +11,23 @@ import {ThomasModelPlot} from "../../components/ChemicalModels/Thomas/ThomasMode
 import {ResultsTitle} from "../../components/ChemicalModels/ResultsTitle";
 import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/Styles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
+import {Paragraph} from "../../components/HomePage/Styles";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+
   const onSubmit = async (file, values) => {
-    const apiResponse = await thomas(file, values);
+    let apiResponse;
+    try {
+      apiResponse = await thomas(file, values);
+    } catch (e) {
+      setError(
+        "Ocurrió un error ejecutando el modelo: " + e.response.data.message,
+      );
+      setResponse(null);
+      return;
+    }
 
     setResponse({
       F: values[THOMAS_REQUEST_FIELDS.FLOW],
@@ -28,6 +40,7 @@ export const ThomasContainer = () => {
         x.y,
       ]),
     });
+    setError(null);
   };
 
   return (
@@ -43,6 +56,7 @@ export const ThomasContainer = () => {
             <ThomasResults kth={response.Kth} q0={response.q0} />
           </div>
         )}
+        {error && <Paragraph>{error}</Paragraph>}
       </ThomasPageLayout>
     </>
   );
