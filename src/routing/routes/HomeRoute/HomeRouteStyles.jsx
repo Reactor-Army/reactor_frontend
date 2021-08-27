@@ -27,14 +27,23 @@ export const ImageContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 30px;
   align-self: center;
+  margin-top: 20px;
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+
+    & > img {
+      margin: 15px 0;
+    }
+  }
 `;
 
 export const Image = styled.img`
   max-width: 300px;
-  max-height: 200px;
+  max-height: 180px;
   margin: 0 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 850px) {
     max-width: 200px;
     max-height: 150px;
   }
@@ -56,11 +65,11 @@ export const CardsContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1150px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

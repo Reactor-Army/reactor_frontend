@@ -9,18 +9,15 @@ import {
   Image,
   CardsContainer,
 } from "./HomeRouteStyles";
+import iqaiLogo from "../../../resources/images/iqai.png";
+import laquisiheLogo from "../../../resources/images/laquisihe.png";
 import fiubaLogo from "../../../resources/images/fiuba.png";
-import chemistry from "../../../resources/images/quimica.png";
 
 export const HomeRoute = () => {
   const history = useHistory();
   return (
     <HomePageContainer>
       <Header>Reactor App</Header>
-      <ImageContainer>
-        <Image src={chemistry} alt="Logo Fiuba" />
-        <Image src={fiubaLogo} alt="Logo Fiuba" />
-      </ImageContainer>
       <CardsContainer>
         <ExpandableCard
           onClick={() => {
@@ -64,6 +61,11 @@ export const HomeRoute = () => {
           }}
         />
       </CardsContainer>
+      <ImageContainer>
+        <Image src={laquisiheLogo} alt="Logo Fiuba" />
+        <Image src={fiubaLogo} alt="Logo Fiuba" />
+        <Image src={iqaiLogo} alt="Logo Fiuba" />
+      </ImageContainer>
     </HomePageContainer>
   );
 };
