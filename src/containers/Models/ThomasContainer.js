@@ -8,8 +8,8 @@ import {
 } from "../../common/fields";
 import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
-import {Paragraph} from "../../components/HomePage/Styles";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
+import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -20,9 +20,7 @@ export const ThomasContainer = () => {
     try {
       apiResponse = await thomas(file, values);
     } catch (e) {
-      setError(
-        "Ocurrió un error ejecutando el modelo: " + e.response.data.message,
-      );
+      setError(e.response.data.message);
       setResponse(null);
       return;
     }
@@ -47,8 +45,8 @@ export const ThomasContainer = () => {
       <ThomasPageLayout>
         <ThomasModelForm onSubmit={onSubmit} />
         {response && <ThomasResults response={response} />}
-        {error && <Paragraph>{error}</Paragraph>}
       </ThomasPageLayout>
+      <ErrorModal closeModal={() => setError(null)} error={error} />
     </>
   );
 };
