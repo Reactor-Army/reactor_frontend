@@ -18,6 +18,5 @@ export const SidebarWrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 0 24px;
-  width: 95vw;
+  width: 100vw;
 `;

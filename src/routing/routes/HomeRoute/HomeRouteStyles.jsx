@@ -9,17 +9,13 @@ export const HomePageContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-  width: 110vw;
+  width: 100vw;
   height: 200px;
   overflow: visible;
   background: ${appColors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 360px) {
-    margin-right: 10px;
-  }
 `;
 
 export const Header = styled.div`
