@@ -1,6 +1,11 @@
 import React from "react";
-import {ExpandableCardContainer} from "./ExpandableCardStyles";
+import {ExpandableCardContainer, Icon, Text} from "./ExpandableCardStyles";
 
 export const ExpandableCard = (props) => {
-  return <ExpandableCardContainer onClick={props.onClick} />;
+  return (
+    <ExpandableCardContainer onClick={props.onClick}>
+      <Icon src={props.icon} alt="icon" />
+      <Text>{props.text}</Text>
+    </ExpandableCardContainer>
+  );
 };
