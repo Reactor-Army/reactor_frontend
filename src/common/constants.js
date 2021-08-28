@@ -1,3 +1,5 @@
+import {THOMAS_REQUEST_FIELDS} from "./fields";
+
 export const ENTER_KEY = "Enter";
 
 export const SYSTEM_FORM_INITIAL_VALUES = {
@@ -45,4 +47,11 @@ export const CALCULATE_VOLUME_FORM_INITIAL_VALUES = {
   caudal: "",
   concentracionInicial: "",
   concentracionFinal: "",
+};
+
+export const THOMAS_FORM_INITIAL_VALUES = {
+  [THOMAS_REQUEST_FIELDS.FILE]: "",
+  [THOMAS_REQUEST_FIELDS.FLOW]: "",
+  [THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION]: "",
+  [THOMAS_REQUEST_FIELDS.ADSORBENT_MASS]: "",
 };

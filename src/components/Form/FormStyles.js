@@ -12,6 +12,14 @@ export const FormLayout = styled.div`
   }
 `;
 
+export const SingleColumnFormLayout = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 60px;
+
+  margin-bottom: 15px;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;

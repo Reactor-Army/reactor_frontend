@@ -18,6 +18,7 @@ import glass from "../../../resources/images/glass.png";
 import systems from "../../../resources/images/quimica.png";
 import adsorbate from "../../../resources/images/violetVial.png";
 import adsorbent from "../../../resources/images/greenVial.png";
+import plot from "../../../resources/images/plot.png";
 
 export const HomeRoute = () => {
   const history = useHistory();
@@ -65,16 +66,22 @@ export const HomeRoute = () => {
           }}
         />
         <ExpandableCard
+          icon={plot}
+          text="Modelo de Thomas"
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);
           }}
         />
         <ExpandableCard
+          icon={plot}
+          text="Modelo de Yoon-Nelson"
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);
           }}
         />
         <ExpandableCard
+          icon={plot}
+          text="Modelo de ..."
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);
           }}

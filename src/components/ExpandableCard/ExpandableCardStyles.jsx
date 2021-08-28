@@ -40,7 +40,7 @@ export const Icon = styled.img`
 `;
 
 export const Text = styled.div`
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
   font-family: ${appFontFamily.card};

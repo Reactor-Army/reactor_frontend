@@ -36,6 +36,20 @@ export class HttpClient {
     return await this.request(url, "PUT", body);
   }
 
+  async multiPartPost(url, file, body) {
+    const formData = new FormData();
+    formData.append("observaciones", file);
+    Object.keys(body).forEach((key) => {
+      formData.append(key, body[key]);
+    });
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    return await axios.post(url, formData, config);
+  }
+
   async request(url, method, data, headers, params) {
     headers = headers || {};
     headers = {

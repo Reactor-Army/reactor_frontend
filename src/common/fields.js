@@ -95,3 +95,30 @@ export const THOMAS_MODEL_AXIS_LABELS = {
   X_LABEL: "Vef [L]",
   Y_LABEL: "C/C₀",
 };
+
+export const THOMAS_FIELDS = {
+  FLOW: "Caudal volumétrico (F)",
+  INITIAL_CONCENTRATION: "Concentración Inicial (C₀)",
+  ADSORBENT_MASS: "Masa del adsorbente (W)",
+};
+
+export const THOMAS_REQUEST_FIELDS = {
+  FILE: "observaciones",
+  FLOW: "caudalVolumetrico",
+  INITIAL_CONCENTRATION: "concentracionInicial",
+  ADSORBENT_MASS: "sorbenteReactor",
+};
+
+export const THOMAS_RESPONSE_FIELDS = {
+  KTH: "constanteThomas",
+  Q0: "concentracionMaximaSoluto",
+  OBSERVATIONS: "observaciones",
+};
+
+export const MODEL_UNITS = {
+  FLOW: "ml/min",
+  ADSORBENT_MASS: "g",
+  INITIAL_CONCENTRATION: "mmol/l",
+  Q0: "mmol/g",
+  KTH: "cm³/(g*min)",
+};
