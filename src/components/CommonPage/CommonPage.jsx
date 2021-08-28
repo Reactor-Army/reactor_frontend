@@ -24,7 +24,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
         </SidebarWrapper>
       )}
       <Container>
-        <main className={showTopBar && showSideBar && classes.content}>
+        <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
         </main>
       </Container>

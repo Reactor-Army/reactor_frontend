@@ -8,6 +8,7 @@ import {
   ImageContainer,
   Image,
   CardsContainer,
+  HeaderContainer,
 } from "./HomeRouteStyles";
 import iqaiLogo from "../../../resources/images/iqai.png";
 import laquisiheLogo from "../../../resources/images/laquisihe.png";
@@ -22,7 +23,10 @@ export const HomeRoute = () => {
   const history = useHistory();
   return (
     <HomePageContainer>
-      <Header>Reactor App</Header>
+      <HeaderContainer>
+        <Header>Reactor App</Header>
+      </HeaderContainer>
+
       <CardsContainer>
         <ExpandableCard
           icon={light}

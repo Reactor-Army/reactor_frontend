@@ -8,12 +8,26 @@ export const HomePageContainer = styled.div`
   flex-direction: column;
 `;
 
+export const HeaderContainer = styled.div`
+  width: 110vw;
+  height: 200px;
+  overflow: visible;
+  background: ${appColors.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 360px) {
+    margin-right: 10px;
+  }
+`;
+
 export const Header = styled.div`
   display: flex;
   font-size: 72px;
   font-family: ${appFontFamily.card};
   font-weight: bold;
-  color: ${appColors.primary};
+  color: ${appColors.white};
   text-transform: uppercase;
   padding: 50px 0;
 
@@ -25,9 +39,8 @@ export const Header = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-top: 30px;
   align-self: center;
-  margin-top: 20px;
 
   @media (max-width: 650px) {
     flex-direction: column;
@@ -40,17 +53,17 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   max-width: 300px;
-  max-height: 180px;
+  max-height: 150px;
   margin: 0 20px;
 
   @media (max-width: 850px) {
     max-width: 200px;
-    max-height: 150px;
+    max-height: 180px;
   }
 
   @media (max-width: 400px) {
     max-width: 150px;
-    max-height: 100px;
+    max-height: 120px;
   }
 `;
 
@@ -59,9 +72,9 @@ export const CardsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 30px;
-  margin: 15px 0;
+  margin: 25px 0;
 
-  @media (max-width: 1500px) {
+  @media (max-width: 1330px) {
     grid-template-columns: repeat(3, 1fr);
   }
 

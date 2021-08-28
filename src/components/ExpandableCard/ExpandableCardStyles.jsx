@@ -3,8 +3,8 @@ import {appColors, appFontFamily, appFontColors} from "../../common/styles";
 
 export const ExpandableCardContainer = styled.div`
   transition: 0.1s linear;
-  width: 350px;
-  height: 240px;
+  width: 320px;
+  height: 220px;
   border-radius: 15px;
   background: ${appColors.primary};
   cursor: pointer;
@@ -40,7 +40,7 @@ export const Icon = styled.img`
 `;
 
 export const Text = styled.div`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   text-align: center;
   font-family: ${appFontFamily.card};
