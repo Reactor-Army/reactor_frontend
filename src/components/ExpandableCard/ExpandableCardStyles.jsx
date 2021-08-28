@@ -3,8 +3,8 @@ import {appColors, appFontFamily, appFontColors} from "../../common/styles";
 
 export const ExpandableCardContainer = styled.div`
   transition: 0.1s linear;
-  width: 320px;
-  height: 220px;
+  width: calc(260px + 5vw);
+  min-height: calc(173px + 4vw);
   border-radius: 15px;
   background: ${appColors.primary};
   cursor: pointer;
@@ -26,11 +26,6 @@ export const ExpandableCardContainer = styled.div`
     transform: scale(1.2, 1.2);
     border: 1px solid ${appColors.white};
   }
-
-  @media (max-width: 750px) {
-    width: 260px;
-    height: 173px;
-  }
 `;
 
 export const Icon = styled.img`
@@ -40,15 +35,11 @@ export const Icon = styled.img`
 `;
 
 export const Text = styled.div`
-  font-size: 25px;
+  font-size: calc(20px + 0.3vw);
   font-weight: bold;
   text-align: center;
   font-family: ${appFontFamily.card};
   color: ${appFontColors.white};
   text-transform: uppercase;
   text-shadow: 2px 2px ${appColors.black};
-
-  @media (max-width: 750px) {
-    font-size: 20px;
-  }
 `;
