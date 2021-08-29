@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
 }));
 
 export const LinkContainer = styled.div`
-  width: 90%;
+  width: 95%;
   border-radius: 8px;
   height: 50px;
   margin: auto;
@@ -40,6 +40,7 @@ export const LinkText = styled.p`
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;
   font-size: 18px;
+  white-space: nowrap;
 `;
 
 export const Title = styled.div`

@@ -16,6 +16,7 @@ export const URLS = {
   BEST_ADSORBENT: "/mejor-adsorbente",
   THOMAS: "/modelos/thomas",
   NOT_FOUND: "/not-found",
+  ABOUT_US: "/about-us",
 };
 
 const processUrlId = (url, id) => {

@@ -1,6 +1,5 @@
 import {Switch} from "react-router-dom";
 import React from "react";
-import {HomeRoute} from "./routes/HomeRoute";
 import {AdsorbatesRoute} from "./routes/AdsorbatesRoute";
 import {AdsorbentsRoute} from "./routes/AdsorbentsRoute";
 import {ProcessesRoute} from "./routes/ProcessesRoute";
@@ -18,7 +17,9 @@ import {AdsorbateEditRoute} from "./routes/AdsorbateEditRoute";
 import {AdsorbentEditRoute} from "./routes/AdsorbentEditRoute";
 import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
 import {NotFoundRoute} from "./routes/NotFoundRoute/NotFoundRoute";
+import {HomeRoute} from "./routes/HomeRoute/HomeRoute";
 import {ThomasRoute} from "./routes/ThomasRoute";
+import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
 
 export const Router = () => {
   return (
@@ -107,7 +108,20 @@ export const Router = () => {
         path={URLS.PROCESS_EFFECTIVE_VOLUME}
         component={CalculateVolumeRoute}
       />
-      <PrivateRoute authed={0} exact path={URLS.HOME} component={HomeRoute} />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.ABOUT_US}
+        component={AboutUsRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.HOME}
+        component={HomeRoute}
+        showSideBar={false}
+        showTopBar={false}
+      />
       <PrivateRoute
         authed={0}
         exact

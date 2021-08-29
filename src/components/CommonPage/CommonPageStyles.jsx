@@ -16,3 +16,7 @@ export const SidebarWrapper = styled.div`
     all: initial;
   }
 `;
+
+export const Container = styled.div`
+  width: 100vw;
+`;

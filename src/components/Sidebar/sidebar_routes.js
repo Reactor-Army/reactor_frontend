@@ -29,4 +29,8 @@ export const routes = [
     path: URLS.THOMAS,
     text: "Modelo de Thomas",
   },
+  {
+    path: URLS.ABOUT_US,
+    text: "Sobre el proyecto",
+  },
 ];

@@ -44,15 +44,15 @@ export const ProcessCard = ({
       <CardBody>
         <ProcessSection>
           <BodyText>
-            <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
-            <CardValue value={qMax} units={UNITS.QMAX} />
-          </BodyText>
-          <BodyText>
             <FieldLabel>{PROCESS_FIELDS.EQUILIBRIUM_TIME}:</FieldLabel>
             <CardValue value={equilibriumTime} units={UNITS.EQUILIBRIUM_TIME} />
           </BodyText>
         </ProcessSection>
         <ProcessSection>
+          <BodyText>
+            <FieldLabel>{PROCESS_FIELDS.QMAX}:</FieldLabel>
+            <CardValue value={qMax} units={UNITS.QMAX} />
+          </BodyText>
           <BodyText>
             <FieldLabel>{PROCESS_FIELDS.TEMPERATURE}:</FieldLabel>
             <CardValue value={temperature} units={UNITS.TEMPERATURE} />

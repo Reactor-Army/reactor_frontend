@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import {appFontFamily} from "../../common/styles";
 
-export const HomeTitle = styled.div`
+export const Title = styled.div`
   display: flex;
   text-align: center;
   font-family: ${appFontFamily.primary};
