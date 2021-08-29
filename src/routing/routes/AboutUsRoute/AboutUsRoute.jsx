@@ -24,7 +24,7 @@ export const AboutUsRoute = () => {
           <Subtitle>Sobre el proyecto</Subtitle>
           <BoldText>Reactor App</BoldText> es el producto de un trabajo
           profesional de Ing. en informática en colaboración con el LaQuíSiHe
-          (Laboratorio de Química de Sistemas Heterogéneos del IQAI (Instituto
+          (Laboratorio de Química de Sistemas Heterogéneos) del IQAI (Instituto
           de Química Aplicado a la Ingeniería) y el Departamento de Gestión.
           Está enmarcado en el Proyecto de Desarrollo Estratégico 032/2020&nbsp;
           <BoldText>
