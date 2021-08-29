@@ -76,14 +76,14 @@ export const HomeRoute = () => {
           icon={plot}
           text="Modelo de Yoon-Nelson"
           onClick={() => {
-            history.push(URLS.ADSORBATES_LIST);
+            history.push(URLS.NOT_FOUND);
           }}
         />
         <ExpandableCard
           icon={plot}
           text="Modelo de Adams-Bohart"
           onClick={() => {
-            history.push(URLS.ADSORBATES_LIST);
+            history.push(URLS.NOT_FOUND);
           }}
         />
       </CardsContainer>

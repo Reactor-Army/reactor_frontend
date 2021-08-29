@@ -5,11 +5,12 @@ export const HomePageContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 `;
 
 export const HeaderContainer = styled.div`
   width: 100vw;
-  height: 200px;
+  height: 150px;
   overflow: visible;
   background: ${appColors.primary};
   display: flex;
@@ -56,7 +57,7 @@ export const CardsContainer = styled.div`
   );
   grid-column-gap: 10px;
   grid-row-gap: 30px;
-  margin: 25px 0;
+  margin: 40px 0;
   width: 90%;
   justify-items: center;
 `;
