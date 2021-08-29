@@ -37,20 +37,6 @@ export const HomeRoute = () => {
           }}
         />
         <ExpandableCard
-          icon={glass}
-          text="Buscar adsorbente"
-          onClick={() => {
-            history.push(URLS.BEST_ADSORBENT);
-          }}
-        />
-        <ExpandableCard
-          icon={systems}
-          text="Sistemas"
-          onClick={() => {
-            history.push(URLS.PROCESSES_LIST);
-          }}
-        />
-        <ExpandableCard
           icon={adsorbate}
           text="Adsorbatos"
           onClick={() => {
@@ -66,24 +52,24 @@ export const HomeRoute = () => {
           }}
         />
         <ExpandableCard
+          icon={systems}
+          text="Sistemas"
+          onClick={() => {
+            history.push(URLS.PROCESSES_LIST);
+          }}
+        />
+        <ExpandableCard
+          icon={glass}
+          text="Buscar adsorbente"
+          onClick={() => {
+            history.push(URLS.BEST_ADSORBENT);
+          }}
+        />
+        <ExpandableCard
           icon={plot}
           text="Modelo de Thomas"
           onClick={() => {
             history.push(URLS.THOMAS);
-          }}
-        />
-        <ExpandableCard
-          icon={plot}
-          text="Modelo de Yoon-Nelson"
-          onClick={() => {
-            history.push(URLS.NOT_FOUND);
-          }}
-        />
-        <ExpandableCard
-          icon={plot}
-          text="Modelo de Adams-Bohart"
-          onClick={() => {
-            history.push(URLS.NOT_FOUND);
           }}
         />
       </CardsContainer>
