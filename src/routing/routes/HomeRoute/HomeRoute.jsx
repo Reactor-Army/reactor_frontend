@@ -69,7 +69,7 @@ export const HomeRoute = () => {
           icon={plot}
           text="Modelo de Thomas"
           onClick={() => {
-            history.push(URLS.ADSORBATES_LIST);
+            history.push(URLS.THOMAS);
           }}
         />
         <ExpandableCard
