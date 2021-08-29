@@ -81,7 +81,7 @@ export const HomeRoute = () => {
         />
         <ExpandableCard
           icon={plot}
-          text="Modelo de ..."
+          text="Modelo de Adams-Bohart"
           onClick={() => {
             history.push(URLS.ADSORBATES_LIST);
           }}
