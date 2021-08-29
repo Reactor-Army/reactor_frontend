@@ -4,7 +4,6 @@ import {appFontFamily, appColors} from "../../../common/styles";
 export const HomePageContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 0;
   flex-direction: column;
 `;
 
