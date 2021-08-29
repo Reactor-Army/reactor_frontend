@@ -1,6 +1,5 @@
 import {Switch} from "react-router-dom";
 import React from "react";
-import {AboutUsRoute} from "./routes/AboutUsRoute";
 import {AdsorbatesRoute} from "./routes/AdsorbatesRoute";
 import {AdsorbentsRoute} from "./routes/AdsorbentsRoute";
 import {ProcessesRoute} from "./routes/ProcessesRoute";
@@ -20,6 +19,7 @@ import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
 import {NotFoundRoute} from "./routes/NotFoundRoute/NotFoundRoute";
 import {HomeRoute} from "./routes/HomeRoute/HomeRoute";
 import {ThomasRoute} from "./routes/ThomasRoute";
+import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
 
 export const Router = () => {
   return (
