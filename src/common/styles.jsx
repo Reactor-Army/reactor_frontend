@@ -36,7 +36,7 @@ export const Row = styled.div`
   margin-inline-end: 0px;
   font-weight: bold;
   font-family: ${appFontFamily.card};
-  font-size: 40px;
+  font-size: calc(20px + 1vw);
 `;
 
 export const Link = styled.a`

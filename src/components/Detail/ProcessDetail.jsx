@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
 import {Cards} from "./Cards";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {DetailHeader} from "./DetailHeader";
@@ -10,7 +9,7 @@ import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {EffectiveVolumeButton} from "./EffectiveVolumeButton";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
-import {DetailTableGrid} from "./Styles";
+import {DetailTableGrid, Container} from "./Styles";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (

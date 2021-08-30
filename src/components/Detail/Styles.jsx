@@ -25,6 +25,14 @@ export const SectionHeaderContainer = styled.div`
 
 export const ButtonsSection = styled.div`
   display: flex;
+
+  @media (max-width: 500px) {
+    position: fixed;
+    bottom: 2%;
+    justify-content: space-evenly;
+    width: 80vw;
+    z-index: 1;
+  }
 `;
 
 export const EffectiveVolumeButtonContainer = styled.div`
@@ -53,5 +61,21 @@ export const DetailTableGrid = styled.div`
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const Container = styled.div`
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  @media (max-width: 500px) {
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
