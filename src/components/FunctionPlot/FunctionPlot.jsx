@@ -3,7 +3,7 @@ import functionPlot from "function-plot";
 import {Plot, PlotWrapper} from "./FunctionPlotStyles";
 
 export const FunctionPlot = ({
-  expression,
+  expressions,
   points = [],
   xAxisLabel = "",
   yAxisLabel = "",
@@ -13,6 +13,12 @@ export const FunctionPlot = ({
   const [maxAbscissa, setMaxAbscissa] = useState(10);
   const [maxOrdinate, setMaxOrdinate] = useState(1);
 
+  const colors = [
+    {dark: "#0000e8", light: "#4d4dd6"},
+    {dark: "#f51707", light: "#f5574c"},
+    {dark: "#00a811", light: "#57b560"},
+  ];
+
   const onWindowResize = () => {
     if (wrapperRef.current) {
       setWrapperWidth(wrapperRef.current.offsetWidth);
@@ -20,6 +26,10 @@ export const FunctionPlot = ({
   };
 
   useEffect(() => {
+    const functions = expressions.map((formula, index) => {
+      return {fn: formula, color: colors[index].dark};
+    });
+
     const scaleFactor = 1.25;
     functionPlot({
       target: "#plot",
@@ -29,9 +39,7 @@ export const FunctionPlot = ({
       grid: true,
       disableZoom: true,
       data: [
-        {
-          fn: expression,
-        },
+        ...functions,
         {
           points: points,
           fnType: "points",
@@ -39,7 +47,7 @@ export const FunctionPlot = ({
         },
       ],
     });
-  }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expression]);
+  }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);
 
   useEffect(() => {
     if (points.length > 0) {
