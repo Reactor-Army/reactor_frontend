@@ -15,6 +15,9 @@ export const appColors = {
   gray: "#666",
   lightGray: "#aaa",
   black: "#000",
+  green: "#00a811",
+  lightGreen: "#21d133",
+  red: "#f51707",
 };
 
 export const appFontColors = {

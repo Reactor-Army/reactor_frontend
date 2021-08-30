@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import functionPlot from "function-plot";
 import {Plot, PlotWrapper} from "./FunctionPlotStyles";
+import {appColors} from "../../common/styles";
 
 export const FunctionPlot = ({
   expressions,
@@ -14,9 +15,9 @@ export const FunctionPlot = ({
   const [maxOrdinate, setMaxOrdinate] = useState(1);
 
   const colors = [
-    {dark: "#0000e8", light: "#4d4dd6"},
-    {dark: "#f51707", light: "#f5574c"},
-    {dark: "#00a811", light: "#57b560"},
+    {dark: appColors.primary, light: appColors.lightBlue},
+    {dark: appColors.red, light: appColors.red},
+    {dark: appColors.green, light: appColors.lightGreen},
   ];
 
   const onWindowResize = () => {
@@ -30,6 +31,15 @@ export const FunctionPlot = ({
       return {fn: formula, color: colors[index].dark};
     });
 
+    const plotPoints = points.map((set, index) => {
+      return {
+        points: set,
+        fnType: "points",
+        graphType: "scatter",
+        color: colors[index].light,
+      };
+    });
+
     const scaleFactor = 1.25;
     functionPlot({
       target: "#plot",
@@ -38,20 +48,14 @@ export const FunctionPlot = ({
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
       disableZoom: true,
-      data: [
-        ...functions,
-        {
-          points: points,
-          fnType: "points",
-          graphType: "scatter",
-        },
-      ],
+      data: [...functions, ...plotPoints],
     });
   }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);
 
   useEffect(() => {
-    if (points.length > 0) {
-      const maxCoordinates = points.reduce((firstPoint, secondPoint) => {
+    const allPoints = points.flat();
+    if (allPoints.length > 0) {
+      const maxCoordinates = allPoints.reduce((firstPoint, secondPoint) => {
         return [
           Math.max(firstPoint[0], secondPoint[0]),
           Math.max(firstPoint[1], secondPoint[1]),
@@ -68,7 +72,6 @@ export const FunctionPlot = ({
       window.removeEventListener("resize", onWindowResize);
     };
   }, []);
-
   return (
     <PlotWrapper ref={wrapperRef}>
       <Plot id="plot" />
