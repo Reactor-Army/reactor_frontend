@@ -5,8 +5,15 @@ import {
   FormLayout,
   ButtonContainer,
   SingleColumnFormLayout,
+  SingleRowFormLayout,
 } from "./FormStyles";
 import {SubmitButton} from "../Button/Button";
+
+export const FORM_LAYOUTS = {
+  SINGLE_COLUMN: "SINGLE_COLUMN",
+  SINGLE_ROW: "SINGLE_ROW",
+  ROWS: "ROWS",
+};
 
 export const Form = ({
   title,
@@ -16,9 +23,18 @@ export const Form = ({
   buttonLabel,
   errors,
   forceDisable,
-  singleColumn = false,
+  layout = FORM_LAYOUTS.ROWS,
 }) => {
-  const Layout = singleColumn ? SingleColumnFormLayout : FormLayout;
+  const LAYOUTS_TO_COMPONENT_MAP = {
+    [FORM_LAYOUTS.SINGLE_COLUMN]: SingleColumnFormLayout,
+    [FORM_LAYOUTS.SINGLE_ROW]: SingleRowFormLayout,
+    [FORM_LAYOUTS.ROWS]: FormLayout,
+  };
+
+  const Layout = LAYOUTS_TO_COMPONENT_MAP[layout];
+  if (!Layout) {
+    throw new Error(`Layout pasado al formulario inválido: ${layout}`);
+  }
   return (
     <>
       {title && <PageTitle title={title} />}

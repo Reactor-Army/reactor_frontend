@@ -20,6 +20,10 @@ export const SingleColumnFormLayout = styled.div`
   margin-bottom: 15px;
 `;
 
+export const SingleRowFormLayout = styled(FormLayout)`
+  grid-template-columns: repeat(${(props) => props.children.length}, 1fr);
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
