@@ -1,9 +1,10 @@
 import React, {useRef, useState, useEffect} from "react";
 import functionPlot from "function-plot";
 import {Plot, PlotWrapper} from "./FunctionPlotStyles";
+import {appColors} from "../../common/styles";
 
 export const FunctionPlot = ({
-  expression,
+  expressions,
   points = [],
   xAxisLabel = "",
   yAxisLabel = "",
@@ -13,6 +14,12 @@ export const FunctionPlot = ({
   const [maxAbscissa, setMaxAbscissa] = useState(10);
   const [maxOrdinate, setMaxOrdinate] = useState(1);
 
+  const colors = [
+    {dark: appColors.primary, light: appColors.lightBlue},
+    {dark: appColors.red, light: appColors.red},
+    {dark: appColors.green, light: appColors.lightGreen},
+  ];
+
   const onWindowResize = () => {
     if (wrapperRef.current) {
       setWrapperWidth(wrapperRef.current.offsetWidth);
@@ -20,6 +27,19 @@ export const FunctionPlot = ({
   };
 
   useEffect(() => {
+    const functions = expressions.map((formula, index) => {
+      return {fn: formula, color: colors[index % colors.length].dark};
+    });
+
+    const plotPoints = points.map((set, index) => {
+      return {
+        points: set,
+        fnType: "points",
+        graphType: "scatter",
+        color: colors[index % colors.length].light,
+      };
+    });
+
     const scaleFactor = 1.25;
     functionPlot({
       target: "#plot",
@@ -28,22 +48,14 @@ export const FunctionPlot = ({
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
       disableZoom: true,
-      data: [
-        {
-          fn: expression,
-        },
-        {
-          points: points,
-          fnType: "points",
-          graphType: "scatter",
-        },
-      ],
+      data: [...functions, ...plotPoints],
     });
-  }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expression]);
+  }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);
 
   useEffect(() => {
-    if (points.length > 0) {
-      const maxCoordinates = points.reduce((firstPoint, secondPoint) => {
+    const allPoints = points.flat();
+    if (allPoints.length > 0) {
+      const maxCoordinates = allPoints.reduce((firstPoint, secondPoint) => {
         return [
           Math.max(firstPoint[0], secondPoint[0]),
           Math.max(firstPoint[1], secondPoint[1]),

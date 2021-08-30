@@ -3,24 +3,36 @@ import {ErrorMessage, ErrorMessageContainer} from "./ThomasModelPlotStyles";
 import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
 import {THOMAS_MODEL_AXIS_LABELS} from "../../../../common/fields";
 
-export const ThomasModelPlot = ({Kth, F, q0, W, C0, points}) => {
+export const ThomasModelPlot = ({expressions, points = []}) => {
   const [validParamters, setValidParameters] = useState();
-  const [expression, setExpression] = useState();
+  const [functions, setFunctions] = useState();
 
   useEffect(() => {
-    if (F > 0) {
+    if (
+      expressions.every((expression) => {
+        return expression.F > 0;
+      })
+    ) {
       setValidParameters(true);
-      setExpression(`1/(1+exp(${(Kth / F) * (q0 * W)} - ${(Kth / F) * C0}x))`);
+      setFunctions(
+        expressions.map((expression) => {
+          /*The following expression is the exponential form that the Thomas's model uses to try 
+            to fit a set of points and is the one that gets graphed at the Thomas's model view*/
+          return `1/(1+exp(${
+            (expression.Kth / expression.F) * (expression.q0 * expression.W)
+          } - ${(expression.Kth / expression.F) * expression.C0}x))`;
+        }),
+      );
     } else {
       setValidParameters(false);
     }
-  }, [Kth, F, q0, W, C0, points]);
+  }, [expressions, points]);
 
   return (
     <>
-      {validParamters && expression ? (
+      {validParamters && expressions.length ? (
         <FunctionPlot
-          expression={expression}
+          expressions={functions}
           points={points}
           xAxisLabel={THOMAS_MODEL_AXIS_LABELS.X_LABEL}
           yAxisLabel={THOMAS_MODEL_AXIS_LABELS.Y_LABEL}

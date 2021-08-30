@@ -16,7 +16,7 @@ export const Plot = styled.div`
     r: 4;
   }
 
-  .line-0 {
+  .line {
     stroke-width: 3px;
     stroke-linecap: round;
   }

@@ -7,7 +7,7 @@ export const ThomasResults = ({response}) => {
   return (
     <div>
       <ResultsTitle />
-      <ThomasModelPlot {...response} />
+      <ThomasModelPlot points={[response.points]} expressions={[response]} />
       <ThomasResultFields kth={response.Kth} q0={response.q0} />
     </div>
   );
