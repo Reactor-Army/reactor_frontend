@@ -40,3 +40,18 @@ export const Message = styled.div`
   font-weight: bold;
   text-align: center;
 `;
+
+export const Info = styled.div`
+  font-family: ${appFontFamily.primary};
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: justify;
+`;
+
+export const Ecuation = styled.img`
+  margin: 0 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+`;
