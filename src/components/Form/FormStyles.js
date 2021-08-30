@@ -27,4 +27,5 @@ export const SingleRowFormLayout = styled(FormLayout)`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;

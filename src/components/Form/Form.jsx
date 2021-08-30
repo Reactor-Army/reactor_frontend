@@ -3,11 +3,10 @@ import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
 import {
   FormLayout,
-  ButtonContainer,
   SingleColumnFormLayout,
   SingleRowFormLayout,
 } from "./FormStyles";
-import {SubmitButton} from "../Button/Button";
+import {FormSubmitButton} from "./FormSubmitButton";
 
 export const FORM_LAYOUTS = {
   SINGLE_COLUMN: "SINGLE_COLUMN",
@@ -35,6 +34,16 @@ export const Form = ({
   if (!Layout) {
     throw new Error(`Layout pasado al formulario inválido: ${layout}`);
   }
+  const Button = (
+    <FormSubmitButton
+      buttonLabel={buttonLabel}
+      disabled={errors || forceDisable}
+    />
+  );
+  let children = fields;
+  if (layout === FORM_LAYOUTS.SINGLE_ROW) {
+    children = [...fields, Button];
+  }
   return (
     <>
       {title && <PageTitle title={title} />}
@@ -46,14 +55,8 @@ export const Form = ({
           actions.setSubmitting(false);
         }}>
         <FormikForm>
-          <Layout>{fields}</Layout>
-
-          <ButtonContainer>
-            <SubmitButton
-              text={buttonLabel}
-              disabled={errors || forceDisable}
-            />
-          </ButtonContainer>
+          <Layout>{children}</Layout>
+          {layout !== FORM_LAYOUTS.SINGLE_ROW && <Button />}
         </FormikForm>
       </Formik>
     </>
