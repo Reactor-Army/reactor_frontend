@@ -28,7 +28,7 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     const functions = expressions.map((formula, index) => {
-      return {fn: formula, color: colors[index].dark};
+      return {fn: formula, color: colors[index % colors.length].dark};
     });
 
     const plotPoints = points.map((set, index) => {
@@ -36,7 +36,7 @@ export const FunctionPlot = ({
         points: set,
         fnType: "points",
         graphType: "scatter",
-        color: colors[index].light,
+        color: colors[index % colors.length].light,
       };
     });
 
@@ -72,6 +72,7 @@ export const FunctionPlot = ({
       window.removeEventListener("resize", onWindowResize);
     };
   }, []);
+
   return (
     <PlotWrapper ref={wrapperRef}>
       <Plot id="plot" />
