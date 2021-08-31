@@ -20,13 +20,6 @@ export const BodyContainer = styled.div`
   padding: 10px;
 `;
 
-export const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  max-width: 2000px;
-`;
-
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -47,47 +40,3 @@ export const Message = styled.div`
   font-weight: bold;
   text-align: center;
 `;
-
-export const Info = styled.div`
-  font-family: ${appFontFamily.primary};
-  font-size: 14px;
-  margin-bottom: 10px;
-  text-align: justify;
-`;
-
-export const Ecuation = styled.img`
-  margin: 0 5px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: calc(300px + 0.5vw);
-  height: calc(60px + 0.5vw);
-`;
-
-export const UnitContainer = styled.div`
-  display: flex;
-  margin: 0 2px;
-`;
-
-export const VariableContainer = styled.div`
-  display: flex;
-`;
-
-export const SupUnit = styled.sup``;
-
-export const InfoVariable = styled.div`
-  font-family: ${appFontFamily.primary};
-  font-size: 14px;
-  margin: 0 5px;
-  text-align: justify;
-`;
-
-export const NameVariable = styled.div`
-  font-family: ${appFontFamily.primary};
-  font-size: 14px;
-  margin: 0 5px;
-  text-align: justify;
-  font-weight: bold;
-`;
-
-export const SubName = styled.sub``;

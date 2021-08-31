@@ -1,5 +1,5 @@
 import React from "react";
-import {NameVariable, SubName} from "../../Modals/ModalStyles";
+import {NameVariable, SubName} from "../InfoStyles";
 
 export const VariableName = ({letter, subLetters}) => {
   return (
