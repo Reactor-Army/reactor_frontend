@@ -72,11 +72,19 @@ export const Container = styled.div`
   margin: auto;
 
   @media (max-width: 500px) {
-    height: 73vh;
+    height: 80vh;
     overflow-y: scroll;
     overflow-x: hidden;
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+
+  @media (max-width: 415px) {
+    height: 78vh;
+  }
+
+  @media (max-width: 375px) {
+    height: 72vh;
   }
 `;
