@@ -39,6 +39,6 @@ export const FormContainer = styled.div`
   display: ${({layout}) =>
     layout === FORM_LAYOUTS.SINGLE_ROW ? "flex" : "block"};
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
 `;
