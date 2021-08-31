@@ -29,3 +29,9 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+`;
