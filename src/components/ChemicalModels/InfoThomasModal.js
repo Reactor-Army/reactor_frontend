@@ -1,37 +1,44 @@
 import {Button} from "../Button/Button";
 import React from "react";
 import {
-  BodyContainer,
+  InfoContainer,
   ButtonsContainer,
   Ecuation,
   Info,
 } from "../Modals/ModalStyles";
 import {Modal} from "../Modals/Modal";
 import thomas from "../../resources/images/thomas.png";
+import {Kth} from "./Variables/Kth";
+import {Qo} from "./Variables/Qo";
+import {Vef} from "./Variables/Vef";
+import {F} from "./Variables/F";
+import {Co} from "./Variables/Co";
+import {C} from "./Variables/C";
+import {W} from "./Variables/W";
 
 export const InfoThomasModal = ({closeModal, openModal}) => {
-  console.log(openModal);
   return (
     <Modal open={openModal} onClose={closeModal}>
-      <BodyContainer>
+      <InfoContainer>
         <Info>
-          El modelo de Thomas (Thomas, 1944) es uno de los más generales y
-          utilizados para describir el comportamiento del proceso de adsorción
-          en columnas de lecho fijo. Se basa en el supuesto de que el
-          comportamiento de la adsorción sigue la isoterma de Langmuir, la
-          velocidad de reacción obedece una cinética de segundo orden, la
-          dispersión axial y radial es insignificante y la difusión
-          intraparticular y la resistencia externa durante los procesos de
-          transferencia de masa se consideran despreciables (Borba et al., 2008,
-          Acheampong et al., 2013, Saad et al., 2015). Se emplea para obtener la
-          máxima capacidad de adsorción del adsorbente y tiene la forma definida
-          por la siguiente ecuación
+          El modelo de Thomas es uno de los más generales y utilizados para
+          describir el comportamiento del proceso de adsorción en columnas de
+          lecho fijo. Se usa para conocer la máxima capacidad de adsorción de un
+          adsorbente y obtener el rendimiento teórico de la columna
         </Info>
         <Ecuation src={thomas} alt="Ecuacion Thomas"></Ecuation>
+        <Info>Donde:</Info>
+        <Kth></Kth>
+        <Qo></Qo>
+        <Vef></Vef>
+        <F></F>
+        <Co></Co>
+        <C></C>
+        <W></W>
         <ButtonsContainer>
           <Button text={"Cerrar"} onClick={closeModal} />
         </ButtonsContainer>
-      </BodyContainer>
+      </InfoContainer>
     </Modal>
   );
 };

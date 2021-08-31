@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
 
 export const ModalContent = styled.div`
-  max-width: 600px;
   background-color: ${appColors.white};
   border: 1px solid ${appColors.gray};
   position: absolute;
@@ -15,9 +14,17 @@ export const ModalContent = styled.div`
 `;
 
 export const BodyContainer = styled.div`
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   padding: 10px;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 2000px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -53,5 +60,34 @@ export const Ecuation = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: calc(300px + 0.5vw);
+  height: calc(60px + 0.5vw);
 `;
+
+export const UnitContainer = styled.div`
+  display: flex;
+  margin: 0 2px;
+`;
+
+export const VariableContainer = styled.div`
+  display: flex;
+`;
+
+export const SupUnit = styled.sup``;
+
+export const InfoVariable = styled.div`
+  font-family: ${appFontFamily.primary};
+  font-size: 14px;
+  margin: 0 5px;
+  text-align: justify;
+`;
+
+export const NameVariable = styled.div`
+  font-family: ${appFontFamily.primary};
+  font-size: 14px;
+  margin: 0 5px;
+  text-align: justify;
+  font-weight: bold;
+`;
+
+export const SubName = styled.sub``;

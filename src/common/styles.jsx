@@ -55,8 +55,8 @@ export const PageHeaderContanier = styled.div`
 `;
 
 export const Icon = styled.img`
-  max-width: calc(1vw);
-  height: calc(1.2vw);
+  max-width: calc(10px + 0.5vw);
+  height: calc(10px + 0.5vw);
   margin: 0 5px 15px;
   cursor: pointer;
 `;
