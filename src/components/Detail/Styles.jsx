@@ -25,11 +25,12 @@ export const SectionHeaderContainer = styled.div`
 
 export const ButtonsSection = styled.div`
   display: flex;
+  min-width: 200px;
+  justify-content: space-evenly;
 
   @media (max-width: 500px) {
     position: fixed;
     bottom: 2%;
-    justify-content: space-evenly;
     width: 80vw;
     z-index: 1;
   }
@@ -71,7 +72,7 @@ export const Container = styled.div`
   margin: auto;
 
   @media (max-width: 500px) {
-    height: 75vh;
+    height: 73vh;
     overflow-y: scroll;
     overflow-x: hidden;
     &::-webkit-scrollbar {
