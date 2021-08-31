@@ -8,3 +8,7 @@ export const ThomasPageLayout = styled.div`
   margin-bottom: 15px;
   margin-top: 20px;
 `;
+
+export const ThomasResultsContainer = styled.div`
+  max-width: 100vw;
+`;
