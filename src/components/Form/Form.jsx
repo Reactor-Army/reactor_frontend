@@ -47,7 +47,7 @@ export const Form = ({
           actions.setSubmitting(false);
         }}>
         <FormikForm>
-          <FormContainer>
+          <FormContainer layout={layout}>
             <Layout>{fields}</Layout>
             <ButtonContainer>
               <SubmitButton

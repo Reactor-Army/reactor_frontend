@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import {FORM_LAYOUTS} from "./Form";
 
 export const FormLayout = styled.div`
   display: grid;
@@ -35,7 +36,8 @@ export const ButtonContainer = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  display: flex;
+  display: ${({layout}) =>
+    layout === FORM_LAYOUTS.SINGLE_ROW ? "flex" : "block"};
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
