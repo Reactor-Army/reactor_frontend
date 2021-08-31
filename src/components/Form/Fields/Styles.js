@@ -8,17 +8,17 @@ export const fileFieldStyles = makeStyles({
   dummyInput: {
     display: "none",
   },
-  label: {height: "100%", marginLeft: 15, textAlign: "center"},
+  label: {height: 56, marginLeft: 15, textAlign: "center"},
 });
 
 export const uploadButtonStyles = makeStyles({
   button: {
-    height: "100%",
+    height: 56,
   },
 });
 
 export const FileFieldContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 `;

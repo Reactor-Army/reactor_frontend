@@ -77,7 +77,14 @@ export const FormSelectorField = ({
 };
 
 const TextField = ({field, ...props}) => {
-  return <MuiTextField variant="outlined" {...field} {...props} />;
+  return (
+    <MuiTextField
+      variant="outlined"
+      {...field}
+      {...props}
+      style={{height: 60}}
+    />
+  );
 };
 
 const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {
