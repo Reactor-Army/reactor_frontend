@@ -11,6 +11,12 @@ export const fileFieldStyles = makeStyles({
   label: {height: 56, marginLeft: 15, textAlign: "center"},
 });
 
+export const numericFieldStyles = makeStyles({
+  textField: {
+    height: 60,
+  },
+});
+
 export const uploadButtonStyles = makeStyles({
   button: {
     height: 56,

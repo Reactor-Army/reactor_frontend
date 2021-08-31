@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import {
   FileFieldContainer,
   fileFieldStyles,
+  numericFieldStyles,
   uploadButtonStyles,
 } from "./Styles";
 
@@ -77,12 +78,13 @@ export const FormSelectorField = ({
 };
 
 const TextField = ({field, ...props}) => {
+  const classes = numericFieldStyles();
   return (
     <MuiTextField
       variant="outlined"
       {...field}
       {...props}
-      style={{height: 60}}
+      className={classes.textField}
     />
   );
 };
