@@ -22,6 +22,10 @@ export const SingleColumnFormLayout = styled.div`
 
 export const SingleRowFormLayout = styled(FormLayout)`
   grid-template-columns: repeat(${(props) => props.children.length}, 1fr);
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ButtonContainer = styled.div`
