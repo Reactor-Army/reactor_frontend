@@ -7,7 +7,4 @@ export const ThomasPageLayout = styled.div`
   grid-row-gap: 60px;
   margin-bottom: 15px;
   margin-top: 20px;
-  @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 `;

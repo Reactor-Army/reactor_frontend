@@ -33,9 +33,6 @@ export const Form = ({
   };
 
   const Layout = LAYOUTS_TO_COMPONENT_MAP[layout];
-  if (!Layout) {
-    throw new Error(`Layout pasado al formulario inválido: ${layout}`);
-  }
   return (
     <>
       {title && <PageTitle title={title} />}
