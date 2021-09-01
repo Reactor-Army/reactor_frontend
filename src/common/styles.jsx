@@ -56,3 +56,10 @@ export const PageHeaderContanier = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const Icon = styled.img`
+  max-width: calc(15px + 0.5vw);
+  height: calc(15px + 0.5vw);
+  margin: 0 5px 15px;
+  cursor: pointer;
+`;

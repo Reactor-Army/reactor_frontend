@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
 
 export const ModalContent = styled.div`
-  max-width: 600px;
   background-color: ${appColors.white};
   border: 1px solid ${appColors.gray};
   position: absolute;
@@ -15,6 +14,7 @@ export const ModalContent = styled.div`
 `;
 
 export const BodyContainer = styled.div`
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   padding: 10px;

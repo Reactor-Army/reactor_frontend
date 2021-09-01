@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {PageTitle} from "../../common/PageTitle";
+import {ModelTitle} from "../../common/ModelTitle";
+import {Row} from "../../common/styles";
 import {thomas} from "../../services/models";
 import {ThomasModelForm} from "../../components/ChemicalModels/Thomas/ThomasModelForm";
 import {
@@ -40,7 +41,9 @@ export const ThomasContainer = () => {
 
   return (
     <>
-      <PageTitle title={"Modelo de Thomas"} />
+      <Row>
+        <ModelTitle title={"Modelo de Thomas"} />
+      </Row>
       <ThomasHelpText />
       <ThomasPageLayout>
         <ThomasModelForm onSubmit={onSubmit} />
