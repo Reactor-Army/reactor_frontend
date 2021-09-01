@@ -50,8 +50,7 @@ export const LinkText = styled.p`
 `;
 
 export const TitleText = styled.p`
-  text-align: left;
-  margin-left: -10px;
+  margin-left: -12px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;
