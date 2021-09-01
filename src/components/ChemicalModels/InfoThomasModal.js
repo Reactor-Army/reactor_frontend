@@ -50,10 +50,10 @@ export const InfoThomasModal = ({closeModal, openModal}) => {
           letter="W"
           info="Es la cantidad de sorbente en el interior del reactor"
         />
+        <ButtonInfoContainer>
+          <Button text="Cerrar" onClick={closeModal} />
+        </ButtonInfoContainer>
       </InfoContainer>
-      <ButtonInfoContainer>
-        <Button text="Cerrar" onClick={closeModal} />
-      </ButtonInfoContainer>
     </Modal>
   );
 };
