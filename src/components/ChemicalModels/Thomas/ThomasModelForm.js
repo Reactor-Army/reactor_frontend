@@ -1,5 +1,5 @@
 import {FileField, FormNumericField} from "../../Form/Fields/FormFields";
-import {Form} from "../../Form/Form";
+import {Form, FORM_LAYOUTS} from "../../Form/Form";
 import {THOMAS_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {filterBlank} from "../../Create/validations";
 import {
@@ -30,6 +30,7 @@ export const ThomasModelForm = ({onSubmit}) => {
       buttonLabel={"Calcular"}
       forceDisable={file === null}
       errors={filterBlank(errorValues)}
+      layout={FORM_LAYOUTS.SINGLE_ROW}
       fields={[
         // Este field ni siquiera pertenece a Formik pero lo encajás acá y funciona igual. Viva Javascript
         <FileField key={0} onChange={onFileChange} />,

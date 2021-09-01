@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import {
   FileFieldContainer,
   fileFieldStyles,
+  numericFieldStyles,
   uploadButtonStyles,
 } from "./Styles";
 
@@ -77,7 +78,15 @@ export const FormSelectorField = ({
 };
 
 const TextField = ({field, ...props}) => {
-  return <MuiTextField variant="outlined" {...field} {...props} />;
+  const classes = numericFieldStyles();
+  return (
+    <MuiTextField
+      variant="outlined"
+      {...field}
+      {...props}
+      className={classes.textField}
+    />
+  );
 };
 
 const BooleanRadioGroup = ({formComponentName, form, field, ...props}) => {

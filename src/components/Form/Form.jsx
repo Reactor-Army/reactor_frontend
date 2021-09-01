@@ -2,11 +2,19 @@ import React from "react";
 import {Formik, Form as FormikForm} from "formik";
 import {PageTitle} from "../../common/PageTitle";
 import {
-  FormLayout,
   ButtonContainer,
+  FormContainer,
+  FormLayout,
   SingleColumnFormLayout,
+  SingleRowFormLayout,
 } from "./FormStyles";
 import {SubmitButton} from "../Button/Button";
+
+export const FORM_LAYOUTS = {
+  SINGLE_COLUMN: "SINGLE_COLUMN",
+  SINGLE_ROW: "SINGLE_ROW",
+  ROWS: "ROWS",
+};
 
 export const Form = ({
   title,
@@ -16,9 +24,15 @@ export const Form = ({
   buttonLabel,
   errors,
   forceDisable,
-  singleColumn = false,
+  layout = FORM_LAYOUTS.ROWS,
 }) => {
-  const Layout = singleColumn ? SingleColumnFormLayout : FormLayout;
+  const LAYOUTS_TO_COMPONENT_MAP = {
+    [FORM_LAYOUTS.SINGLE_COLUMN]: SingleColumnFormLayout,
+    [FORM_LAYOUTS.SINGLE_ROW]: SingleRowFormLayout,
+    [FORM_LAYOUTS.ROWS]: FormLayout,
+  };
+
+  const Layout = LAYOUTS_TO_COMPONENT_MAP[layout];
   return (
     <>
       {title && <PageTitle title={title} />}
@@ -30,14 +44,15 @@ export const Form = ({
           actions.setSubmitting(false);
         }}>
         <FormikForm>
-          <Layout>{fields}</Layout>
-
-          <ButtonContainer>
-            <SubmitButton
-              text={buttonLabel}
-              disabled={errors || forceDisable}
-            />
-          </ButtonContainer>
+          <FormContainer layout={layout}>
+            <Layout>{fields}</Layout>
+            <ButtonContainer>
+              <SubmitButton
+                text={buttonLabel}
+                disabled={errors || forceDisable}
+              />
+            </ButtonContainer>
+          </FormContainer>
         </FormikForm>
       </Formik>
     </>
