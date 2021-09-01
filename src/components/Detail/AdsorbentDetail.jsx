@@ -13,6 +13,7 @@ import {
 import {ADSORBATE_FIELDS, ADSORBENT_FIELDS} from "../../common/fields";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 import {UNITS} from "../../common/fields";
+import {Container} from "./Styles";
 
 export const AdsorbentDetail = ({adsorbent}) => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,7 @@ export const AdsorbentDetail = ({adsorbent}) => {
   };
 
   return (
-    <>
+    <Container>
       <DeleteAdsorbateOrAdsorbentModal
         open={showModal}
         onClose={() => setShowModal(false)}
@@ -81,6 +82,6 @@ export const AdsorbentDetail = ({adsorbent}) => {
           value={adsorbent.observaciones}
         />
       </DetailTable>
-    </>
+    </Container>
   );
 };

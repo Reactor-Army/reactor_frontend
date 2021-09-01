@@ -19,7 +19,7 @@ import {
   DetailTableRow,
   DetailTableFormulaRow,
 } from "../DetailTable/DetailTable";
-import {DetailTableGrid} from "./Styles";
+import {DetailTableGrid, Container} from "./Styles";
 
 export const AdsorbateDetail = ({adsorbate}) => {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +27,7 @@ export const AdsorbateDetail = ({adsorbate}) => {
     setShowModal(true);
   };
   return (
-    <>
+    <Container>
       <DetailHeader
         title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
         id={adsorbate.id}
@@ -87,6 +87,6 @@ export const AdsorbateDetail = ({adsorbate}) => {
         deleteFunction={deleteAdsorbate}
         successRedirectURL={URLS.ADSORBATES_LIST}
       />
-    </>
+    </Container>
   );
 };
