@@ -20,22 +20,37 @@ export const useStyles = makeStyles((theme) => ({
 
 export const LinkContainer = styled.div`
   width: 95%;
+  margin: auto;
   border-radius: 8px;
   height: 50px;
-  margin: auto;
+  display: flex;
+  align-items: center;
 
   &:hover {
-    background-color: rgba(29, 61, 142, 0.1);
+    background-color: ${appColors.darkBlue};
     cursor: pointer;
   }
 `;
 
+export const TitleContainer = styled.div`
+  width: 95%;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 30px;
+  cursor: default;
+`;
+
 export const LinkText = styled.p`
   text-align: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   margin-left: 10px;
+  font-family: ${appFontFamily.primary};
+  color: ${appFontColors.fontColorMenu};
+  font-size: 18px;
+  white-space: nowrap;
+`;
+
+export const TitleText = styled.p`
+  margin-left: -12px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;
