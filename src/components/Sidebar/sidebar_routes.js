@@ -6,7 +6,13 @@ export const routes = [
     path: URLS.HOME,
     text: "Inicio",
   },
-
+  {
+    path: URLS.ABOUT_US,
+    text: "Sobre el proyecto",
+  },
+  {
+    text: "Reactores discontinuos",
+  },
   {
     path: URLS.ADSORBATES_LIST,
     text: "Adsorbatos",
@@ -26,11 +32,10 @@ export const routes = [
     text: "Buscar adsorbente",
   },
   {
-    path: URLS.THOMAS,
-    text: "Modelo de Thomas",
+    text: "Reactores continuos",
   },
   {
-    path: URLS.ABOUT_US,
-    text: "Sobre el proyecto",
+    path: URLS.THOMAS,
+    text: "Modelo de Thomas",
   },
 ];

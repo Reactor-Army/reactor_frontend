@@ -21,13 +21,19 @@ export const useStyles = makeStyles((theme) => ({
 export const LinkContainer = styled.div`
   width: 95%;
   border-radius: 8px;
-  height: 50px;
   margin: auto;
 
   &:hover {
-    background-color: rgba(29, 61, 142, 0.1);
+    background-color: red;
     cursor: pointer;
   }
+`;
+
+export const TitleContainer = styled.div`
+  width: 95%;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 40px;
 `;
 
 export const LinkText = styled.p`
@@ -36,6 +42,17 @@ export const LinkText = styled.p`
   top: 50%;
   transform: translateY(-50%);
   margin-left: 10px;
+  font-family: ${appFontFamily.primary};
+  color: ${appFontColors.fontColorMenu};
+  font-size: 18px;
+  white-space: nowrap;
+`;
+
+export const TitleText = styled.p`
+  text-align: left;
+  position: relative;
+  transform: translateY(-50%);
+  margin-left: -10px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
   font-weight: bold;
