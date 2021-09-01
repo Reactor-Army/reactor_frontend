@@ -13,7 +13,7 @@ export function ModelTitle({title}) {
     <>
       <Row>
         {title}
-        <Icon src={info_icon} alt="Logo Fiuba" onClick={() => imageClick()} />
+        <Icon src={info_icon} alt="Informacion" onClick={() => imageClick()} />
       </Row>
       <InfoThomasModal
         closeModal={() => setOpenModal(false)}
