@@ -40,5 +40,5 @@ export const FormContainer = styled.div`
     layout === FORM_LAYOUTS.SINGLE_ROW ? "flex" : "block"};
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 `;
