@@ -10,8 +10,7 @@ export const Info = styled.div`
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px 30px;
-  max-width: 2000px;
+  padding: 30px;
 `;
 
 export const InfoTitle = styled.div`
@@ -23,10 +22,8 @@ export const InfoTitle = styled.div`
 `;
 
 export const Ecuation = styled.img`
-  margin: 0 5px;
+  margin: 0 auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: calc(300px + 0.5vw);
   height: calc(60px + 0.5vw);
 `;
@@ -41,8 +38,6 @@ export const VariableContainer = styled.div`
   margin: 3px 0;
 `;
 
-export const SupUnit = styled.sup``;
-
 export const InfoVariable = styled.div`
   font-family: ${appFontFamily.primary};
   font-size: 14px;
@@ -56,8 +51,6 @@ export const NameVariable = styled.div`
   font-weight: bold;
   width: 20px;
 `;
-
-export const SubName = styled.sub``;
 
 export const ButtonInfoContainer = styled.div`
   display: flex;

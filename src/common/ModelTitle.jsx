@@ -8,18 +8,16 @@ export function ModelTitle({title}) {
 
   const imageClick = () => {
     setOpenModal(true);
-    console.log(openModal);
   };
   return (
     <>
       <Row>
-        <>{title}</>
+        {title}
         <Icon src={info_icon} alt="Logo Fiuba" onClick={() => imageClick()} />
       </Row>
       <InfoThomasModal
         closeModal={() => setOpenModal(false)}
         openModal={openModal}
-        infoText={"HOLAAAA"}
       />
     </>
   );
