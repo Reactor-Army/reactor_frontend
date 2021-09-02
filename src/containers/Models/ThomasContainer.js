@@ -11,6 +11,7 @@ import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/ThomasSty
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
+import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -46,6 +47,7 @@ export const ThomasContainer = () => {
       </Row>
       <ThomasHelpText />
       <ThomasPageLayout>
+        <FileUpload />
         <ThomasModelForm onSubmit={onSubmit} />
         {response && <ThomasResults response={response} />}
       </ThomasPageLayout>
