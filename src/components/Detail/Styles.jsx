@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {StyledButton} from "../Button/ButtonStyles";
+import {SmallButton} from "../Button/ButtonStyles";
 import {appColors, appFontFamily} from "../../common/styles";
 
 export const Tag = styled.div`
@@ -42,7 +42,7 @@ export const EffectiveVolumeButtonContainer = styled.div`
   justify-content: center;
 `;
 
-export const EffectiveVolumeStyledButton = styled(StyledButton)`
+export const EffectiveVolumeStyledButton = styled(SmallButton)`
   height: 60px;
   width: 280px;
 

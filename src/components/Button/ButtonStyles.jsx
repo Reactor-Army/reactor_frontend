@@ -1,11 +1,11 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily, appFontColors} from "../../common/styles";
 
-export const StyledButton = styled.button`
-  color: rgba(0, 0, 0, 0.87);
+export const SmallButton = styled.button`
+  color: ${appColors.darkBlue};
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%);
   background-color: ${appColors.primary};
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.card};
   color: ${appFontColors.white};
   font-size: 16px;
   border-radius: 4px;
@@ -22,6 +22,16 @@ export const StyledButton = styled.button`
   &:active {
     background-color: ${appColors.primary};
   }
+`;
+
+export const MediumButton = styled(SmallButton)`
+  width: 150px;
+  height: 50px;
+`;
+
+export const BigButton = styled(SmallButton)`
+  width: 200px;
+  height: 60px;
 `;
 
 export const StyledSubmit = styled.button.attrs({

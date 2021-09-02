@@ -7,10 +7,14 @@ import {
   THOMAS_REQUEST_FIELDS,
   THOMAS_RESPONSE_FIELDS,
 } from "../../common/fields";
-import {ThomasPageLayout} from "../../components/ChemicalModels/Thomas/ThomasStyles";
+import {
+  ThomasPageLayout,
+  ButtonWrapper,
+} from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
+import {Button} from "../../components/Button/Button";
 
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
@@ -44,10 +48,26 @@ export const ThomasContainer = () => {
       <Row>
         <ModelTitle title={"Modelo de Thomas"} />
       </Row>
-      <ThomasHelpText />
       <ThomasPageLayout>
-        <ThomasModelForm onSubmit={onSubmit} />
-        {response && <ThomasResults response={response} />}
+        {response ? (
+          <>
+            <ThomasResults response={response} />
+            <ButtonWrapper>
+              <Button
+                size="medium"
+                text="Volver a graficar"
+                onClick={() => {
+                  setResponse(null);
+                }}
+              />
+            </ButtonWrapper>
+          </>
+        ) : (
+          <>
+            <ThomasHelpText />
+            <ThomasModelForm onSubmit={onSubmit} />
+          </>
+        )}
       </ThomasPageLayout>
       <ErrorModal closeModal={() => setError(null)} error={error} />
     </>

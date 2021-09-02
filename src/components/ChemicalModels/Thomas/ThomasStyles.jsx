@@ -1,13 +1,16 @@
 import styled from "styled-components/macro";
 import {appColors} from "../../../common/styles";
 
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
 export const ThomasPageLayout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: 50px;
-  grid-row-gap: 60px;
-  margin-bottom: 15px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ThomasResultsContainer = styled.div`
@@ -51,7 +54,7 @@ export const Title = styled.div`
 export const DataFramesWrapper = styled.div`
   display: inline-flex;
   gap: 15px;
-  justify-content: center;
+  width: 100%;
 
   @media (max-width: 700px) {
     width: 97%;
