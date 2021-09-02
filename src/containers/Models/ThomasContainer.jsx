@@ -19,8 +19,10 @@ import {Button} from "../../components/Button/Button";
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
+  const [inputValues, setInputValues] = useState();
 
   const onSubmit = async (file, values) => {
+    setInputValues(values);
     let apiResponse;
     try {
       apiResponse = await thomas(file, values);
@@ -51,7 +53,7 @@ export const ThomasContainer = () => {
       <ThomasPageLayout>
         {response ? (
           <>
-            <ThomasResults response={response} />
+            <ThomasResults response={response} inputValues={inputValues} />
             <ButtonWrapper>
               <Button
                 size="medium"

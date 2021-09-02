@@ -6,13 +6,18 @@ import React from "react";
 import {ThomasResultsContainer} from "./ThomasStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ThomasStyles";
 
-export const ThomasResults = ({response}) => {
+export const ThomasResults = ({response, inputValues}) => {
+  console.log(inputValues);
   return (
     <ThomasResultsContainer>
       <DataFramesWrapper>
         <DataFrame>
           <Title>Datos de entrada</Title>
-          <ThomasInputFields kth={response.Kth} q0={response.q0} />
+          <ThomasInputFields
+            F={inputValues.caudalVolumetrico}
+            C0={inputValues.concentracionInicial}
+            W={inputValues.sorbenteReactor}
+          />
         </DataFrame>
         <DataFrame>
           <Title>Resultados de salida</Title>
