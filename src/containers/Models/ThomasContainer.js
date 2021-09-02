@@ -16,11 +16,12 @@ import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 export const ThomasContainer = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
+  const [files, setNewFiles] = useState([]);
 
-  const onSubmit = async (file, values) => {
+  const onSubmit = async (values) => {
     let apiResponse;
     try {
-      apiResponse = await thomas(file, values);
+      apiResponse = await thomas(files[0], values);
     } catch (e) {
       setError(e.response.data.message);
       setResponse(null);
@@ -47,7 +48,7 @@ export const ThomasContainer = () => {
       </Row>
       <ThomasHelpText />
       <ThomasPageLayout>
-        <FileUpload />
+        <FileUpload files={files} setNewFiles={setNewFiles} />
         <ThomasModelForm onSubmit={onSubmit} />
         {response && <ThomasResults response={response} />}
       </ThomasPageLayout>

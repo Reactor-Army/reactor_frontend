@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDropzone} from "react-dropzone";
 import {FileUploadContainer} from "./ChemicalModelStyles";
 
-export const FileUpload = () => {
-  const [files, setNewFiles] = useState([]);
+export const FileUpload = ({files, setNewFiles}) => {
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
     maxFiles: 3 - files.length,
     multiple: true,
