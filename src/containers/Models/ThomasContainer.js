@@ -14,31 +14,37 @@ import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 
 export const ThomasContainer = () => {
-  const [response, setResponse] = useState(null);
+  const [responses, setResponses] = useState([]);
   const [error, setError] = useState(null);
   const [files, setNewFiles] = useState([]);
 
-  const onSubmit = async (values) => {
+  const submitFile = async (file, values) => {
     let apiResponse;
     try {
-      apiResponse = await thomas(files[0], values);
+      apiResponse = await thomas(file, values);
     } catch (e) {
       setError(e.response.data.message);
-      setResponse(null);
+      setResponses(null);
       return;
     }
-
-    setResponse({
-      F: values[THOMAS_REQUEST_FIELDS.FLOW],
-      W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-      C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-      Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-      q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
-      points: apiResponse[
-        THOMAS_RESPONSE_FIELDS.OBSERVATIONS
-      ].map((observation) => [observation.x, observation.y]),
-    });
+    setResponses((prev) => [
+      ...prev,
+      {
+        F: values[THOMAS_REQUEST_FIELDS.FLOW],
+        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
+        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
+        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
+        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        points: apiResponse[
+          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
+      },
+    ]);
     setError(null);
+  };
+
+  const onSubmit = async (values) => {
+    files.map((x) => submitFile(x, values));
   };
 
   return (
@@ -50,7 +56,7 @@ export const ThomasContainer = () => {
       <ThomasPageLayout>
         <FileUpload files={files} setNewFiles={setNewFiles} />
         <ThomasModelForm onSubmit={onSubmit} />
-        {response && <ThomasResults response={response} />}
+        {responses.length && <ThomasResults responses={responses} />}
       </ThomasPageLayout>
       <ErrorModal closeModal={() => setError(null)} error={error} />
     </>
