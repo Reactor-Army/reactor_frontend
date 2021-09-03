@@ -73,7 +73,7 @@ export const ThomasContainer = () => {
           forceDisable={files.length === 0}
           onSubmit={onSubmit}
         />
-        {responses.length && responses.length === files.length && (
+        {responses.length > 0 && responses.length === files.length && (
           <ThomasResults responses={responses} />
         )}
       </ThomasPageLayout>
