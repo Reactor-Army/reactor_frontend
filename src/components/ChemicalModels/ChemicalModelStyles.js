@@ -39,3 +39,18 @@ export const FileUploadContainer = styled.div`
   outline: none;
   transition: border 0.24s ease-in-out;
 `;
+
+export const FileCardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  margin-top: 15px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export const FileCardContainer = styled.div`
+  display: flex;
+`;
