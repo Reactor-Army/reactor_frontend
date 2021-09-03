@@ -33,7 +33,7 @@ export const ThomasContainer = () => {
         index: index,
       });
       setResponses([]);
-      return;
+      return false;
     }
     setResponses((prev) => [
       ...prev,
@@ -49,14 +49,15 @@ export const ThomasContainer = () => {
       },
     ]);
     setError(INITIAL_ERROR);
+    return true;
   };
 
   const onSubmit = async (values) => {
     for (let i = 0; i < files.length; i++) {
-      if (error.message) {
+      const success = await submitFile(files[i], values, i + 1);
+      if (!success) {
         break;
       }
-      await submitFile(files[i], values, i + 1);
     }
   };
 
