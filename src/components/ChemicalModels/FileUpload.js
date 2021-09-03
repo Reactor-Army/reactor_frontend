@@ -1,6 +1,10 @@
 import React, {useEffect} from "react";
 import {useDropzone} from "react-dropzone";
-import {FileCardsContainer, FileUploadContainer} from "./ChemicalModelStyles";
+import {
+  DropzoneContainer,
+  FileCardsContainer,
+  FileUploadContainer,
+} from "./ChemicalModelStyles";
 import {FileCard} from "./FileCard";
 
 export const FileUpload = ({files, setNewFiles}) => {
@@ -24,10 +28,10 @@ export const FileUpload = ({files, setNewFiles}) => {
   return (
     <>
       <FileUploadContainer>
-        <div {...getRootProps({className: "dropzone"})}>
+        <DropzoneContainer {...getRootProps({className: "dropzone"})}>
           <input {...getInputProps()} />
           <p>Arrastrá archivos aquí o hacé click para seleccionarlos</p>
-        </div>
+        </DropzoneContainer>
       </FileUploadContainer>
       <FileCardsContainer>
         {files.map((f, i) => (

@@ -29,7 +29,6 @@ export const FileUploadContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   border-width: 2px;
   border-radius: 2px;
   border-color: black;
@@ -53,4 +52,12 @@ export const FileCardsContainer = styled.div`
 
 export const FileCardContainer = styled.div`
   display: flex;
+`;
+
+export const DropzoneContainer = styled.div`
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 `;
