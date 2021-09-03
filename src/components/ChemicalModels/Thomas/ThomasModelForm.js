@@ -10,7 +10,7 @@ import {
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
 
-export const ThomasModelForm = ({onSubmit}) => {
+export const ThomasModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
 
   const _onSubmit = (values) => {
@@ -25,6 +25,7 @@ export const ThomasModelForm = ({onSubmit}) => {
       buttonLabel={"Calcular"}
       errors={filterBlank(errorValues)}
       layout={FORM_LAYOUTS.SINGLE_ROW}
+      forceDisable={forceDisable}
       fields={[
         <FormNumericField
           placeholder={`${THOMAS_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}

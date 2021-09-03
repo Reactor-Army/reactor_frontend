@@ -13,18 +13,26 @@ import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResult
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 
+const INITIAL_ERROR = {
+  message: null,
+  index: null,
+};
+
 export const ThomasContainer = () => {
   const [responses, setResponses] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(INITIAL_ERROR);
   const [files, setNewFiles] = useState([]);
 
-  const submitFile = async (file, values) => {
+  const submitFile = async (file, values, index) => {
     let apiResponse;
     try {
       apiResponse = await thomas(file, values);
     } catch (e) {
-      setError(e.response.data.message);
-      setResponses(null);
+      setError({
+        message: e.response.data.message,
+        index: index,
+      });
+      setResponses([]);
       return;
     }
     setResponses((prev) => [
@@ -40,11 +48,16 @@ export const ThomasContainer = () => {
         ].map((observation) => [observation.x, observation.y]),
       },
     ]);
-    setError(null);
+    setError(INITIAL_ERROR);
   };
 
   const onSubmit = async (values) => {
-    files.map((x) => submitFile(x, values));
+    for (let i = 0; i < files.length; i++) {
+      if (error.message) {
+        break;
+      }
+      await submitFile(files[i], values, i + 1);
+    }
   };
 
   return (
@@ -55,10 +68,15 @@ export const ThomasContainer = () => {
       <ThomasHelpText />
       <ThomasPageLayout>
         <FileUpload files={files} setNewFiles={setNewFiles} />
-        <ThomasModelForm onSubmit={onSubmit} />
-        {responses.length && <ThomasResults responses={responses} />}
+        <ThomasModelForm
+          forceDisable={files.length === 0}
+          onSubmit={onSubmit}
+        />
+        {responses.length && responses.length === files.length && (
+          <ThomasResults responses={responses} />
+        )}
       </ThomasPageLayout>
-      <ErrorModal closeModal={() => setError(null)} error={error} />
+      <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
     </>
   );
 };
