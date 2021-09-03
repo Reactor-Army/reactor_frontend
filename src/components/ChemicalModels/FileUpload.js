@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useDropzone} from "react-dropzone";
 import {FileUploadContainer} from "./ChemicalModelStyles";
+import {FileCard} from "./FileCard";
 
 export const FileUpload = ({files, setNewFiles}) => {
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
@@ -11,23 +12,28 @@ export const FileUpload = ({files, setNewFiles}) => {
 
   useEffect(() => {
     if (acceptedFiles.length > 0) {
+      console.log("2ow");
       setNewFiles((prev) => [...prev, ...acceptedFiles]);
     }
   }, [acceptedFiles]);
+
+  const deleteFile = (i) => {
+    setNewFiles((prev) => prev.filter((item, index) => index !== i));
+  };
 
   return (
     <>
       <FileUploadContainer>
         <div {...getRootProps({className: "dropzone"})}>
           <input {...getInputProps()} />
-          <p>Drag and drop some files here, or click to select files</p>
+          <p>Arrastrá archivos aquí o hacé click para seleccionarlos</p>
         </div>
       </FileUploadContainer>
-      <ul>
+      <div style={{display: "flex", justifyContent: "space-evenly"}}>
         {files.map((f, i) => (
-          <li key={i}>{f.path}</li>
+          <FileCard onClick={() => deleteFile(i)} key={i} fileName={f.path} />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
