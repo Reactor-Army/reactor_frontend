@@ -53,6 +53,7 @@ export const ThomasContainer = () => {
   };
 
   const onSubmit = async (values) => {
+    setResponses([]);
     for (let i = 0; i < files.length; i++) {
       const success = await submitFile(files[i], values, i + 1);
       if (!success) {
