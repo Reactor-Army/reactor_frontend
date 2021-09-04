@@ -8,11 +8,13 @@ export const ErrorModal = ({closeModal, error}) => {
     <Modal open={error.message !== null} onClose={closeModal}>
       <BodyContainer>
         <Message>
-          Ocurrió un error ejecutando el modelo número {error.index}:
+          Ocurrió un error, por favor revisa los datos ingresados y archivos
+          adjuntos:
         </Message>
         <Message>{error.message}</Message>
         <Message>
-          Por favor, revisar el archivo ingresado y/o los parámetros de entrada.
+          El error ocurrió ejecutando el modelo para el archivo número{" "}
+          {error.index}.
         </Message>
         <ButtonsContainer>
           <Button text={"Cerrar"} onClick={closeModal} />
