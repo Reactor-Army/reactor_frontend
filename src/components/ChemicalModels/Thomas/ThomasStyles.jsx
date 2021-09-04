@@ -43,29 +43,26 @@ export const DataFrame = styled.div`
   display: inline-flex;
   flex-direction: column;
   gap: 15px;
-  padding: 20px 20px;
+  padding: 20px 8px;
   margin-bottom: 25px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 100%;
     padding: 20px;
   }
 `;
 
 export const Title = styled.div`
-  color: ${appColors.lightBlue};
-  font-size: calc(15px + 0.4vw);
+  color: ${(props) => (props.color ? props.color : appColors.lightBlue)};
+  font-size: calc(14px + 0.4vw);
   font-weight: bold;
+  padding: 0 5px;
 `;
 
 export const DataFramesWrapper = styled.div`
   display: inline-flex;
   gap: 15px;
   width: 100%;
-
-  @media (max-width: 700px) {
-    width: 97%;
-    flex-direction: column;
-    align-items: center;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
 `;

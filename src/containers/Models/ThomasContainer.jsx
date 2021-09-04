@@ -83,6 +83,7 @@ export const ThomasContainer = () => {
                 text="Volver a graficar"
                 onClick={() => {
                   setResponses([]);
+                  setNewFiles([]);
                 }}
               />
             </ButtonWrapper>

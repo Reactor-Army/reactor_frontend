@@ -10,7 +10,7 @@ export const ResultsTitleContanier = styled(Paragraph)`
 `;
 
 const Text = styled.div`
-  font-size: calc(9px + 0.5vw);
+  font-size: calc(10px + 0.2vw);
   font-family: ${appFontFamily.primary};
   font-weight: 400;
   line-height: 1.5;
@@ -18,7 +18,7 @@ const Text = styled.div`
 `;
 
 export const Field = styled(Text)`
-  margin-left: 15px;
+  margin-left: 7px;
   & > b {
     font-weight: bold;
   }

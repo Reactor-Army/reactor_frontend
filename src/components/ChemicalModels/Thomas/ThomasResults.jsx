@@ -5,10 +5,10 @@ import {ThomasInputFields} from "./ThomasInputFields";
 import React from "react";
 import {ThomasResultsContainer} from "./ThomasStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ThomasStyles";
+import {appColors} from "../../../common/styles";
 
 export const ThomasResults = ({responses, inputValues}) => {
-  console.log("Input values", inputValues);
-  console.log("Responses", responses);
+  const colors = [appColors.primary, appColors.red, appColors.green];
   return (
     <ThomasResultsContainer>
       <DataFramesWrapper>
@@ -22,7 +22,9 @@ export const ThomasResults = ({responses, inputValues}) => {
         </DataFrame>
         {responses.map((response, index) => (
           <DataFrame key={index}>
-            <Title>Resultados gráfico {++index}</Title>
+            <Title color={colors[index % colors.length]}>
+              Resultados gráfico {++index}
+            </Title>
             <ThomasResultFields kth={response.Kth} q0={response.q0} />
           </DataFrame>
         ))}
