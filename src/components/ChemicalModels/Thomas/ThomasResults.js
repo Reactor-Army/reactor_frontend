@@ -9,11 +9,11 @@ export const ThomasResults = ({responses}) => {
     <ThomasResultsContainer>
       <ResultsTitle />
       <ThomasModelPlot
-        points={responses.map((x) => x.points)}
+        points={responses.map((response) => response.points)}
         expressions={responses}
       />
-      {responses.map((response, i) => (
-        <ThomasResultFields key={i} kth={response.Kth} q0={response.q0} />
+      {responses.map((response, index) => (
+        <ThomasResultFields key={index} kth={response.Kth} q0={response.q0} />
       ))}
     </ThomasResultsContainer>
   );

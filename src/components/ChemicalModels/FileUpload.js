@@ -7,11 +7,11 @@ import {
 } from "./ChemicalModelStyles";
 import {FileCard} from "./FileCard";
 
-export const FileUpload = ({files, setNewFiles}) => {
+export const FileUpload = ({files, setNewFiles, maxFiles = 3}) => {
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
-    maxFiles: 3 - files.length,
+    maxFiles: maxFiles - files.length,
     multiple: true,
-    disabled: files.length === 3,
+    disabled: files.length === maxFiles,
   });
 
   useEffect(() => {
@@ -20,9 +20,11 @@ export const FileUpload = ({files, setNewFiles}) => {
     }
   }, [acceptedFiles]);
 
-  const deleteFile = (i) => {
+  const deleteFile = (fileToRemoveIndex) => {
     // Remove the element at position i
-    setNewFiles((prev) => prev.filter((item, index) => index !== i));
+    setNewFiles((prev) =>
+      prev.filter((item, index) => index !== fileToRemoveIndex),
+    );
   };
 
   return (
@@ -34,8 +36,12 @@ export const FileUpload = ({files, setNewFiles}) => {
         </DropzoneContainer>
       </FileUploadContainer>
       <FileCardsContainer>
-        {files.map((f, i) => (
-          <FileCard onClick={() => deleteFile(i)} key={i} fileName={f.path} />
+        {files.map((file, index) => (
+          <FileCard
+            onClick={() => deleteFile(index)}
+            key={index}
+            fileName={file.path}
+          />
         ))}
       </FileCardsContainer>
     </>

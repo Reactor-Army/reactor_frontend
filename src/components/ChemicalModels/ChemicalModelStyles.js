@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 import {Paragraph} from "../../routing/routes/AboutUsRoute/AboutUsRouteStyles";
-import {appFontFamily} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
 
 export const ResultsTitleContanier = styled(Paragraph)`
   margin-top: 0;
@@ -29,12 +29,9 @@ export const FileUploadContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-width: 2px;
   border-radius: 2px;
-  border-color: black;
-  border-style: dashed;
-  background-color: #fafafa;
-  color: #bdbdbd;
+  border: 2px dashed ${appColors.black};
+  color: ${appColors.lightGray};
   outline: none;
   transition: border 0.24s ease-in-out;
 `;
