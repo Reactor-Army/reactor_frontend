@@ -64,5 +64,4 @@ export const DataFramesWrapper = styled.div`
   gap: 15px;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
 `;
