@@ -1,4 +1,6 @@
 import styled from "styled-components/macro";
+import {makeStyles} from "@material-ui/core";
+import {appColors} from "../../../common/styles";
 
 export const ThomasPageLayout = styled.div`
   display: grid;
@@ -12,3 +14,9 @@ export const ThomasPageLayout = styled.div`
 export const ThomasResultsContainer = styled.div`
   max-width: 100vw;
 `;
+
+export const helpTextStyles = makeStyles(() => ({
+  typography: {
+    color: appColors.lightGray,
+  },
+}));

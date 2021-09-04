@@ -6,6 +6,8 @@ import {
   FileUploadContainer,
 } from "./ChemicalModelStyles";
 import {FileCard} from "./FileCard";
+import Typography from "@material-ui/core/Typography";
+import {helpTextStyles} from "./Thomas/ThomasStyles";
 
 export const FileUpload = ({files, setNewFiles, maxFiles = 3}) => {
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
@@ -26,24 +28,32 @@ export const FileUpload = ({files, setNewFiles, maxFiles = 3}) => {
       prev.filter((item, index) => index !== fileToRemoveIndex),
     );
   };
-
+  const styles = helpTextStyles();
   return (
     <>
       <FileUploadContainer>
         <DropzoneContainer {...getRootProps({className: "dropzone"})}>
           <input {...getInputProps()} />
-          <p>Arrastrá archivos aquí o hacé click para seleccionarlos</p>
+          {files.length === 0 ? (
+            <Typography className={styles.typography}>
+              Arrastrá archivos aquí o hacé click para seleccionarlos
+            </Typography>
+          ) : (
+            <FileCardsContainer>
+              {files.map((file, index) => (
+                <FileCard
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteFile(index);
+                  }}
+                  key={index}
+                  fileName={file.path}
+                />
+              ))}
+            </FileCardsContainer>
+          )}
         </DropzoneContainer>
       </FileUploadContainer>
-      <FileCardsContainer>
-        {files.map((file, index) => (
-          <FileCard
-            onClick={() => deleteFile(index)}
-            key={index}
-            fileName={file.path}
-          />
-        ))}
-      </FileCardsContainer>
     </>
   );
 };

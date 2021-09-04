@@ -31,8 +31,9 @@ export const FileUploadContainer = styled.div`
   align-items: center;
   border-radius: 2px;
   border: 2px dashed ${appColors.black};
-  color: ${appColors.lightGray};
   outline: none;
+  min-height: 100px;
+  justify-content: center;
   transition: border 0.24s ease-in-out;
 `;
 
@@ -55,6 +56,5 @@ export const DropzoneContainer = styled.div`
   justify-content: space-around;
   display: flex;
   width: 100%;
-  height: 100%;
   padding: 20px;
 `;
