@@ -4,12 +4,17 @@ import {ThomasResultFields} from "./ThomasResultFields";
 import React from "react";
 import {ThomasResultsContainer} from "./ThomasStyles";
 
-export const ThomasResults = ({response}) => {
+export const ThomasResults = ({responses}) => {
   return (
     <ThomasResultsContainer>
       <ResultsTitle />
-      <ThomasModelPlot points={[response.points]} expressions={[response]} />
-      <ThomasResultFields kth={response.Kth} q0={response.q0} />
+      <ThomasModelPlot
+        points={responses.map((response) => response.points)}
+        expressions={responses}
+      />
+      {responses.map((response, index) => (
+        <ThomasResultFields key={index} kth={response.Kth} q0={response.q0} />
+      ))}
     </ThomasResultsContainer>
   );
 };

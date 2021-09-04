@@ -1,4 +1,4 @@
-import {FileField, FormNumericField} from "../../Form/Fields/FormFields";
+import {FormNumericField} from "../../Form/Fields/FormFields";
 import {Form, FORM_LAYOUTS} from "../../Form/Form";
 import {THOMAS_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {filterBlank} from "../../Create/validations";
@@ -10,16 +10,11 @@ import {
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
 
-export const ThomasModelForm = ({onSubmit}) => {
-  const [file, setFile] = useState(null);
+export const ThomasModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
 
-  const onFileChange = (event) => {
-    setFile(event.currentTarget.files[0]);
-  };
-
   const _onSubmit = (values) => {
-    onSubmit(file, values);
+    onSubmit(values);
   };
 
   return (
@@ -28,12 +23,10 @@ export const ThomasModelForm = ({onSubmit}) => {
       initialValues={THOMAS_FORM_INITIAL_VALUES}
       onSubmit={_onSubmit}
       buttonLabel={"Calcular"}
-      forceDisable={file === null}
       errors={filterBlank(errorValues)}
       layout={FORM_LAYOUTS.SINGLE_ROW}
+      forceDisable={forceDisable}
       fields={[
-        // Este field ni siquiera pertenece a Formik pero lo encajás acá y funciona igual. Viva Javascript
-        <FileField key={0} onChange={onFileChange} />,
         <FormNumericField
           placeholder={`${THOMAS_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}
           key={1}
