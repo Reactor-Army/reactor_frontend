@@ -8,8 +8,13 @@ import {
 import {FileCard} from "./FileCard";
 import Typography from "@material-ui/core/Typography";
 import {helpTextStyles} from "./Thomas/ThomasStyles";
+import {settings} from "../../config/settings";
 
-export const FileUpload = ({files, setNewFiles, maxFiles = 3}) => {
+export const FileUpload = ({
+  files,
+  setNewFiles,
+  maxFiles = settings.MAX_MODELS,
+}) => {
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
     maxFiles: maxFiles - files.length,
     multiple: true,
