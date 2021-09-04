@@ -1,5 +1,12 @@
 import styled from "styled-components/macro";
 import {appColors} from "../../../common/styles";
+import {makeStyles} from "@material-ui/core";
+
+export const helpTextStyles = makeStyles(() => ({
+  typography: {
+    color: appColors.lightGray,
+  },
+}));
 
 export const ButtonWrapper = styled.div`
   width: 100%;

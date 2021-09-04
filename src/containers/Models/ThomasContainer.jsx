@@ -14,35 +14,58 @@ import {
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
+import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
 
+const INITIAL_ERROR = {
+  message: null,
+  index: null,
+};
+
 export const ThomasContainer = () => {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
+  const [responses, setResponses] = useState([]);
+  const [error, setError] = useState(INITIAL_ERROR);
+  const [files, setNewFiles] = useState([]);
   const [inputValues, setInputValues] = useState();
 
-  const onSubmit = async (file, values) => {
+  const submitFile = async (file, values, index) => {
     setInputValues(values);
     let apiResponse;
     try {
       apiResponse = await thomas(file, values);
     } catch (e) {
-      setError(e.response.data.message);
-      setResponse(null);
-      return;
+      setError({
+        message: e.response.data.message,
+        index: index,
+      });
+      setResponses([]);
+      return false;
     }
+    setResponses((prev) => [
+      ...prev,
+      {
+        F: values[THOMAS_REQUEST_FIELDS.FLOW],
+        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
+        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
+        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
+        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        points: apiResponse[
+          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
+      },
+    ]);
+    setError(INITIAL_ERROR);
+    return true;
+  };
 
-    setResponse({
-      F: values[THOMAS_REQUEST_FIELDS.FLOW],
-      W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-      C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-      Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-      q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
-      points: apiResponse[
-        THOMAS_RESPONSE_FIELDS.OBSERVATIONS
-      ].map((observation) => [observation.x, observation.y]),
-    });
-    setError(null);
+  const onSubmit = async (values) => {
+    setResponses([]);
+    for (let i = 0; i < files.length; i++) {
+      const success = await submitFile(files[i], values, i + 1);
+      if (!success) {
+        break;
+      }
+    }
   };
 
   return (
@@ -51,15 +74,15 @@ export const ThomasContainer = () => {
         <ModelTitle title={"Modelo de Thomas"} />
       </Row>
       <ThomasPageLayout>
-        {response ? (
+        {responses.length > 0 && responses.length === files.length ? (
           <>
-            <ThomasResults response={response} inputValues={inputValues} />
+            <ThomasResults responses={responses} inputValues={inputValues} />
             <ButtonWrapper>
               <Button
                 size="medium"
                 text="Volver a graficar"
                 onClick={() => {
-                  setResponse(null);
+                  setResponses([]);
                 }}
               />
             </ButtonWrapper>
@@ -67,11 +90,15 @@ export const ThomasContainer = () => {
         ) : (
           <>
             <ThomasHelpText />
-            <ThomasModelForm onSubmit={onSubmit} />
+            <FileUpload files={files} setNewFiles={setNewFiles} />
+            <ThomasModelForm
+              forceDisable={files.length === 0}
+              onSubmit={onSubmit}
+            />
           </>
         )}
       </ThomasPageLayout>
-      <ErrorModal closeModal={() => setError(null)} error={error} />
+      <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
     </>
   );
 };

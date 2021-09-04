@@ -6,7 +6,9 @@ import React from "react";
 import {ThomasResultsContainer} from "./ThomasStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ThomasStyles";
 
-export const ThomasResults = ({response, inputValues}) => {
+export const ThomasResults = ({responses, inputValues}) => {
+  console.log("Input values", inputValues);
+  console.log("Responses", responses);
   return (
     <ThomasResultsContainer>
       <DataFramesWrapper>
@@ -18,14 +20,19 @@ export const ThomasResults = ({response, inputValues}) => {
             W={inputValues.sorbenteReactor}
           />
         </DataFrame>
-        <DataFrame>
-          <Title>Resultados de salida</Title>
-          <ThomasResultFields kth={response.Kth} q0={response.q0} />
-        </DataFrame>
+        {responses.map((response, index) => (
+          <DataFrame key={index}>
+            <Title>Resultados gráfico {++index}</Title>
+            <ThomasResultFields kth={response.Kth} q0={response.q0} />
+          </DataFrame>
+        ))}
       </DataFramesWrapper>
       <PlotFrame>
         <ResultsTitle />
-        <ThomasModelPlot points={[response.points]} expressions={[response]} />
+        <ThomasModelPlot
+          points={responses.map((response) => response.points)}
+          expressions={responses}
+        />
       </PlotFrame>
     </ThomasResultsContainer>
   );
