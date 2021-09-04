@@ -34,10 +34,7 @@ export const appFontFamily = {
 
 export const Row = styled.div`
   display: block;
-  margin-block-start: 0.67em;
-  margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin: 15px 0;
   font-weight: bold;
   font-family: ${appFontFamily.card};
   font-size: calc(25px + 0.7vw);

@@ -7,7 +7,6 @@ import {ThomasResultsContainer} from "./ThomasStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ThomasStyles";
 
 export const ThomasResults = ({response, inputValues}) => {
-  console.log(inputValues);
   return (
     <ThomasResultsContainer>
       <DataFramesWrapper>
