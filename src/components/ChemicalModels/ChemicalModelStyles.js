@@ -27,6 +27,7 @@ export const HelpText = styled(Text)`
 export const FileUploadContainer = styled.div`
   flex: 1;
   display: flex;
+  justify-content: center
   flex-direction: column;
   align-items: center;
   border-radius: 2px;
@@ -41,7 +42,6 @@ export const FileCardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 50px;
-  margin-top: 15px;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(1, 1fr);
