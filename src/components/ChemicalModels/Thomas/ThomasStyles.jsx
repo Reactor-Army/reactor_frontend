@@ -9,10 +9,9 @@ export const helpTextStyles = makeStyles(() => ({
 }));
 
 export const ButtonWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5vh;
 `;
 
 export const ThomasPageLayout = styled.div`
