@@ -10,6 +10,7 @@ import {
 import {
   ThomasPageLayout,
   ButtonWrapper,
+  FormContainer,
 } from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
@@ -89,14 +90,14 @@ export const ThomasRoute = () => {
             </ButtonWrapper>
           </>
         ) : (
-          <>
+          <FormContainer>
             <ThomasHelpText />
             <FileUpload files={files} setNewFiles={setNewFiles} />
             <ThomasModelForm
               forceDisable={files.length === 0}
               onSubmit={onSubmit}
             />
-          </>
+          </FormContainer>
         )}
       </ThomasPageLayout>
       <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />

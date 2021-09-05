@@ -65,3 +65,9 @@ export const DataFramesWrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
 `;
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+`;
