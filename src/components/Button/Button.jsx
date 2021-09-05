@@ -12,8 +12,6 @@ export const Button = ({text, onClick, size}) => {
       return <BigButton onClick={onClick}>{text}</BigButton>;
     case "medium":
       return <MediumButton onClick={onClick}>{text}</MediumButton>;
-    case "small":
-      return <SmallButton onClick={onClick}>{text}</SmallButton>;
     default:
       return <SmallButton onClick={onClick}>{text}</SmallButton>;
   }
