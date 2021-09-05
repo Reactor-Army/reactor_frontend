@@ -13,7 +13,7 @@ export const AppTitle = styled.div`
   font-family: ${appFontFamily.card};
   font-size: calc(35px + 1.5vw);
   text-align: center;
-  color: ${appColors.primary};
+  color: ${appColors.lightBlue};
   text-transform: uppercase;
   font-weight: bold;
 `;

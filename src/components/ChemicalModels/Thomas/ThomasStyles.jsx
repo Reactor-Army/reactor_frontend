@@ -105,3 +105,9 @@ export const AdvertisementWrapper = styled.div`
     display: none;
   }
 `;
+
+export const LoaderWrapper = styled.div`
+  height: 50vh;
+  display: flex;
+  align-items: center;
+`;

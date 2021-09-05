@@ -13,6 +13,7 @@ import {
   FormContainer,
   ContentWrapper,
   AdvertisementWrapper,
+  LoaderWrapper,
 } from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
@@ -20,6 +21,7 @@ import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
 import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertisement";
+import {CircularProgress} from "@material-ui/core";
 
 const INITIAL_ERROR = {
   message: null,
@@ -31,6 +33,7 @@ export const ThomasRoute = () => {
   const [error, setError] = useState(INITIAL_ERROR);
   const [files, setNewFiles] = useState([]);
   const [inputValues, setInputValues] = useState();
+  const [showLoader, setShowLoader] = useState(false);
 
   const submitFile = async (file, values, index) => {
     setInputValues(values);
@@ -70,6 +73,7 @@ export const ThomasRoute = () => {
         break;
       }
     }
+    setShowLoader(false);
   };
 
   return (
@@ -96,16 +100,27 @@ export const ThomasRoute = () => {
           <>
             <ThomasHelpText />
             <ContentWrapper>
-              <FormContainer>
-                <FileUpload files={files} setNewFiles={setNewFiles} />
-                <ThomasModelForm
-                  forceDisable={files.length === 0}
-                  onSubmit={onSubmit}
-                />
-              </FormContainer>
-              <AdvertisementWrapper>
-                <AppAdvertisement />
-              </AdvertisementWrapper>
+              {showLoader ? (
+                <LoaderWrapper>
+                  <CircularProgress />
+                </LoaderWrapper>
+              ) : (
+                <>
+                  <FormContainer>
+                    <FileUpload files={files} setNewFiles={setNewFiles} />
+                    <ThomasModelForm
+                      forceDisable={files.length === 0}
+                      onSubmit={(values) => {
+                        onSubmit(values);
+                        setShowLoader(true);
+                      }}
+                    />
+                  </FormContainer>
+                  <AdvertisementWrapper>
+                    <AppAdvertisement />
+                  </AdvertisementWrapper>
+                </>
+              )}
             </ContentWrapper>
           </>
         )}
