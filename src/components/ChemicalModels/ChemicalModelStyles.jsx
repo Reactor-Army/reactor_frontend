@@ -26,6 +26,7 @@ export const Field = styled(Text)`
 
 export const HelpText = styled(Text)`
   padding-bottom: 20px;
+  font-size: calc(12px + 0.3vw);
 `;
 
 export const FileUploadContainer = styled.div`
@@ -40,6 +41,7 @@ export const FileUploadContainer = styled.div`
   min-height: 100px;
   justify-content: center;
   transition: border 0.24s ease-in-out;
+  overflow-x: hidden;
 `;
 
 export const FileCardsContainer = styled.div`

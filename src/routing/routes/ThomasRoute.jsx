@@ -11,12 +11,15 @@ import {
   ThomasPageLayout,
   ButtonWrapper,
   FormContainer,
+  ContentWrapper,
+  AdvertisementWrapper,
 } from "../../components/ChemicalModels/Thomas/ThomasStyles";
 import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
+import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertisement";
 
 const INITIAL_ERROR = {
   message: null,
@@ -90,14 +93,21 @@ export const ThomasRoute = () => {
             </ButtonWrapper>
           </>
         ) : (
-          <FormContainer>
+          <>
             <ThomasHelpText />
-            <FileUpload files={files} setNewFiles={setNewFiles} />
-            <ThomasModelForm
-              forceDisable={files.length === 0}
-              onSubmit={onSubmit}
-            />
-          </FormContainer>
+            <ContentWrapper>
+              <FormContainer>
+                <FileUpload files={files} setNewFiles={setNewFiles} />
+                <ThomasModelForm
+                  forceDisable={files.length === 0}
+                  onSubmit={onSubmit}
+                />
+              </FormContainer>
+              <AdvertisementWrapper>
+                <AppAdvertisement />
+              </AdvertisementWrapper>
+            </ContentWrapper>
+          </>
         )}
       </ThomasPageLayout>
       <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />

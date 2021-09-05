@@ -1,5 +1,5 @@
 import {FormNumericField} from "../../Form/Fields/FormFields";
-import {Form} from "../../Form/Form";
+import {Form, FORM_LAYOUTS} from "../../Form/Form";
 import {THOMAS_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {filterBlank} from "../../Create/validations";
 import {
@@ -19,6 +19,7 @@ export const ThomasModelForm = ({forceDisable, onSubmit}) => {
 
   return (
     <Form
+      layout={FORM_LAYOUTS.SINGLE_COLUMN}
       singleColumn={true}
       initialValues={THOMAS_FORM_INITIAL_VALUES}
       onSubmit={_onSubmit}

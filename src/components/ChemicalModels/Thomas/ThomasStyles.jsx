@@ -66,8 +66,42 @@ export const DataFramesWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
+const FormContainerWidth = 500;
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
+  max-width: ${FormContainerWidth}px;
+  background: ${appColors.white};
+  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
+  border-radius: 8px;
+  padding: 15px;
+
+  @media (max-width: 700px) {
+    background: ${appColors.pageBackground};
+    box-shadow: none;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 3vh;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: 700px) {
+    padding: 15px;
+  }
+`;
+
+export const AdvertisementWrapper = styled.div`
+  min-width: calc(85% - ${FormContainerWidth}px);
+  justify-content: center;
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
