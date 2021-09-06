@@ -19,12 +19,12 @@ export const ThomasModelForm = ({forceDisable, onSubmit}) => {
 
   return (
     <Form
+      layout={FORM_LAYOUTS.SINGLE_COLUMN}
       singleColumn={true}
       initialValues={THOMAS_FORM_INITIAL_VALUES}
       onSubmit={_onSubmit}
       buttonLabel={"Calcular"}
       errors={filterBlank(errorValues)}
-      layout={FORM_LAYOUTS.SINGLE_ROW}
       forceDisable={forceDisable}
       fields={[
         <FormNumericField

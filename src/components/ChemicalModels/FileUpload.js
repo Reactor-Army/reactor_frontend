@@ -35,30 +35,28 @@ export const FileUpload = ({
   };
   const styles = helpTextStyles();
   return (
-    <>
-      <FileUploadContainer>
-        <DropzoneContainer {...getRootProps({className: "dropzone"})}>
-          <input {...getInputProps()} />
-          {files.length === 0 ? (
-            <Typography className={styles.typography}>
-              Arrastrá archivos aquí o hacé click para seleccionarlos
-            </Typography>
-          ) : (
-            <FileCardsContainer>
-              {files.map((file, index) => (
-                <FileCard
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    deleteFile(index);
-                  }}
-                  key={index}
-                  fileName={file.path}
-                />
-              ))}
-            </FileCardsContainer>
-          )}
-        </DropzoneContainer>
-      </FileUploadContainer>
-    </>
+    <FileUploadContainer>
+      <DropzoneContainer {...getRootProps({className: "dropzone"})}>
+        <input {...getInputProps()} />
+        {files.length === 0 ? (
+          <Typography className={styles.typography}>
+            Arrastrá archivos aquí o hacé click para seleccionarlos
+          </Typography>
+        ) : (
+          <FileCardsContainer>
+            {files.map((file, index) => (
+              <FileCard
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteFile(index);
+                }}
+                key={index}
+                fileName={file.path}
+              />
+            ))}
+          </FileCardsContainer>
+        )}
+      </DropzoneContainer>
+    </FileUploadContainer>
   );
 };

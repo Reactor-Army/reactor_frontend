@@ -6,22 +6,27 @@ export const ResultsTitleContanier = styled(Paragraph)`
   margin-top: 0;
   margin-left: 15px;
   font-weight: bold;
+  color: ${appColors.lightBlue};
 `;
 
 const Text = styled.div`
-  font-size: 1rem;
+  font-size: calc(10px + 0.2vw);
   font-family: ${appFontFamily.primary};
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.00938em;
 `;
 
-export const ResultsField = styled(Text)`
-  margin-left: 15px;
+export const Field = styled(Text)`
+  margin-left: 7px;
+  & > b {
+    font-weight: bold;
+  }
 `;
 
 export const HelpText = styled(Text)`
   padding-bottom: 20px;
+  font-size: calc(14px + 0.3vw);
 `;
 
 export const FileUploadContainer = styled.div`
@@ -36,16 +41,16 @@ export const FileUploadContainer = styled.div`
   min-height: 100px;
   justify-content: center;
   transition: border 0.24s ease-in-out;
+  overflow-x: hidden;
+  width: 100%;
+  width: calc(260px + 10vw);
 `;
 
 export const FileCardsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 50px;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 `;
 
 export const FileCardContainer = styled.div`
@@ -55,6 +60,7 @@ export const FileCardContainer = styled.div`
 export const DropzoneContainer = styled.div`
   justify-content: space-around;
   display: flex;
-  width: 100%;
   padding: 20px;
+  text-align: center;
+  width: 100%;
 `;
