@@ -26,7 +26,7 @@ export const Field = styled(Text)`
 
 export const HelpText = styled(Text)`
   padding-bottom: 20px;
-  font-size: calc(12px + 0.3vw);
+  font-size: calc(14px + 0.3vw);
 `;
 
 export const FileUploadContainer = styled.div`
