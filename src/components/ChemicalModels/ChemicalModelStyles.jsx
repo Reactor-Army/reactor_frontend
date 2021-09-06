@@ -42,16 +42,15 @@ export const FileUploadContainer = styled.div`
   justify-content: center;
   transition: border 0.24s ease-in-out;
   overflow-x: hidden;
+  width: 100%;
+  width: calc(260px + 10vw);
 `;
 
 export const FileCardsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 50px;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 `;
 
 export const FileCardContainer = styled.div`
@@ -61,6 +60,7 @@ export const FileCardContainer = styled.div`
 export const DropzoneContainer = styled.div`
   justify-content: space-around;
   display: flex;
-  width: 100%;
   padding: 20px;
+  text-align: center;
+  width: 100%;
 `;
