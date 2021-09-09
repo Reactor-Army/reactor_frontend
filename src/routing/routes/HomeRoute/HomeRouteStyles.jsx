@@ -59,7 +59,7 @@ export const CardsContainer = styled.div`
   );
   grid-column-gap: 10px;
   grid-row-gap: 30px;
-  padding: 40px;
+  padding: 40px 105px;
   width: 100vw;
   justify-items: center;
 `;
