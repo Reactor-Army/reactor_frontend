@@ -1,6 +1,6 @@
 import React from "react";
 
-import {ListContainer} from "./Styles";
+import {ListContainer} from "../ListStyles";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {AdsorbentCardContainer} from "../../Card/AdsorbentCard/AdsorbentCardContainer";
