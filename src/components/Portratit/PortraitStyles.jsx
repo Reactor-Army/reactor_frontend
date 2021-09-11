@@ -12,14 +12,14 @@ export const Frame = styled.div`
 
 export const Text = styled.div`
   font-family: ${appFontFamily.card};
-  font-size: calc(10px + 0.6vw);
+  font-size: calc(12px + 0.5vw);
   font-weight: 400;
   text-align: center;
 `;
 
 export const Subtitle = styled.div`
   font-family: ${appFontFamily.card};
-  font-size: calc(10px + 0.6vw);
+  font-size: calc(12px + 0.5vw);
   font-weight: 700;
   text-align: center;
   color: ${appColors.lightBlue};
