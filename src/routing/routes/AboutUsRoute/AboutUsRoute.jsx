@@ -20,8 +20,8 @@ export const AboutUsRoute = () => {
     <AboutUsPageContainer>
       <ContentFrame>
         <Title>Reactor App</Title>
+        <Subtitle>Sobre el proyecto</Subtitle>
         <Paragraph>
-          <Subtitle>Sobre el proyecto</Subtitle>
           <BoldText>Reactor App</BoldText> es el producto de un trabajo
           profesional de Ing. en informática en colaboración con el LaQuíSiHe
           (Laboratorio de Química de Sistemas Heterogéneos) del IQAI (Instituto
@@ -31,38 +31,40 @@ export const AboutUsRoute = () => {
             Metodología para el dimensionamiento de un reactor prototipo para el
             tratamiento de efluentes
           </BoldText>
-          <br />
-          <SmallSubtitle>Objetivo</SmallSubtitle>
+        </Paragraph>
+        <br />
+        <SmallSubtitle>Objetivo</SmallSubtitle>
+        <Paragraph>
           El objetivo de esta aplicación es brindar una herramienta informática
           para la resolución de problemas que involucran el diseño de reactores
           Adsorbato - Adsorbente de bajo costo apuntando al tratamiento de aguas
           contaminadas.
           <br />
           <br />
-          <AuthorsTitleContainer>
-            <SmallSubtitle>Autores</SmallSubtitle>
-          </AuthorsTitleContainer>
-          <AuthorsSection>
-            <Portrait
-              image={authorOne}
-              text="Lucas Lavandeira"
-              subtitle="Ing. en Informática
-            "
-            />
-            <Portrait
-              image={authorTwo}
-              text="Santiago Pinto"
-              subtitle="Ing. en Informática
-            "
-            />
-            <Portrait
-              image={authorThree}
-              text="Matias Reimondo"
-              subtitle="Ing. en Informática
-            "
-            />
-          </AuthorsSection>
         </Paragraph>
+        <AuthorsTitleContainer>
+          <SmallSubtitle>Autores</SmallSubtitle>
+        </AuthorsTitleContainer>
+        <AuthorsSection>
+          <Portrait
+            image={authorOne}
+            text="Lucas Lavandeira"
+            subtitle="Ing. en Informática
+            "
+          />
+          <Portrait
+            image={authorTwo}
+            text="Santiago Pinto"
+            subtitle="Ing. en Informática
+            "
+          />
+          <Portrait
+            image={authorThree}
+            text="Matias Reimondo"
+            subtitle="Ing. en Informática
+            "
+          />
+        </AuthorsSection>
       </ContentFrame>
     </AboutUsPageContainer>
   );
