@@ -46,8 +46,8 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: calc(220px + 1.5vw);
-  height: calc(120px + 1.8vw);
+  width: 230px;
+  height: 140px;
   margin: 0 20px;
 `;
 
