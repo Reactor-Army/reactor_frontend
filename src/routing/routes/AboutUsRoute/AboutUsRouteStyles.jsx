@@ -30,7 +30,7 @@ export const SmallSubtitle = styled.h2`
   color: ${appColors.lightBlue};
   font-size: calc(10px + 0.9vw);
   font-family: ${appFontFamily.card};
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   text-transform: uppercase;
 `;
 
@@ -38,7 +38,7 @@ export const Subtitle = styled.h2`
   color: ${appColors.lightBlue};
   font-size: calc(15px + 1vw);
   font-family: ${appFontFamily.card};
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   text-transform: uppercase;
 `;
 
