@@ -30,22 +30,24 @@ export const Header = styled.div`
 
 export const ImageContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  align-self: center;
-
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 15px;
   @media (max-width: 650px) {
     flex-direction: column;
+    align-items: center;
 
     & > img {
       margin: 15px 0;
     }
   }
+  height: 100%;
 `;
 
 export const Image = styled.img`
-  max-width: calc(220px + 1.5vw);
-  height: calc(120px + 1.8vw);
+  width: 230px;
+  height: 140px;
   margin: 0 20px;
 `;
 
@@ -57,7 +59,7 @@ export const CardsContainer = styled.div`
   );
   grid-column-gap: 10px;
   grid-row-gap: 30px;
-  margin: 40px 0;
-  width: 90%;
+  padding: 40px 105px;
+  width: 100vw;
   justify-items: center;
 `;
