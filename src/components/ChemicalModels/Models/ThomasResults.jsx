@@ -1,5 +1,5 @@
 import {ResultsTitle} from "../ResultsTitle";
-import {ThomasModelPlot} from "./ThomasModelPlot/ThomasModelPlot";
+import {ThomasModelPlot} from "./Plots/ThomasModelPlot";
 import {ThomasResultFields} from "./ThomasResultFields";
 import {ThomasInputFields} from "./ThomasInputFields";
 import React from "react";

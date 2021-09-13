@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {thomas} from "../../services/models";
-import {ThomasModelForm} from "../../components/ChemicalModels/Thomas/ThomasModelForm";
+import {ThomasModelForm} from "../../components/ChemicalModels/Models/ThomasModelForm";
 import {
   THOMAS_REQUEST_FIELDS,
   THOMAS_RESPONSE_FIELDS,
@@ -14,9 +14,9 @@ import {
   ContentWrapper,
   AdvertisementWrapper,
   LoaderWrapper,
-} from "../../components/ChemicalModels/Thomas/ThomasStyles";
-import {ThomasHelpText} from "../../components/ChemicalModels/Thomas/ThomasHelpText";
-import {ThomasResults} from "../../components/ChemicalModels/Thomas/ThomasResults";
+} from "../../components/ChemicalModels/Models/ThomasStyles";
+import {ThomasHelpText} from "../../components/ChemicalModels/Models/ThomasHelpText";
+import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";

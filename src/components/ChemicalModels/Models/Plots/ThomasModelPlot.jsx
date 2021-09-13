@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {ErrorMessage, ErrorMessageContainer} from "./ThomasModelPlotStyles";
+import {ErrorMessage, ErrorMessageContainer} from "./PlotStyles";
 import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
-import {THOMAS_MODEL_AXIS_LABELS} from "../../../../common/fields";
+import {MODEL_AXIS_LABELS} from "../../../../common/fields";
 
 export const ThomasModelPlot = ({expressions, points = []}) => {
   const [validParamters, setValidParameters] = useState();
@@ -34,8 +34,8 @@ export const ThomasModelPlot = ({expressions, points = []}) => {
         <FunctionPlot
           expressions={functions}
           points={points}
-          xAxisLabel={THOMAS_MODEL_AXIS_LABELS.X_LABEL}
-          yAxisLabel={THOMAS_MODEL_AXIS_LABELS.Y_LABEL}
+          xAxisLabel={MODEL_AXIS_LABELS.X_LABEL}
+          yAxisLabel={MODEL_AXIS_LABELS.Y_LABEL}
         />
       ) : (
         <ErrorMessageContainer>
