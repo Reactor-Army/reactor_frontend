@@ -14,7 +14,7 @@ export const ButtonWrapper = styled.div`
   margin-top: 5vh;
 `;
 
-export const ThomasPageLayout = styled.div`
+export const PageLayout = styled.div`
   display: flex;
   flex-direction: column;
 `;

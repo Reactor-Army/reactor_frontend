@@ -3,8 +3,8 @@ import {ThomasModelPlot} from "./Plots/ThomasModelPlot";
 import {ThomasResultFields} from "./ThomasResultFields";
 import {ThomasInputFields} from "./ThomasInputFields";
 import React from "react";
-import {ThomasResultsContainer} from "./ThomasStyles";
-import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ThomasStyles";
+import {ThomasResultsContainer} from "./ModelsStyles";
+import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ModelsStyles";
 import {appColors} from "../../../common/styles";
 
 export const ThomasResults = ({responses, inputValues}) => {

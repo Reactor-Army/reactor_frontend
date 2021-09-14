@@ -8,13 +8,13 @@ import {
   THOMAS_RESPONSE_FIELDS,
 } from "../../common/fields";
 import {
-  ThomasPageLayout,
+  PageLayout,
   ButtonWrapper,
   FormContainer,
   ContentWrapper,
   AdvertisementWrapper,
   LoaderWrapper,
-} from "../../components/ChemicalModels/Models/ThomasStyles";
+} from "../../components/ChemicalModels/Models/ModelsStyles";
 import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
@@ -91,7 +91,7 @@ export const ThomasRoute = () => {
         closeModal={() => setOpenModal(false)}
         openModal={openModal}
       />
-      <ThomasPageLayout>
+      <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
           <>
             <ThomasResults responses={responses} inputValues={inputValues} />
@@ -145,7 +145,7 @@ export const ThomasRoute = () => {
             </ContentWrapper>
           </>
         )}
-      </ThomasPageLayout>
+      </PageLayout>
       <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
     </>
   );
