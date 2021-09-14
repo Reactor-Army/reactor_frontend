@@ -15,13 +15,14 @@ import {
   AdvertisementWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ThomasStyles";
-import {ThomasHelpText} from "../../components/ChemicalModels/Models/ThomasHelpText";
 import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
 import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertisement";
 import {CircularProgress} from "@material-ui/core";
+import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
+import {settings} from "../../config/settings";
 
 const INITIAL_ERROR = {
   message: null,
@@ -98,7 +99,18 @@ export const ThomasRoute = () => {
           </>
         ) : (
           <>
-            <ThomasHelpText />
+            <HelpText>
+              Calcula la constante de Thomas (Kth) y la concentración máxima del
+              soluto (q₀) en base a un archivo de observaciones. Las
+              observaciones deben ser subidas como un archivo CSV (exportable
+              desde Excel u otro software similar de planillas de cálculo), con
+              dos columnas: &quot;volumenEfluente&quot; medido en mililitros y
+              &quot;C/C₀&quot;. Se pueden subir varios archivos CSV, y el modelo
+              se calculará para cada archivo de observaciones de manera
+              independiente, y se graficarán y mostraran resultados para todos
+              al mismo tiempo. La máxima cantidad de modelos que se pueden
+              ejecutar son {settings.MAX_MODELS}.
+            </HelpText>
             <ContentWrapper>
               {showLoader ? (
                 <LoaderWrapper>
