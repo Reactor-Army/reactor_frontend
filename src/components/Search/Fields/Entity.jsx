@@ -19,6 +19,7 @@ export const Entity = ({formTitle, name, handleChange, items}) => {
         getOptionSelected={(option, value) => {
           return option.name === value;
         }}
+        disabled={items.length === 0}
         freeSolo
         value={name || null}
         getOptionLabel={(option) => option.name || option}
