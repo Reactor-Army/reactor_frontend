@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
-import {thomas} from "../../services/models";
+import {applyThomasModel} from "../../services/models";
 import {ThomasModelForm} from "../../components/ChemicalModels/Models/ThomasModelForm";
 import {
   THOMAS_REQUEST_FIELDS,
@@ -42,7 +42,7 @@ export const ThomasRoute = () => {
     setInputValues(values);
     let apiResponse;
     try {
-      apiResponse = await thomas(file, values);
+      apiResponse = await applyThomasModel(file, values);
     } catch (e) {
       setError({
         message: e.response.data.message,
