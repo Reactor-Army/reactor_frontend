@@ -23,6 +23,7 @@ import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertiseme
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
+import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoYoonNelsonModal";
 
 const INITIAL_ERROR = {
   message: null,
@@ -35,6 +36,7 @@ export const YoonNelsonRoute = () => {
   const [files, setNewFiles] = useState([]);
   const [inputValues, setInputValues] = useState();
   const [showLoader, setShowLoader] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const submitFile = async (file, values, index) => {
     setInputValues(values);
@@ -80,8 +82,15 @@ export const YoonNelsonRoute = () => {
   return (
     <>
       <Row>
-        <ModelTitle title={"Modelo de Yoon-Nelson"} />
+        <ModelTitle
+          title={"Modelo de Yoon-Nelson"}
+          onInfoIconClick={() => setOpenModal(true)}
+        />
       </Row>
+      <InfoYoonNelsonModal
+        closeModal={() => setOpenModal(false)}
+        openModal={openModal}
+      />
       <ThomasPageLayout>
         {responses.length > 0 && responses.length === files.length ? (
           <>

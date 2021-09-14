@@ -9,32 +9,32 @@ import {
   VariableExplanationWrapper,
 } from "./InfoStyles";
 import {Modal} from "../Modals/Modal";
-import thomas from "../../resources/images/thomas.png";
+import yoonNelson from "../../resources/images/yoon-nelson.png";
 import {Variable} from "./Variables/Variable";
 
-export const InfoThomasModal = ({closeModal, openModal}) => {
+export const InfoYoonNelsonModal = ({closeModal, openModal}) => {
   return (
     <Modal open={openModal} onClose={closeModal}>
       <InfoContainer>
-        <InfoTitle>Sobre el Modelo de Thomas</InfoTitle>
+        <InfoTitle>Sobre el Modelo de Yoon-Nelson</InfoTitle>
         <Info>
-          El modelo de Thomas es uno de los más generales y utilizados para
-          describir el comportamiento del proceso de adsorción en columnas de
-          lecho fijo. Se usa para conocer la máxima capacidad de adsorción de un
-          adsorbente y obtener el rendimiento teórico de la columna
+          El modelo de Yoon-Nelson supone que la probabilidad de adsorción de
+          cada molécula de adsorbato disminuye a una velocidad proporcional a la
+          cantidad de moléculas adsorbidas. Este es un modelo más simplificado
+          porque no requiere datos sobre la característica del adsorbato, el
+          tipo de adsorbente y las propiedades físicas del lecho de adsorción
         </Info>
-        <Ecuation src={thomas} alt="Ecuacion Thomas" />
+        <Ecuation src={yoonNelson} alt="Ecuacion Yoon-Nelson" />
         <Info>Donde:</Info>
         <VariableExplanationWrapper>
           <Variable
             letter="K"
-            subletters="th"
-            info="Es la constante de velocidad de Thomas"
+            subletters="yn"
+            info="Es la constante de velocidad de Yoon-Nelson"
           />
           <Variable
-            letter="q"
-            subletters="o"
-            info="Es la máxima concentración de soluto en la fase solida"
+            letter="𝜏"
+            info="Es el tiempo requerido para retener el 50% de la C₀"
           />
           <Variable
             letter="V"
@@ -48,10 +48,6 @@ export const InfoThomasModal = ({closeModal, openModal}) => {
             info="Es la concentración de metal en la alimentación"
           />
           <Variable letter="C" info="Es la concentración de salida" />
-          <Variable
-            letter="W"
-            info="Es la cantidad de sorbente en el interior del reactor"
-          />
         </VariableExplanationWrapper>
         <ButtonInfoContainer>
           <Button text="Cerrar" onClick={closeModal} />
