@@ -2,8 +2,7 @@ import React from "react";
 
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {ListContainer} from "../ListStyles";
-import {ProcessCardWrapper} from "../../Card/ProcessCard/ProcessCardWrapper";
+import {InnerProcessList} from "./InnerProcessList";
 
 export function ProcessList({loading, processes}) {
   if (loading || !processes) {
@@ -17,11 +16,5 @@ export function ProcessList({loading, processes}) {
       </Typography>
     );
   }
-  return (
-    <ListContainer>
-      {processes.map((process) => (
-        <ProcessCardWrapper process={process} key={process.id} />
-      ))}
-    </ListContainer>
-  );
+  return <InnerProcessList processes={processes} />;
 }

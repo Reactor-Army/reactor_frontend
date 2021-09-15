@@ -10,7 +10,7 @@ import {getProcess} from "../services/processes";
 export const CalculateVolumeViewContainer = () => {
   const dispatch = useDispatch();
   const [processId, setProcessId] = useState(null);
-  const [process, setProcess] = useState({});
+  const [process, setProcess] = useState(null);
   useEffect(() => {
     dispatch(fetchAdsorbatesWithIupacNotation());
     dispatch(fetchAdsorbentsWithParticleSize());

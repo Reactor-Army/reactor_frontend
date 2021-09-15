@@ -4,11 +4,8 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {processDetailUrlFor} from "../../../routing/urls";
 
-export const ProcessCardWrapper = ({process}) => {
+export const ProcessCardWrapper = ({process, onProcessClick}) => {
   const history = useHistory();
-  const browseToProcessDetail = (processId) => {
-    history.push(processDetailUrlFor(processId));
-  };
   const {
     adsorbato,
     adsorbente,
@@ -18,6 +15,10 @@ export const ProcessCardWrapper = ({process}) => {
     temperatura,
     phinicial,
   } = process;
+  const onClick = () => {
+    onProcessClick ? onProcessClick(id) : history.push(processDetailUrlFor(id));
+  };
+
   return (
     <ProcessCard
       adsorbateName={capitalize(adsorbato.nombreIon)}
@@ -27,7 +28,7 @@ export const ProcessCardWrapper = ({process}) => {
       temperature={temperatura}
       initialPH={phinicial}
       key={id}
-      browseToProcessDetail={() => browseToProcessDetail(id)}
+      onClick={onClick}
     />
   );
 };

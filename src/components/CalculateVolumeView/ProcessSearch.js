@@ -5,7 +5,7 @@ import {getAdsorbentsWithParticleSize} from "../../services/adsorbents";
 import {searchProcesses} from "../../services/processes";
 import {idFromName} from "../../utils/idFromName";
 
-export const ProcessSearchContainer = ({setProcess}) => {
+export const ProcessSearchContainer = ({setProcesses}) => {
   const [adsorbent, setAdsorbent] = useState("");
   const handleAdsorbentChange = async (event) => {
     setAdsorbent(event.target.innerText);
@@ -20,8 +20,7 @@ export const ProcessSearchContainer = ({setProcess}) => {
       "nombre",
     );
     const process = await searchProcesses(adsorbateId, adsorbentId);
-    console.log(process);
-    setProcess(process[0].id);
+    setProcesses(process);
   };
   const [adsorbate, setAdsorbate] = useState("");
   const adsorbatesWithIupacNotation = useSelector(

@@ -5,13 +5,8 @@ export const CalculateVolumeFormContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const CardContainer = styled.div`
-  width: 600px;
-  margin-top: 15px;
+export const ProcessPickerContainer = styled.div`
   margin-bottom: 20px;
-  @media (max-width: 1110px) {
-    width: 100%;
-  } ;
 `;
 
 export const InvalidFormMessage = styled.div`
