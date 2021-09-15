@@ -15,7 +15,7 @@ import {
   AdvertisementWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
+import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
@@ -24,6 +24,7 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
+import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
 
 const INITIAL_ERROR = {
   message: null,
@@ -94,7 +95,16 @@ export const ThomasRoute = () => {
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
           <>
-            <ThomasResults responses={responses} inputValues={inputValues} />
+            <Results
+              responses={responses}
+              inputFields={
+                <ThomasInputFields
+                  F={inputValues.caudalVolumetrico}
+                  C0={inputValues.concentracionInicial}
+                  W={inputValues.sorbenteReactor}
+                />
+              }
+            />
             <ButtonWrapper>
               <Button
                 size="medium"

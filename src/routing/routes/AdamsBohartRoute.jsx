@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {applyAdamsBohartModel} from "../../services/models";
-import {ThomasModelForm} from "../../components/ChemicalModels/Models/ThomasModelForm";
+import {AdamsBohartModelForm} from "../../components/ChemicalModels/Models/AdamsBohartModelForm";
 import {
-  THOMAS_REQUEST_FIELDS,
-  THOMAS_RESPONSE_FIELDS,
+  ADAMS_BOHART_REQUEST_FIELDS,
+  ADAMS_BOHART_RESPONSE_FIELDS,
 } from "../../common/fields";
 import {
   PageLayout,
@@ -15,7 +15,7 @@ import {
   AdvertisementWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
+import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
@@ -24,6 +24,7 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoAdamsBohartModal";
+import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
 
 const INITIAL_ERROR = {
   message: null,
@@ -54,13 +55,14 @@ export const AdamsBohartRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
-        F: values[THOMAS_REQUEST_FIELDS.FLOW],
-        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        F: values[ADAMS_BOHART_REQUEST_FIELDS.FLOW],
+        Z: values[ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT],
+        C0: values[ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION],
+        U0: values[ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY],
+        Kab: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
+        N0: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.N0],
         points: apiResponse[
-          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+          ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
       },
     ]);
@@ -94,7 +96,17 @@ export const AdamsBohartRoute = () => {
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
           <>
-            <ThomasResults responses={responses} inputValues={inputValues} />
+            <Results
+              responses={responses}
+              inputFields={
+                <AdamsBohartInputFields
+                  F={inputValues.caudalVolumetrico}
+                  C0={inputValues.concentracionInicial}
+                  Z={inputValues.alturaLechoReactor}
+                  U0={inputValues.velocidadLineal}
+                />
+              }
+            />
             <ButtonWrapper>
               <Button
                 size="medium"
@@ -129,7 +141,7 @@ export const AdamsBohartRoute = () => {
                 <>
                   <FormContainer>
                     <FileUpload files={files} setNewFiles={setNewFiles} />
-                    <ThomasModelForm
+                    <AdamsBohartModelForm
                       forceDisable={files.length === 0}
                       onSubmit={(values) => {
                         onSubmit(values);

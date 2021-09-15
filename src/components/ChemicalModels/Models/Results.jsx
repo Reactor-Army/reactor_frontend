@@ -1,24 +1,19 @@
 import {ResultsTitle} from "../ResultsTitle";
 import {ThomasModelPlot} from "./Plots/ThomasModelPlot";
 import {ThomasResultFields} from "./ThomasResultFields";
-import {ThomasInputFields} from "./ThomasInputFields";
 import React from "react";
-import {ThomasResultsContainer} from "./ModelsStyles";
+import {ResultsContainer} from "./ModelsStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ModelsStyles";
 import {appColors} from "../../../common/styles";
 
-export const ThomasResults = ({responses, inputValues}) => {
+export const Results = ({responses, inputFields}) => {
   const colors = [appColors.primary, appColors.red, appColors.green];
   return (
-    <ThomasResultsContainer>
+    <ResultsContainer>
       <DataFramesWrapper>
         <DataFrame>
           <Title>Datos de entrada</Title>
-          <ThomasInputFields
-            F={inputValues.caudalVolumetrico}
-            C0={inputValues.concentracionInicial}
-            W={inputValues.sorbenteReactor}
-          />
+          {inputFields}
         </DataFrame>
         {responses.map((response, index) => (
           <DataFrame key={index}>
@@ -36,6 +31,6 @@ export const ThomasResults = ({responses, inputValues}) => {
           expressions={responses}
         />
       </PlotFrame>
-    </ThomasResultsContainer>
+    </ResultsContainer>
   );
 };

@@ -19,7 +19,7 @@ export const PageLayout = styled.div`
   flex-direction: column;
 `;
 
-export const ThomasResultsContainer = styled.div`
+export const ResultsContainer = styled.div`
   max-width: 100vw;
 `;
 

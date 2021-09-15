@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {applyYoonNelsonModel} from "../../services/models";
-import {ThomasModelForm} from "../../components/ChemicalModels/Models/ThomasModelForm";
+import {YoonNelsonModelForm} from "../../components/ChemicalModels/Models/YoonNelsonModelForm";
 import {
-  THOMAS_REQUEST_FIELDS,
-  THOMAS_RESPONSE_FIELDS,
+  YOON_NELSON_REQUEST_FIELDS,
+  YOON_NELSON_RESPONSE_FIELDS,
 } from "../../common/fields";
 import {
   PageLayout,
@@ -15,7 +15,7 @@ import {
   AdvertisementWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResults} from "../../components/ChemicalModels/Models/ThomasResults";
+import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
@@ -24,6 +24,7 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoYoonNelsonModal";
+import {YoonNelsonInputFields} from "../../components/ChemicalModels/Models/YoonNelsonInputFields.jsx";
 
 const INITIAL_ERROR = {
   message: null,
@@ -54,13 +55,11 @@ export const YoonNelsonRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
-        F: values[THOMAS_REQUEST_FIELDS.FLOW],
-        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        F: values[YOON_NELSON_REQUEST_FIELDS.FLOW],
+        Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYNYN],
+        t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.t],
         points: apiResponse[
-          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+          YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
       },
     ]);
@@ -94,7 +93,12 @@ export const YoonNelsonRoute = () => {
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
           <>
-            <ThomasResults responses={responses} inputValues={inputValues} />
+            <Results
+              responses={responses}
+              inputFields={
+                <YoonNelsonInputFields F={inputValues.caudalVolumetrico} />
+              }
+            />
             <ButtonWrapper>
               <Button
                 size="medium"
@@ -129,7 +133,7 @@ export const YoonNelsonRoute = () => {
                 <>
                   <FormContainer>
                     <FileUpload files={files} setNewFiles={setNewFiles} />
-                    <ThomasModelForm
+                    <YoonNelsonModelForm
                       forceDisable={files.length === 0}
                       onSubmit={(values) => {
                         onSubmit(values);
