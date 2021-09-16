@@ -40,7 +40,9 @@ export class HttpClient {
     const formData = new FormData();
     formData.append("observaciones", file);
     Object.keys(body).forEach((key) => {
-      formData.append(key, body[key]);
+      if (key != "observaciones") {
+        formData.append(key, body[key]);
+      }
     });
     const config = {
       headers: {
