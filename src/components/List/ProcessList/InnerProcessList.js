@@ -5,11 +5,12 @@ import React, {useState} from "react";
 export const InnerProcessList = ({processes, onProcessClick}) => {
   const [selectedProcess, setSelectedProcess] = useState(null);
 
-  const _onProcessClick = (id) => {
-    setSelectedProcess(id);
-    onProcessClick(id);
-  };
-
+  const _onProcessClick =
+    onProcessClick &&
+    ((id) => {
+      setSelectedProcess(id);
+      onProcessClick(id);
+    });
   return (
     <ListContainer>
       {processes.map((process) => (
