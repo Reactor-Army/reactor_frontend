@@ -1,7 +1,7 @@
 import {ProcessSearchContainer} from "./ProcessSearch";
 import {InnerProcessList} from "../List/ProcessList/InnerProcessList";
 import React, {useState} from "react";
-import {ProcessPickerContainer} from "./Styles";
+import {InvalidFormMessage, ProcessPickerContainer} from "./Styles";
 
 export const ProcessPicker = ({setProcess}) => {
   const [processes, setProcesses] = useState(null);
@@ -9,8 +9,14 @@ export const ProcessPicker = ({setProcess}) => {
   return (
     <ProcessPickerContainer>
       <ProcessSearchContainer setProcesses={setProcesses} />
-      {processes && (
+      {processes !== null && (
         <InnerProcessList processes={processes} onProcessClick={setProcess} />
+      )}
+      {processes && processes.length === 0 && (
+        <InvalidFormMessage>
+          *No se encontraron sistemas para esta combinación de adsorbato y
+          adsorbente.
+        </InvalidFormMessage>
       )}
     </ProcessPickerContainer>
   );
