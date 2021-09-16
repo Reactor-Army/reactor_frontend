@@ -25,6 +25,7 @@ import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
 import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
+import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
 
 const INITIAL_ERROR = {
   message: null,
@@ -102,6 +103,12 @@ export const ThomasRoute = () => {
                   F={inputValues.caudalVolumetrico}
                   C0={inputValues.concentracionInicial}
                   W={inputValues.sorbenteReactor}
+                />
+              }
+              plot={
+                <ThomasModelPlot
+                  points={responses.map((response) => response.points)}
+                  expressions={responses}
                 />
               }
             />

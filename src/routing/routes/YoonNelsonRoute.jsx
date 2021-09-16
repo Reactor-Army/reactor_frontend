@@ -25,6 +25,7 @@ import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoYoonNelsonModal";
 import {YoonNelsonInputFields} from "../../components/ChemicalModels/Models/YoonNelsonInputFields.jsx";
+import {YoonNelsonModelPlot} from "../../components/ChemicalModels/Models/Plots/YoonNelsonModelPlot";
 
 const INITIAL_ERROR = {
   message: null,
@@ -97,6 +98,12 @@ export const YoonNelsonRoute = () => {
               responses={responses}
               inputFields={
                 <YoonNelsonInputFields F={inputValues.caudalVolumetrico} />
+              }
+              plot={
+                <YoonNelsonModelPlot
+                  points={responses.map((response) => response.points)}
+                  expressions={responses}
+                />
               }
             />
             <ButtonWrapper>

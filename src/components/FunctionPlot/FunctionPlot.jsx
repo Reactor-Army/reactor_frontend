@@ -28,7 +28,11 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     const functions = expressions.map((formula, index) => {
-      return {fn: formula, color: colors[index % colors.length].dark};
+      return {
+        fn: formula,
+        color: colors[index % colors.length].dark,
+        graphType: "polyline",
+      };
     });
 
     const plotPoints = points.map((set, index) => {

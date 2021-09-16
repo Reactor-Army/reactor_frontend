@@ -149,6 +149,7 @@ export const ADAMS_BOHART_RESPONSE_FIELDS = {
 export const YOON_NELSON_RESPONSE_FIELDS = {
   KYN: "constanteYoonNelson",
   t: "tiempoCincuentaPorciento",
+  OBSERVATIONS: "observaciones",
 };
 
 export const MODEL_UNITS = {

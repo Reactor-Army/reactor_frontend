@@ -18,9 +18,9 @@ export const AdamsBohartModelPlot = ({expressions, points = []}) => {
         expressions.map((expression) => {
           /*The following expression is the exponential form that the Adams-Bohart's model uses to try 
             to fit a set of points and is the one that gets graphed at the Adams-Bohart's model view*/
-          return `exp(${(expression.Kab * expression.C0) / expression.F})x - ${
-            ((expression.Kab * expression.N0 * expression.Z) / expression) * U0
-          }`;
+          return `exp((${(expression.Kab * expression.C0) / expression.F})x - ${
+            (expression.Kab * expression.N0 * expression.Z) / expression.U0
+          })`;
         }),
       );
     } else {

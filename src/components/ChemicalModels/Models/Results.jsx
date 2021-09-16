@@ -1,12 +1,11 @@
 import {ResultsTitle} from "../ResultsTitle";
-import {ThomasModelPlot} from "./Plots/ThomasModelPlot";
 import {ThomasResultFields} from "./ThomasResultFields";
 import React from "react";
 import {ResultsContainer} from "./ModelsStyles";
 import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ModelsStyles";
 import {appColors} from "../../../common/styles";
 
-export const Results = ({responses, inputFields}) => {
+export const Results = ({responses, inputFields, plot}) => {
   const colors = [appColors.primary, appColors.red, appColors.green];
   return (
     <ResultsContainer>
@@ -26,10 +25,7 @@ export const Results = ({responses, inputFields}) => {
       </DataFramesWrapper>
       <PlotFrame>
         <ResultsTitle />
-        <ThomasModelPlot
-          points={responses.map((response) => response.points)}
-          expressions={responses}
-        />
+        {plot}
       </PlotFrame>
     </ResultsContainer>
   );

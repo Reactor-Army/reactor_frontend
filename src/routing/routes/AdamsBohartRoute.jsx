@@ -25,6 +25,7 @@ import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoAdamsBohartModal";
 import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
+import {AdamsBohartModelPlot} from "../../components/ChemicalModels/Models/Plots/AdamsBohartModelPlot";
 
 const INITIAL_ERROR = {
   message: null,
@@ -104,6 +105,12 @@ export const AdamsBohartRoute = () => {
                   C0={inputValues.concentracionInicial}
                   Z={inputValues.alturaLechoReactor}
                   U0={inputValues.velocidadLineal}
+                />
+              }
+              plot={
+                <AdamsBohartModelPlot
+                  points={responses.map((response) => response.points)}
+                  expressions={responses}
                 />
               }
             />
