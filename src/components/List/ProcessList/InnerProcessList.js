@@ -1,15 +1,23 @@
 import {ProcessCardWrapper} from "../../Card/ProcessCard/ProcessCardWrapper";
-import React from "react";
 import {ListContainer} from "../ListStyles";
+import React, {useState} from "react";
 
 export const InnerProcessList = ({processes, onProcessClick}) => {
+  const [selectedProcess, setSelectedProcess] = useState(null);
+
+  const _onProcessClick = (id) => {
+    setSelectedProcess(id);
+    onProcessClick(id);
+  };
+
   return (
     <ListContainer>
       {processes.map((process) => (
         <ProcessCardWrapper
           process={process}
           key={process.id}
-          onProcessClick={onProcessClick}
+          selected={selectedProcess === process.id}
+          onProcessClick={_onProcessClick}
         />
       ))}
     </ListContainer>

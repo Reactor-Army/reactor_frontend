@@ -4,7 +4,7 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {processDetailUrlFor} from "../../../routing/urls";
 
-export const ProcessCardWrapper = ({process, onProcessClick}) => {
+export const ProcessCardWrapper = ({process, onProcessClick, selected}) => {
   const history = useHistory();
   const {
     adsorbato,
@@ -29,6 +29,7 @@ export const ProcessCardWrapper = ({process, onProcessClick}) => {
       initialPH={phinicial}
       key={id}
       onClick={onClick}
+      selected={selected}
     />
   );
 };
