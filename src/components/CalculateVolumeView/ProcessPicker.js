@@ -14,7 +14,7 @@ export const ProcessPicker = ({setProcess}) => {
   return (
     <ProcessPickerContainer>
       <ProcessSearchContainer setProcesses={_setProcesses} />
-      {processes !== null && (
+      {processes && processes.length !== 0 && (
         <InnerProcessList processes={processes} onProcessClick={setProcess} />
       )}
       {processes && processes.length === 0 && (
