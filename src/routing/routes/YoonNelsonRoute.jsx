@@ -56,7 +56,7 @@ export const YoonNelsonRoute = () => {
       ...prev,
       {
         F: values[YOON_NELSON_REQUEST_FIELDS.FLOW],
-        Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYNYN],
+        Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYN],
         t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.t],
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
