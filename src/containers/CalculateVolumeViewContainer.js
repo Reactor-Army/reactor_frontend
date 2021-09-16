@@ -18,6 +18,11 @@ export const CalculateVolumeViewContainer = () => {
 
   const changeProcess = async (id) => {
     setProcessId(id);
+    if (id === null) {
+      setProcess(null);
+      return;
+    }
+
     const process = await getProcess(id);
     setProcess(process);
   };

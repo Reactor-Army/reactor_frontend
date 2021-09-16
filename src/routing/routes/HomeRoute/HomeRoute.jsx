@@ -66,6 +66,13 @@ export const HomeRoute = () => {
           }}
         />
         <ExpandableCard
+          icon={glass}
+          text="Calcular volumen reactor"
+          onClick={() => {
+            history.push(URLS.PROCESS_EFFLUENT_VOLUME);
+          }}
+        />
+        <ExpandableCard
           icon={plot}
           text="Modelo de Thomas"
           onClick={() => {

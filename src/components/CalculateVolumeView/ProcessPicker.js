@@ -6,9 +6,14 @@ import {InvalidFormMessage, ProcessPickerContainer} from "./Styles";
 export const ProcessPicker = ({setProcess}) => {
   const [processes, setProcesses] = useState(null);
 
+  const _setProcesses = (processes) => {
+    setProcesses(processes);
+    setProcess(null);
+  };
+
   return (
     <ProcessPickerContainer>
-      <ProcessSearchContainer setProcesses={setProcesses} />
+      <ProcessSearchContainer setProcesses={_setProcesses} />
       {processes !== null && (
         <InnerProcessList processes={processes} onProcessClick={setProcess} />
       )}
