@@ -160,4 +160,8 @@ export const MODEL_UNITS = {
   KTH: "cm³/(g*min)",
   REACTOR_HEIGHT: "cm",
   LIQUID_VELOCITY: "cm/min",
+  KAB: "cm³/mmol.min",
+  N0: "mmol/cm³",
+  t: "min",
+  KYN: "1/min",
 };

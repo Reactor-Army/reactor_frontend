@@ -26,6 +26,12 @@ import {settings} from "../../config/settings";
 import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
 import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
 import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
+import {
+  DataFrame,
+  Title,
+} from "../../components/ChemicalModels/Models/ModelsStyles";
+import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
+import {appColors} from "../../common/styles";
 
 const INITIAL_ERROR = {
   message: null,
@@ -80,6 +86,7 @@ export const ThomasRoute = () => {
     }
     setShowLoader(false);
   };
+  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -97,7 +104,6 @@ export const ThomasRoute = () => {
         {responses.length > 0 && responses.length === files.length ? (
           <>
             <Results
-              responses={responses}
               inputFields={
                 <ThomasInputFields
                   F={inputValues.caudalVolumetrico}
@@ -105,6 +111,14 @@ export const ThomasRoute = () => {
                   W={inputValues.sorbenteReactor}
                 />
               }
+              resultsInfo={responses.map((response, index) => (
+                <DataFrame key={index}>
+                  <Title color={colors[index % colors.length]}>
+                    Resultados gráfico {++index}
+                  </Title>
+                  <ThomasResultFields kth={response.Kth} q0={response.q0} />
+                </DataFrame>
+              ))}
               plot={
                 <ThomasModelPlot
                   points={responses.map((response) => response.points)}

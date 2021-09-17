@@ -26,6 +26,12 @@ import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoYoonNelsonModal";
 import {YoonNelsonInputFields} from "../../components/ChemicalModels/Models/YoonNelsonInputFields.jsx";
 import {YoonNelsonModelPlot} from "../../components/ChemicalModels/Models/Plots/YoonNelsonModelPlot";
+import {
+  DataFrame,
+  Title,
+} from "../../components/ChemicalModels/Models/ModelsStyles";
+import {YoonNelsonResultFields} from "../../components/ChemicalModels/Models/YoonNelsonResultFields";
+import {appColors} from "../../common/styles";
 
 const INITIAL_ERROR = {
   message: null,
@@ -78,6 +84,7 @@ export const YoonNelsonRoute = () => {
     }
     setShowLoader(false);
   };
+  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -95,10 +102,17 @@ export const YoonNelsonRoute = () => {
         {responses.length > 0 && responses.length === files.length ? (
           <>
             <Results
-              responses={responses}
               inputFields={
                 <YoonNelsonInputFields F={inputValues.caudalVolumetrico} />
               }
+              resultsInfo={responses.map((response, index) => (
+                <DataFrame key={index}>
+                  <Title color={colors[index % colors.length]}>
+                    Resultados gráfico {++index}
+                  </Title>
+                  <YoonNelsonResultFields Kyn={response.Kyn} t={response.t} />
+                </DataFrame>
+              ))}
               plot={
                 <YoonNelsonModelPlot
                   points={responses.map((response) => response.points)}

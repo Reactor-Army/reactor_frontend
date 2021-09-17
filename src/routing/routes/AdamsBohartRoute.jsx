@@ -26,6 +26,12 @@ import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoAdamsBohartModal";
 import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
 import {AdamsBohartModelPlot} from "../../components/ChemicalModels/Models/Plots/AdamsBohartModelPlot";
+import {
+  DataFrame,
+  Title,
+} from "../../components/ChemicalModels/Models/ModelsStyles";
+import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
+import {appColors} from "../../common/styles";
 
 const INITIAL_ERROR = {
   message: null,
@@ -81,6 +87,7 @@ export const AdamsBohartRoute = () => {
     }
     setShowLoader(false);
   };
+  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -98,7 +105,6 @@ export const AdamsBohartRoute = () => {
         {responses.length > 0 && responses.length === files.length ? (
           <>
             <Results
-              responses={responses}
               inputFields={
                 <AdamsBohartInputFields
                   F={inputValues.caudalVolumetrico}
@@ -107,6 +113,17 @@ export const AdamsBohartRoute = () => {
                   U0={inputValues.velocidadLineal}
                 />
               }
+              resultsInfo={responses.map((response, index) => (
+                <DataFrame key={index}>
+                  <Title color={colors[index % colors.length]}>
+                    Resultados gráfico {++index}
+                  </Title>
+                  <AdamsBohartResultFields
+                    Kab={response.Kab}
+                    N0={response.N0}
+                  />
+                </DataFrame>
+              ))}
               plot={
                 <AdamsBohartModelPlot
                   points={responses.map((response) => response.points)}
