@@ -40,15 +40,12 @@ export const ProcessSearchContainer = ({setProcesses}) => {
     setAdsorbentsSearchArray(processesForAdsorbate);
   };
 
-  const onSearchSubmit = () => {};
-
   return (
     <ProcessSearch
       adsorbate={adsorbate}
       adsorbent={adsorbent}
       handleAdsorbateChange={handleAdsorbateChange}
       handleAdsorbentChange={handleAdsorbentChange}
-      onSearchSubmit={onSearchSubmit}
       adsorbentItems={adsorbentsSearchArray.map((x) => x.nombre)}
       adsorbateItems={adsorbatesSearchArray}
     />
