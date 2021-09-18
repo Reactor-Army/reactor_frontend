@@ -15,3 +15,11 @@ export const InvalidFormMessage = styled.div`
   color: ${appFontColors.warning};
   font-size: 16px;
 `;
+
+export const SelectedProcessContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px;
+  flex-wrap: wrap;
+`;

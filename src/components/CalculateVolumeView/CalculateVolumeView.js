@@ -1,13 +1,13 @@
 import {PageTitle} from "../../common/PageTitle";
-import React from "react";
+import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
 import {CalculateVolumeForm} from "./CalculateVolumeForm";
-import {SectionHeader} from "../Detail/SectionHeader";
 import {InvalidFormMessage} from "./Styles";
-import {ProcessPicker} from "./ProcessPicker";
-import {Label} from "../Detail/Label";
-import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {SelectedProcess} from "./SelectedProcess";
+import {SectionHeader} from "../Detail/SectionHeader";
+import {ProcessPickerResults} from "./ProcessPickerResults";
+import {ProcessSearchContainer} from "./ProcessSearch";
 
 export const CalculateVolumeView = ({
   process,
@@ -15,6 +15,12 @@ export const CalculateVolumeView = ({
   setProcess,
   loading,
 }) => {
+  const [processes, setProcesses] = useState(null);
+
+  const _setProcesses = (processes) => {
+    setProcess(null);
+    setProcesses(processes);
+  };
   const invalidForm =
     process && (!process.ordenReaccion || !process.constanteCinetica);
   return (
@@ -29,30 +35,21 @@ export const CalculateVolumeView = ({
       <SectionHeader>
         Seleccioná el sistema para el cual querés calcular el volumen
       </SectionHeader>
-      <ProcessPicker setProcess={setProcess} />
+      <ProcessSearchContainer setProcesses={_setProcesses} />
+      {process === null && (
+        <ProcessPickerResults processes={processes} setProcess={setProcess} />
+      )}
       {loading && <CircularProgress />}
       {process &&
         (invalidForm ? (
           <InvalidFormMessage>
             *No se puede calcular el volumen del efluente para este sistema dado
             que no tiene asignada una constante cinética y un orden de reacción.
+            Probá buscar otra combinación.
           </InvalidFormMessage>
         ) : (
           <>
-            <Label
-              label={"Constante cinética (K)"}
-              value={
-                process.constanteCinetica
-                  ? `${process.constanteCinetica} ${getKineticConstantUnits(
-                      process.ordenReaccion,
-                    )}`
-                  : "-"
-              }
-            />
-            <Label
-              label={"Orden de la reacción (n)"}
-              value={process.ordenReaccion ? process.ordenReaccion : "-"}
-            />
+            <SelectedProcess process={process} />
             <CalculateVolumeForm onSubmit={onSubmit} />
           </>
         ))}
