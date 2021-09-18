@@ -37,7 +37,7 @@ export const PlotFrame = styled.div`
 `;
 
 export const DataFrame = styled.div`
-  min-width: 310px;
+  width: calc(51% - 22px);
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
   display: inline-flex;
   flex-direction: column;
@@ -49,6 +49,12 @@ export const DataFrame = styled.div`
     width: 100%;
     padding: 20px;
   }
+`;
+
+export const DataFrameContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-row-gap: 10px;
 `;
 
 export const Title = styled.div`

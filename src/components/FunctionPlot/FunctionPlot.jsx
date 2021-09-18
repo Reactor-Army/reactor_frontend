@@ -51,7 +51,6 @@ export const FunctionPlot = ({
       yAxis: {domain: [0, maxOrdinate], label: yAxisLabel},
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
-      disableZoom: true,
       data: [...functions, ...plotPoints],
     });
   }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);

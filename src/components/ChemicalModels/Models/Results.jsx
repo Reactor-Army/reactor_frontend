@@ -1,7 +1,13 @@
 import {ResultsTitle} from "../ResultsTitle";
 import React from "react";
 import {ResultsContainer} from "./ModelsStyles";
-import {PlotFrame, DataFrame, Title, DataFramesWrapper} from "./ModelsStyles";
+import {
+  PlotFrame,
+  DataFrame,
+  DataFrameContent,
+  Title,
+  DataFramesWrapper,
+} from "./ModelsStyles";
 
 export const Results = ({inputFields, resultsInfo, plot}) => {
   return (
@@ -9,7 +15,7 @@ export const Results = ({inputFields, resultsInfo, plot}) => {
       <DataFramesWrapper>
         <DataFrame>
           <Title>Datos de entrada</Title>
-          {inputFields}
+          <DataFrameContent>{inputFields}</DataFrameContent>
         </DataFrame>
         {resultsInfo}
       </DataFramesWrapper>
