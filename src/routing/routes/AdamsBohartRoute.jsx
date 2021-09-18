@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
-import {applyThomasModel} from "../../services/models";
-import {ThomasModelForm} from "../../components/ChemicalModels/Models/ThomasModelForm";
+import {applyAdamsBohartModel} from "../../services/models";
+import {AdamsBohartModelForm} from "../../components/ChemicalModels/Models/AdamsBohartModelForm";
 import {
-  THOMAS_REQUEST_FIELDS,
-  THOMAS_RESPONSE_FIELDS,
+  ADAMS_BOHART_REQUEST_FIELDS,
+  ADAMS_BOHART_RESPONSE_FIELDS,
 } from "../../common/fields";
 import {
   PageLayout,
@@ -23,14 +23,14 @@ import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertiseme
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
-import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
-import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
+import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoAdamsBohartModal";
+import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
+import {AdamsBohartModelPlot} from "../../components/ChemicalModels/Models/Plots/AdamsBohartModelPlot";
 import {
   DataFrame,
   Title,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
+import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
 import {appColors} from "../../common/styles";
 
 const INITIAL_ERROR = {
@@ -38,7 +38,7 @@ const INITIAL_ERROR = {
   index: null,
 };
 
-export const ThomasRoute = () => {
+export const AdamsBohartRoute = () => {
   const [responses, setResponses] = useState([]);
   const [error, setError] = useState(INITIAL_ERROR);
   const [files, setNewFiles] = useState([]);
@@ -50,7 +50,7 @@ export const ThomasRoute = () => {
     setInputValues(values);
     let apiResponse;
     try {
-      apiResponse = await applyThomasModel(file, values);
+      apiResponse = await applyAdamsBohartModel(file, values);
     } catch (e) {
       setError({
         message: e.response.data.message,
@@ -62,13 +62,14 @@ export const ThomasRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
-        F: values[THOMAS_REQUEST_FIELDS.FLOW],
-        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        F: values[ADAMS_BOHART_REQUEST_FIELDS.FLOW],
+        Z: values[ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT],
+        C0: values[ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION],
+        U0: values[ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY],
+        Kab: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
+        N0: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.N0],
         points: apiResponse[
-          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+          ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
       },
     ]);
@@ -92,11 +93,11 @@ export const ThomasRoute = () => {
     <>
       <Row>
         <ModelTitle
-          title={"Modelo de Thomas"}
+          title={"Modelo de Adams-Bohart"}
           onInfoIconClick={() => setOpenModal(true)}
         />
       </Row>
-      <InfoThomasModal
+      <InfoAdamsBohartModal
         closeModal={() => setOpenModal(false)}
         openModal={openModal}
       />
@@ -105,10 +106,11 @@ export const ThomasRoute = () => {
           <>
             <Results
               inputFields={
-                <ThomasInputFields
+                <AdamsBohartInputFields
                   F={inputValues.caudalVolumetrico}
                   C0={inputValues.concentracionInicial}
-                  W={inputValues.sorbenteReactor}
+                  Z={inputValues.alturaLechoReactor}
+                  U0={inputValues.velocidadLineal}
                 />
               }
               resultsInfo={responses.map((response, index) => (
@@ -116,11 +118,14 @@ export const ThomasRoute = () => {
                   <Title color={colors[index % colors.length]}>
                     Resultados gráfico {++index}
                   </Title>
-                  <ThomasResultFields kth={response.Kth} q0={response.q0} />
+                  <AdamsBohartResultFields
+                    Kab={response.Kab}
+                    N0={response.N0}
+                  />
                 </DataFrame>
               ))}
               plot={
-                <ThomasModelPlot
+                <AdamsBohartModelPlot
                   points={responses.map((response) => response.points)}
                   expressions={responses}
                 />
@@ -140,16 +145,16 @@ export const ThomasRoute = () => {
         ) : (
           <>
             <HelpText>
-              Calcula la constante de Thomas (Kth) y la concentración máxima del
-              soluto (q₀) en base a un archivo de observaciones. Las
-              observaciones deben ser subidas como un archivo CSV (exportable
-              desde Excel u otro software similar de planillas de cálculo), con
-              dos columnas: &quot;volumenEfluente&quot; medido en mililitros y
-              &quot;C/C₀&quot;. Se pueden subir varios archivos CSV, y el modelo
-              se calculará para cada archivo de observaciones de manera
-              independiente, y se graficarán y mostraran resultados para todos
-              al mismo tiempo. La máxima cantidad de modelos que se pueden
-              ejecutar son {settings.MAX_MODELS}.
+              Calcula el coeficiente de transferencia de masa (Kab) y la
+              capacidad máxima de adsorción (N₀) en base a un archivo de
+              observaciones. Las observaciones deben ser subidas como un archivo
+              CSV (exportable desde Excel u otro software similar de planillas
+              de cálculo), con dos columnas: &quot;volumenEfluente&quot; medido
+              en mililitros y &quot;C/C₀&quot;. Se pueden subir varios archivos
+              CSV, y el modelo se calculará para cada archivo de observaciones
+              de manera independiente, y se graficarán y mostraran resultados
+              para todos al mismo tiempo. La máxima cantidad de modelos que se
+              pueden ejecutar son {settings.MAX_MODELS}.
             </HelpText>
             <ContentWrapper>
               {showLoader ? (
@@ -160,7 +165,7 @@ export const ThomasRoute = () => {
                 <>
                   <FormContainer>
                     <FileUpload files={files} setNewFiles={setNewFiles} />
-                    <ThomasModelForm
+                    <AdamsBohartModelForm
                       forceDisable={files.length === 0}
                       onSubmit={(values) => {
                         onSubmit(values);

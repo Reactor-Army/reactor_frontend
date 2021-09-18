@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme) => ({
 }));
 
 export const LinkContainer = styled.div`
-  width: 95%;
   margin: auto;
   border-radius: 8px;
   height: 50px;
@@ -42,10 +41,10 @@ export const TitleContainer = styled.div`
 
 export const LinkText = styled.p`
   text-align: left;
-  margin-left: 10px;
+  padding-left: 10px;
   font-family: ${appFontFamily.primary};
   color: ${appFontColors.fontColorMenu};
-  font-size: 18px;
+  font-size: 15px;
   white-space: nowrap;
 `;
 

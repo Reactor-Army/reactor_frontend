@@ -91,9 +91,14 @@ export const SYSTEM_REQUEST_FIELDS = {
   REACTION_ORDER: "ordenReaccion",
 };
 
-export const THOMAS_MODEL_AXIS_LABELS = {
+export const MODEL_AXIS_LABELS = {
   X_LABEL: "Vef [L]",
   Y_LABEL: "C/C₀",
+};
+
+export const COMMON_MODEL_FIELDS = {
+  FLOW: "Caudal volumétrico (F)",
+  INITIAL_CONCENTRATION: "Concentración Inicial (C₀)",
 };
 
 export const THOMAS_FIELDS = {
@@ -102,16 +107,48 @@ export const THOMAS_FIELDS = {
   ADSORBENT_MASS: "Masa del adsorbente (W)",
 };
 
-export const THOMAS_REQUEST_FIELDS = {
+export const ADAMS_BOHART_FIELDS = {
+  ...COMMON_MODEL_FIELDS,
+  REACTOR_HEIGHT: "Altura del lecho en el reactor (Z)",
+  LIQUID_VELOCITY: "Velocidad lineal del líquido (U₀)",
+};
+
+const COMMON_MODEL_REQUEST_FIELDS = {
   FILE: "observaciones",
   FLOW: "caudalVolumetrico",
   INITIAL_CONCENTRATION: "concentracionInicial",
+};
+
+export const THOMAS_REQUEST_FIELDS = {
+  ...COMMON_MODEL_REQUEST_FIELDS,
   ADSORBENT_MASS: "sorbenteReactor",
+};
+
+export const ADAMS_BOHART_REQUEST_FIELDS = {
+  ...COMMON_MODEL_REQUEST_FIELDS,
+  REACTOR_HEIGHT: "alturaLechoReactor",
+  LIQUID_VELOCITY: "velocidadLineal",
+};
+
+export const YOON_NELSON_REQUEST_FIELDS = {
+  ...COMMON_MODEL_REQUEST_FIELDS,
 };
 
 export const THOMAS_RESPONSE_FIELDS = {
   KTH: "constanteThomas",
   Q0: "concentracionMaximaSoluto",
+  OBSERVATIONS: "observaciones",
+};
+
+export const ADAMS_BOHART_RESPONSE_FIELDS = {
+  KAB: "constanteAdamsBohart",
+  N0: "capacidadMaximaAbsorcion",
+  OBSERVATIONS: "observaciones",
+};
+
+export const YOON_NELSON_RESPONSE_FIELDS = {
+  KYN: "constanteYoonNelson",
+  t: "tiempoCincuentaPorciento",
   OBSERVATIONS: "observaciones",
 };
 
@@ -121,4 +158,10 @@ export const MODEL_UNITS = {
   INITIAL_CONCENTRATION: "mmol/l",
   Q0: "mmol/g",
   KTH: "cm³/(g*min)",
+  REACTOR_HEIGHT: "cm",
+  LIQUID_VELOCITY: "cm/min",
+  KAB: "cm³/mmol.min",
+  N0: "mmol/cm³",
+  t: "min",
+  KYN: "1/min",
 };

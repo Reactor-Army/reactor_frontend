@@ -49,11 +49,17 @@ export const NameVariable = styled.div`
   font-size: calc(10px + 0.5vw);
   margin: 0 5px;
   font-weight: bold;
-  width: 20px;
+  width: 25px;
 `;
 
 export const ButtonInfoContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+`;
+
+export const VariableExplanationWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
 `;

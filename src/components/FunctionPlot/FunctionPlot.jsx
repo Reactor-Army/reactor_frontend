@@ -28,7 +28,11 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     const functions = expressions.map((formula, index) => {
-      return {fn: formula, color: colors[index % colors.length].dark};
+      return {
+        fn: formula,
+        color: colors[index % colors.length].dark,
+        graphType: "polyline",
+      };
     });
 
     const plotPoints = points.map((set, index) => {
@@ -47,7 +51,6 @@ export const FunctionPlot = ({
       yAxis: {domain: [0, maxOrdinate], label: yAxisLabel},
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
-      disableZoom: true,
       data: [...functions, ...plotPoints],
     });
   }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);

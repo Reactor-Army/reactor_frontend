@@ -7,7 +7,7 @@ import {
 } from "./ChemicalModelStyles";
 import {FileCard} from "./FileCard";
 import Typography from "@material-ui/core/Typography";
-import {helpTextStyles} from "./Thomas/ThomasStyles";
+import {helpTextStyles} from "./Models/ModelsStyles";
 import {settings} from "../../config/settings";
 
 export const FileUpload = ({

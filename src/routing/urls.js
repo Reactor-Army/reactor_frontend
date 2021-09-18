@@ -15,6 +15,8 @@ export const URLS = {
   PROCESS_EFFECTIVE_VOLUME: "/sistemas/:id/volumen",
   BEST_ADSORBENT: "/mejor-adsorbente",
   THOMAS: "/modelos/thomas",
+  ADAMS_BOHART: "/modelos/adams-bohart",
+  YOON_NELSON: "/modelos/yoon-nelson",
   NOT_FOUND: "/not-found",
   ABOUT_US: "/about-us",
 };

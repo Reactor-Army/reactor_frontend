@@ -72,6 +72,20 @@ export const HomeRoute = () => {
             history.push(URLS.THOMAS);
           }}
         />
+        <ExpandableCard
+          icon={plot}
+          text="Modelo de Adams-Bohart"
+          onClick={() => {
+            history.push(URLS.ADAMS_BOHART);
+          }}
+        />
+        <ExpandableCard
+          icon={plot}
+          text="Modelo de Yoon-Nelson"
+          onClick={() => {
+            history.push(URLS.YOON_NELSON);
+          }}
+        />
       </CardsContainer>
       <ImageContainer>
         <Image src={laquisiheLogo} alt="Logo Fiuba" />

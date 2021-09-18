@@ -38,4 +38,12 @@ export const routes = [
     path: URLS.THOMAS,
     text: "Modelo de Thomas",
   },
+  {
+    path: URLS.ADAMS_BOHART,
+    text: "Modelo de Adams-Bohart",
+  },
+  {
+    path: URLS.YOON_NELSON,
+    text: "Modelo de Yoon-Nelson",
+  },
 ];

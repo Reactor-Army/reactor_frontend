@@ -19,6 +19,8 @@ import {CalculateVolumeRoute} from "./routes/CalculateVolumeRoute";
 import {NotFoundRoute} from "./routes/NotFoundRoute/NotFoundRoute";
 import {HomeRoute} from "./routes/HomeRoute/HomeRoute";
 import {ThomasRoute} from "./routes/ThomasRoute";
+import {AdamsBohartRoute} from "./routes/AdamsBohartRoute";
+import {YoonNelsonRoute} from "./routes/YoonNelsonRoute";
 import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
 
 export const Router = () => {
@@ -127,6 +129,18 @@ export const Router = () => {
         exact
         path={URLS.THOMAS}
         component={ThomasRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.ADAMS_BOHART}
+        component={AdamsBohartRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
+        path={URLS.YOON_NELSON}
+        component={YoonNelsonRoute}
       />
       <PrivateRoute
         authed={0}
