@@ -7,7 +7,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {SelectedProcess} from "./SelectedProcess";
 import {SectionHeader} from "../Detail/SectionHeader";
 import {ProcessPickerResults} from "./ProcessPickerResults";
-import {ProcessSearchContainer} from "./ProcessSearch";
+import {ProcessSearchContainer} from "./ProcessSearchContainer";
 
 export const CalculateVolumeView = ({
   process,
