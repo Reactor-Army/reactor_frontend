@@ -3,6 +3,7 @@ import {MODEL_UNITS} from "../../../common/fields";
 import {Field} from "../ChemicalModelStyles";
 import {ADAMS_BOHART_FIELDS} from "../../../common/fields";
 
+// eslint-disable-next-line id-length
 export const AdamsBohartInputFields = ({F, C0, Z, U0}) => {
   return (
     <>

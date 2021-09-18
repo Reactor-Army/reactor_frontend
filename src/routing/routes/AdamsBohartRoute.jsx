@@ -51,9 +51,9 @@ export const AdamsBohartRoute = () => {
     let apiResponse;
     try {
       apiResponse = await applyAdamsBohartModel(file, values);
-    } catch (e) {
+    } catch (error) {
       setError({
-        message: e.response.data.message,
+        message: error.response.data.message,
         index: index,
       });
       setResponses([]);
@@ -62,7 +62,9 @@ export const AdamsBohartRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
+        // eslint-disable-next-line id-length
         F: values[ADAMS_BOHART_REQUEST_FIELDS.FLOW],
+        // eslint-disable-next-line id-length
         Z: values[ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT],
         C0: values[ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION],
         U0: values[ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY],
@@ -79,8 +81,8 @@ export const AdamsBohartRoute = () => {
 
   const onSubmit = async (values) => {
     setResponses([]);
-    for (let i = 0; i < files.length; i++) {
-      const success = await submitFile(files[i], values, i + 1);
+    for (let index = 0; index < files.length; index++) {
+      const success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }

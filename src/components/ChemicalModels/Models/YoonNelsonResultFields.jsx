@@ -2,6 +2,7 @@ import React from "react";
 import {MODEL_UNITS} from "../../../common/fields";
 import {Field} from "../ChemicalModelStyles";
 
+// eslint-disable-next-line id-length
 export const YoonNelsonResultFields = ({Kyn, t}) => {
   return (
     <>
@@ -10,7 +11,7 @@ export const YoonNelsonResultFields = ({Kyn, t}) => {
       </Field>
       <Field>
         <b>Tiempo requerido para retener el 50% de la C0 (τ):</b> {t} [
-        {MODEL_UNITS.t}]
+        {MODEL_UNITS.FIFTY_PERCENT_TIME}]
       </Field>
     </>
   );

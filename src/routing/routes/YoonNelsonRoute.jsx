@@ -51,9 +51,9 @@ export const YoonNelsonRoute = () => {
     let apiResponse;
     try {
       apiResponse = await applyYoonNelsonModel(file, values);
-    } catch (e) {
+    } catch (error) {
       setError({
-        message: e.response.data.message,
+        message: error.response.data.message,
         index: index,
       });
       setResponses([]);
@@ -62,9 +62,11 @@ export const YoonNelsonRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
+        // eslint-disable-next-line id-length
         F: values[YOON_NELSON_REQUEST_FIELDS.FLOW],
         Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYN],
-        t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.t],
+        // eslint-disable-next-line id-length
+        t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.FIFTY_PERCENT_TIME],
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -76,8 +78,8 @@ export const YoonNelsonRoute = () => {
 
   const onSubmit = async (values) => {
     setResponses([]);
-    for (let i = 0; i < files.length; i++) {
-      const success = await submitFile(files[i], values, i + 1);
+    for (let index = 0; index < files.length; index++) {
+      const success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }
