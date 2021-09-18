@@ -20,8 +20,8 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
     try {
       const result = await processCountGetter(itemToDelete.id);
       setProcessCount(result.cantidadProcesos);
-    } catch (e) {
-      setError(e.response.data);
+    } catch (error) {
+      setError(error.response.data);
     }
   };
 
@@ -29,9 +29,9 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
     try {
       await deleteFunction(itemToDelete.id);
       history.push(successRedirectURL);
-    } catch (e) {
+    } catch (error) {
       setError(
-        `Ocurrió un error al intentar ejecutar la operación: ${e.response.data.message}`,
+        `Ocurrió un error al intentar ejecutar la operación: ${error.response.data.message}`,
       );
     }
   };

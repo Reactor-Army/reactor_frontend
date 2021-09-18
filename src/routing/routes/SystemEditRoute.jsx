@@ -27,8 +27,8 @@ export const SystemEditRoute = () => {
       try {
         await updateSystem(id, {...values, id: parseInt(id)});
         history.push(URLS.PROCESSES_LIST);
-      } catch (e) {
-        return e;
+      } catch (error) {
+        return error;
       }
     }
   };

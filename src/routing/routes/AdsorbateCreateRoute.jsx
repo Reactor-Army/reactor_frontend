@@ -13,8 +13,8 @@ export const AdsorbateCreateRoute = () => {
       try {
         await createAdsorbate(values);
         history.push(URLS.ADSORBATES_LIST);
-      } catch (e) {
-        return e.response.data;
+      } catch (error) {
+        return error.response.data;
       }
     }
   };

@@ -27,8 +27,8 @@ export const AdsorbateEditRoute = () => {
       try {
         await editAdsorbate(id, {...values, id: parseInt(id)});
         history.push(URLS.ADSORBATES_LIST);
-      } catch (e) {
-        return e;
+      } catch (error) {
+        return error;
       }
     }
   };

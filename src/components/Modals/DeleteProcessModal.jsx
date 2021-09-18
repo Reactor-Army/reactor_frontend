@@ -20,8 +20,8 @@ export const DeleteProcessModal = ({
     try {
       await deleteProcess(processId);
       history.push(URLS.PROCESSES_LIST);
-    } catch (e) {
-      setError(e.response.data);
+    } catch (error) {
+      setError(error.response.data);
     }
   };
   return (

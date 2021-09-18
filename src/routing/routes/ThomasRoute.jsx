@@ -51,9 +51,9 @@ export const ThomasRoute = () => {
     let apiResponse;
     try {
       apiResponse = await applyThomasModel(file, values);
-    } catch (e) {
+    } catch (error) {
       setError({
-        message: e.response.data.message,
+        message: error.response.data.message,
         index: index,
       });
       setResponses([]);
@@ -62,7 +62,9 @@ export const ThomasRoute = () => {
     setResponses((prev) => [
       ...prev,
       {
+        // eslint-disable-next-line id-length
         F: values[THOMAS_REQUEST_FIELDS.FLOW],
+        // eslint-disable-next-line id-length
         W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
         C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
         Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
@@ -78,8 +80,8 @@ export const ThomasRoute = () => {
 
   const onSubmit = async (values) => {
     setResponses([]);
-    for (let i = 0; i < files.length; i++) {
-      const success = await submitFile(files[i], values, i + 1);
+    for (let index = 0; index < files.length; index++) {
+      const success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }

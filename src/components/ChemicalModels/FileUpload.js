@@ -46,8 +46,8 @@ export const FileUpload = ({
           <FileCardsContainer>
             {files.map((file, index) => (
               <FileCard
-                onClick={(e) => {
-                  e.stopPropagation();
+                onClick={(event) => {
+                  event.stopPropagation();
                   deleteFile(index);
                 }}
                 key={index}
