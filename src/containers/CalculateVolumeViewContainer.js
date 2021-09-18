@@ -11,6 +11,7 @@ export const CalculateVolumeViewContainer = () => {
   const dispatch = useDispatch();
   const [processId, setProcessId] = useState(null);
   const [process, setProcess] = useState(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     dispatch(fetchAdsorbatesWithIupacNotation());
     dispatch(fetchAdsorbentsWithParticleSize());
@@ -18,13 +19,14 @@ export const CalculateVolumeViewContainer = () => {
 
   const changeProcess = async (id) => {
     setProcessId(id);
+    setProcess(null);
     if (id === null) {
-      setProcess(null);
       return;
     }
-
+    setLoading(true);
     const process = await getProcess(id);
     setProcess(process);
+    setLoading(false);
   };
   const [volume, setVolume] = useState(null);
   const onSubmit = async (values) => {
@@ -42,6 +44,7 @@ export const CalculateVolumeViewContainer = () => {
         onSubmit={onSubmit}
         process={process}
         setProcess={changeProcess}
+        loading={loading}
       />
       {volume !== null && <VolumeResults volume={volume} />}
     </>

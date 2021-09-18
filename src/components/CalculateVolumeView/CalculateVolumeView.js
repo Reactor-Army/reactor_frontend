@@ -7,8 +7,14 @@ import {InvalidFormMessage} from "./Styles";
 import {ProcessPicker} from "./ProcessPicker";
 import {Label} from "../Detail/Label";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-export const CalculateVolumeView = ({process, onSubmit, setProcess}) => {
+export const CalculateVolumeView = ({
+  process,
+  onSubmit,
+  setProcess,
+  loading,
+}) => {
   const invalidForm =
     process && (!process.ordenReaccion || !process.constanteCinetica);
   return (
@@ -24,6 +30,7 @@ export const CalculateVolumeView = ({process, onSubmit, setProcess}) => {
         Seleccioná el sistema para el cual querés calcular el volumen
       </SectionHeader>
       <ProcessPicker setProcess={setProcess} />
+      {loading && <CircularProgress />}
       {process &&
         (invalidForm ? (
           <InvalidFormMessage>
