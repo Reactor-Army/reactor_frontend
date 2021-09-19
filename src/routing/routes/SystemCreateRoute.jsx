@@ -13,8 +13,8 @@ export const SystemCreateRoute = () => {
       try {
         await createSystem(values);
         history.push(URLS.PROCESSES_LIST);
-      } catch (e) {
-        return e.response.data;
+      } catch (error) {
+        return error.response.data;
       }
     }
   };

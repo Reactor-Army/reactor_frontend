@@ -26,8 +26,8 @@ export const AdsorbentEditForm = ({id}) => {
       try {
         await editAdsorbent(id, {...values, id: parseInt(id)});
         history.push(URLS.ADSORBENTS_LIST);
-      } catch (e) {
-        return e;
+      } catch (error) {
+        return error;
       }
     }
   };

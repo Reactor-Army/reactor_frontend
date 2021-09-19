@@ -148,7 +148,7 @@ export const ADAMS_BOHART_RESPONSE_FIELDS = {
 
 export const YOON_NELSON_RESPONSE_FIELDS = {
   KYN: "constanteYoonNelson",
-  t: "tiempoCincuentaPorciento",
+  FIFTY_PERCENT_TIME: "tiempoCincuentaPorciento",
   OBSERVATIONS: "observaciones",
 };
 
@@ -162,6 +162,6 @@ export const MODEL_UNITS = {
   LIQUID_VELOCITY: "cm/min",
   KAB: "cm³/mmol.min",
   N0: "mmol/cm³",
-  t: "min",
+  FIFTY_PERCENT_TIME: "min",
   KYN: "1/min",
 };

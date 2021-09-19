@@ -1,7 +1,7 @@
 export const allNullKeys = (obj) => {
   return Object.keys(obj)
-    .map((k) => {
-      return {[k]: null};
+    .map((key) => {
+      return {[key]: null};
     })
     .reduce((prev, cur) => {
       return {...prev, ...cur};

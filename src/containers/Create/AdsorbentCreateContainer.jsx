@@ -13,8 +13,8 @@ export const AdsorbentCreateContainer = () => {
       try {
         await createAdsorbent(values);
         history.push(URLS.ADSORBENTS_LIST);
-      } catch (e) {
-        return e.response.data;
+      } catch (error) {
+        return error.response.data;
       }
     }
   };
