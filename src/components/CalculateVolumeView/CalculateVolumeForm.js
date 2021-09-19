@@ -41,7 +41,7 @@ export const CalculateVolumeForm = ({onSubmit, forceDisable}) => {
             key={1}
             name={"concentracionInicial"}
             error={errorValues.concentracionInicial}
-            placeholder={`Concentración inicial (${UNITS.CONCENTRATION})`}
+            placeholder={`Conc. inicial (${UNITS.CONCENTRATION})`}
             validate={(value) => {
               setErrorValues((previousState) => {
                 return {
@@ -54,7 +54,7 @@ export const CalculateVolumeForm = ({onSubmit, forceDisable}) => {
           <FormNumericField
             key={2}
             name={"concentracionFinal"}
-            placeholder={`Concentración final (${UNITS.CONCENTRATION})`}
+            placeholder={`Conc. final (${UNITS.CONCENTRATION})`}
             error={errorValues.concentracionFinal}
             validate={(value) => {
               setErrorValues((previousState) => {

@@ -5,7 +5,7 @@ import {Title} from "../ChemicalModels/Models/ModelsStyles";
 
 export const CalculateVolumeFormContainer = styled.div`
   margin-top: 20px;
-  width: 400px;
+  max-width: 400px;
 `;
 
 export const ProcessPickerContainer = styled.div`
@@ -29,6 +29,7 @@ export const SelectedProcessContainer = styled.div`
 
 export const VolumeFormContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 50px;
   justify-content: space-evenly;
 `;
