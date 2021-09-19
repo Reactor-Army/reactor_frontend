@@ -9,18 +9,6 @@ export const ProcessSearchContainer = ({setProcesses}) => {
   const [adsorbent, setAdsorbent] = useState("");
   const handleAdsorbentChange = async (event) => {
     setAdsorbent(event.target.innerText);
-    const adsorbateId = idFromName(
-      adsorbate,
-      adsorbatesWithIupacNotation,
-      "nombre",
-    );
-    const adsorbentId = idFromName(
-      event.target.innerText,
-      adsorbentsSearchArray,
-      "nombre",
-    );
-    const process = await searchProcesses(adsorbateId, adsorbentId);
-    setProcesses(process);
   };
   const [adsorbate, setAdsorbate] = useState("");
   const adsorbatesWithIupacNotation = useSelector(
@@ -40,6 +28,21 @@ export const ProcessSearchContainer = ({setProcesses}) => {
     setAdsorbentsSearchArray(processesForAdsorbate);
   };
 
+  const onSearchSubmit = async () => {
+    const adsorbateId = idFromName(
+      adsorbate,
+      adsorbatesWithIupacNotation,
+      "nombre",
+    );
+    const adsorbentId = idFromName(
+      event.target.innerText,
+      adsorbentsSearchArray,
+      "nombre",
+    );
+    const processes = await searchProcesses(adsorbateId, adsorbentId);
+    setProcesses(processes);
+  };
+
   return (
     <ProcessSearch
       adsorbate={adsorbate}
@@ -50,6 +53,7 @@ export const ProcessSearchContainer = ({setProcesses}) => {
         (adsorbent) => adsorbent.nombre,
       )}
       adsorbateItems={adsorbatesSearchArray}
+      onSearchSubmit={onSearchSubmit}
     />
   );
 };
