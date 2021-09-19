@@ -1,13 +1,12 @@
 import React from "react";
-import {appColors} from "../../../common/styles";
-import {BooleanChip} from "../../Chip/BooleanChip/BooleanChip";
+import {appColors, Link} from "../../../common/styles";
 import {NameChip} from "../../Chip/NameChip/NameChip";
 import {
   CardHeader,
   CardBody,
   FieldLabel,
   ProcessSection,
-  ChipSection,
+  LinkContainer,
   BodyText,
 } from "../CommonCardStyles";
 import {Card} from "../Card";
@@ -22,9 +21,6 @@ export const ProcessCard = ({
   equilibriumTime,
   temperature,
   initialPH,
-  complexation,
-  ionicInterchange,
-  chemicalReaction,
   browseToProcessDetail,
 }) => {
   return (
@@ -63,20 +59,9 @@ export const ProcessCard = ({
           </BodyText>
         </ProcessSection>
 
-        <ChipSection>
-          <BooleanChip
-            value={complexation}
-            text={PROCESS_FIELDS.COMPLEXATION}
-          />
-          <BooleanChip
-            value={ionicInterchange}
-            text={PROCESS_FIELDS.IONIC_INTERCHANGE}
-          />
-          <BooleanChip
-            value={chemicalReaction}
-            text={PROCESS_FIELDS.CHEMICAL_REACTION}
-          />
-        </ChipSection>
+        <LinkContainer>
+          <Link>Ver más</Link>
+        </LinkContainer>
       </CardBody>
     </Card>
   );
