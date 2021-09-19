@@ -32,11 +32,11 @@ export const routes = [
     text: "Buscar adsorbente",
   },
   {
-    path: URLS.PROCESS_EFFLUENT_VOLUME,
-    text: "Volumen efluente",
+    text: "Reactores continuos",
   },
   {
-    text: "Reactores continuos",
+    path: URLS.PROCESS_EFFLUENT_VOLUME,
+    text: "Volumen efluente",
   },
   {
     path: URLS.THOMAS,
