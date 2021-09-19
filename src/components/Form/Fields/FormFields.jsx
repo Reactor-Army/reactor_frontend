@@ -5,12 +5,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import {RadioGroup} from "../../RadioGroup/RadioGroup";
 import {useEffect} from "react";
 import Button from "@material-ui/core/Button";
-import {
-  FileFieldContainer,
-  fileFieldStyles,
-  numericFieldStyles,
-  uploadButtonStyles,
-} from "./Styles";
+import {numericFieldStyles, uploadButtonStyles} from "./Styles";
 
 const booleanValues = [
   {label: "Si", value: true},
@@ -193,30 +188,6 @@ const BigTextField = ({field, ...props}) => {
       {...field}
       {...props}
     />
-  );
-};
-
-export const FileField = ({onChange}) => {
-  const [label, setLabel] = useState("");
-  const _onChange = (event) => {
-    setLabel(event.currentTarget.files[0].name);
-    onChange(event);
-  };
-  const classes = fileFieldStyles();
-  return (
-    <FileFieldContainer>
-      <MuiTextField
-        variant="outlined"
-        disabled={true}
-        placeholder={"Archivo de observaciones"}
-        value={label}
-        className={classes.textField}
-      />
-      <DummyInput className={classes.dummyInput} onChange={_onChange} />
-      <label htmlFor="raised-button-file" className={classes.label}>
-        <UploadButton />
-      </label>
-    </FileFieldContainer>
   );
 };
 
