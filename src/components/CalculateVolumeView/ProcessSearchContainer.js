@@ -46,7 +46,9 @@ export const ProcessSearchContainer = ({setProcesses}) => {
       adsorbent={adsorbent}
       handleAdsorbateChange={handleAdsorbateChange}
       handleAdsorbentChange={handleAdsorbentChange}
-      adsorbentItems={adsorbentsSearchArray.map((x) => x.nombre)}
+      adsorbentItems={adsorbentsSearchArray.map(
+        (adsorbent) => adsorbent.nombre,
+      )}
       adsorbateItems={adsorbatesSearchArray}
     />
   );
