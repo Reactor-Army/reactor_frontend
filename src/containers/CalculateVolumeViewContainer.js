@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {CalculateVolumeView} from "../components/CalculateVolumeView/CalculateVolumeView";
 import {useDispatch} from "react-redux";
 import {calculateVolume} from "../services/calculateVolume";
-import {VolumeResults} from "../components/CalculateVolumeView/VolumeResults";
 import {fetchAdsorbatesWithIupacNotation} from "../redux/adsorbatesSlice";
 import {fetchAdsorbentsWithParticleSize} from "../redux/adsorbentsSlice";
 import {getProcess} from "../services/processes";
@@ -38,6 +37,11 @@ export const CalculateVolumeViewContainer = () => {
     const response = await calculateVolume(processId, body);
     setVolume(response.volumen);
   };
+
+  const reset = () => {
+    setVolume(null);
+  };
+
   return (
     <>
       <CalculateVolumeView
@@ -45,8 +49,9 @@ export const CalculateVolumeViewContainer = () => {
         process={process}
         setProcess={changeProcess}
         loading={loading}
+        volumeResult={volume}
+        onResetClick={reset}
       />
-      {volume !== null && <VolumeResults volume={volume} />}
     </>
   );
 };

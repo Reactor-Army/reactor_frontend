@@ -77,6 +77,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   gap: 50px;
   max-width: ${FormContainerWidth}px;
+  ${(props) => props.height && `height: ${props.height};`}
   background: ${appColors.white};
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
   border-radius: 8px;

@@ -1,13 +1,17 @@
-import {SectionHeader} from "../Detail/SectionHeader";
-import {Label} from "../Detail/Label";
 import React from "react";
 import {UNITS} from "../../common/fields";
+import {Title} from "../ChemicalModels/Models/ModelsStyles";
+import {BigButton} from "../Button/ButtonStyles";
+import {VolumeResultsContainer, VolumeResultsText} from "./Styles";
 
-export const VolumeResults = ({volume}) => {
+export const VolumeResults = ({volume, onResetClick}) => {
   return (
-    <>
-      <SectionHeader>Resultados</SectionHeader>
-      <Label label={"Volumen efectivo"} value={`${volume} ${UNITS.VOLUME}`} />
-    </>
+    <VolumeResultsContainer>
+      <Title>Resultado</Title>
+      <VolumeResultsText>
+        Volumen del reactor: {volume} ${UNITS.VOLUME}
+      </VolumeResultsText>
+      <BigButton onClick={onResetClick}>Calcular otro volumen</BigButton>
+    </VolumeResultsContainer>
   );
 };
