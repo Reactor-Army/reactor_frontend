@@ -67,7 +67,7 @@ export const HomeRoute = () => {
         />
         <ExpandableCard
           icon={glass}
-          text="Calcular volumen reactor"
+          text="Volumen del reactor"
           onClick={() => {
             history.push(URLS.PROCESS_EFFLUENT_VOLUME);
           }}
