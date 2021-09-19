@@ -28,6 +28,6 @@ export const SelectedProcessContainer = styled.div`
 
 export const VolumeFormContainer = styled.div`
   display: flex;
-  margin-top: 100px;
+  margin-top: 50px;
   justify-content: space-evenly;
 `;

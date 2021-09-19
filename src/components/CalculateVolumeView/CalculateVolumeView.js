@@ -8,6 +8,7 @@ import {SelectedProcess} from "./SelectedProcess";
 import {SectionHeader} from "../Detail/SectionHeader";
 import {ProcessPickerResults} from "./ProcessPickerResults";
 import {ProcessSearchContainer} from "./ProcessSearchContainer";
+import {FormContainer, Title} from "../ChemicalModels/Models/ModelsStyles";
 
 export const CalculateVolumeView = ({
   process,
@@ -49,7 +50,10 @@ export const CalculateVolumeView = ({
           </InvalidFormMessage>
         ) : (
           <VolumeFormContainer>
-            <CalculateVolumeForm onSubmit={onSubmit} />
+            <FormContainer>
+              <Title>Datos del efluente</Title>
+              <CalculateVolumeForm onSubmit={onSubmit} />
+            </FormContainer>
             <SelectedProcess process={process} />
           </VolumeFormContainer>
         ))}
