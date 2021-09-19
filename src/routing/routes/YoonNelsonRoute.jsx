@@ -136,14 +136,13 @@ export const YoonNelsonRoute = () => {
             <HelpText>
               Calcula la constante de velocidad de Yoon-Nelson (Kyn) y el tiempo
               requerido para retener el 50% de la C₀ (𝜏) en base a un archivo de
-              observaciones. Las observaciones deben ser subidas como un archivo
-              CSV (exportable desde Excel u otro software similar de planillas
-              de cálculo), con dos columnas: &quot;volumenEfluente&quot; medido
-              en mililitros y &quot;C/C₀&quot;. Se pueden subir varios archivos
-              CSV, y el modelo se calculará para cada archivo de observaciones
-              de manera independiente, y se graficarán y mostraran resultados
-              para todos al mismo tiempo. La máxima cantidad de modelos que se
-              pueden ejecutar son {settings.MAX_MODELS}.
+              datos. Los datos deben ser subidas como un archivo CSV o XLSX
+              (Excel), con dos columnas: &quot;volumenEfluente&quot; medido en
+              mililitros y &quot;C/C₀&quot;. Se pueden subir varios archivos, y
+              el modelo se calculará para uno de manera independiente, y se
+              graficarán y mostraran resultados para todos al mismo tiempo. La
+              máxima cantidad de modelos que se pueden ejecutar son{" "}
+              {settings.MAX_MODELS}.
             </HelpText>
             <ContentWrapper>
               {showLoader ? (
