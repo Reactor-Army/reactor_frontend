@@ -2,7 +2,7 @@ import {PageTitle} from "../../common/PageTitle";
 import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
 import {CalculateVolumeForm} from "./CalculateVolumeForm";
-import {InvalidFormMessage} from "./Styles";
+import {InvalidFormMessage, VolumeFormContainer} from "./Styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {SelectedProcess} from "./SelectedProcess";
 import {SectionHeader} from "../Detail/SectionHeader";
@@ -48,10 +48,10 @@ export const CalculateVolumeView = ({
             Probá buscar otra combinación.
           </InvalidFormMessage>
         ) : (
-          <>
-            <SelectedProcess process={process} />
+          <VolumeFormContainer>
             <CalculateVolumeForm onSubmit={onSubmit} />
-          </>
+            <SelectedProcess process={process} />
+          </VolumeFormContainer>
         ))}
     </>
   );

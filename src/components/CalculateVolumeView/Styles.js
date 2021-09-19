@@ -3,6 +3,7 @@ import {appFontColors, appFontFamily} from "../../common/styles";
 
 export const CalculateVolumeFormContainer = styled.div`
   margin-top: 20px;
+  width: 400px;
 `;
 
 export const ProcessPickerContainer = styled.div`
@@ -20,6 +21,13 @@ export const SelectedProcessContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   margin: 20px;
   flex-wrap: wrap;
+`;
+
+export const VolumeFormContainer = styled.div`
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-evenly;
 `;

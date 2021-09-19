@@ -7,7 +7,7 @@ import {SectionHeader} from "../Detail/SectionHeader";
 
 export const SelectedProcess = ({process}) => {
   return (
-    <>
+    <div>
       <SectionHeader>Sistema seleccionado</SectionHeader>
 
       <SelectedProcessContainer>
@@ -29,6 +29,6 @@ export const SelectedProcess = ({process}) => {
           />
         </div>
       </SelectedProcessContainer>
-    </>
+    </div>
   );
 };
