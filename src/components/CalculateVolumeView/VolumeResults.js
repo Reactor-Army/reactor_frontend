@@ -8,8 +8,11 @@ export const VolumeResults = ({volume, onResetClick}) => {
   return (
     <VolumeResultsContainer>
       <Title>Resultado</Title>
+      <VolumeResultsText>Volumen del reactor:</VolumeResultsText>
       <VolumeResultsText>
-        Volumen del reactor: {volume} ${UNITS.VOLUME}
+        <b>
+          {volume} {UNITS.VOLUME}
+        </b>
       </VolumeResultsText>
       <BigButton onClick={onResetClick}>Calcular otro volumen</BigButton>
     </VolumeResultsContainer>
