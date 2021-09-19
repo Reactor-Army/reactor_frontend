@@ -34,11 +34,7 @@ export const ProcessSearchContainer = ({setProcesses}) => {
       adsorbatesWithIupacNotation,
       "nombre",
     );
-    const adsorbentId = idFromName(
-      event.target.innerText,
-      adsorbentsSearchArray,
-      "nombre",
-    );
+    const adsorbentId = idFromName(adsorbent, adsorbentsSearchArray, "nombre");
     const processes = await searchProcesses(adsorbateId, adsorbentId);
     setProcesses(processes);
   };
