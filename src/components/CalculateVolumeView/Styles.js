@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import {appFontColors, appFontFamily} from "../../common/styles";
-import {SectionHeader} from "../Detail/SectionHeader";
+import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {SectionHeaderContainer} from "../Detail/Styles";
+import {Title} from "../ChemicalModels/Models/ModelsStyles";
 
 export const CalculateVolumeFormContainer = styled.div`
   margin-top: 20px;
@@ -32,13 +33,20 @@ export const VolumeFormContainer = styled.div`
   justify-content: space-evenly;
 `;
 
+export const VolumeResultsTitle = styled(Title)`
+  font-size: 36px;
+`;
+
 export const VolumeResultsText = styled.div`
   font-size: 24px;
   font-family: ${appFontFamily.primary};
 `;
 
-export const SelectedProcessTitle = styled(SectionHeader)`
+export const SelectedProcessTitle = styled(SectionHeaderContainer)`
   margin-top: 0;
+  color: ${appColors.lightBlue};
+  font-size: calc(14px + 0.4vw);
+  font-weight: bold;
 `;
 
 export const VolumeResultsContainer = styled(CalculateVolumeFormContainer)`
