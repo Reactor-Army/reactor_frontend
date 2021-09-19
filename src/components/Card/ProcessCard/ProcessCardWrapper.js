@@ -17,9 +17,6 @@ export const ProcessCardWrapper = ({process}) => {
     tiempoEquilibrio,
     temperatura,
     phinicial,
-    complejacion,
-    intercambioIonico,
-    reaccionQuimica,
   } = process;
   return (
     <ProcessCard
@@ -29,9 +26,6 @@ export const ProcessCardWrapper = ({process}) => {
       equilibriumTime={tiempoEquilibrio}
       temperature={temperatura}
       initialPH={phinicial}
-      complexation={complejacion}
-      ionicInterchange={intercambioIonico}
-      chemicalReaction={reaccionQuimica}
       key={id}
       browseToProcessDetail={() => browseToProcessDetail(id)}
     />

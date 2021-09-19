@@ -24,10 +24,8 @@ export const ProcessSection = styled.div`
   grid-row-gap: 5px;
 `;
 
-export const ChipSection = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 3fr));
-  grid-row-gap: 5px;
+export const LinkContainer = styled.div`
+  margin-left: 10px;
 `;
 
 export const CardBody = styled.div`
