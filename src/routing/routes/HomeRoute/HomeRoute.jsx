@@ -67,23 +67,9 @@ export const HomeRoute = () => {
         />
         <ExpandableCard
           icon={plot}
-          text="Modelo de Thomas"
+          text="Modelos de Curvas de Ruptura"
           onClick={() => {
-            history.push(URLS.THOMAS);
-          }}
-        />
-        <ExpandableCard
-          icon={plot}
-          text="Modelo de Adams-Bohart"
-          onClick={() => {
-            history.push(URLS.ADAMS_BOHART);
-          }}
-        />
-        <ExpandableCard
-          icon={plot}
-          text="Modelo de Yoon-Nelson"
-          onClick={() => {
-            history.push(URLS.YOON_NELSON);
+            history.push(URLS.MODEL_SELECTION);
           }}
         />
       </CardsContainer>
