@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../../common/styles";
 
-export const AboutUsPageContainer = styled.div`
+export const PageContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
