@@ -12,7 +12,7 @@ export const URLS = {
   PROCESS_DETAIL: "/sistemas/:id",
   PROCESS_CREATE: "/sistemas/agregar",
   PROCESS_EDIT: "/sistemas/:id/modificar",
-  PROCESS_EFFECTIVE_VOLUME: "/sistemas/:id/volumen",
+  PROCESS_EFFLUENT_VOLUME: "/sistemas/volumen",
   BEST_ADSORBENT: "/mejor-adsorbente",
   THOMAS: "/modelos/thomas",
   ADAMS_BOHART: "/modelos/adams-bohart",
@@ -47,8 +47,4 @@ export const adsorbentDetailUrlFor = (adsorbentId) => {
 
 export const adsorbentEditUrlFor = (adsorbentId) => {
   return processUrlId(URLS.ADSORBENT_EDIT, adsorbentId);
-};
-
-export const processVolumeUrlFor = (processId) => {
-  return processUrlId(URLS.PROCESS_EFFECTIVE_VOLUME, processId);
 };

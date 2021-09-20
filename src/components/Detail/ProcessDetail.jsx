@@ -7,7 +7,6 @@ import {processEditUrlFor} from "../../routing/urls";
 import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
-import {EffectiveVolumeButton} from "./EffectiveVolumeButton";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 import {DetailTableGrid, Container} from "./Styles";
 
@@ -87,10 +86,6 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
           />
         </DetailTable>
       </DetailTableGrid>
-      <EffectiveVolumeButton
-        disabled={!process.ordenReaccion || !process.constanteCinetica}
-        processId={process.id}
-      />
     </Container>
   );
 };

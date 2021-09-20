@@ -21,12 +21,14 @@ export const ProcessCard = ({
   equilibriumTime,
   temperature,
   initialPH,
-  browseToProcessDetail,
+  onClick,
+  selected,
 }) => {
   return (
     <Card
+      selected={selected}
       backgroundColor={appColors.adsorbentCardBody}
-      onClick={browseToProcessDetail}>
+      onClick={onClick}>
       <CardHeader theme={{backgroundColor: appColors.processCardHeader}}>
         <NameChip
           name={adsorbateName}

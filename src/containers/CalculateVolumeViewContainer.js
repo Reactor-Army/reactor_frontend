@@ -1,20 +1,32 @@
 import React, {useEffect, useState} from "react";
 import {CalculateVolumeView} from "../components/CalculateVolumeView/CalculateVolumeView";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProcess} from "../redux/processSlice";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import {useDispatch} from "react-redux";
 import {calculateVolume} from "../services/calculateVolume";
-import {VolumeResults} from "../components/CalculateVolumeView/VolumeResults";
+import {fetchAdsorbatesWithIupacNotation} from "../redux/adsorbatesSlice";
+import {fetchAdsorbentsWithParticleSize} from "../redux/adsorbentsSlice";
+import {getProcess} from "../services/processes";
 
-export const CalculateVolumeViewContainer = ({id}) => {
+export const CalculateVolumeViewContainer = () => {
   const dispatch = useDispatch();
-  const process = useSelector((store) => store.process.process);
+  const [processId, setProcessId] = useState(null);
+  const [process, setProcess] = useState(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if (!process) {
-      dispatch(fetchProcess(id));
-    }
+    dispatch(fetchAdsorbatesWithIupacNotation());
+    dispatch(fetchAdsorbentsWithParticleSize());
   }, []);
 
+  const changeProcess = async (id) => {
+    setProcessId(id);
+    setProcess(null);
+    if (id === null) {
+      return;
+    }
+    setLoading(true);
+    const process = await getProcess(id);
+    setProcess(process);
+    setLoading(false);
+  };
   const [volume, setVolume] = useState(null);
   const onSubmit = async (values) => {
     const body = {
@@ -22,17 +34,24 @@ export const CalculateVolumeViewContainer = ({id}) => {
     };
     body.concentracionInicial /= 1000;
     body.concentracionFinal /= 1000;
-    const response = await calculateVolume(id, body);
+    const response = await calculateVolume(processId, body);
     setVolume(response.volumen);
   };
+
+  const reset = () => {
+    setVolume(null);
+  };
+
   return (
     <>
-      {!process ? (
-        <CircularProgress />
-      ) : (
-        <CalculateVolumeView onSubmit={onSubmit} process={process} />
-      )}
-      {volume !== null && <VolumeResults volume={volume} />}
+      <CalculateVolumeView
+        onSubmit={onSubmit}
+        process={process}
+        setProcess={changeProcess}
+        loading={loading}
+        volumeResult={volume}
+        onResetClick={reset}
+      />
     </>
   );
 };

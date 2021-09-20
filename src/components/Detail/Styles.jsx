@@ -20,7 +20,7 @@ export const LabelContainer = styled.div`
 `;
 
 export const SectionHeaderContainer = styled.div`
-  margin-top: 20px;
+  margin: 20px 0;
 `;
 
 export const ButtonsSection = styled.div`
