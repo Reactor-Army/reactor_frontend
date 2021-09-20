@@ -17,6 +17,7 @@ export const URLS = {
   THOMAS: "/modelos/thomas",
   ADAMS_BOHART: "/modelos/adams-bohart",
   YOON_NELSON: "/modelos/yoon-nelson",
+  MODEL_SELECTION: "/modelos",
   NOT_FOUND: "/not-found",
   ABOUT_US: "/about-us",
 };
