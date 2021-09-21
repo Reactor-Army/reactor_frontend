@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appColors} from "../../../common/styles";
+import {appColors, appFontFamily} from "../../../common/styles";
 
 export const ModelPickCard = styled.div`
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
@@ -14,23 +14,67 @@ export const ModelPickCard = styled.div`
   justify-content: center;
 
   &:hover {
-    border: 3px solid ${appColors.lightBlue};
+    border: 2px solid ${appColors.lightBlue};
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 500px) {
     flex-direction: column;
+    width: 100%;
   }
 `;
 
-export const PickCardSection = styled.div`
+export const Title = styled.h1`
+  color: ${appColors.lightBlue};
+  font-size: calc(12px + 0.8vw);
+  font-family: ${appFontFamily.card};
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  width: 100%;
+
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: calc(12px + 0.8vw);
+  }
+`;
+
+export const Content = styled.p`
+  font-size: calc(12px + 0.45vw);
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const PickCardLeftSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
-  height: 28vh;
+  width: 64%;
+  overflow-wrap: break-word;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 130px;
+  }
+`;
+
+export const PickCardRightSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    display: none;
+  }
 `;
 
 export const EquationImg = styled.img`
-  width: 30%;
+  width: 70%;
+  height: 200px;
 `;
 
 export const ContentFrame = styled.div`
