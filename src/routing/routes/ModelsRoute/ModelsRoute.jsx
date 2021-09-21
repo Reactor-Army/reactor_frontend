@@ -10,12 +10,18 @@ import {
   Content,
 } from "./ModelsRouteStyles";
 import plot from "../../../resources/images/plot.png";
+import {useHistory} from "react-router";
+import {URLS} from "../../urls";
 
 export const ModelsRoute = () => {
+  const history = useHistory();
   return (
     <PageContainer>
       <ContentFrame>
-        <ModelPickCard>
+        <ModelPickCard
+          onClick={() => {
+            history.push(URLS.THOMAS);
+          }}>
           <PickCardLeftSection>
             <Title>Modelo de Thomas</Title>
             <Content>
@@ -30,7 +36,10 @@ export const ModelsRoute = () => {
             <EquationImg src={plot} alt="Thomas model" />
           </PickCardRightSection>
         </ModelPickCard>
-        <ModelPickCard>
+        <ModelPickCard
+          onClick={() => {
+            history.push(URLS.ADAMS_BOHART);
+          }}>
           <PickCardLeftSection>
             <Title>Modelo de Adams-Bohart</Title>
             <Content>
@@ -44,7 +53,10 @@ export const ModelsRoute = () => {
             <EquationImg src={plot} alt="Adams-Bohart model" />
           </PickCardRightSection>
         </ModelPickCard>
-        <ModelPickCard>
+        <ModelPickCard
+          onClick={() => {
+            history.push(URLS.YOON_NELSON);
+          }}>
           <PickCardLeftSection>
             <Title>Modelo de Yoon-Nelson</Title>
             <Content>
