@@ -34,16 +34,22 @@ export const routes = [
   {
     text: "Reactores continuos",
   },
-  {
-    path: URLS.THOMAS,
-    text: "Modelo de Thomas",
-  },
-  {
-    path: URLS.ADAMS_BOHART,
-    text: "Modelo de Adams-Bohart",
-  },
-  {
-    path: URLS.YOON_NELSON,
-    text: "Modelo de Yoon-Nelson",
-  },
 ];
+
+export const models = {
+  title: "Modelos de Curvas de Ruptura",
+  items: [
+    {
+      path: URLS.THOMAS,
+      text: "Modelo de Thomas",
+    },
+    {
+      path: URLS.ADAMS_BOHART,
+      text: "Modelo de Adams-Bohart",
+    },
+    {
+      path: URLS.YOON_NELSON,
+      text: "Modelo de Yoon-Nelson",
+    },
+  ],
+};

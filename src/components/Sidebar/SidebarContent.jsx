@@ -1,10 +1,11 @@
 import Container from "@material-ui/core/Container";
 import {Title} from "./Styles";
-import {routes} from "./sidebar_routes";
+import {routes, models} from "./sidebar_routes";
 import React from "react";
 import {useHistory} from "react-router-dom";
 import {SidebarItem} from "./SidebarItem";
 import {SidebarTitle} from "./SidebarTitle";
+import {ExpandableSidebarItem} from "../ExpandableSidebarItem/ExpandableSidebarItem";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
@@ -30,6 +31,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
         }
         return <SidebarTitle key={index} text={route.text} />;
       })}
+      <ExpandableSidebarItem title={models.title} items={models.items} />
     </Container>
   );
 };
