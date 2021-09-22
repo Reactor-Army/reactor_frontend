@@ -48,7 +48,7 @@ export const FunctionPlot = ({
     functionPlot({
       target: "#plot",
       width: wrapperWidth,
-      yAxis: {domain: [0, maxOrdinate], label: yAxisLabel},
+      yAxis: {domain: [0, maxOrdinate * scaleFactor], label: yAxisLabel},
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
       data: [...functions, ...plotPoints],

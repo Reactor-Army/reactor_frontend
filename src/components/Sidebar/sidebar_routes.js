@@ -34,6 +34,10 @@ export const routes = [
   {
     text: "Reactores continuos",
   },
+  {
+    path: URLS.PROCESS_EFFLUENT_VOLUME,
+    text: "Volumen efluente",
+  },
 ];
 
 export const models = {

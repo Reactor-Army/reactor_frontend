@@ -96,6 +96,12 @@ export const Router = () => {
       <PrivateRoute
         authed={0}
         exact
+        path={URLS.PROCESS_EFFLUENT_VOLUME}
+        component={CalculateVolumeRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        exact
         path={URLS.PROCESS_DETAIL}
         component={ProcessDetailRoute}
       />
@@ -104,12 +110,6 @@ export const Router = () => {
         exact
         path={URLS.BEST_ADSORBENT}
         component={IdealAdsorbentRoute}
-      />
-      <PrivateRoute
-        authed={0}
-        exact
-        path={URLS.PROCESS_EFFECTIVE_VOLUME}
-        component={CalculateVolumeRoute}
       />
       <PrivateRoute
         authed={0}
