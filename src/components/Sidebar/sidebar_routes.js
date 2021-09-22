@@ -37,7 +37,7 @@ export const routes = [
 ];
 
 export const models = {
-  title: "Modelos de Curvas de Ruptura",
+  title: "Curvas de Ruptura",
   items: [
     {
       path: URLS.THOMAS,

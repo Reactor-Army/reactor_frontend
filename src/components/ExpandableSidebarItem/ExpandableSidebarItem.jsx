@@ -1,17 +1,15 @@
 import React, {useState} from "react";
-import {List} from "@material-ui/core";
-import {ListItemText} from "@material-ui/core";
-import {Collapse} from "@material-ui/core";
+import {ListItemText, Collapse, List} from "@material-ui/core";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
 import {appColors} from "../../common/styles";
 import {useHistory} from "react-router";
+import {
+  ListItemButton,
+  ListItemTitle,
+  ListItem,
+} from "./ExpandableSidebarItemStyles";
 
-export const ExpandableSidebarItem = ({
-  title,
-  items,
-  backgroundColor,
-  textColor,
-}) => {
+export const ExpandableSidebarItem = ({title, items}) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -23,25 +21,25 @@ export const ExpandableSidebarItem = ({
     <List
       sx={{
         width: "100%",
-        bgcolor: backgroundColor || appColors.primary,
-        color: textColor || appColors.white,
+        bgcolor: appColors.primary,
+        color: appColors.white,
       }}>
-      <div onClick={handleClick}>
-        <ListItemText primary={title} />
+      <ListItemButton component="a" onClick={handleClick}>
+        <ListItemTitle>{title}</ListItemTitle>
         {open ? <ExpandLess /> : <ExpandMore />}
-      </div>
+      </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         {items.map((item, index) => {
           return (
             <List disablePadding key={index}>
-              <div>
+              <ListItem>
                 <ListItemText
                   primary={item.text}
                   onClick={() => {
                     history.push(item.path);
                   }}
                 />
-              </div>
+              </ListItem>
             </List>
           );
         })}
