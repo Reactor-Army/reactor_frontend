@@ -22,19 +22,17 @@ export const ExpandableSidebarItem = ({title, items, onItemClick}) => {
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        {items.map((item, index) => {
-          return (
-            <List disablePadding key={index}>
-              <ListItem
-                onClick={() => {
-                  onItemClick(item.path);
-                  handleClick();
-                }}>
-                {item.text}
-              </ListItem>
-            </List>
-          );
-        })}
+        {items.map((item, index) => (
+          <List disablePadding key={index}>
+            <ListItem
+              onClick={() => {
+                onItemClick(item.path);
+                handleClick();
+              }}>
+              {item.text}
+            </ListItem>
+          </List>
+        ))}
       </Collapse>
     </List>
   );
