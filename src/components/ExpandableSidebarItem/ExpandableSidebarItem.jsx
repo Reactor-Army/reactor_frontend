@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {ListItemText, Collapse, List} from "@material-ui/core";
+import {Collapse, List} from "@material-ui/core";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
 import {useHistory} from "react-router";
 import {
@@ -27,13 +27,11 @@ export const ExpandableSidebarItem = ({title, items}) => {
         {items.map((item, index) => {
           return (
             <List disablePadding key={index}>
-              <ListItem>
-                <ListItemText
-                  primary={item.text}
-                  onClick={() => {
-                    history.push(item.path);
-                  }}
-                />
+              <ListItem
+                onClick={() => {
+                  history.push(item.path);
+                }}>
+                {item.text}
               </ListItem>
             </List>
           );
