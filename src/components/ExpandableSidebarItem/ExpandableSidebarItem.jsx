@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {ListItemText, Collapse, List} from "@material-ui/core";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
-import {appColors} from "../../common/styles";
 import {useHistory} from "react-router";
 import {
   ListItemButton,
   ListItemTitle,
   ListItem,
+  expandableSidebarItemStyles,
 } from "./ExpandableSidebarItemStyles";
 
 export const ExpandableSidebarItem = ({title, items}) => {
@@ -18,12 +18,7 @@ export const ExpandableSidebarItem = ({title, items}) => {
 
   const history = useHistory();
   return (
-    <List
-      sx={{
-        width: "100%",
-        bgcolor: appColors.primary,
-        color: appColors.white,
-      }}>
+    <List sx={expandableSidebarItemStyles}>
       <ListItemButton component="a" onClick={handleClick}>
         <ListItemTitle>{title}</ListItemTitle>
         {open ? <ExpandLess /> : <ExpandMore />}

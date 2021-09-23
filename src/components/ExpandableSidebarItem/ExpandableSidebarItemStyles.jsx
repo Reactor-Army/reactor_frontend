@@ -1,6 +1,12 @@
 import styled from "styled-components/macro";
 import {appColors, appFontFamily, appFontColors} from "../../common/styles";
 
+export const expandableSidebarItemStyles = {
+  width: "100%",
+  bgcolor: appColors.primary,
+  color: appColors.white,
+};
+
 export const ListItemButton = styled.div`
   cursor: pointer;
   background: ${appColors.primary};
