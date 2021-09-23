@@ -1,6 +1,6 @@
 import Container from "@material-ui/core/Container";
 import {Title} from "./Styles";
-import {routes, models} from "./sidebar_routes";
+import {routes} from "./sidebar_routes";
 import React from "react";
 import {useHistory} from "react-router-dom";
 import {SidebarItem} from "./SidebarItem";
@@ -19,7 +19,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
   return (
     <Container>
       <Title>Reactor App</Title>
-      {routes.map((route, index) => {
+      {routes.singleItems.map((route, index) => {
         if (route.path) {
           return (
             <SidebarItem
@@ -31,13 +31,18 @@ export const SidebarContent = ({handleDrawerToggle}) => {
         }
         return <SidebarTitle key={index} text={route.text} />;
       })}
-      <ExpandableSidebarItem
-        title={models.title}
-        items={models.items}
-        onItemClick={(path) => {
-          navigateTo(path);
-        }}
-      />
+      {routes.composedItems.map((route, index) => {
+        return (
+          <ExpandableSidebarItem
+            key={index}
+            title={route.title}
+            items={route.items}
+            onItemClick={(path) => {
+              navigateTo(path);
+            }}
+          />
+        );
+      })}
     </Container>
   );
 };
