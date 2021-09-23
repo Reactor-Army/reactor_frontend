@@ -31,7 +31,13 @@ export const SidebarContent = ({handleDrawerToggle}) => {
         }
         return <SidebarTitle key={index} text={route.text} />;
       })}
-      <ExpandableSidebarItem title={models.title} items={models.items} />
+      <ExpandableSidebarItem
+        title={models.title}
+        items={models.items}
+        onItemClick={(path) => {
+          navigateTo(path);
+        }}
+      />
     </Container>
   );
 };

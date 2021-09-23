@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Collapse, List} from "@material-ui/core";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
-import {useHistory} from "react-router";
 import {
   ListItemButton,
   ListItemTitle,
@@ -9,14 +8,13 @@ import {
   expandableSidebarItemStyles,
 } from "./ExpandableSidebarItemStyles";
 
-export const ExpandableSidebarItem = ({title, items}) => {
+export const ExpandableSidebarItem = ({title, items, onItemClick}) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
   };
 
-  const history = useHistory();
   return (
     <List sx={expandableSidebarItemStyles}>
       <ListItemButton component="a" onClick={handleClick}>
@@ -29,7 +27,8 @@ export const ExpandableSidebarItem = ({title, items}) => {
             <List disablePadding key={index}>
               <ListItem
                 onClick={() => {
-                  history.push(item.path);
+                  onItemClick(item.path);
+                  handleClick();
                 }}>
                 {item.text}
               </ListItem>
