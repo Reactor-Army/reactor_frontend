@@ -15,6 +15,7 @@ export const ListItemButton = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  padding-left: 10px;
 `;
 
 export const ListItemTitle = styled.div`
