@@ -18,7 +18,6 @@ export const ModelPickCard = styled.div`
   }
 
   @media (max-width: 500px) {
-    flex-direction: column;
     width: 100%;
   }
 `;
@@ -56,6 +55,7 @@ export const PickCardLeftSection = styled.div`
   @media (max-width: 500px) {
     width: 100%;
     height: 130px;
+    align-self: center;
   }
 `;
 
@@ -67,8 +67,7 @@ export const PickCardRightSection = styled.div`
   justify-content: center;
 
   @media (max-width: 500px) {
-    width: 100%;
-    display: none;
+    width: 100vw;
   }
 `;
 
@@ -83,7 +82,6 @@ export const ContentFrame = styled.div`
   flex-direction: column;
   justify-content: center;
   @media (max-width: 600px) {
-    max-width: 90vw;
-    padding: 20px;
+    max-width: 95vw;
   }
 `;
