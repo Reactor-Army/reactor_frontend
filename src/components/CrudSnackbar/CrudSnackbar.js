@@ -14,6 +14,7 @@ export const CrudSnackbar = () => {
     <Snackbar open={open} autoHideDuration={6000} onClose={handleSnackClose}>
       <Alert
         severity="success"
+        variant="filled"
         sx={{width: "100%", color: "success.main"}}
         onClose={handleSnackClose}>
         {message}
