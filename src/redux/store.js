@@ -6,6 +6,7 @@ import processReducer from "./processSlice";
 import idealAdsorbentsReducer from "./idealAdsorbentsSlice";
 import adsorbateDetailReducer from "./adsorbateSlice";
 import adsorbentDetailReducer from "./adsorbentSlice";
+import crudSnackbarReducer from "./snackbar";
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     process: processReducer,
     adsorbate: adsorbateDetailReducer,
     adsorbent: adsorbentDetailReducer,
+    crudSnackbar: crudSnackbarReducer,
   },
 });

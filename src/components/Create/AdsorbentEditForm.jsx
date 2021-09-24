@@ -7,6 +7,7 @@ import {useHistory} from "react-router-dom";
 import {AdsorbentForm} from "./AdsorbentForm";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const AdsorbentEditForm = ({id}) => {
   const [errors, setErrors] = useState(true);
@@ -25,6 +26,7 @@ export const AdsorbentEditForm = ({id}) => {
     if (!errors) {
       try {
         await editAdsorbent(id, {...values, id: parseInt(id)});
+        displayUpdateMessage();
         history.push(URLS.ADSORBENTS_LIST);
       } catch (error) {
         return error;

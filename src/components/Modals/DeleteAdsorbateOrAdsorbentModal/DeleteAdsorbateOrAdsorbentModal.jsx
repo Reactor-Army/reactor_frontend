@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
 import {useAsync} from "../../../customHooks/useAsync";
 import {ConfirmDeleteModal} from "../ConfirmDeleteModal";
+import {displayUpdateMessage} from "../../../utils/displayUpdateMessage";
 
 export const DeleteAdsorbateOrAdsorbentModal = ({
   open,
@@ -28,6 +29,7 @@ export const DeleteAdsorbateOrAdsorbentModal = ({
   const onDeleteConfirmation = async () => {
     try {
       await deleteFunction(itemToDelete.id);
+      displayUpdateMessage();
       history.push(successRedirectURL);
     } catch (error) {
       setError(

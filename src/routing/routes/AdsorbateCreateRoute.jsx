@@ -3,6 +3,7 @@ import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createAdsorbate} from "../../services/adsorbates";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const AdsorbateCreateRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -12,6 +13,7 @@ export const AdsorbateCreateRoute = () => {
     if (!errors) {
       try {
         await createAdsorbate(values);
+        displayUpdateMessage();
         history.push(URLS.ADSORBATES_LIST);
       } catch (error) {
         return error.response.data;

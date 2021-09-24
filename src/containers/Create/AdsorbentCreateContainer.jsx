@@ -4,6 +4,7 @@ import {URLS} from "../../routing/urls";
 import {createAdsorbent} from "../../services/adsorbents";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {useHistory} from "react-router-dom";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const AdsorbentCreateContainer = () => {
   const history = useHistory();
@@ -12,6 +13,7 @@ export const AdsorbentCreateContainer = () => {
     if (!errors) {
       try {
         await createAdsorbent(values);
+        displayUpdateMessage();
         history.push(URLS.ADSORBENTS_LIST);
       } catch (error) {
         return error.response.data;
