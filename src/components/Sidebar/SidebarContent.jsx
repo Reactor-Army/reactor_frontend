@@ -5,6 +5,7 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {SidebarItem} from "./SidebarItem";
 import {SidebarTitle} from "./SidebarTitle";
+import {ExpandableSidebarItem} from "../ExpandableSidebarItem/ExpandableSidebarItem";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
@@ -18,7 +19,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
   return (
     <Container>
       <Title>Reactor App</Title>
-      {routes.map((route, index) => {
+      {routes.singleItems.map((route, index) => {
         if (route.path) {
           return (
             <SidebarItem
@@ -29,6 +30,18 @@ export const SidebarContent = ({handleDrawerToggle}) => {
           );
         }
         return <SidebarTitle key={index} text={route.text} />;
+      })}
+      {routes.composedItems.map((route, index) => {
+        return (
+          <ExpandableSidebarItem
+            key={index}
+            title={route.title}
+            items={route.items}
+            onItemClick={(path) => {
+              navigateTo(path);
+            }}
+          />
+        );
       })}
     </Container>
   );

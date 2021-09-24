@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  AboutUsPageContainer,
+  PageContainer,
   ContentFrame,
   Paragraph,
   SmallSubtitle,
@@ -17,7 +17,7 @@ import authorThree from "../../../resources/images/author_3.jpeg";
 
 export const AboutUsRoute = () => {
   return (
-    <AboutUsPageContainer>
+    <PageContainer>
       <ContentFrame>
         <Title>Reactor App</Title>
         <Subtitle>Sobre el proyecto</Subtitle>
@@ -66,6 +66,6 @@ export const AboutUsRoute = () => {
           />
         </AuthorsSection>
       </ContentFrame>
-    </AboutUsPageContainer>
+    </PageContainer>
   );
 };

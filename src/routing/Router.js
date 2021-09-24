@@ -22,6 +22,7 @@ import {ThomasRoute} from "./routes/ThomasRoute";
 import {AdamsBohartRoute} from "./routes/AdamsBohartRoute";
 import {YoonNelsonRoute} from "./routes/YoonNelsonRoute";
 import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
+import {ModelsRoute} from "./routes/ModelsRoute/ModelsRoute";
 
 export const Router = () => {
   return (
@@ -141,6 +142,11 @@ export const Router = () => {
         exact
         path={URLS.YOON_NELSON}
         component={YoonNelsonRoute}
+      />
+      <PrivateRoute
+        authed={0}
+        component={ModelsRoute}
+        path={URLS.MODEL_SELECTION}
       />
       <PrivateRoute
         authed={0}
