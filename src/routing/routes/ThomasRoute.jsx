@@ -69,6 +69,7 @@ export const ThomasRoute = () => {
         C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
         Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
         q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        R2: apiResponse[THOMAS_RESPONSE_FIELDS.R2],
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -118,7 +119,11 @@ export const ThomasRoute = () => {
                   <Title color={colors[index % colors.length]}>
                     Resultados gráfico {++index}
                   </Title>
-                  <ThomasResultFields kth={response.Kth} q0={response.q0} />
+                  <ThomasResultFields
+                    kth={response.Kth}
+                    q0={response.q0}
+                    R2={response.R2}
+                  />
                 </DataFrame>
               ))}
               plot={
