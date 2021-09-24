@@ -11,6 +11,10 @@ export const Container = styled.div`
   margin-bottom: 18px;
 `;
 
+export const TableTitleContainer = styled.div`
+  display: flex;
+`;
+
 export const Title = styled.div`
   font-family: ${appFontFamily.primary};
   font-size: 20px;

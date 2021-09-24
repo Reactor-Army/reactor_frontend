@@ -9,6 +9,7 @@ import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 import {DetailTableGrid, Container} from "./Styles";
+import {DetailsTooltip} from "./DetailsTooltip";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -26,7 +27,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
       <DetailTableGrid cols={3}>
-        <DetailTable title="Características">
+        <DetailTable title="Características" icon={<DetailsTooltip />}>
           <DetailTableRow
             label={PROCESS_FIELDS.QMAX}
             value={process.qmax}
