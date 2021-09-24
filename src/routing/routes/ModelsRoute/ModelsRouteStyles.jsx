@@ -68,6 +68,7 @@ export const PickCardRightSection = styled.div`
 
   @media (max-width: 500px) {
     width: 100vw;
+    display: none;
   }
 `;
 
