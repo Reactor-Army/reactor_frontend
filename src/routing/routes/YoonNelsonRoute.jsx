@@ -67,6 +67,7 @@ export const YoonNelsonRoute = () => {
         Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYN],
         // eslint-disable-next-line id-length
         t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.FIFTY_PERCENT_TIME],
+        R2: apiResponse[YOON_NELSON_RESPONSE_FIELDS.R2],
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -112,7 +113,11 @@ export const YoonNelsonRoute = () => {
                   <Title color={colors[index % colors.length]}>
                     Resultados gráfico {++index}
                   </Title>
-                  <YoonNelsonResultFields Kyn={response.Kyn} t={response.t} />
+                  <YoonNelsonResultFields
+                    Kyn={response.Kyn}
+                    t={response.t}
+                    R2={response.R2}
+                  />
                 </DataFrame>
               ))}
               plot={

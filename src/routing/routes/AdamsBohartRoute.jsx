@@ -70,6 +70,7 @@ export const AdamsBohartRoute = () => {
         U0: values[ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY],
         Kab: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
         N0: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.N0],
+        R2: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.R2],
         points: apiResponse[
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -123,6 +124,7 @@ export const AdamsBohartRoute = () => {
                   <AdamsBohartResultFields
                     Kab={response.Kab}
                     N0={response.N0}
+                    R2={response.R2}
                   />
                 </DataFrame>
               ))}
