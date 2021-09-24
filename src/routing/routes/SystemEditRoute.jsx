@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const SystemEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -27,6 +28,7 @@ export const SystemEditRoute = () => {
       try {
         await updateSystem(id, {...values, id: parseInt(id)});
         history.push(URLS.PROCESSES_LIST);
+        displayUpdateMessage();
       } catch (error) {
         return error;
       }

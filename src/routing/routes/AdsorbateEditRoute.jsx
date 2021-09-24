@@ -8,6 +8,7 @@ import {URLS} from "../urls";
 import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const AdsorbateEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -26,6 +27,7 @@ export const AdsorbateEditRoute = () => {
     if (!errors) {
       try {
         await editAdsorbate(id, {...values, id: parseInt(id)});
+        displayUpdateMessage();
         history.push(URLS.ADSORBATES_LIST);
       } catch (error) {
         return error;
