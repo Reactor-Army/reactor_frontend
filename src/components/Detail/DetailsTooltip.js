@@ -12,10 +12,6 @@ const StyledMuiTooltip = withStyles(() => ({
 
 export const DetailsTooltip = () => (
   <StyledMuiTooltip title={"Parámetros obtenidos con ensayos discontinuos"}>
-    <Icon
-      src={info_icon}
-      alt={"Información"}
-      onClick={() => console.log("Hola")}
-    />
+    <Icon src={info_icon} alt="Información" />
   </StyledMuiTooltip>
 );
