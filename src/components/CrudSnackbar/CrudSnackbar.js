@@ -10,7 +10,6 @@ export const CrudSnackbar = () => {
   const handleSnackClose = () => {
     dispatch(snackbar.close());
   };
-  console.log(snackbar.close());
   return (
     <Snackbar
       open={open}

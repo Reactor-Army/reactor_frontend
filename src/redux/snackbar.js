@@ -8,7 +8,6 @@ const snackbarSlice = createSlice({
   reducers: {
     display(state, action) {
       state.open = true;
-      console.log(action);
       state.message = action.payload.message;
     },
     close(state) {
