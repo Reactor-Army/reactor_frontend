@@ -7,12 +7,16 @@ import {
   RowContainer,
   TableWrapper,
   Container,
+  TableTitleContainer,
 } from "./DetailTableStyles";
 
-export const DetailTable = ({title = "", children}) => {
+export const DetailTable = ({title = "", children, icon}) => {
   return (
     <Container>
-      <Title>{title}</Title>
+      <TableTitleContainer>
+        <Title>{title}</Title>
+        {icon}
+      </TableTitleContainer>
       <TableWrapper>
         <RowContainer>{children}</RowContainer>
       </TableWrapper>

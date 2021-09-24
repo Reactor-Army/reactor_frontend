@@ -9,6 +9,9 @@ import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 import {DetailTableGrid, Container} from "./Styles";
+import {Icon} from "../../common/styles";
+import info_icon from "../../resources/images/info_icon.png";
+import Tooltip from "@material-ui/core/Tooltip";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -26,7 +29,17 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
       <DetailTableGrid cols={3}>
-        <DetailTable title="Características">
+        <DetailTable
+          title="Características"
+          icon={
+            <Tooltip title={"Parámetros obtenidos con ensayos discontinuos"}>
+              <Icon
+                src={info_icon}
+                alt={"Información"}
+                onClick={() => console.log("Hola")}
+              />
+            </Tooltip>
+          }>
           <DetailTableRow
             label={PROCESS_FIELDS.QMAX}
             value={process.qmax}
