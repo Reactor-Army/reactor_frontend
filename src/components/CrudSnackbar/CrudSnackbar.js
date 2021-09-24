@@ -11,15 +11,11 @@ export const CrudSnackbar = () => {
     dispatch(snackbar.close());
   };
   return (
-    <Snackbar
-      open={open}
-      autoHideDuration={6000}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      onClose={handleSnackClose}>
-      <Alert severity="success" sx={{width: "100%"}} onClose={handleSnackClose}>
+    <Snackbar open={open} autoHideDuration={6000} onClose={handleSnackClose}>
+      <Alert
+        severity="success"
+        sx={{width: "100%", color: "success.main"}}
+        onClose={handleSnackClose}>
         {message}
       </Alert>
     </Snackbar>

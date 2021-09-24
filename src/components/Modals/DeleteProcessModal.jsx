@@ -3,6 +3,7 @@ import React from "react";
 import {deleteProcess} from "../../services/processes";
 import {URLS} from "../../routing/urls";
 import {useHistory} from "react-router-dom";
+import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 
 export const DeleteProcessModal = ({
   open,
@@ -19,6 +20,7 @@ export const DeleteProcessModal = ({
   const onDeleteConfirmation = async () => {
     try {
       await deleteProcess(processId);
+      displayUpdateMessage();
       history.push(URLS.PROCESSES_LIST);
     } catch (error) {
       setError(error.response.data);
