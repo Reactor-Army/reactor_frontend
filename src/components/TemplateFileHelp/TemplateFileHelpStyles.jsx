@@ -23,7 +23,7 @@ export const SmallHelpText = styled.div`
   text-align: center;
 `;
 
-export const DownloadLink = styled.div`
+export const DownloadLink = styled.a`
   color: ${appColors.primary};
   font-size: calc(14px + 0.2vw);
   font-family: ${appFontFamily.card};
@@ -31,4 +31,5 @@ export const DownloadLink = styled.div`
   display: inline-block;
   font-weight: 500;
   margin-left: 5px;
+  text-decoration: none;
 `;

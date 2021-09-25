@@ -7,13 +7,15 @@ import {
   DownloadLink,
 } from "./TemplateFileHelpStyles";
 
-export const TemplateFileHelp = ({onClick}) => {
+export const TemplateFileHelp = ({url}) => {
   return (
     <Container>
       <HelpText>¿Problemas para subir el archivo de datos?</HelpText>
       <SmallHelpText>
         No te preocupes, a continuación te dejamos un
-        <DownloadLink onClick={onClick}>archivo de ejemplo</DownloadLink>
+        <DownloadLink href={url} alt="Template File">
+          archivo de ejemplo
+        </DownloadLink>
       </SmallHelpText>
     </Container>
   );

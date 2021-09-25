@@ -32,7 +32,6 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
 import {appColors} from "../../common/styles";
-import {getTemplate} from "../../services/models";
 
 const INITIAL_ERROR = {
   message: null,
@@ -177,9 +176,7 @@ export const AdamsBohartRoute = () => {
                   </FormContainer>
                   <TemplateHelpWrapper>
                     <TemplateFileHelp
-                      onClick={async () => {
-                        await getTemplate();
-                      }}
+                      url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
                     />
                   </TemplateHelpWrapper>
                 </>
