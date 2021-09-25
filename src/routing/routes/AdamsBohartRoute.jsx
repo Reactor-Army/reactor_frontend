@@ -32,10 +32,19 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
 import {appColors} from "../../common/styles";
+import {
+  adamsBohartCofficients,
+  generateEquation,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
+};
+
+const adamsEquation = (data) => {
+  const template = `$$\\frac{C}{C0} = e^{firstV_{ef}-second}$$`;
+  return generateEquation(template, adamsBohartCofficients(data));
 };
 
 export const AdamsBohartRoute = () => {
@@ -70,6 +79,7 @@ export const AdamsBohartRoute = () => {
         U0: values[ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY],
         Kab: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
         N0: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.N0],
+        R2: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.R2],
         points: apiResponse[
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -123,6 +133,8 @@ export const AdamsBohartRoute = () => {
                   <AdamsBohartResultFields
                     Kab={response.Kab}
                     N0={response.N0}
+                    R2={response.R2}
+                    equation={adamsEquation(response)}
                   />
                 </DataFrame>
               ))}

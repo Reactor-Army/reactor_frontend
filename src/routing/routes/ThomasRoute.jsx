@@ -32,10 +32,19 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
 import {appColors} from "../../common/styles";
+import {
+  generateEquation,
+  thomasCoefficients,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
+};
+
+const thomasEquation = (data) => {
+  const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
+  return generateEquation(template, thomasCoefficients(data));
 };
 
 export const ThomasRoute = () => {
@@ -69,6 +78,7 @@ export const ThomasRoute = () => {
         C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
         Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
         q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        R2: apiResponse[THOMAS_RESPONSE_FIELDS.R2],
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -118,7 +128,12 @@ export const ThomasRoute = () => {
                   <Title color={colors[index % colors.length]}>
                     Resultados gráfico {++index}
                   </Title>
-                  <ThomasResultFields kth={response.Kth} q0={response.q0} />
+                  <ThomasResultFields
+                    kth={response.Kth}
+                    q0={response.q0}
+                    R2={response.R2}
+                    equation={thomasEquation(response)}
+                  />
                 </DataFrame>
               ))}
               plot={
@@ -152,6 +167,7 @@ export const ThomasRoute = () => {
               cantidad de modelos que se pueden ejecutar son{" "}
               {settings.MAX_MODELS}.
             </HelpText>
+
             <ContentWrapper>
               {showLoader ? (
                 <LoaderWrapper>
