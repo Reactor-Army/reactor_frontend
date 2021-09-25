@@ -32,10 +32,20 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {YoonNelsonResultFields} from "../../components/ChemicalModels/Models/YoonNelsonResultFields";
 import {appColors} from "../../common/styles";
+import {
+  generateEquation,
+  yoonNelsonCoefficients,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
+};
+
+const yoonNelsonEquation = (data) => {
+  const exponential = "e^{firstV{ef}-second}";
+  const template = `$$\\frac{C}{C0} = \\frac{${exponential}}{1 + ${exponential}}$$`;
+  return generateEquation(template, yoonNelsonCoefficients(data));
 };
 
 export const YoonNelsonRoute = () => {
@@ -117,6 +127,7 @@ export const YoonNelsonRoute = () => {
                     Kyn={response.Kyn}
                     t={response.t}
                     R2={response.R2}
+                    equation={yoonNelsonEquation(response)}
                   />
                 </DataFrame>
               ))}

@@ -1,9 +1,10 @@
 import React from "react";
 import {COMMON_MODEL_FIELDS, MODEL_UNITS} from "../../../common/fields";
 import {Field} from "../ChemicalModelStyles";
+import {ResultsMathFormula} from "./ResultsMathFormula";
 
 // eslint-disable-next-line id-length
-export const YoonNelsonResultFields = ({Kyn, t, R2}) => {
+export const YoonNelsonResultFields = ({Kyn, t, R2, equation}) => {
   return (
     <>
       <Field>
@@ -16,6 +17,7 @@ export const YoonNelsonResultFields = ({Kyn, t, R2}) => {
       <Field>
         <b>{COMMON_MODEL_FIELDS.R2}:</b> {R2}
       </Field>
+      <ResultsMathFormula equation={equation} />
     </>
   );
 };
