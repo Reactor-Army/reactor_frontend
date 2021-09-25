@@ -11,6 +11,13 @@ export const adamsBohartCofficients = (data) => {
   ];
 };
 
+export const thomasCoefficients = (data) => {
+  return [
+    (data.Kth / data.F) * data.q0 * data.W,
+    (data.Kth / data.F) * data.C0,
+  ];
+};
+
 export const generateEquation = (equationTemplate, coefficients) => {
   const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
   const [first, second] = coefficients.map((coef) => coef.toFixed(digits));

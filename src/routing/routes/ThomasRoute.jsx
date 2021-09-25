@@ -32,6 +32,10 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
 import {appColors} from "../../common/styles";
+import {
+  generateEquation,
+  thomasCoefficients,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
@@ -39,19 +43,8 @@ const INITIAL_ERROR = {
 };
 
 const thomasEquation = (data) => {
-  // Thomas equation:
-  // C/C0 = 1 / [1+e^(a - b * Vef)]
-  // with a = kth / F * q0 * W
-  // b = kth / F * c0
-
-  const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
-  // eslint-disable-next-line id-length
-  const [a, b] = [
-    ((data.Kth / data.F) * data.q0 * data.W).toFixed(digits),
-    ((data.Kth / data.F) * data.C0).toFixed(digits),
-  ];
-
-  return `$$\\frac{C}{C0} = \\frac{1}{1 + e^{${a}-${b}V_{ef}}}$$`;
+  const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
+  return generateEquation(template, thomasCoefficients(data));
 };
 
 export const ThomasRoute = () => {
