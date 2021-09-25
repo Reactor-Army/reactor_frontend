@@ -38,6 +38,22 @@ const INITIAL_ERROR = {
   index: null,
 };
 
+const adamsEquation = (data) => {
+  // Adams Bohart equation:
+  // C/C0 = e^(a * Vef - b)
+  // with a = Kab * C0 / F
+  // b = Kab * N0 * Z / U0
+
+  const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
+  // eslint-disable-next-line id-length
+  const [a, b] = [
+    ((data.Kab * data.C0) / data.F).toFixed(digits),
+    ((data.Kab * data.N0 * data.Z) / data.U0).toFixed(digits),
+  ];
+
+  return `$$\\frac{C}{C0} = e^{${a}V_{ef}-${b}}$$`;
+};
+
 export const AdamsBohartRoute = () => {
   const [responses, setResponses] = useState([]);
   const [error, setError] = useState(INITIAL_ERROR);
@@ -125,6 +141,7 @@ export const AdamsBohartRoute = () => {
                     Kab={response.Kab}
                     N0={response.N0}
                     R2={response.R2}
+                    equation={adamsEquation(response)}
                   />
                 </DataFrame>
               ))}
