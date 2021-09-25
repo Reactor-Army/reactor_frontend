@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {ErrorMessage, ErrorMessageContainer} from "./PlotStyles";
 import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
 import {MODEL_AXIS_LABELS} from "../../../../common/fields";
+import {adamsBohartCofficients} from "../equations";
 
 export const AdamsBohartModelPlot = ({expressions, points = []}) => {
   const [validParamters, setValidParameters] = useState();
@@ -16,11 +17,12 @@ export const AdamsBohartModelPlot = ({expressions, points = []}) => {
       setValidParameters(true);
       setFunctions(
         expressions.map((expression) => {
-          /*The following expression is the exponential form that the Adams-Bohart's model uses to try 
+          const [firstCoefficient, secondCoefficient] = adamsBohartCofficients(
+            expression,
+          );
+          /*The following expression is the exponential form that the Adams-Bohart's model uses to try
             to fit a set of points and is the one that gets graphed at the Adams-Bohart's model view*/
-          return `exp((${(expression.Kab * expression.C0) / expression.F})x - ${
-            (expression.Kab * expression.N0 * expression.Z) / expression.U0
-          })`;
+          return `exp((${firstCoefficient})x - ${secondCoefficient})`;
         }),
       );
     } else {

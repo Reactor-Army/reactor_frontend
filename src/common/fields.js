@@ -99,6 +99,7 @@ export const MODEL_AXIS_LABELS = {
 export const COMMON_MODEL_FIELDS = {
   FLOW: "Caudal volumétrico (F)",
   INITIAL_CONCENTRATION: "Concentración Inicial (C₀)",
+  R2: "R²",
 };
 
 export const THOMAS_FIELDS = {
@@ -134,19 +135,26 @@ export const YOON_NELSON_REQUEST_FIELDS = {
   ...COMMON_MODEL_REQUEST_FIELDS,
 };
 
+export const COMMON_RESPONSE_FIELDS = {
+  R2: "R2",
+};
+
 export const THOMAS_RESPONSE_FIELDS = {
+  ...COMMON_RESPONSE_FIELDS,
   KTH: "constanteThomas",
   Q0: "concentracionMaximaSoluto",
   OBSERVATIONS: "observaciones",
 };
 
 export const ADAMS_BOHART_RESPONSE_FIELDS = {
+  ...COMMON_RESPONSE_FIELDS,
   KAB: "constanteAdamsBohart",
   N0: "capacidadMaximaAbsorcion",
   OBSERVATIONS: "observaciones",
 };
 
 export const YOON_NELSON_RESPONSE_FIELDS = {
+  ...COMMON_RESPONSE_FIELDS,
   KYN: "constanteYoonNelson",
   FIFTY_PERCENT_TIME: "tiempoCincuentaPorciento",
   OBSERVATIONS: "observaciones",

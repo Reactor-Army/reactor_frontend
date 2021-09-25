@@ -32,10 +32,20 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {YoonNelsonResultFields} from "../../components/ChemicalModels/Models/YoonNelsonResultFields";
 import {appColors} from "../../common/styles";
+import {
+  generateEquation,
+  yoonNelsonCoefficients,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
+};
+
+const yoonNelsonEquation = (data) => {
+  const exponential = "e^{firstV{ef}-second}";
+  const template = `$$\\frac{C}{C0} = \\frac{${exponential}}{1 + ${exponential}}$$`;
+  return generateEquation(template, yoonNelsonCoefficients(data));
 };
 
 export const YoonNelsonRoute = () => {
@@ -67,6 +77,7 @@ export const YoonNelsonRoute = () => {
         Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYN],
         // eslint-disable-next-line id-length
         t: apiResponse[YOON_NELSON_RESPONSE_FIELDS.FIFTY_PERCENT_TIME],
+        R2: apiResponse[YOON_NELSON_RESPONSE_FIELDS.R2],
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -112,7 +123,12 @@ export const YoonNelsonRoute = () => {
                   <Title color={colors[index % colors.length]}>
                     Resultados gráfico {++index}
                   </Title>
-                  <YoonNelsonResultFields Kyn={response.Kyn} t={response.t} />
+                  <YoonNelsonResultFields
+                    Kyn={response.Kyn}
+                    t={response.t}
+                    R2={response.R2}
+                    equation={yoonNelsonEquation(response)}
+                  />
                 </DataFrame>
               ))}
               plot={
