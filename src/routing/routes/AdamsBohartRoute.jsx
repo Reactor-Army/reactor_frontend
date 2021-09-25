@@ -32,6 +32,10 @@ import {
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
 import {appColors} from "../../common/styles";
+import {
+  adamsBohartCofficients,
+  generateEquation,
+} from "../../components/ChemicalModels/Models/equations";
 
 const INITIAL_ERROR = {
   message: null,
@@ -39,19 +43,8 @@ const INITIAL_ERROR = {
 };
 
 const adamsEquation = (data) => {
-  // Adams Bohart equation:
-  // C/C0 = e^(a * Vef - b)
-  // with a = Kab * C0 / F
-  // b = Kab * N0 * Z / U0
-
-  const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
-  // eslint-disable-next-line id-length
-  const [a, b] = [
-    ((data.Kab * data.C0) / data.F).toFixed(digits),
-    ((data.Kab * data.N0 * data.Z) / data.U0).toFixed(digits),
-  ];
-
-  return `$$\\frac{C}{C0} = e^{${a}V_{ef}-${b}}$$`;
+  const template = `$$\\frac{C}{C0} = e^{firstV_{ef}-second}$$`;
+  return generateEquation(template, adamsBohartCofficients(data));
 };
 
 export const AdamsBohartRoute = () => {
