@@ -38,6 +38,22 @@ const INITIAL_ERROR = {
   index: null,
 };
 
+const thomasEquation = (data) => {
+  // Thomas equation:
+  // C/C0 = 1 / [1+e^(a - b * Vef)]
+  // with a = kth / F * q0 * W
+  // b = kth / F * c0
+
+  const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
+  // eslint-disable-next-line id-length
+  const [a, b] = [
+    ((data.Kth / data.F) * data.q0 * data.W).toFixed(digits),
+    ((data.Kth / data.F) * data.C0).toFixed(digits),
+  ];
+
+  return `$$\\frac{C}{C0} = \\frac{1}{1 + e^{${a}-${b}V_{ef}}}$$`;
+};
+
 export const ThomasRoute = () => {
   const [responses, setResponses] = useState([]);
   const [error, setError] = useState(INITIAL_ERROR);
@@ -123,6 +139,7 @@ export const ThomasRoute = () => {
                     kth={response.Kth}
                     q0={response.q0}
                     R2={response.R2}
+                    equation={thomasEquation(response)}
                   />
                 </DataFrame>
               ))}
