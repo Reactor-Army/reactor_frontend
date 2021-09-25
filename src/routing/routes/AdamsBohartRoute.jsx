@@ -12,14 +12,14 @@ import {
   ButtonWrapper,
   FormContainer,
   ContentWrapper,
-  AdvertisementWrapper,
+  TemplateHelpWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
 import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
 import {Button} from "../../components/Button/Button";
-import {AppAdvertisement} from "../../components/AppAdvertisement/AppAdvertisement";
+import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHelp";
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
@@ -174,9 +174,9 @@ export const AdamsBohartRoute = () => {
                       }}
                     />
                   </FormContainer>
-                  <AdvertisementWrapper>
-                    <AppAdvertisement />
-                  </AdvertisementWrapper>
+                  <TemplateHelpWrapper>
+                    <TemplateFileHelp />
+                  </TemplateHelpWrapper>
                 </>
               )}
             </ContentWrapper>
