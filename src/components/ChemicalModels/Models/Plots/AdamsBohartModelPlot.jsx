@@ -17,10 +17,12 @@ export const AdamsBohartModelPlot = ({expressions, points = []}) => {
       setValidParameters(true);
       setFunctions(
         expressions.map((expression) => {
-          const [first, second] = adamsBohartCofficients(expression);
+          const [firstCoefficient, secondCoefficient] = adamsBohartCofficients(
+            expression,
+          );
           /*The following expression is the exponential form that the Adams-Bohart's model uses to try
             to fit a set of points and is the one that gets graphed at the Adams-Bohart's model view*/
-          return `exp((${first})x - ${second})`;
+          return `exp((${firstCoefficient})x - ${secondCoefficient})`;
         }),
       );
     } else {

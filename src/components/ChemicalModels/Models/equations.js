@@ -34,8 +34,10 @@ export const yoonNelsonCoefficients = (data) => {
 
 export const generateEquation = (equationTemplate, coefficients) => {
   const digits = settings.MODEL_EQUATION_PRECISION_DIGITS;
-  const [first, second] = coefficients.map((coef) => coef.toFixed(digits));
+  const [firstCoefficient, secondCoefficient] = coefficients.map((coef) =>
+    coef.toFixed(digits),
+  );
   return equationTemplate
-    .replaceAll("first", first)
-    .replaceAll("second", second);
+    .replaceAll("first", firstCoefficient)
+    .replaceAll("second", secondCoefficient);
 };

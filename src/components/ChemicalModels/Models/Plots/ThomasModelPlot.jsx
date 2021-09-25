@@ -17,10 +17,12 @@ export const ThomasModelPlot = ({expressions, points = []}) => {
       setValidParameters(true);
       setFunctions(
         expressions.map((expression) => {
-          const [first, second] = thomasCoefficients(expression);
+          const [firstCoefficient, secondCoefficient] = thomasCoefficients(
+            expression,
+          );
           /*The following expression is the exponential form that the Thomas's model uses to try
             to fit a set of points and is the one that gets graphed at the Thomas's model view*/
-          return `1/(1+exp(${first} - ${second}x))`;
+          return `1/(1+exp(${firstCoefficient} - ${secondCoefficient}x))`;
         }),
       );
     } else {
