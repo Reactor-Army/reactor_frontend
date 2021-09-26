@@ -9,9 +9,11 @@ import {fetchProcess} from "../../redux/processSlice";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
+import {FormErrorModal} from "../../components/Form/FormErrorModal";
 
 export const SystemEditRoute = () => {
   const [errors, setErrors] = useState(true);
+  const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
   const dispatch = useDispatch();
   let {id} = useParams();
@@ -26,9 +28,13 @@ export const SystemEditRoute = () => {
   const onSubmit = async (values) => {
     if (!errors) {
       try {
-        await updateSystem(id, {...values, id: parseInt(id)});
-        history.push(URLS.PROCESSES_LIST);
-        displayUpdateMessage();
+        const result = await updateSystem(id, {...values, id: parseInt(id)});
+        if (result.status) {
+          setSubmitError(result.response);
+        } else {
+          history.push(URLS.PROCESSES_LIST);
+          displayUpdateMessage();
+        }
       } catch (error) {
         return error;
       }
@@ -39,14 +45,20 @@ export const SystemEditRoute = () => {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (
-    <SystemForm
-      title="Modificar Sistema"
-      buttonLabel="Actualizar"
-      onSubmit={onSubmit}
-      setErrors={(value) => {
-        setErrors(value);
-      }}
-      initialValues={system}
-    />
+    <>
+      <FormErrorModal
+        errorInfo={submitError && submitError.message}
+        onClose={() => setSubmitError(null)}
+      />
+      <SystemForm
+        title="Modificar Sistema"
+        buttonLabel="Actualizar"
+        onSubmit={onSubmit}
+        setErrors={(value) => {
+          setErrors(value);
+        }}
+        initialValues={system}
+      />
+    </>
   );
 };
