@@ -9,9 +9,11 @@ import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
+import {FormErrorModal} from "../../components/Form/FormErrorModal";
 
 export const AdsorbateEditRoute = () => {
   const [errors, setErrors] = useState(true);
+  const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
   const dispatch = useDispatch();
   let {id} = useParams();
@@ -26,9 +28,13 @@ export const AdsorbateEditRoute = () => {
   const onSubmit = async (values) => {
     if (!errors) {
       try {
-        await editAdsorbate(id, {...values, id: parseInt(id)});
-        displayUpdateMessage();
-        history.push(URLS.ADSORBATES_LIST);
+        const result = await editAdsorbate(id, {...values, id: parseInt(id)});
+        if (result.status) {
+          setSubmitError(result.response);
+        } else {
+          displayUpdateMessage();
+          history.push(URLS.ADSORBATES_LIST);
+        }
       } catch (error) {
         return error;
       }
@@ -39,14 +45,20 @@ export const AdsorbateEditRoute = () => {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
   return (
-    <AdsorbateForm
-      title="Modificar Adsorbato"
-      buttonLabel="Actualizar"
-      onSubmit={onSubmit}
-      setErrors={(value) => {
-        setErrors(value);
-      }}
-      initialValues={adsorbate}
-    />
+    <>
+      <FormErrorModal
+        errorInfo={submitError && submitError.message}
+        onClose={() => setSubmitError(null)}
+      />
+      <AdsorbateForm
+        title="Modificar Adsorbato"
+        buttonLabel="Actualizar"
+        onSubmit={onSubmit}
+        setErrors={(value) => {
+          setErrors(value);
+        }}
+        initialValues={adsorbate}
+      />
+    </>
   );
 };
