@@ -101,7 +101,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const AdvertisementWrapper = styled.div`
+export const TemplateHelpWrapper = styled.div`
   min-width: calc(85% - ${FormContainerWidth}px);
   justify-content: center;
   display: flex;
@@ -110,6 +110,7 @@ export const AdvertisementWrapper = styled.div`
   @media (max-width: 1200px) {
     display: none;
   }
+  margin-left: 20px;
 `;
 
 export const LoaderWrapper = styled.div`
