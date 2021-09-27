@@ -25,15 +25,36 @@ export class HttpClient {
   }
 
   async post(url, body) {
-    return await this.request(url, "POST", body);
+    return await this.request(url, "POST", body).catch((error) => {
+      return {
+        data: {
+          status: error.response.status,
+          response: error.response.data,
+        },
+      };
+    });
   }
 
   async delete(url, params) {
-    return await this.request(url, "DELETE", params);
+    return await this.request(url, "DELETE", params).catch((error) => {
+      return {
+        data: {
+          status: error.response.status,
+          response: error.response.data,
+        },
+      };
+    });
   }
 
   async put(url, body) {
-    return await this.request(url, "PUT", body);
+    return await this.request(url, "PUT", body).catch((error) => {
+      return {
+        data: {
+          status: error.response.status,
+          response: error.response.data,
+        },
+      };
+    });
   }
 
   async multiPartPost(url, file, body) {

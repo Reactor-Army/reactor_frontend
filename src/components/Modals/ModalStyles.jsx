@@ -35,8 +35,8 @@ export const ButtonsContainer = styled.div`
 
 export const Message = styled.div`
   font-family: ${appFontFamily.primary};
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
   font-weight: bold;
   text-align: center;
 `;
