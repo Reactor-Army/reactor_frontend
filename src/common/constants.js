@@ -72,3 +72,8 @@ export const YOON_NELSON_FORM_INITIAL_VALUES = {
   [YOON_NELSON_REQUEST_FIELDS.FILE]: "",
   [YOON_NELSON_REQUEST_FIELDS.FLOW]: "",
 };
+
+export const LOGIN_FORM_INITIAL_VALUES = {
+  email: "",
+  password: "",
+};
