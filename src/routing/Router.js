@@ -23,6 +23,7 @@ import {AdamsBohartRoute} from "./routes/AdamsBohartRoute";
 import {YoonNelsonRoute} from "./routes/YoonNelsonRoute";
 import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
 import {ModelsRoute} from "./routes/ModelsRoute/ModelsRoute";
+import {LoginRoute} from "./routes/LoginRoute/LoginRoute";
 
 export const Router = () => {
   return (
@@ -147,6 +148,13 @@ export const Router = () => {
         authed={0}
         component={ModelsRoute}
         path={URLS.MODEL_SELECTION}
+      />
+      <PrivateRoute
+        authed={0}
+        component={LoginRoute}
+        path={URLS.LOGIN}
+        showSideBar={false}
+        showTopBar={false}
       />
       <PrivateRoute
         authed={0}

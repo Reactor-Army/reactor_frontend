@@ -20,6 +20,7 @@ export const URLS = {
   MODEL_SELECTION: "/modelos",
   NOT_FOUND: "/not-found",
   ABOUT_US: "/about-us",
+  LOGIN: "/login",
 };
 
 const processUrlId = (url, id) => {
