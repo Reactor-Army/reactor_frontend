@@ -7,6 +7,7 @@ import idealAdsorbentsReducer from "./idealAdsorbentsSlice";
 import adsorbateDetailReducer from "./adsorbateSlice";
 import adsorbentDetailReducer from "./adsorbentSlice";
 import crudSnackbarReducer from "./snackbar";
+import authReducer from "./auth";
 
 export default configureStore({
   reducer: {
@@ -18,5 +19,6 @@ export default configureStore({
     adsorbate: adsorbateDetailReducer,
     adsorbent: adsorbentDetailReducer,
     crudSnackbar: crudSnackbarReducer,
+    auth: authReducer,
   },
 });
