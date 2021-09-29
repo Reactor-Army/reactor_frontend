@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appFontFamily, appColors} from "../../../common/styles";
+import {appFontFamily, appColors, appFontColors} from "../../../common/styles";
 
 export const PageContainer = styled.div`
   display: flex;
@@ -40,5 +40,14 @@ export const Subtitle = styled.h2`
 `;
 
 export const FormContainer = styled.div`
-  padding: 10px 30px 30px;
+  padding: 10px 30px;
+`;
+
+export const ErrorMessage = styled.div`
+  font-family: ${appFontFamily.card};
+  font-size: 14px;
+  color: ${appFontColors.warning};
+  text-align: left;
+  padding: 20px 0;
+  text-align: center;
 `;

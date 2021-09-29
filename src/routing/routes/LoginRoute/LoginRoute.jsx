@@ -5,6 +5,7 @@ import {
   Title,
   Subtitle,
   FormContainer,
+  ErrorMessage,
 } from "./LoginRouteStyles";
 import {Form, FORM_LAYOUTS} from "../../../components/Form/Form";
 import {LOGIN_FORM_INITIAL_VALUES} from "../../../common/constants";
@@ -82,6 +83,7 @@ export const LoginRoute = () => {
             ]}
           />
         </FormContainer>
+        {submitError && <ErrorMessage>{submitError.message}</ErrorMessage>}
       </LoginContainer>
     </PageContainer>
   );
