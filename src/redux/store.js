@@ -9,7 +9,7 @@ import adsorbentDetailReducer from "./adsorbentSlice";
 import crudSnackbarReducer from "./snackbar";
 import authReducer from "./auth";
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
     adsorbates: adsorbateReducer,
     adsorbents: adsorbentReducer,
@@ -22,3 +22,5 @@ export default configureStore({
     auth: authReducer,
   },
 });
+
+export default store;
