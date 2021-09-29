@@ -40,5 +40,5 @@ export const Subtitle = styled.h2`
 `;
 
 export const FormContainer = styled.div`
-  padding: 10px 30px;
+  padding: 10px 30px 30px;
 `;
