@@ -6,10 +6,10 @@ import {login} from "../redux/auth";
 export const loginService = async (email, password) => {
   const endpoint = `${settings.BACKEND_URL}auth/login`;
   const client = new HttpClient(null);
-  const response = (await client.post(endpoint, {email, password})).data;
-  if (response.status === 200) {
-    const accessToken = response.accessToken;
+  const {data, status} = await client.post(endpoint, {email, password});
+  if (status === 200) {
+    const accessToken = data.accessToken;
     store.dispatch(login({userData: {email}, token: accessToken}));
   }
-  return response;
+  return data;
 };

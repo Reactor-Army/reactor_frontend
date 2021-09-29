@@ -25,10 +25,8 @@ export const LoginRoute = () => {
   const onSubmit = async (values) => {
     try {
       const result = await loginService(values.email, values.password);
-      console.log(result.status);
       if (result.status) {
         setSubmitError(result.response);
-        console.log(submitError);
       } else {
         history.push(URLS.HOME);
       }
