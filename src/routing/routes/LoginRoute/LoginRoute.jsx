@@ -12,12 +12,28 @@ import {FormTextField} from "../../../components/Form/Fields/FormFields";
 import {LOGIN_REQUEST_FIELDS} from "../../../common/fields";
 import {isSet} from "../../../components/Form/Validation/formValidations";
 import {filterBlank} from "../../../components/Create/validations";
+import {loginService} from "../../../services/login";
+import {URLS} from "../../urls";
+import {useHistory} from "react-router-dom";
 
 export const LoginRoute = () => {
   const [errorValues, setErrorValues] = useState({});
+  const [submitError, setSubmitError] = useState(null);
+  const history = useHistory();
 
-  const onSubmit = (values) => {
-    console.log("Test !", values);
+  const onSubmit = async (values) => {
+    try {
+      const result = await loginService(values.email, values.password);
+      console.log(result.status);
+      if (result.status) {
+        setSubmitError(result.response);
+        console.log(submitError);
+      } else {
+        history.push(URLS.HOME);
+      }
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
