@@ -18,7 +18,6 @@ export const searchProcesses = async (adsorbateId, adsorbentId) => {
   ).data;
 };
 
-// SE USA EN AMBOS
 export const getProcess = async (processId) => {
   const endpoint = `${settings.BACKEND_URL}proceso/${processId}/`;
   const client = getHttpClient();

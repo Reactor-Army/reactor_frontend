@@ -23,6 +23,7 @@ import {loginService} from "../../../services/login";
 
 export const HomeRoute = () => {
   const history = useHistory();
+  // Si, esto es un re hack, lo vamos a sacar cuando haya login
   useEffect(async () => {
     await loginService("admin@admin.com", "Prueba123");
   });
