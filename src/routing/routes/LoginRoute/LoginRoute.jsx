@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
   PageContainer,
   LoginContainer,
@@ -16,17 +16,23 @@ import {filterBlank} from "../../../components/Create/validations";
 import {loginService} from "../../../services/login";
 import {URLS} from "../../urls";
 import {useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {CircularProgress} from "@material-ui/core";
 
 export const LoginRoute = () => {
   const [errorValues, setErrorValues] = useState({});
   const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
+  const {loggedIn} = useSelector((state) => state.auth);
+  const [showLoader, setShowLoader] = useState(false);
 
   const onSubmit = async (values) => {
     try {
+      setShowLoader(true);
       const result = await loginService(values.email, values.password);
       if (result.status) {
         setSubmitError(result.response);
+        setShowLoader(false);
       } else {
         history.push(URLS.HOME);
       }
@@ -35,54 +41,64 @@ export const LoginRoute = () => {
     }
   };
 
+  useEffect(() => {
+    if (loggedIn) {
+      history.push(URLS.HOME);
+    }
+  }, []);
+
   return (
     <PageContainer>
-      <LoginContainer>
-        <Title>Reactor APP</Title>
-        <Subtitle>Iniciar sesión</Subtitle>
-        <FormContainer>
-          <Form
-            layout={FORM_LAYOUTS.SINGLE_COLUMN}
-            singleColumn={true}
-            initialValues={LOGIN_FORM_INITIAL_VALUES}
-            onSubmit={onSubmit}
-            buttonLabel="Ingresar"
-            errors={filterBlank(errorValues)}
-            fields={[
-              <FormTextField
-                placeholder="Correo electrónico"
-                key={1}
-                name={LOGIN_REQUEST_FIELDS.EMAIL}
-                error={errorValues[LOGIN_REQUEST_FIELDS.EMAIL]}
-                validate={(value) => {
-                  setErrorValues((previousState) => {
-                    return {
-                      ...previousState,
-                      [LOGIN_REQUEST_FIELDS.EMAIL]: isSet(value),
-                    };
-                  });
-                }}
-              />,
-              <FormTextField
-                type="password"
-                placeholder="Contraseña"
-                key={2}
-                name={LOGIN_REQUEST_FIELDS.PASSWORD}
-                error={errorValues[LOGIN_REQUEST_FIELDS.PASSWORD]}
-                validate={(value) => {
-                  setErrorValues((previousState) => {
-                    return {
-                      ...previousState,
-                      [LOGIN_REQUEST_FIELDS.PASSWORD]: isSet(value),
-                    };
-                  });
-                }}
-              />,
-            ]}
-          />
-        </FormContainer>
-        {submitError && <ErrorMessage>{submitError.message}</ErrorMessage>}
-      </LoginContainer>
+      {showLoader ? (
+        <CircularProgress />
+      ) : (
+        <LoginContainer>
+          <Title>Reactor APP</Title>
+          <Subtitle>Iniciar sesión</Subtitle>
+          <FormContainer>
+            <Form
+              layout={FORM_LAYOUTS.SINGLE_COLUMN}
+              singleColumn={true}
+              initialValues={LOGIN_FORM_INITIAL_VALUES}
+              onSubmit={onSubmit}
+              buttonLabel="Ingresar"
+              errors={filterBlank(errorValues)}
+              fields={[
+                <FormTextField
+                  placeholder="Correo electrónico"
+                  key={1}
+                  name={LOGIN_REQUEST_FIELDS.EMAIL}
+                  error={errorValues[LOGIN_REQUEST_FIELDS.EMAIL]}
+                  validate={(value) => {
+                    setErrorValues((previousState) => {
+                      return {
+                        ...previousState,
+                        [LOGIN_REQUEST_FIELDS.EMAIL]: isSet(value),
+                      };
+                    });
+                  }}
+                />,
+                <FormTextField
+                  type="password"
+                  placeholder="Contraseña"
+                  key={2}
+                  name={LOGIN_REQUEST_FIELDS.PASSWORD}
+                  error={errorValues[LOGIN_REQUEST_FIELDS.PASSWORD]}
+                  validate={(value) => {
+                    setErrorValues((previousState) => {
+                      return {
+                        ...previousState,
+                        [LOGIN_REQUEST_FIELDS.PASSWORD]: isSet(value),
+                      };
+                    });
+                  }}
+                />,
+              ]}
+            />
+          </FormContainer>
+          {submitError && <ErrorMessage>{submitError.message}</ErrorMessage>}
+        </LoginContainer>
+      )}
     </PageContainer>
   );
 };
