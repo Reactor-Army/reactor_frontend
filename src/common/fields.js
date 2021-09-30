@@ -91,6 +91,11 @@ export const SYSTEM_REQUEST_FIELDS = {
   REACTION_ORDER: "ordenReaccion",
 };
 
+export const LOGIN_REQUEST_FIELDS = {
+  EMAIL: "email",
+  PASSWORD: "password",
+};
+
 export const MODEL_AXIS_LABELS = {
   X_LABEL: "Vef [L]",
   Y_LABEL: "C/C₀",
