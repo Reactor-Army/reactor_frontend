@@ -11,7 +11,5 @@ export const getHttpClient = () => {
 
 export const buildHttpClient = (token) => {
   client = new HttpClient(token);
-
-  console.log(`HTTP client creado con token: ${token}`);
   return client;
 };

@@ -12,7 +12,6 @@ export const loginService = async (email, password) => {
     const accessToken = data.accessToken;
     store.dispatch(login({userData: {email}, token: accessToken}));
     buildHttpClient(accessToken);
-
   }
   return data;
 };
