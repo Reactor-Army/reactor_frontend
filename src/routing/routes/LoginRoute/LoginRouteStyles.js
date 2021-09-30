@@ -13,6 +13,7 @@ export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
+  height: 480px;
   border: 1px solid ${appColors.lightGray};
   border-radius: 6px;
   background: ${appColors.white};
@@ -47,7 +48,8 @@ export const ErrorMessage = styled.div`
   font-family: ${appFontFamily.card};
   font-size: 14px;
   color: ${appFontColors.warning};
-  text-align: left;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
+  overflow-y: hidden;
+  overflow-wrap: break-word;
 `;
