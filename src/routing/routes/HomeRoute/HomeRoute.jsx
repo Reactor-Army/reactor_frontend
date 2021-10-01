@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {ExpandableCard} from "../../../components/ExpandableCard/ExpandableCard";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../../urls";
@@ -19,14 +19,10 @@ import systems from "../../../resources/images/quimica.png";
 import adsorbate from "../../../resources/images/violetVial.png";
 import adsorbent from "../../../resources/images/greenVial.png";
 import plot from "../../../resources/images/plot.png";
-import {loginService} from "../../../services/login";
 
 export const HomeRoute = () => {
   const history = useHistory();
-  // Si, esto es un re hack, lo vamos a sacar cuando haya login
-  useEffect(async () => {
-    await loginService("admin@admin.com", "Prueba123");
-  });
+
   return (
     <HomePageContainer>
       <HeaderContainer>
