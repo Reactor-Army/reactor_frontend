@@ -25,8 +25,10 @@ export const SessionIndicatorContainer = styled.div`
 export const SessionIndicatorLabel = styled.div`
   font-weight: bold;
   font-family: ${appFontFamily.card};
-  font-size: calc(12px + 0.4vw);
+  //font-size: calc(12px + 0.4vw);
+  font-size: 16px;
   margin-right: 5px;
+  white-space: nowrap;
   @media (max-width: 600px) {
     display: none;
     font-size: calc(12px + 0.4vw);
@@ -35,7 +37,11 @@ export const SessionIndicatorLabel = styled.div`
 
 export const SessionIndicator = styled.div`
   font-family: ${appFontFamily.card};
-  font-size: calc(12px + 0.4vw);
+  //font-size: calc(12px + 0.4vw);
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 20ch;
   @media (max-width: 600px) {
     display: none;
   }
@@ -43,11 +49,13 @@ export const SessionIndicator = styled.div`
 
 export const SessionAction = styled.div`
   font-family: ${appFontFamily.card};
-  font-size: calc(10px + 0.4vw);
+  //font-size: calc(10px + 0.4vw);
+  font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
   font-weight: 500;
   margin-left: 20px;
+  white-space: nowrap;
   @media (max-width: 600px) {
     font-size: 14px;
   }

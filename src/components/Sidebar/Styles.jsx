@@ -15,6 +15,13 @@ export const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     background: appColors.primary,
+    "&::-webkit-scrollbar": {
+      width: "10px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#0f6ebf",
+      borderRadius: "20px",
+    },
   },
 }));
 

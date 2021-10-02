@@ -7,9 +7,14 @@ import {SidebarItem} from "./SidebarItem";
 import {SidebarTitle} from "./SidebarTitle";
 import {ExpandableSidebarItem} from "../ExpandableSidebarItem/ExpandableSidebarItem";
 import {URLS} from "../../routing/urls";
+import {useSelector, useDispatch} from "react-redux";
+import {logout} from "../../redux/auth";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
+  const {loggedIn} = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const navigateTo = (path) => {
     if (handleDrawerToggle) {
       handleDrawerToggle();
@@ -24,32 +29,39 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       onClick={() => navigateTo(URLS.ABOUT_US)}
       key={1}
     />,
-    <SidebarTitle text="Reactores discontinuos" key={2} />,
+    <SidebarItem
+      text={loggedIn ? "Cerrar Sesión" : "Iniciar Sesión"}
+      onClick={
+        loggedIn ? () => dispatch(logout()) : () => navigateTo(URLS.LOGIN)
+      }
+      key={3}
+    />,
+    <SidebarTitle text="Reactores discontinuos" key={4} />,
     <SidebarItem
       text="Adsorbatos"
       onClick={() => navigateTo(URLS.ADSORBATES_LIST)}
-      key={3}
+      key={5}
     />,
     <SidebarItem
       text="Adsorbentes"
       onClick={() => navigateTo(URLS.ADSORBENTS_LIST)}
-      key={4}
+      key={6}
     />,
     <SidebarItem
       text="Sistemas"
       onClick={() => navigateTo(URLS.PROCESSES_LIST)}
-      key={5}
+      key={7}
     />,
     <SidebarItem
       text="Buscar adsorbente"
       onClick={() => navigateTo(URLS.BEST_ADSORBENT)}
-      key={6}
+      key={8}
     />,
-    <SidebarTitle text="Reactores continuos" key={7} />,
+    <SidebarTitle text="Reactores continuos" key={9} />,
     <SidebarItem
       text="Volumen efluente"
       onClick={() => navigateTo(URLS.PROCESS_EFFLUENT_VOLUME)}
-      key={8}
+      key={10}
     />,
     <ExpandableSidebarItem
       title="Curvas de Ruptura"
@@ -57,7 +69,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       onItemClick={(path) => {
         navigateTo(path);
       }}
-      key={9}
+      key={11}
     />,
   ];
 
