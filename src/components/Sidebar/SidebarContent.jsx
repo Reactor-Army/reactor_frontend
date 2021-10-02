@@ -1,5 +1,5 @@
 import Container from "@material-ui/core/Container";
-import {Title} from "./Styles";
+import {Title, SessionUser} from "./Styles";
 import {modelItems} from "./sidebar_routes";
 import React from "react";
 import {useHistory} from "react-router-dom";
@@ -12,7 +12,7 @@ import {logout} from "../../redux/auth";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
-  const {loggedIn} = useSelector((state) => state.auth);
+  const {loggedIn, userData} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const navigateTo = (path) => {
@@ -23,11 +23,14 @@ export const SidebarContent = ({handleDrawerToggle}) => {
   };
 
   const sideBarItems = [
-    <SidebarItem text="Inicio" onClick={() => navigateTo(URLS.HOME)} key={0} />,
+    <SessionUser key={0} loggedIn={loggedIn}>
+      {loggedIn && userData.email}
+    </SessionUser>,
+    <SidebarItem text="Inicio" onClick={() => navigateTo(URLS.HOME)} key={1} />,
     <SidebarItem
       text="Sobre el proyecto"
       onClick={() => navigateTo(URLS.ABOUT_US)}
-      key={1}
+      key={2}
     />,
     <SidebarItem
       text={loggedIn ? "Cerrar Sesión" : "Iniciar Sesión"}
