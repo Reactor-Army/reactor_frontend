@@ -1,23 +1,23 @@
 import {settings} from "../config/settings";
-import {HttpClient} from "./http_client";
+import {getHttpClient} from "../utils/buildHttpClient";
 
 export const applyThomasModel = async (file, body) => {
   const endpoint = `${settings.BACKEND_URL}curvas-ruptura/thomas/`;
 
-  const client = new HttpClient(null);
+  const client = getHttpClient();
   return (await client.multiPartPost(endpoint, file, body)).data;
 };
 
 export const applyAdamsBohartModel = async (file, body) => {
   const endpoint = `${settings.BACKEND_URL}curvas-ruptura/adams-bohart/`;
 
-  const client = new HttpClient(null);
+  const client = getHttpClient();
   return (await client.multiPartPost(endpoint, file, body)).data;
 };
 
 export const applyYoonNelsonModel = async (file, body) => {
   const endpoint = `${settings.BACKEND_URL}curvas-ruptura/yoon-nelson/`;
 
-  const client = new HttpClient(null);
+  const client = getHttpClient();
   return (await client.multiPartPost(endpoint, file, body)).data;
 };

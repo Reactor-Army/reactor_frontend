@@ -1,8 +1,8 @@
 import {settings} from "../config/settings";
-import {HttpClient} from "./http_client";
+import {getHttpClient} from "../utils/buildHttpClient";
 
 export const calculateVolume = async (processId, body) => {
   const endpoint = `${settings.BACKEND_URL}proceso/${processId}/reactor/volumen/`;
-  const client = new HttpClient(null);
+  const client = getHttpClient();
   return (await client.post(endpoint, body)).data;
 };

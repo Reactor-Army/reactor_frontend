@@ -22,6 +22,7 @@ import plot from "../../../resources/images/plot.png";
 
 export const HomeRoute = () => {
   const history = useHistory();
+
   return (
     <HomePageContainer>
       <HeaderContainer>

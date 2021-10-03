@@ -1,9 +1,9 @@
 import {settings} from "../config/settings";
-import {HttpClient} from "./http_client";
+import {getHttpClient} from "../utils/buildHttpClient";
 
 export const searchIdealAdsorbents = async (adsorbatesIds) => {
   const endpoint = `${settings.BACKEND_URL}proceso/adsorbato/`;
-  const client = new HttpClient(null);
+  const client = getHttpClient();
   const body = {adsorbatos: adsorbatesIds};
   return (await client.post(endpoint, body)).data;
 };
