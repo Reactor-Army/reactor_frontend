@@ -24,7 +24,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
 
   const sideBarItems = [
     <SessionUser key={0} loggedIn={loggedIn}>
-      {loggedIn && userData.email}
+      {loggedIn && `${userData.nombre} ${userData.apellido}`}
     </SessionUser>,
     <SidebarItem text="Inicio" onClick={() => navigateTo(URLS.HOME)} key={1} />,
     <SidebarItem

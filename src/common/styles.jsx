@@ -19,7 +19,6 @@ export const appColors = {
   lightGreen: "#21d133",
   red: "#f51707",
   darkBlue: "#0f6ebf",
-  sideBarScroll: "#0f6ebf",
 };
 
 export const appFontColors = {
