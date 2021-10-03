@@ -10,6 +10,7 @@ export function AdsorbentListContainer() {
   const {adsorbents, loading} = useSelector((state) => state.adsorbents);
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log(fetchAdsorbents());
     dispatch(fetchAdsorbents());
   }, []);
 
