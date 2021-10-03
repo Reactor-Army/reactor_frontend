@@ -8,6 +8,7 @@ import adsorbateDetailReducer from "./adsorbateSlice";
 import adsorbentDetailReducer from "./adsorbentSlice";
 import crudSnackbarReducer from "./snackbar";
 import authReducer from "./auth";
+import usersReducer from "./usersSlice";
 
 export default configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export default configureStore({
     adsorbent: adsorbentDetailReducer,
     crudSnackbar: crudSnackbarReducer,
     auth: authReducer,
+    users: usersReducer,
   },
 });

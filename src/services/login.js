@@ -2,6 +2,7 @@ import {settings} from "../config/settings";
 import {HttpClient} from "./http_client";
 import store from "../redux/store";
 import {login} from "../redux/auth";
+import {buildHttpClient} from "../utils/buildHttpClient";
 
 export const loginService = async (email, password) => {
   const endpoint = `${settings.BACKEND_URL}auth/login`;
@@ -9,13 +10,14 @@ export const loginService = async (email, password) => {
   const {data, status} = await client.post(endpoint, {email, password});
   if (status === 200) {
     const accessToken = data.accessToken;
-    const userData = data.user;
+    const {nombre, apellido, descripcion} = data.user;
     store.dispatch(
       login({
-        userData: userData,
+        userData: {email, nombre, apellido, descripcion},
         token: accessToken,
       }),
     );
+    buildHttpClient(accessToken);
   }
   return data;
 };
