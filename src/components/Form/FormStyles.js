@@ -18,7 +18,7 @@ export const SingleColumnFormLayout = styled.div`
   grid-template-columns: repeat(1, 1fr);
   grid-row-gap: 60px;
 
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 `;
 
 export const SingleRowFormLayout = styled(FormLayout)`

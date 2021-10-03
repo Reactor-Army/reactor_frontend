@@ -12,7 +12,6 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
     setMobileOpen(!mobileOpen);
   };
   const classes = useStyles();
-
   return (
     <>
       {showTopBar && <TopBar handleDrawerToggle={handleDrawerToggle} />}
