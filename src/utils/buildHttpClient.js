@@ -1,11 +1,8 @@
 import {HttpClient} from "../services/http_client";
 
-let client;
+let client = new HttpClient(null);
 
 export const getHttpClient = () => {
-  if (client === undefined) {
-    throw new Error("HttpClient not initialized");
-  }
   return client;
 };
 

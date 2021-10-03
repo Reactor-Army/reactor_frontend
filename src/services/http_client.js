@@ -77,9 +77,14 @@ export class HttpClient {
     headers = headers || {};
     headers = {
       ...headers,
-      Authorization: `Bearer ${this.token}`,
       "Access-Control-Allow-Origin": "*",
     };
+    if (this.token) {
+      headers = {
+        ...headers,
+        Authorization: `Bearer ${this.token}`,
+      };
+    }
     return await axios.request({url, method, data, headers, params});
   }
 }
