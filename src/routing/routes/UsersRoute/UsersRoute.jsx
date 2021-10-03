@@ -17,7 +17,6 @@ export const UsersRoute = () => {
     dispatch(fetchUsers());
   }, []);
 
-  console.log(users);
   return (
     <PageContainer>
       <PageTitle title="Users" />
