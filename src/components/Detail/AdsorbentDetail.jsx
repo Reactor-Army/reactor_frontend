@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {DetailHeader} from "./DetailHeader";
 import {adsorbentEditUrlFor} from "../../routing/urls";
-import {EditButton} from "../List/common/EditButton";
 import {DeleteAdsorbateOrAdsorbentModal} from "../Modals/DeleteAdsorbateOrAdsorbentModal/DeleteAdsorbateOrAdsorbentModal";
-import {DeleteButton} from "../List/common/DeleteButton";
 import {URLS} from "../../routing/urls";
 import {
   getAdsorbentProcessCount,
@@ -34,12 +32,8 @@ export const AdsorbentDetail = ({adsorbent}) => {
       />
       <DetailHeader
         title={capitalizeFirstLetter(adsorbent.nombre)}
-        buttons={
-          <>
-            <EditButton url={adsorbentEditUrlFor(adsorbent.id)} />
-            <DeleteButton onClick={onDeleteClick} />
-          </>
-        }
+        editUrl={adsorbentEditUrlFor(adsorbent.id)}
+        onDeleteClick={onDeleteClick}
       />
 
       <DetailTable title="Características">

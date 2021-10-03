@@ -34,7 +34,7 @@ export const LoginRoute = () => {
         setSubmitError(result.response);
         setShowLoader(false);
       } else {
-        history.push(URLS.HOME);
+        history.goBack();
       }
     } catch (error) {
       return error;
