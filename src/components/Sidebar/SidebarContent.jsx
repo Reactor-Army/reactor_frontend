@@ -35,7 +35,12 @@ export const SidebarContent = ({handleDrawerToggle}) => {
     <SidebarItem
       text={loggedIn ? "Cerrar Sesión" : "Iniciar Sesión"}
       onClick={
-        loggedIn ? () => dispatch(logout()) : () => navigateTo(URLS.LOGIN)
+        loggedIn
+          ? () => {
+              dispatch(logout());
+              history.push(URLS.HOME);
+            }
+          : () => navigateTo(URLS.LOGIN)
       }
       key={3}
     />,
