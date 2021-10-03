@@ -4,9 +4,7 @@ import {capitalizeFirstLetter} from "../../utils/capitalize";
 import {spillLimit} from "../../common/formatting/spillLimit";
 import {DeleteAdsorbateOrAdsorbentModal} from "../Modals/DeleteAdsorbateOrAdsorbentModal/DeleteAdsorbateOrAdsorbentModal";
 import {DetailHeader} from "./DetailHeader";
-import {EditButton} from "../List/common/EditButton";
 import {adsorbateEditUrlFor} from "../../routing/urls";
-import {DeleteButton} from "../List/common/DeleteButton";
 import {URLS} from "../../routing/urls";
 import {
   getAdsorbateProcessCount,
@@ -31,12 +29,8 @@ export const AdsorbateDetail = ({adsorbate}) => {
       <DetailHeader
         title={capitalizeFirstLetter(adsorbate.nombreIUPAC)}
         id={adsorbate.id}
-        buttons={
-          <>
-            <EditButton url={adsorbateEditUrlFor(adsorbate.id)} />
-            <DeleteButton onClick={onDeleteClick} />
-          </>
-        }
+        editUrl={adsorbateEditUrlFor(adsorbate.id)}
+        onDeleteClick={onDeleteClick}
       />
 
       <DetailTableGrid cols={2}>

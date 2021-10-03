@@ -2,9 +2,7 @@ import React from "react";
 import {Cards} from "./Cards";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {DetailHeader} from "./DetailHeader";
-import {DeleteButton} from "../List/common/DeleteButton";
 import {processEditUrlFor} from "../../routing/urls";
-import {EditButton} from "../List/common/EditButton";
 import {UNITS} from "../../common/fields";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
@@ -17,12 +15,8 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       <DetailHeader
         title={"Sistema"}
         id={process.id}
-        buttons={
-          <>
-            <EditButton url={processEditUrlFor(process.id)} />
-            <DeleteButton onClick={onDeleteClick} />
-          </>
-        }
+        editUrl={processEditUrlFor(process.id)}
+        onDeleteClick={onDeleteClick}
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
