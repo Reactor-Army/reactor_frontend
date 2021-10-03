@@ -16,6 +16,7 @@ import {applyMiddleware, combineReducers, createStore} from "redux"; // defaults
 
 const persistConfig = {
   key: "root",
+  whitelist: ["auth"],
   storage,
 };
 
