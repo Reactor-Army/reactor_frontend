@@ -15,8 +15,29 @@ export const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     background: appColors.primary,
+    "&::-webkit-scrollbar": {
+      width: "10px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: appColors.darkBlue,
+      borderRadius: "20px",
+    },
   },
 }));
+
+export const SessionUser = styled.div`
+  font-family: ${appFontFamily.primary};
+  color: ${appFontColors.fontColorMenu};
+  font-size: 14px;
+  text-align: center;
+  height: 30px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  ${(props) => !props.loggedIn && "display: none"}
+`;
 
 export const LinkContainer = styled.div`
   margin: auto;
