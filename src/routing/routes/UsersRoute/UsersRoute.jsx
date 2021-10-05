@@ -9,12 +9,20 @@ import {
   LoaderContainer,
 } from "./UsersRouteStyles";
 import {DataGrid} from "../../../components/DataGrid/DataGrid";
-import {capitalize} from "../../../common/FormatUtils";
+import {formatDate} from "../../../common/FormatUtils";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  const [headerTitles, setHeaderTitles] = useState([]);
+  const headerTitles = [
+    "Id",
+    "Email",
+    "Nombre",
+    "Apellido",
+    "Descripción",
+    "Rol",
+    "Último login",
+  ];
   const [gridItems, setGridItems] = useState([]);
 
   useEffect(() => {
@@ -23,18 +31,15 @@ export const UsersRoute = () => {
 
   useEffect(() => {
     if (users.length > 0) {
-      const userKeys = Object.keys(users[0]);
-      setHeaderTitles(
-        userKeys.map((headerItem) => {
-          return capitalize(headerItem);
-        }),
-      );
-
       const items = users.map((user) => {
-        let role = {};
-        role.roleName = user.rol.nombre;
-        const values = {...user, ...role};
-        delete values.rol;
+        let values = {};
+        values.id = user.id;
+        values.email = user.email;
+        values.name = user.nombre;
+        values.lastName = user.apellido;
+        values.description = user.descripcion;
+        values.role = user.rol.nombre;
+        values.lastLogin = formatDate(user.ultimoLogin);
         return values;
       });
 
