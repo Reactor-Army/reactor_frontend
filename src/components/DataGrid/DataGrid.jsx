@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 
 export const DataGrid = ({headerItems, items}) => {
   const classes = useStyles();
-  const rowsPerPage = 4;
+  const rowsPerPage = 10;
   const [page, setPage] = useState(0);
 
   const handleChangePage = (event, newPage) => {
