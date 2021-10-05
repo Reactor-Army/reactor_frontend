@@ -57,7 +57,7 @@ export const DataGrid = ({headerItems, items}) => {
               {Object.values(gridItem).map((value, index) => {
                 return (
                   <StyledTableCell align="left" key={index}>
-                    {value}
+                    {value || "-"}
                   </StyledTableCell>
                 );
               })}
