@@ -19,9 +19,9 @@ export const UsersRoute = () => {
     "Email",
     "Nombre",
     "Apellido",
-    "Descripción",
     "Rol",
-    "Último login",
+    "Último acceso",
+    "Descripción",
   ];
   const [gridItems, setGridItems] = useState([]);
 
@@ -37,9 +37,9 @@ export const UsersRoute = () => {
         values.email = user.email;
         values.name = user.nombre;
         values.lastName = user.apellido;
-        values.description = user.descripcion;
         values.role = user.rol.nombre;
         values.lastLogin = formatDate(user.ultimoLogin);
+        values.description = user.descripcion;
         return values;
       });
 
