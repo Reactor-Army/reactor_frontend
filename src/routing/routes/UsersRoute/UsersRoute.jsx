@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import {PageTitle} from "../../../common/PageTitle";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUsers} from "../../../redux/usersSlice";
 import {CircularProgress} from "@material-ui/core";
@@ -10,6 +9,8 @@ import {
 } from "./UsersRouteStyles";
 import {DataGrid} from "../../../components/DataGrid/DataGrid";
 import {formatDate} from "../../../common/FormatUtils";
+import {ListHeader} from "../../../components/List/common/ListHeader";
+import {URLS} from "../../urls";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
@@ -49,7 +50,7 @@ export const UsersRoute = () => {
 
   return (
     <PageContainer>
-      <PageTitle title="Usuarios" />
+      <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
       <TableContainer>
         {!users || !users.length ? (
           <LoaderContainer>
