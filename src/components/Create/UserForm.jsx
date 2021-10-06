@@ -11,7 +11,7 @@ import {
   isValidPassword,
   isValidEmail,
 } from "../Form/Validation/formValidations";
-import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
+import {USER_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
 import {USER_REQUEST_FIELDS} from "../../common/fields";
@@ -24,14 +24,14 @@ export const UserForm = ({
   setErrors,
   initialValues,
 }) => {
-  const [initial, setInitial] = useState(ADSORBATE_FORM_INITIAL_VALUES);
+  const [initial, setInitial] = useState(USER_FORM_INITIAL_VALUES);
   const roles = [
-    {label: "Administrador", value: "administrador"},
-    {label: "Usuario", value: "usuario"},
+    {label: "Administrador", value: "ROLE_ADMIN"},
+    {label: "Usuario", value: "ROLE_USER"},
   ];
 
   const [errorValues, setErrorValues] = useState(
-    allNullKeys(ADSORBATE_FORM_INITIAL_VALUES),
+    allNullKeys(USER_FORM_INITIAL_VALUES),
   );
 
   useEffect(() => {
