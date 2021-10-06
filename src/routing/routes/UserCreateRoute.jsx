@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {UserForm} from "../../components/Create/UserForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
-import {createAdsorbate} from "../../services/adsorbates";
+import {createUser} from "../../services/users";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 import {FormErrorModal} from "../../components/Form/FormErrorModal";
 
@@ -14,7 +14,7 @@ export const UserCreateRoute = () => {
   const onSubmit = async (values) => {
     if (!errors) {
       try {
-        const result = await createAdsorbate(values);
+        const result = await createUser(values);
         if (result.status) {
           setSubmitError(result.response);
         } else {

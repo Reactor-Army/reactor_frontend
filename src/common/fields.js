@@ -36,6 +36,15 @@ export const PROCESS_FIELDS = {
   NOTES: "Observaciones",
 };
 
+export const USER_FIELDS = {
+  NAME: "Nombre",
+  LAST_NAME: "Apellido",
+  EMAIL: "Email",
+  DESCRIPTION: "Descripción",
+  PASSWORD: "Contraseña",
+  ROLE: "Rol",
+};
+
 export const UNITS = {
   ION_RADIUS: "Å",
   SPILL_LIMIT: "L",
@@ -89,6 +98,15 @@ export const SYSTEM_REQUEST_FIELDS = {
   CHEMICAL_REACTION: "reaccionQuimica",
   KINETIC_CONSTANT: "constanteCinetica",
   REACTION_ORDER: "ordenReaccion",
+};
+
+export const USER_REQUEST_FIELDS = {
+  NAME: "nombre",
+  LAST_NAME: "apellido",
+  EMAIL: "email",
+  DESCRIPTION: "descripcion",
+  PASSWORD: "password",
+  ROLE: "rol",
 };
 
 export const LOGIN_REQUEST_FIELDS = {

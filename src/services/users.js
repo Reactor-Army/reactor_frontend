@@ -8,7 +8,7 @@ export const getUsers = async () => {
   return response.data;
 };
 
-export const createUsers = async (body) => {
+export const createUser = async (body) => {
   const endpoint = `${settings.BACKEND_URL}auth/users/`;
   const client = getHttpClient();
   return (await client.post(endpoint, body)).data;
