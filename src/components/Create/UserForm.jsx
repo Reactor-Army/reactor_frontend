@@ -6,7 +6,11 @@ import {
   FormBigTextField,
 } from "../Form/Fields/FormFields";
 import {USER_FIELDS} from "../../common/fields";
-import {isSet} from "../Form/Validation/formValidations";
+import {
+  isSet,
+  isValidPassword,
+  isValidEmail,
+} from "../Form/Validation/formValidations";
 import {ADSORBATE_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
@@ -21,6 +25,10 @@ export const UserForm = ({
   initialValues,
 }) => {
   const [initial, setInitial] = useState(ADSORBATE_FORM_INITIAL_VALUES);
+  const roles = [
+    {label: "Administrador", value: "administrador"},
+    {label: "Usuario", value: "usuario"},
+  ];
 
   const [errorValues, setErrorValues] = useState(
     allNullKeys(ADSORBATE_FORM_INITIAL_VALUES),
@@ -81,7 +89,8 @@ export const UserForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                [USER_REQUEST_FIELDS.EMAIL]: isSet(value),
+                [USER_REQUEST_FIELDS.EMAIL]:
+                  isSet(value) || isValidEmail(value),
               };
             });
           }}
@@ -95,7 +104,8 @@ export const UserForm = ({
             setErrorValues((previousState) => {
               return {
                 ...previousState,
-                [USER_REQUEST_FIELDS.PASSWORD]: isSet(value),
+                [USER_REQUEST_FIELDS.PASSWORD]:
+                  isSet(value) || isValidPassword(value),
               };
             });
           }}
@@ -103,10 +113,7 @@ export const UserForm = ({
         <FormSelectorField
           key={5}
           placeholder={USER_FIELDS.ROLE}
-          items={[
-            {label: "Administrador", value: "administrador"},
-            {label: "Usuario", value: "usuario"},
-          ]}
+          items={roles}
           name={USER_REQUEST_FIELDS.ROLE}
           error={errorValues[USER_REQUEST_FIELDS.ROLE]}
           validate={(value) => {
