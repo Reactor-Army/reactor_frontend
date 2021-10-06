@@ -1,0 +1,64 @@
+import React, {useState, useEffect} from "react";
+import {PageTitle} from "../../../common/PageTitle";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUsers} from "../../../redux/usersSlice";
+import {CircularProgress} from "@material-ui/core";
+import {
+  TableContainer,
+  PageContainer,
+  LoaderContainer,
+} from "./UsersRouteStyles";
+import {DataGrid} from "../../../components/DataGrid/DataGrid";
+import {formatDate} from "../../../common/FormatUtils";
+
+export const UsersRoute = () => {
+  const {users} = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const headerTitles = [
+    "Id",
+    "Email",
+    "Nombre",
+    "Apellido",
+    "Rol",
+    "Último acceso",
+    "Descripción",
+  ];
+  const [gridItems, setGridItems] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
+
+  useEffect(() => {
+    if (users.length > 0) {
+      const items = users.map((user) => {
+        let values = {};
+        values.id = user.id;
+        values.email = user.email;
+        values.name = user.nombre;
+        values.lastName = user.apellido;
+        values.role = user.rol.nombre;
+        values.lastLogin = formatDate(user.ultimoLogin);
+        values.description = user.descripcion;
+        return values;
+      });
+
+      setGridItems(items);
+    }
+  }, [users]);
+
+  return (
+    <PageContainer>
+      <PageTitle title="Users" />
+      <TableContainer>
+        {!users || !users.length ? (
+          <LoaderContainer>
+            <CircularProgress />
+          </LoaderContainer>
+        ) : (
+          <DataGrid headerItems={headerTitles} items={gridItems} />
+        )}
+      </TableContainer>
+    </PageContainer>
+  );
+};

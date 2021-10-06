@@ -9,10 +9,9 @@ export const loginService = async (email, password) => {
   const {data, status} = await client.post(endpoint, {email, password});
   if (status === 200) {
     const accessToken = data.accessToken;
-    const userData = data.user;
     store.dispatch(
       login({
-        userData: userData,
+        userData: data.user,
         token: accessToken,
       }),
     );

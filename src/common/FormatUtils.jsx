@@ -13,3 +13,16 @@ export const nameAdsorbent = (adsorbent) => {
 export const qmaxIdealAdsorbent = (maxQmax) => {
   return `QMax Máximo: ${maxQmax} ${UNITS.QMAX}`;
 };
+
+export const formatDate = (dateString) => {
+  if (dateString) {
+    const date = new Date(dateString);
+    const minutes = date.getMinutes();
+    return `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}, ${date.getHours()}:${
+      minutes < 10 ? `0${minutes}` : `${minutes}`
+    }`;
+  }
+  return;
+};

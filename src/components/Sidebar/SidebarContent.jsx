@@ -44,32 +44,37 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       }
       key={3}
     />,
-    <SidebarTitle text="Reactores discontinuos" key={4} />,
+    <SidebarItem
+      text="Usuarios"
+      onClick={() => navigateTo(URLS.USERS)}
+      key={4}
+    />,
+    <SidebarTitle text="Reactores discontinuos" key={5} />,
     <SidebarItem
       text="Adsorbatos"
       onClick={() => navigateTo(URLS.ADSORBATES_LIST)}
-      key={5}
+      key={6}
     />,
     <SidebarItem
       text="Adsorbentes"
       onClick={() => navigateTo(URLS.ADSORBENTS_LIST)}
-      key={6}
+      key={7}
     />,
     <SidebarItem
       text="Sistemas"
       onClick={() => navigateTo(URLS.PROCESSES_LIST)}
-      key={7}
+      key={8}
     />,
     <SidebarItem
       text="Buscar adsorbente"
       onClick={() => navigateTo(URLS.BEST_ADSORBENT)}
-      key={8}
+      key={9}
     />,
-    <SidebarTitle text="Reactores continuos" key={9} />,
+    <SidebarTitle text="Reactores continuos" key={10} />,
     <SidebarItem
       text="Volumen efluente"
       onClick={() => navigateTo(URLS.PROCESS_EFFLUENT_VOLUME)}
-      key={10}
+      key={11}
     />,
     <ExpandableSidebarItem
       title="Curvas de Ruptura"
@@ -77,7 +82,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       onItemClick={(path) => {
         navigateTo(path);
       }}
-      key={11}
+      key={12}
     />,
   ];
 

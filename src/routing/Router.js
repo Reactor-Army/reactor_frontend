@@ -24,6 +24,7 @@ import {YoonNelsonRoute} from "./routes/YoonNelsonRoute";
 import {AboutUsRoute} from "./routes/AboutUsRoute/AboutUsRoute";
 import {ModelsRoute} from "./routes/ModelsRoute/ModelsRoute";
 import {LoginRoute} from "./routes/LoginRoute/LoginRoute";
+import {UsersRoute} from "./routes/UsersRoute/UsersRoute";
 
 export const Router = () => {
   return (
@@ -149,6 +150,7 @@ export const Router = () => {
         component={ModelsRoute}
         path={URLS.MODEL_SELECTION}
       />
+      <PrivateRoute authed={0} component={UsersRoute} path={URLS.USERS} />
       <PrivateRoute
         authed={0}
         component={LoginRoute}
