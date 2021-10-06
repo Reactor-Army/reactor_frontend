@@ -49,7 +49,7 @@ export const UsersRoute = () => {
 
   return (
     <PageContainer>
-      <PageTitle title="Users" />
+      <PageTitle title="Usuarios" />
       <TableContainer>
         {!users || !users.length ? (
           <LoaderContainer>
