@@ -96,6 +96,7 @@ export const UserForm = ({
           }}
         />,
         <FormTextField
+          type="password"
           placeholder={USER_FIELDS.PASSWORD}
           key={4}
           name={USER_REQUEST_FIELDS.PASSWORD}
