@@ -38,7 +38,7 @@ export const UsersRoute = () => {
         values.email = user.email;
         values.name = user.nombre;
         values.lastName = user.apellido;
-        values.role = user.rol.nombre;
+        values.role = user.rol.nombreVerbose;
         values.lastLogin = formatDate(user.ultimoLogin);
         values.description = user.descripcion;
         return values;
