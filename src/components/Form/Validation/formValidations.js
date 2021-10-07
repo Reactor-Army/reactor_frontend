@@ -40,8 +40,7 @@ export const isValidPassword = (value) => {
 
 export const isValidEmail = (value) => {
   const regEx = new RegExp(
-    //eslint-disable-next-line
-    "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+    "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
   );
   if (!value || !regEx.test(value)) {
     return "El mail ingresado no es válido";
