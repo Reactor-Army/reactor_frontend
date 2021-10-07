@@ -32,6 +32,15 @@ export const ADSORBATE_FORM_INITIAL_VALUES = {
   masaMolar: "",
 };
 
+export const USER_FORM_INITIAL_VALUES = {
+  nombre: "",
+  apellido: "",
+  email: "",
+  descripcion: "",
+  rol: null,
+  password: "",
+};
+
 export const ADSORBENT_FORM_INITIAL_VALUES = {
   nombre: "",
   particulaT: "",

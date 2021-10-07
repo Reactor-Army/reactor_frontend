@@ -5,7 +5,7 @@ import {fetchAdsorbate} from "../../redux/adsorbateSlice";
 import {editAdsorbate} from "../../services/adsorbates";
 import {useDispatch, useSelector} from "react-redux";
 import {URLS} from "../urls";
-import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
+import {AdsorbateForm} from "../../components/CustomForms/AdsorbateForm";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";

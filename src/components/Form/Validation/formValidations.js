@@ -30,3 +30,19 @@ export const isInteger = (value) => {
     return `Este valor debe ser entero`;
   }
 };
+
+export const isValidPassword = (value) => {
+  const minimumPasswordLength = 8;
+  if (!value || value.length < minimumPasswordLength) {
+    return `La contraseña debe tener al menos 8 caracteres`;
+  }
+};
+
+export const isValidEmail = (value) => {
+  const regEx = new RegExp(
+    "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+  );
+  if (!value || !regEx.test(value)) {
+    return "El mail ingresado no es válido";
+  }
+};

@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {AdsorbateForm} from "../../components/CustomForms/AdsorbateForm";
+import {UserForm} from "../../components/CustomForms/UserForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
-import {createAdsorbate} from "../../services/adsorbates";
+import {createUser} from "../../services/users";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 import {FormErrorModal} from "../../components/Form/FormErrorModal";
 
-export const AdsorbateCreateRoute = () => {
+export const UserCreateRoute = () => {
   const [errors, setErrors] = useState(true);
   const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
@@ -14,11 +14,11 @@ export const AdsorbateCreateRoute = () => {
   const onSubmit = async (values) => {
     if (!errors) {
       try {
-        const result = await createAdsorbate(values);
+        const result = await createUser(values);
         if (result.status) {
           setSubmitError(result.response);
         } else {
-          history.push(URLS.ADSORBATES_LIST);
+          history.push(URLS.USERS);
           displayUpdateMessage();
         }
       } catch (error) {
@@ -33,8 +33,8 @@ export const AdsorbateCreateRoute = () => {
         errorInfo={submitError && submitError.message}
         onClose={() => setSubmitError(null)}
       />
-      <AdsorbateForm
-        title="Agregar Adsorbato"
+      <UserForm
+        title="Agregar usuario"
         buttonLabel="Agregar"
         onSubmit={onSubmit}
         setErrors={setErrors}

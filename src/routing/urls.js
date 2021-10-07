@@ -21,7 +21,8 @@ export const URLS = {
   NOT_FOUND: "/not-found",
   ABOUT_US: "/about-us",
   LOGIN: "/login",
-  USERS: "/users",
+  USERS: "/usuarios",
+  USER_CREATE: "/usuarios/agregar",
 };
 
 const processUrlId = (url, id) => {

@@ -1,7 +1,7 @@
 import {FormNumericField} from "../../Form/Fields/FormFields";
 import {Form, FORM_LAYOUTS} from "../../Form/Form";
 import {ADAMS_BOHART_FORM_INITIAL_VALUES} from "../../../common/constants";
-import {filterBlank} from "../../Create/validations";
+import {filterBlank} from "../../CustomForms/validations";
 import {
   MODEL_UNITS,
   ADAMS_BOHART_REQUEST_FIELDS,
