@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {AdsorbateForm} from "../../components/Create/AdsorbateForm";
+import {AdsorbateForm} from "../../components/CustomForms/AdsorbateForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createAdsorbate} from "../../services/adsorbates";

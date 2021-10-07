@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {AdsorbentForm} from "../../components/Create/AdsorbentForm";
+import {AdsorbentForm} from "../../components/CustomForms/AdsorbentForm";
 import {URLS} from "../../routing/urls";
 import {createAdsorbent} from "../../services/adsorbents";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";

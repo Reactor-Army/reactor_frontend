@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {SystemForm} from "../../components/Create/SystemForm";
+import {SystemForm} from "../../components/CustomForms/SystemForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {updateSystem} from "../../services/processes";

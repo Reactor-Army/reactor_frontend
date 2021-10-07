@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {UserForm} from "../../components/Create/UserForm";
+import {UserForm} from "../../components/CustomForms/UserForm";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
 import {createUser} from "../../services/users";

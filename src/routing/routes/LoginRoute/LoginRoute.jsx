@@ -12,7 +12,7 @@ import {LOGIN_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {FormTextField} from "../../../components/Form/Fields/FormFields";
 import {LOGIN_REQUEST_FIELDS} from "../../../common/fields";
 import {isSet} from "../../../components/Form/Validation/formValidations";
-import {filterBlank} from "../../../components/Create/validations";
+import {filterBlank} from "../../../components/CustomForms/validations";
 import {loginService} from "../../../services/login";
 import {URLS} from "../../urls";
 import {useHistory} from "react-router-dom";
