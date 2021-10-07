@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {UserForm} from "../../components/CustomForms/UserForm";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {URLS} from "../urls";
 import {createUser} from "../../services/users";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
@@ -10,6 +10,7 @@ export const UserEditRoute = () => {
   const [errors, setErrors] = useState(true);
   const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
+  let {id} = useParams();
 
   const onSubmit = async (values) => {
     if (!errors) {

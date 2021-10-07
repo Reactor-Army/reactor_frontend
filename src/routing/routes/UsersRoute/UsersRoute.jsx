@@ -11,8 +11,9 @@ import {
 import {DataGrid} from "../../../components/DataGrid/DataGrid";
 import {formatDate} from "../../../common/FormatUtils";
 import {ListHeader} from "../../../components/List/common/ListHeader";
-import {URLS} from "../../urls";
 import {EditButton} from "../../../components/List/common/EditButton";
+import {URLS} from "../../urls";
+import {userEditUrlFor} from "../../urls";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
@@ -46,7 +47,7 @@ export const UsersRoute = () => {
         values.description = user.descripcion;
         values.actions = (
           <ActionsContainer>
-            <EditButton url={`${URLS.USER_EDIT}/${values.id}`} />
+            <EditButton url={userEditUrlFor(values.id)} />
           </ActionsContainer>
         );
         return values;
