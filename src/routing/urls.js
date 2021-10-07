@@ -23,6 +23,7 @@ export const URLS = {
   LOGIN: "/login",
   USERS: "/usuarios",
   USER_CREATE: "/usuarios/agregar",
+  USER_EDIT: "/usuarios/editar",
 };
 
 const processUrlId = (url, id) => {

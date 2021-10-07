@@ -6,11 +6,13 @@ import {
   TableContainer,
   PageContainer,
   LoaderContainer,
+  ActionsContainer,
 } from "./UsersRouteStyles";
 import {DataGrid} from "../../../components/DataGrid/DataGrid";
 import {formatDate} from "../../../common/FormatUtils";
 import {ListHeader} from "../../../components/List/common/ListHeader";
 import {URLS} from "../../urls";
+import {EditButton} from "../../../components/List/common/EditButton";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
@@ -23,6 +25,7 @@ export const UsersRoute = () => {
     "Rol",
     "Último acceso",
     "Descripción",
+    "Acciones",
   ];
   const [gridItems, setGridItems] = useState([]);
 
@@ -41,6 +44,11 @@ export const UsersRoute = () => {
         values.role = user.rol.nombreVerbose;
         values.lastLogin = formatDate(user.ultimoLogin);
         values.description = user.descripcion;
+        values.actions = (
+          <ActionsContainer>
+            <EditButton url={`${URLS.USER_EDIT}/${values.id}`} />
+          </ActionsContainer>
+        );
         return values;
       });
 
