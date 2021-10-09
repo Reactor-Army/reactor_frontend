@@ -40,7 +40,7 @@ export const UserForm = ({
         nombre: initialValues.nombre,
         apellido: initialValues.apellido,
         email: initialValues.email,
-        rol: initialValues.rol.nombre,
+        rol: initialValues.rol.nombre || "",
         descripcion: initialValues.descripcion,
       });
     }
@@ -56,7 +56,7 @@ export const UserForm = ({
     } else {
       setRolesOptions(
         roles.map((role) => {
-          return {label: role.nombreVerbose, value: role.nombre};
+          return {label: role.nombreVerbose || "", value: role.nombre || ""};
         }),
       );
     }

@@ -55,6 +55,5 @@ export const adsorbentEditUrlFor = (adsorbentId) => {
 };
 
 export const userEditUrlFor = (userId) => {
-  console.log("sadasdsa");
   return processUrlId(URLS.USER_EDIT, userId);
 };

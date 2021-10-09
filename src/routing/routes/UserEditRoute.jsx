@@ -19,10 +19,8 @@ export const UserEditRoute = () => {
 
   const user = useSelector((store) => store.user.user);
   useEffect(() => {
-    if (!user) {
-      dispatch(fetchUser(id));
-    }
-  }, [user]);
+    dispatch(fetchUser(id));
+  }, []);
 
   const onSubmit = async (values) => {
     if (!errors) {
