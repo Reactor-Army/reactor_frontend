@@ -1,28 +1,16 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getUsers, getRoles} from "../services/users";
-
-export const fetchUsers = createAsyncThunk("fetchUsers", getUsers);
+import {getRoles} from "../services/users";
 
 export const fetchRoles = createAsyncThunk("fetchRoles", getRoles);
 
-const usersSlice = createSlice({
-  name: "users",
+const rolesSlice = createSlice({
+  name: "roles",
   initialState: {
     users: [],
     loading: false,
   },
   reducers: {},
   extraReducers: {
-    [fetchUsers.pending]: (state) => {
-      state.loading = true;
-    },
-    [fetchUsers.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.users = action.payload;
-    },
-    [fetchUsers.rejected]: (state) => {
-      state.loading = false;
-    },
     [fetchRoles.pending]: (state) => {
       state.loading = true;
     },
@@ -36,4 +24,4 @@ const usersSlice = createSlice({
   },
 });
 
-export default usersSlice.reducer;
+export default rolesSlice.reducer;

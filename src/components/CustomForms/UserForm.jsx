@@ -15,7 +15,8 @@ import {USER_FORM_INITIAL_VALUES} from "../../common/constants";
 import {filterBlank} from "./validations";
 import {allNullKeys} from "../../utils/allNullKeys";
 import {USER_REQUEST_FIELDS} from "../../common/fields";
-import {formInitialValuesFromObject} from "../../utils/formInitialValuesFromObject";
+import {useSelector, useDispatch} from "react-redux";
+import {fetchRoles} from "../../redux/usersSlice";
 
 export const UserForm = ({
   title,
@@ -25,10 +26,9 @@ export const UserForm = ({
   initialValues,
 }) => {
   const [initial, setInitial] = useState(USER_FORM_INITIAL_VALUES);
-  const roles = [
-    {label: "Administrador", value: "ROLE_ADMIN"},
-    {label: "Usuario", value: "ROLE_USER"},
-  ];
+  const [rolesOptions, setRolesOptions] = useState([]);
+  const dispatch = useDispatch();
+  const roles = useSelector((state) => state.roles.roles);
 
   const [errorValues, setErrorValues] = useState(
     allNullKeys(USER_FORM_INITIAL_VALUES),
@@ -36,13 +36,31 @@ export const UserForm = ({
 
   useEffect(() => {
     if (initialValues) {
-      setInitial(formInitialValuesFromObject(initialValues));
+      setInitial({
+        nombre: initialValues.nombre,
+        apellido: initialValues.apellido,
+        email: initialValues.email,
+        rol: initialValues.rol.nombre,
+        descripcion: initialValues.descripcion,
+      });
     }
   }, [initialValues]);
 
   useEffect(() => {
     setErrors(filterBlank(errorValues));
   }, [filterBlank(errorValues)]);
+
+  useEffect(() => {
+    if (!roles) {
+      dispatch(fetchRoles());
+    } else {
+      setRolesOptions(
+        roles.map((role) => {
+          return {label: role.nombreVerbose, value: role.nombre};
+        }),
+      );
+    }
+  }, [roles]);
 
   return (
     <Form
@@ -114,7 +132,7 @@ export const UserForm = ({
         <FormSelectorField
           key={5}
           placeholder={USER_FIELDS.ROLE}
-          items={roles}
+          items={rolesOptions}
           name={USER_REQUEST_FIELDS.ROLE}
           error={errorValues[USER_REQUEST_FIELDS.ROLE]}
           validate={(value) => {
