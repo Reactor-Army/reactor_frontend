@@ -25,6 +25,7 @@ export const UserForm = ({
   buttonLabel,
   setErrors,
   initialValues,
+  enforcePasswordSet,
 }) => {
   const [initial, setInitial] = useState(USER_FORM_INITIAL_VALUES);
   const [rolesOptions, setRolesOptions] = useState([]);
@@ -120,15 +121,34 @@ export const UserForm = ({
           key={4}
           name={USER_REQUEST_FIELDS.PASSWORD}
           error={errorValues[USER_REQUEST_FIELDS.PASSWORD]}
-          validate={(value) => {
-            setErrorValues((previousState) => {
-              return {
-                ...previousState,
-                [USER_REQUEST_FIELDS.PASSWORD]:
-                  isSet(value) || isValidPassword(value),
-              };
-            });
-          }}
+          validate={
+            enforcePasswordSet
+              ? (value) => {
+                  setErrorValues((previousState) => {
+                    return {
+                      ...previousState,
+                      [USER_REQUEST_FIELDS.PASSWORD]:
+                        isSet(value) || isValidPassword(value),
+                    };
+                  });
+                }
+              : (value) => {
+                  if (value.length > 0) {
+                    setErrorValues((previousState) => {
+                      return {
+                        ...previousState,
+                        [USER_REQUEST_FIELDS.PASSWORD]: isValidPassword(value),
+                      };
+                    });
+                  } else {
+                    setErrorValues((previousState) => {
+                      const aux = previousState;
+                      delete aux.password;
+                      return aux;
+                    });
+                  }
+                }
+          }
         />,
         <FormSelectorField
           key={5}

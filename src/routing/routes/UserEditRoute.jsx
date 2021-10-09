@@ -56,6 +56,7 @@ export const UserEditRoute = () => {
               setErrors(value);
             }}
             initialValues={user}
+            enforcePasswordSet={false}
           />
         </>
       )}
