@@ -42,7 +42,7 @@ export const UserForm = ({
         nombre: initialValues.nombre,
         apellido: initialValues.apellido,
         email: initialValues.email,
-        rol: initialValues.rol.nombre || "",
+        rol: initialValues.rol.nombre,
         descripcion: initialValues.descripcion,
       });
     }
@@ -63,6 +63,33 @@ export const UserForm = ({
       );
     }
   }, [roles]);
+
+  const validatePasswordOnUserCreation = (value) => {
+    setErrorValues((previousState) => {
+      return {
+        ...previousState,
+        [USER_REQUEST_FIELDS.PASSWORD]: isSet(value) || isValidPassword(value),
+      };
+    });
+  };
+
+  const validatePasswordOnUserEdition = (value) => {
+    if (value && value.length > 0) {
+      setErrorValues((previousState) => {
+        return {
+          ...previousState,
+          [USER_REQUEST_FIELDS.PASSWORD]: isValidPassword(value),
+        };
+      });
+    } else {
+      //En los forms de edicion permito el caso particular donde la password esta vacia, eso indica que el usuario no quiere cambiar
+      // este campo y por lo tanto, no aplico la validacion de la pass ingresada
+      setErrorValues((previousState) => {
+        delete previousState.password;
+        return previousState;
+      });
+    }
+  };
 
   return (
     <Form
@@ -124,30 +151,10 @@ export const UserForm = ({
           validate={
             enforcePasswordSet
               ? (value) => {
-                  setErrorValues((previousState) => {
-                    return {
-                      ...previousState,
-                      [USER_REQUEST_FIELDS.PASSWORD]:
-                        isSet(value) || isValidPassword(value),
-                    };
-                  });
+                  validatePasswordOnUserCreation(value);
                 }
               : (value) => {
-                  if (value && value.length > 0) {
-                    setErrorValues((previousState) => {
-                      return {
-                        ...previousState,
-                        [USER_REQUEST_FIELDS.PASSWORD]: isValidPassword(value),
-                      };
-                    });
-                  } else {
-                    //En los forms de edicion permito el caso particular donde la password esta vacia, eso indica que el usuario no quiere cambiar
-                    // este campo y por lo tanto, no aplico la validacion de la pass ingresada
-                    setErrorValues((previousState) => {
-                      delete previousState.password;
-                      return previousState;
-                    });
-                  }
+                  validatePasswordOnUserEdition(value);
                 }
           }
         />,
