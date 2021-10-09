@@ -6,11 +6,16 @@ import {
   TableContainer,
   PageContainer,
   LoaderContainer,
+  ActionsContainer,
 } from "./UsersRouteStyles";
 import {DataGrid} from "../../../components/DataGrid/DataGrid";
 import {formatDate} from "../../../common/FormatUtils";
 import {ListHeader} from "../../../components/List/common/ListHeader";
+import {EditButton} from "../../../components/List/common/EditButton";
 import {URLS} from "../../urls";
+import {userEditUrlFor} from "../../urls";
+import {errorCodes} from "../../../utils/errorStatusCodes";
+import {Redirect} from "react-router";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
@@ -23,6 +28,7 @@ export const UsersRoute = () => {
     "Rol",
     "Último acceso",
     "Descripción",
+    "Acciones",
   ];
   const [gridItems, setGridItems] = useState([]);
 
@@ -41,6 +47,11 @@ export const UsersRoute = () => {
         values.role = user.rol.nombreVerbose;
         values.lastLogin = formatDate(user.ultimoLogin);
         values.description = user.descripcion;
+        values.actions = (
+          <ActionsContainer>
+            <EditButton url={userEditUrlFor(values.id)} />
+          </ActionsContainer>
+        );
         return values;
       });
 
@@ -49,17 +60,23 @@ export const UsersRoute = () => {
   }, [users]);
 
   return (
-    <PageContainer>
-      <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
-      <TableContainer>
-        {!users || !users.length ? (
-          <LoaderContainer>
-            <CircularProgress />
-          </LoaderContainer>
-        ) : (
-          <DataGrid headerItems={headerTitles} items={gridItems} />
-        )}
-      </TableContainer>
-    </PageContainer>
+    <>
+      {users && errorCodes.includes(users.status) ? (
+        <Redirect to={URLS.NOT_FOUND} />
+      ) : (
+        <PageContainer>
+          <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
+          <TableContainer>
+            {!users || !users.length ? (
+              <LoaderContainer>
+                <CircularProgress />
+              </LoaderContainer>
+            ) : (
+              <DataGrid headerItems={headerTitles} items={gridItems} />
+            )}
+          </TableContainer>
+        </PageContainer>
+      )}
+    </>
   );
 };

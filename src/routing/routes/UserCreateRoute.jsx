@@ -38,6 +38,7 @@ export const UserCreateRoute = () => {
         buttonLabel="Agregar"
         onSubmit={onSubmit}
         setErrors={setErrors}
+        enforcePasswordSet
       />
     </>
   );

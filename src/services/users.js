@@ -13,3 +13,21 @@ export const createUser = async (body) => {
   const client = getHttpClient();
   return (await client.post(endpoint, body)).data;
 };
+
+export const getUser = async (userId) => {
+  const endpoint = `${settings.BACKEND_URL}auth/users/${userId}`;
+  const client = getHttpClient();
+  return (await client.get(endpoint)).data;
+};
+
+export const getRoles = async () => {
+  const endpoint = `${settings.BACKEND_URL}auth/roles/`;
+  const client = getHttpClient();
+  return (await client.get(endpoint)).data;
+};
+
+export const editUser = async (userId, body) => {
+  const endpoint = `${settings.BACKEND_URL}auth/users/${userId}`;
+  const client = getHttpClient();
+  return (await client.put(endpoint, body)).data;
+};

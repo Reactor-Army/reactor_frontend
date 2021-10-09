@@ -23,6 +23,7 @@ export const URLS = {
   LOGIN: "/login",
   USERS: "/usuarios",
   USER_CREATE: "/usuarios/agregar",
+  USER_EDIT: "/usuarios/:id/modificar",
 };
 
 const processUrlId = (url, id) => {
@@ -51,4 +52,8 @@ export const adsorbentDetailUrlFor = (adsorbentId) => {
 
 export const adsorbentEditUrlFor = (adsorbentId) => {
   return processUrlId(URLS.ADSORBENT_EDIT, adsorbentId);
+};
+
+export const userEditUrlFor = (userId) => {
+  return processUrlId(URLS.USER_EDIT, userId);
 };

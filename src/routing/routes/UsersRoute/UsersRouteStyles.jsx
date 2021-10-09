@@ -17,3 +17,9 @@ export const LoaderContainer = styled.div`
   align-items: center;
   height: 70vh;
 `;
+
+export const ActionsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;

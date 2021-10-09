@@ -26,6 +26,7 @@ import {ModelsRoute} from "./routes/ModelsRoute/ModelsRoute";
 import {LoginRoute} from "./routes/LoginRoute/LoginRoute";
 import {UsersRoute} from "./routes/UsersRoute/UsersRoute";
 import {UserCreateRoute} from "./routes/UserCreateRoute";
+import {UserEditRoute} from "./routes/UserEditRoute";
 
 export const Router = () => {
   return (
@@ -150,6 +151,11 @@ export const Router = () => {
         authed={0}
         component={ModelsRoute}
         path={URLS.MODEL_SELECTION}
+      />
+      <PrivateRoute
+        authed={0}
+        component={UserEditRoute}
+        path={URLS.USER_EDIT}
       />
       <PrivateRoute
         authed={0}

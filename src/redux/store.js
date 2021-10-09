@@ -8,6 +8,8 @@ import adsorbentDetailReducer from "./adsorbentSlice";
 import crudSnackbarReducer from "./snackbar";
 import authReducer from "./auth";
 import usersReducer from "./usersSlice";
+import userReducer from "./userSlice";
+import rolesReducer from "./rolesSlice";
 
 import thunkMiddleware from "redux-thunk";
 
@@ -32,6 +34,8 @@ const rootReducer = combineReducers({
   crudSnackbar: crudSnackbarReducer,
   auth: authReducer,
   users: usersReducer,
+  user: userReducer,
+  roles: rolesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
