@@ -31,3 +31,9 @@ export const editUser = async (userId, body) => {
   const client = getHttpClient();
   return (await client.put(endpoint, body)).data;
 };
+
+export const deleteUser = async (userId) => {
+  const endpoint = `${settings.BACKEND_URL}auth/users/${userId}`;
+  const client = getHttpClient();
+  return (await client.delete(endpoint, body)).data;
+};
