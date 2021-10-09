@@ -25,3 +25,9 @@ export const getRoles = async () => {
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
 };
+
+export const editUser = async (userId, body) => {
+  const endpoint = `${settings.BACKEND_URL}auth/users/${userId}`;
+  const client = getHttpClient();
+  return (await client.put(endpoint, body)).data;
+};

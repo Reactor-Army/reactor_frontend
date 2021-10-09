@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react";
 import {UserForm} from "../../components/CustomForms/UserForm";
 import {useHistory, useParams} from "react-router-dom";
 import {URLS} from "../urls";
-import {createUser} from "../../services/users";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 import {FormErrorModal} from "../../components/Form/FormErrorModal";
 import {Redirect} from "react-router-dom";
 import {errorCodes} from "../../utils/errorStatusCodes";
 import {useSelector, useDispatch} from "react-redux";
 import {fetchUser} from "../../redux/userSlice";
+import {editUser} from "../../services/users";
 
 export const UserEditRoute = () => {
   const [errors, setErrors] = useState(true);
@@ -25,7 +25,7 @@ export const UserEditRoute = () => {
   const onSubmit = async (values) => {
     if (!errors) {
       try {
-        const result = await createUser(values);
+        const result = await editUser(id, values);
         if (result.status) {
           setSubmitError(result.response);
         } else {
