@@ -17,6 +17,7 @@ import {allNullKeys} from "../../utils/allNullKeys";
 import {USER_REQUEST_FIELDS} from "../../common/fields";
 import {useSelector, useDispatch} from "react-redux";
 import {fetchRoles} from "../../redux/usersSlice";
+import {errorCodes} from "../../utils/errorStatusCodes";
 
 export const UserForm = ({
   title,
@@ -53,7 +54,7 @@ export const UserForm = ({
   useEffect(() => {
     if (!roles) {
       dispatch(fetchRoles());
-    } else {
+    } else if (!errorCodes.includes(roles.status)) {
       setRolesOptions(
         roles.map((role) => {
           return {label: role.nombreVerbose || "", value: role.nombre || ""};
