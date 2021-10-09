@@ -144,9 +144,8 @@ export const UserForm = ({
                     //En los forms de edicion permito el caso particular donde la password esta vacia, eso indica que el usuario no quiere cambiar
                     // este campo y por lo tanto, no aplico la validacion de la pass ingresada
                     setErrorValues((previousState) => {
-                      const aux = previousState;
-                      delete aux.password;
-                      return aux;
+                      delete previousState.password;
+                      return previousState;
                     });
                   }
                 }
