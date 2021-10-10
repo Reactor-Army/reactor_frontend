@@ -16,15 +16,23 @@ export const PrivateRoute = ({
   ...rest
 }) => {
   const {loggedIn, userData} = useSelector((state) => state.auth);
+  const allowPageAccess = () => {
+    if (adminProtected) {
+      return loggedIn && userHasRole(userData, settings.ADMIN_ROLE);
+    }
+    if (userProtected) {
+      return loggedIn;
+    }
+
+    return true;
+  };
 
   return authed === 0 ? (
     <Route
       {...rest}
       render={(props) => (
         <CommonPage showSideBar={showSideBar} showTopBar={showTopBar}>
-          {(adminProtected &&
-            (!loggedIn || !userHasRole(userData, settings.ADMIN_ROLE))) ||
-          (userProtected && !loggedIn) ? (
+          {!allowPageAccess() ? (
             <Redirect to={URLS.NOT_FOUND} />
           ) : (
             <Component {...props} />
