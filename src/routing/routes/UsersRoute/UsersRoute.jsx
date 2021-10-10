@@ -34,7 +34,7 @@ export const UsersRoute = () => {
   ];
   const [gridItems, setGridItems] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteId, setDeleteId] = useState();
+  const [deleteUserData, setDeleteUserData] = useState({});
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -57,7 +57,7 @@ export const UsersRoute = () => {
             <DeleteButton
               onClick={() => {
                 setShowDeleteModal(true);
-                setDeleteId(values.id);
+                setDeleteUserData({id: values.id, email: values.email});
               }}
             />
           </ActionsContainer>
@@ -76,7 +76,7 @@ export const UsersRoute = () => {
       ) : (
         <PageContainer>
           <DeleteUserModal
-            userId={deleteId}
+            userData={deleteUserData}
             open={showDeleteModal}
             onClose={() => {
               setShowDeleteModal(false);

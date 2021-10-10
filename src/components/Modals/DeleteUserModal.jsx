@@ -4,15 +4,13 @@ import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 import {FormErrorModal} from "../Form/FormErrorModal";
 import {deleteUser} from "../../services/users";
 
-export const DeleteUserModal = ({open, onClose, error, setError, userId}) => {
-  const getMessage = () => {
-    return "Estás a punto de borrar a este usuario del sistema. ¿Deseas continuar?";
-  };
+export const DeleteUserModal = ({open, onClose, error, setError, userData}) => {
+  const message = `Estás a punto de borrar al usuario ${userData.email} del sistema. ¿Deseas continuar?"`;
   const [deleteError, setDeleteError] = useState(null);
 
   const onDeleteConfirmation = async () => {
     try {
-      const result = await deleteUser(userId);
+      const result = await deleteUser(userData.id);
       if (result.status) {
         setDeleteError(result.response);
       } else {
@@ -34,7 +32,7 @@ export const DeleteUserModal = ({open, onClose, error, setError, userId}) => {
         closeModal={onClose}
         error={error}
         setError={setError}
-        message={getMessage()}
+        message={message}
         onDeleteConfirmation={onDeleteConfirmation}
       />
     </>
