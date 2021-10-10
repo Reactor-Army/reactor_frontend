@@ -42,30 +42,35 @@ export const Router = () => {
         exact
         path={URLS.ADSORBATE_CREATE}
         component={AdsorbateCreateRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
         exact
         path={URLS.ADSORBENT_CREATE}
         component={AdsorbentCreateRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
         exact
         path={URLS.PROCESS_CREATE}
         component={SystemCreateRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
         exact
         path={URLS.PROCESS_EDIT}
         component={SystemEditRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
         exact
         path={URLS.ADSORBATE_EDIT}
         component={AdsorbateEditRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
@@ -90,6 +95,7 @@ export const Router = () => {
         exact
         path={URLS.ADSORBENT_EDIT}
         component={AdsorbentEditRoute}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
@@ -156,14 +162,21 @@ export const Router = () => {
         authed={0}
         component={UserEditRoute}
         path={URLS.USER_EDIT}
+        adminProtected
       />
       <PrivateRoute
         authed={0}
         exact
         path={URLS.USER_CREATE}
         component={UserCreateRoute}
+        adminProtected
       />
-      <PrivateRoute authed={0} component={UsersRoute} path={URLS.USERS} />
+      <PrivateRoute
+        authed={0}
+        component={UsersRoute}
+        path={URLS.USERS}
+        adminProtected
+      />
       <PrivateRoute
         authed={0}
         component={LoginRoute}
