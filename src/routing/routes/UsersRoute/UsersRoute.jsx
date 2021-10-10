@@ -12,10 +12,12 @@ import {DataGrid} from "../../../components/DataGrid/DataGrid";
 import {formatDate} from "../../../common/FormatUtils";
 import {ListHeader} from "../../../components/List/common/ListHeader";
 import {EditButton} from "../../../components/List/common/EditButton";
+import {DeleteButton} from "../../../components/List/common/DeleteButton";
 import {URLS} from "../../urls";
 import {userEditUrlFor} from "../../urls";
 import {errorCodes} from "../../../utils/errorStatusCodes";
 import {Redirect} from "react-router";
+import {DeleteUserModal} from "../../../components/Modals/DeleteUserModal";
 
 export const UsersRoute = () => {
   const {users} = useSelector((state) => state.users);
@@ -31,6 +33,8 @@ export const UsersRoute = () => {
     "Acciones",
   ];
   const [gridItems, setGridItems] = useState([]);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteId, setDeleteId] = useState();
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -50,6 +54,12 @@ export const UsersRoute = () => {
         values.actions = (
           <ActionsContainer>
             <EditButton url={userEditUrlFor(values.id)} />
+            <DeleteButton
+              onClick={() => {
+                setShowDeleteModal(true);
+                setDeleteId(values.id);
+              }}
+            />
           </ActionsContainer>
         );
         return values;
@@ -65,6 +75,14 @@ export const UsersRoute = () => {
         <Redirect to={URLS.NOT_FOUND} />
       ) : (
         <PageContainer>
+          <DeleteUserModal
+            userId={deleteId}
+            open={showDeleteModal}
+            onClose={() => {
+              setShowDeleteModal(false);
+            }}
+            error={false}
+          />
           <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
           <TableContainer>
             {!users || !users.length ? (
