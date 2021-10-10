@@ -155,11 +155,13 @@ export const Router = () => {
       />
       <PrivateRoute
         authed={0}
+        exact
         component={ModelsRoute}
         path={URLS.MODEL_SELECTION}
       />
       <PrivateRoute
         authed={0}
+        exact
         component={UserEditRoute}
         path={URLS.USER_EDIT}
         adminProtected
