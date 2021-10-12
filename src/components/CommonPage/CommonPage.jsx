@@ -3,7 +3,8 @@ import {TopBar} from "../Main/TopBar";
 import {Sidebar} from "../Sidebar/Sidebar";
 import {useStyles, SidebarWrapper} from "./CommonPageStyles";
 import {Container} from "./CommonPageStyles";
-import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
+//import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
+import {StoreSnackbar} from "../StoreSnackbar/StoreSnackbar";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -26,7 +27,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
       <Container>
         <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
-          <CrudSnackbar />
+          <StoreSnackbar />
         </main>
       </Container>
     </>

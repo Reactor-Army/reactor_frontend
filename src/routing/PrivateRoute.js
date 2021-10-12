@@ -1,14 +1,10 @@
 import {Route, Redirect} from "react-router-dom";
-import React, {useEffect} from "react";
+import React from "react";
 import {CommonPage} from "../components/CommonPage/CommonPage";
-import {useSelector} from "react-redux";
 import {URLS} from "./urls";
 import {userHasRole} from "../utils/userHasRole";
 import {settings} from "../config/settings";
-import {useDispatch} from "react-redux";
-import {errorCodes} from "../utils/errorStatusCodes";
-import {logout} from "../redux/auth";
-import {displayUpdateMessage} from "../utils/displayUpdateMessage";
+import {useSelector} from "react-redux";
 
 export const PrivateRoute = ({
   component: Component,
@@ -19,20 +15,7 @@ export const PrivateRoute = ({
   userProtected = false,
   ...rest
 }) => {
-  const dispatch = useDispatch();
   const {loggedIn, userData} = useSelector((state) => state.auth);
-  const {users} = useSelector((state) => state.users);
-  const user = useSelector((store) => store.user.user);
-  const dependencies = [users, user];
-
-  useEffect(() => {
-    dependencies.some((dependency) => {
-      if (dependency && errorCodes.includes(dependency.status)) {
-        dispatch(logout());
-        displayUpdateMessage();
-      }
-    });
-  }, dependencies);
 
   const allowPageAccess = () => {
     if (adminProtected) {
