@@ -8,6 +8,7 @@ import {settings} from "../config/settings";
 import {useDispatch} from "react-redux";
 import {errorCodes} from "../utils/errorStatusCodes";
 import {logout} from "../redux/auth";
+import {displayUpdateMessage} from "../utils/displayUpdateMessage";
 
 export const PrivateRoute = ({
   component: Component,
@@ -21,12 +22,17 @@ export const PrivateRoute = ({
   const dispatch = useDispatch();
   const {loggedIn, userData} = useSelector((state) => state.auth);
   const {users} = useSelector((state) => state.users);
+  const user = useSelector((store) => store.user.user);
+  const dependencies = [users, user];
 
   useEffect(() => {
-    if (errorCodes.includes(users.status)) {
-      dispatch(logout());
-    }
-  }, [users]);
+    dependencies.some((dependency) => {
+      if (dependency && errorCodes.includes(dependency.status)) {
+        dispatch(logout());
+        displayUpdateMessage();
+      }
+    });
+  }, dependencies);
 
   const allowPageAccess = () => {
     if (adminProtected) {

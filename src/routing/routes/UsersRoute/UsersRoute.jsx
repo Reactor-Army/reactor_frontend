@@ -15,8 +15,6 @@ import {EditButton} from "../../../components/List/common/EditButton";
 import {DeleteButton} from "../../../components/List/common/DeleteButton";
 import {URLS} from "../../urls";
 import {userEditUrlFor} from "../../urls";
-import {errorCodes} from "../../../utils/errorStatusCodes";
-import {Redirect} from "react-router";
 import {DeleteUserModal} from "../../../components/Modals/DeleteUserModal";
 
 export const UsersRoute = () => {
@@ -71,30 +69,26 @@ export const UsersRoute = () => {
 
   return (
     <>
-      {users && errorCodes.includes(users.status) ? (
-        <Redirect to={URLS.NOT_FOUND} />
-      ) : (
-        <PageContainer>
-          <DeleteUserModal
-            userData={deleteUserData}
-            open={showDeleteModal}
-            onClose={() => {
-              setShowDeleteModal(false);
-            }}
-            error={false}
-          />
-          <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
-          <TableContainer>
-            {!users || !users.length ? (
-              <LoaderContainer>
-                <CircularProgress />
-              </LoaderContainer>
-            ) : (
-              <DataGrid headerItems={headerTitles} items={gridItems} />
-            )}
-          </TableContainer>
-        </PageContainer>
-      )}
+      <PageContainer>
+        <DeleteUserModal
+          userData={deleteUserData}
+          open={showDeleteModal}
+          onClose={() => {
+            setShowDeleteModal(false);
+          }}
+          error={false}
+        />
+        <ListHeader title="Usuarios" creationUrl={URLS.USER_CREATE} />
+        <TableContainer>
+          {!users || !users.length ? (
+            <LoaderContainer>
+              <CircularProgress />
+            </LoaderContainer>
+          ) : (
+            <DataGrid headerItems={headerTitles} items={gridItems} />
+          )}
+        </TableContainer>
+      </PageContainer>
     </>
   );
 };
