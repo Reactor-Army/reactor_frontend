@@ -9,20 +9,16 @@ import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
 
 export const StoreSnackbar = () => {
   const dispatch = useDispatch();
-  const {users} = useSelector((state) => state.users);
   const user = useSelector((store) => store.user.user);
-  const sessionTrackDependencies = [users, user];
   const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
-    sessionTrackDependencies.some((dependency) => {
-      if (dependency && errorCodes.includes(dependency.status)) {
-        setSeverity("info");
-        dispatch(logout());
-        displaySessionExpiredMessage();
-      }
-    });
-  }, sessionTrackDependencies);
+    if (user && errorCodes.includes(user.status)) {
+      setSeverity("info");
+      dispatch(logout());
+      displaySessionExpiredMessage();
+    }
+  }, [user]);
 
   return <CrudSnackbar severity={severity} />;
 };
