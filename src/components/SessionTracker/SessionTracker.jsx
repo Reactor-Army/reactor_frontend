@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {logout} from "../../redux/auth";
 import {displaySessionExpiredMessage} from "../../utils/displaySessionExpiredMessage";
 
-export const SessionTracker = ({onSessionExpired}) => {
+export const SessionTracker = () => {
   const dispatch = useDispatch();
   const {token} = useSelector((store) => store.auth);
 
@@ -19,7 +19,6 @@ export const SessionTracker = ({onSessionExpired}) => {
     const decodedJwt = parseJwt(token);
     // Multiplico por 1000 para hacer la conversion a milisegundos
     if (decodedJwt && decodedJwt.exp * 1000 < Date.now()) {
-      onSessionExpired();
       dispatch(logout());
       displaySessionExpiredMessage();
     }

@@ -4,12 +4,13 @@ import Alert from "@material-ui/lab/Alert";
 import {useDispatch, useSelector} from "react-redux";
 import * as snackbar from "../../redux/snackbar";
 
-export const CrudSnackbar = ({severity}) => {
-  const {open, message} = useSelector((state) => state.crudSnackbar);
+export const CrudSnackbar = () => {
+  const {open, message, severity} = useSelector((state) => state.crudSnackbar);
   const dispatch = useDispatch();
   const handleSnackClose = () => {
     dispatch(snackbar.close());
   };
+
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleSnackClose}>
       <Alert

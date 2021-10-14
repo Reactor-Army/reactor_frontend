@@ -10,7 +10,6 @@ import {SessionTracker} from "../SessionTracker/SessionTracker";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [severity, setSeverity] = useState("success");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -39,12 +38,8 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
       <Container>
         <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
-          <SessionTracker
-            onSessionExpired={() => {
-              setSeverity("info");
-            }}
-          />
-          <CrudSnackbar severity={severity} />
+          <SessionTracker />
+          <CrudSnackbar />
         </main>
       </Container>
     </>
