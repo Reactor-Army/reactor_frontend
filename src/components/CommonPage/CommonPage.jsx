@@ -3,12 +3,14 @@ import {TopBar} from "../Main/TopBar";
 import {Sidebar} from "../Sidebar/Sidebar";
 import {useStyles, SidebarWrapper} from "./CommonPageStyles";
 import {Container} from "./CommonPageStyles";
-import {StoreSnackbar} from "../StoreSnackbar/StoreSnackbar";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../redux/userSlice";
+import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
+import {SessionTracker} from "../SessionTracker/SessionTracker";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [severity, setSeverity] = useState("success");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -22,7 +24,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
     if (userData) {
       dispatch(fetchUser(userData.id));
     }
-  });
+  }, []);
   return (
     <>
       {showTopBar && <TopBar handleDrawerToggle={handleDrawerToggle} />}
@@ -37,7 +39,12 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
       <Container>
         <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
-          <StoreSnackbar />
+          <SessionTracker
+            onSessionExpired={() => {
+              setSeverity("info");
+            }}
+          />
+          <CrudSnackbar severity={severity} />
         </main>
       </Container>
     </>
