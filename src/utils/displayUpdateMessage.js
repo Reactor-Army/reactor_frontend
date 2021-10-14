@@ -2,5 +2,5 @@ import store from "../redux/store";
 import {display} from "../redux/snackbar";
 
 export const displayUpdateMessage = () => {
-  store.dispatch(display({message: "Operación exitosa."}));
+  store.dispatch(display({message: "Operación exitosa.", severity: "success"}));
 };

@@ -9,6 +9,7 @@ const snackbarSlice = createSlice({
     display(state, action) {
       state.open = true;
       state.message = action.payload.message;
+      state.severity = action.payload.severity;
     },
     close(state) {
       state.open = false;
