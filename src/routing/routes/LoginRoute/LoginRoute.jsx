@@ -6,6 +6,7 @@ import {
   Subtitle,
   FormContainer,
   ErrorMessage,
+  Footer,
 } from "./LoginRouteStyles";
 import {Form, FORM_LAYOUTS} from "../../../components/Form/Form";
 import {LOGIN_FORM_INITIAL_VALUES} from "../../../common/constants";
@@ -18,13 +19,20 @@ import {URLS} from "../../urls";
 import {useHistory} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {CircularProgress} from "@material-ui/core";
+import {Image} from "../HomeRoute/HomeRouteStyles";
+import iqaiLogo from "../../../resources/images/iqai.svg";
+import laquisiheLogo from "../../../resources/images/laquisihe.svg";
+import fiubaLogo from "../../../resources/images/fiubaLogo.svg";
+import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 
 export const LoginRoute = () => {
+  const mobileWidth = 500;
   const [errorValues, setErrorValues] = useState({});
   const [submitError, setSubmitError] = useState(null);
   const history = useHistory();
   const {loggedIn} = useSelector((state) => state.auth);
   const [showLoader, setShowLoader] = useState(false);
+  const isMobile = useScreenWidth(mobileWidth);
 
   const onSubmit = async (values) => {
     try {
@@ -98,6 +106,13 @@ export const LoginRoute = () => {
           </FormContainer>
           {submitError && <ErrorMessage>{submitError.message}</ErrorMessage>}
         </LoginContainer>
+      )}
+      {!isMobile && (
+        <Footer>
+          <Image src={fiubaLogo} alt="Logo Fiuba" />
+          <Image src={iqaiLogo} alt="Logo Iqai" />
+          <Image src={laquisiheLogo} alt="Logo Laquisihe" />
+        </Footer>
       )}
     </PageContainer>
   );

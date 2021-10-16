@@ -1,5 +1,12 @@
 import styled from "styled-components/macro";
 import {appFontFamily, appColors, appFontColors} from "../../../common/styles";
+import {ImageContainer} from "../HomeRoute/HomeRouteStyles";
+
+export const Footer = styled(ImageContainer)`
+  position: absolute;
+  top: 85%;
+  height: initial;
+`;
 
 export const PageContainer = styled.div`
   display: flex;
