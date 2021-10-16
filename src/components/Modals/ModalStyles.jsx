@@ -3,7 +3,7 @@ import {appColors, appFontFamily} from "../../common/styles";
 
 export const ModalContent = styled.div`
   background-color: ${appColors.white};
-  border: 1px solid ${appColors.gray};
+  border: 1px solid ${appColors.darkGray};
   position: absolute;
   top: 50%;
   left: 50%;

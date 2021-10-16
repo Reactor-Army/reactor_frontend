@@ -50,7 +50,7 @@ export const StyledSubmit = styled.button.attrs({
   height: 40px;
 
   &:disabled {
-    background: ${appColors.gray};
+    background: ${appColors.darkGray};
     cursor: arrow;
   }
 

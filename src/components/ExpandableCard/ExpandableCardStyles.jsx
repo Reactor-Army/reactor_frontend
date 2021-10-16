@@ -6,7 +6,7 @@ export const ExpandableCardContainer = styled.div`
   width: calc(260px + 5vw);
   min-height: calc(173px + 4vw);
   border-radius: 15px;
-  background: ${appColors.homeCard};
+  background: ${appColors.lightGray};
   cursor: pointer;
   display: flex;
   flex-direction: column;

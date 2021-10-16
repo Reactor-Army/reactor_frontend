@@ -15,7 +15,7 @@ export const LoginContainer = styled.div`
   flex-direction: column;
   width: 400px;
   height: 480px;
-  border: 1px solid ${appColors.lightGray};
+  border: 1px solid ${appColors.gray};
   border-radius: 6px;
   background: ${appColors.white};
   @media (max-width: 500px) {
