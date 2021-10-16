@@ -1,12 +1,12 @@
 import styled from "styled-components/macro";
-import {appColors, appFontFamily, appFontColors} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
 
 export const ExpandableCardContainer = styled.div`
   transition: 0.1s linear;
   width: calc(260px + 5vw);
   min-height: calc(173px + 4vw);
   border-radius: 15px;
-  background: ${appColors.lightGray};
+  background: ${appColors.homeCard};
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ export const ExpandableCardContainer = styled.div`
   &:hover {
     transition: 0.1s linear;
     transform: scale(1.2, 1.2);
-    border: 1px solid ${appColors.white};
+    border: 2px solid ${appColors.primary};
   }
 `;
 
@@ -31,7 +31,4 @@ export const Text = styled.div`
   font-weight: bold;
   text-align: center;
   font-family: ${appFontFamily.card};
-  color: ${appFontColors.white};
-  text-transform: uppercase;
-  text-shadow: 2px 2px ${appColors.black};
 `;

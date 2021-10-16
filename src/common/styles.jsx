@@ -19,6 +19,7 @@ export const appColors = {
   lightGreen: "#21d133",
   red: "#f51707",
   darkBlue: "#0f6ebf",
+  homeCard: "#d1d1d1",
 };
 
 export const appFontColors = {
