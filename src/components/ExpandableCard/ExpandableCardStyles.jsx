@@ -6,20 +6,12 @@ export const ExpandableCardContainer = styled.div`
   width: calc(260px + 5vw);
   min-height: calc(173px + 4vw);
   border-radius: 15px;
-  background: ${appColors.primary};
+  background: ${appColors.lightGray};
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background: repeating-linear-gradient(
-    45deg,
-    ${appColors.primary},
-    ${appColors.primary} 10px,
-    ${appColors.lightBlue} 10px,
-    ${appColors.lightBlue} 20px
-  );
 
   &:hover {
     transition: 0.1s linear;
@@ -29,8 +21,8 @@ export const ExpandableCardContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 32%;
-  height: 50%;
+  width: 40%;
+  height: 56%;
   margin-bottom: 15px;
 `;
 

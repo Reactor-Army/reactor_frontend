@@ -9,7 +9,7 @@ import {
   Title,
   Content,
 } from "./ModelsRouteStyles";
-import plot from "../../../resources/images/plot.png";
+import plot from "../../../resources/images/plot.svg";
 import {useHistory} from "react-router";
 import {URLS} from "../../urls";
 

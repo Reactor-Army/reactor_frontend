@@ -1,5 +1,5 @@
 import React from "react";
-import fiubaImg from "../../../resources/images/fiuba.png";
+import fiubaImg from "../../../resources/images/fiubaLogo.svg";
 import {
   ImageContainer,
   Image,
