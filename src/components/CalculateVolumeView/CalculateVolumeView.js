@@ -29,7 +29,7 @@ export const CalculateVolumeView = ({
     process && (!process.ordenReaccion || !process.constanteCinetica);
   return (
     <>
-      <PageTitle title={"Calcular Volumen Efluente"} />
+      <PageTitle title={"Calcular Volumen Efectivo"} />
       <Typography>
         En esta página podes calcular el volumen del efluente que necesita
         cubrir el reactor a construir que use este sistema, en base a
