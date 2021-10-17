@@ -17,10 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      alignItems: "flex-end",
-      background: appColors.pageBackground,
+      display: "none",
     },
   },
   menuButton: {

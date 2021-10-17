@@ -4,9 +4,13 @@ import styled from "styled-components/macro";
 export const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
-    marginTop: theme.spacing(10),
     margin: theme.spacing(1),
+    marginTop: theme.spacing(5),
     padding: "0 16px",
+
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(10),
+    },
   },
 }));
 
