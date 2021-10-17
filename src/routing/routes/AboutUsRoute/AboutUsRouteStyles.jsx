@@ -34,7 +34,6 @@ export const SmallSubtitle = styled.h2`
   font-size: calc(10px + 0.9vw);
   font-family: ${appFontFamily.card};
   margin-bottom: 0px;
-  text-transform: uppercase;
 `;
 
 export const Subtitle = styled.h2`
@@ -42,7 +41,6 @@ export const Subtitle = styled.h2`
   font-size: calc(15px + 0.9vw);
   font-family: ${appFontFamily.card};
   margin-bottom: 0px;
-  text-transform: uppercase;
 `;
 
 export const Title = styled.h1`
