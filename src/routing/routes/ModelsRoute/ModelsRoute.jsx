@@ -3,13 +3,10 @@ import {PageContainer} from "../AboutUsRoute/AboutUsRouteStyles";
 import {
   ModelPickCard,
   PickCardLeftSection,
-  PickCardRightSection,
-  EquationImg,
   ContentFrame,
   Title,
   Content,
 } from "./ModelsRouteStyles";
-import plot from "../../../resources/images/plot.svg";
 import {useHistory} from "react-router";
 import {URLS} from "../../urls";
 
@@ -32,9 +29,6 @@ export const ModelsRoute = () => {
               columna
             </Content>
           </PickCardLeftSection>
-          <PickCardRightSection>
-            <EquationImg src={plot} alt="Thomas model" />
-          </PickCardRightSection>
         </ModelPickCard>
         <ModelPickCard
           onClick={() => {
@@ -49,9 +43,6 @@ export const ModelsRoute = () => {
               inicial de la curva de ruptura
             </Content>
           </PickCardLeftSection>
-          <PickCardRightSection>
-            <EquationImg src={plot} alt="Adams-Bohart model" />
-          </PickCardRightSection>
         </ModelPickCard>
         <ModelPickCard
           onClick={() => {
@@ -68,9 +59,6 @@ export const ModelsRoute = () => {
               propiedades físicas del lecho de adsorción
             </Content>
           </PickCardLeftSection>
-          <PickCardRightSection>
-            <EquationImg src={plot} alt="Yoon-Nelson model" />
-          </PickCardRightSection>
         </ModelPickCard>
       </ContentFrame>
     </PageContainer>

@@ -11,7 +11,7 @@ export const ModelPickCard = styled.div`
   margin: 5px 0;
   border-radius: 15px;
   cursor: pointer;
-  justify-content: center;
+  justify-content: flex-start;
 
   &:hover {
     border: 2px solid ${appColors.lightBlue};
@@ -46,10 +46,9 @@ export const Content = styled.p`
 export const PickCardLeftSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 15px;
-  width: 64%;
   overflow-wrap: break-word;
 
   @media (max-width: 500px) {
@@ -57,24 +56,6 @@ export const PickCardLeftSection = styled.div`
     height: 130px;
     align-self: center;
   }
-`;
-
-export const PickCardRightSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 36%;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 500px) {
-    width: 100vw;
-    display: none;
-  }
-`;
-
-export const EquationImg = styled.img`
-  width: 70%;
-  height: 200px;
 `;
 
 export const ContentFrame = styled.div`
