@@ -13,16 +13,15 @@ export const Frame = styled.div`
 export const Text = styled.div`
   font-family: ${appFontFamily.card};
   font-size: calc(12px + 0.5vw);
-  font-weight: 400;
+  font-weight: bold;
   text-align: center;
 `;
 
 export const Subtitle = styled.div`
   font-family: ${appFontFamily.card};
-  font-size: calc(12px + 0.5vw);
-  font-weight: 700;
+  font-size: calc(12px + 0.4vw);
   text-align: center;
-  color: ${appColors.lightBlue};
+  color: ${appColors.darkGray};
 `;
 
 export const Image = styled.img`
