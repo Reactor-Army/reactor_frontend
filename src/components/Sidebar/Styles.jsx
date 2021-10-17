@@ -14,12 +14,12 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    background: appColors.primary,
+    background: appColors.pageBackground,
     "&::-webkit-scrollbar": {
       width: "10px",
     },
     "&::-webkit-scrollbar-thumb": {
-      backgroundColor: appColors.darkBlue,
+      backgroundColor: appColors.lightGray,
       borderRadius: "20px",
     },
   },
@@ -27,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
 
 export const SessionUser = styled.div`
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.fontColorMenu};
+  color: ${appFontColors.primary};
   font-size: 14px;
   text-align: center;
   height: 30px;
@@ -47,7 +47,7 @@ export const LinkContainer = styled.div`
   align-items: center;
 
   &:hover {
-    background-color: ${appColors.darkBlue};
+    background-color: ${appColors.lightGray};
     cursor: pointer;
   }
 `;
@@ -64,7 +64,8 @@ export const LinkText = styled.p`
   text-align: left;
   padding-left: 10px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.fontColorMenu};
+  color: ${appColors.black};
+  font-weight: 600;
   font-size: 15px;
   white-space: nowrap;
 `;
@@ -72,7 +73,7 @@ export const LinkText = styled.p`
 export const TitleText = styled.p`
   margin-left: -12px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.fontColorMenu};
+  color: ${appColors.primary};
   font-weight: bold;
   font-size: 18px;
   white-space: nowrap;
@@ -84,7 +85,7 @@ export const Title = styled.div`
   width: 200px;
   height: 50px;
   font-family: ${appFontFamily.primary};
-  color: ${appFontColors.fontColorMenu};
+  color: ${appColors.primary};
   font-weight: bold;
   font-size: 22px;
   justify-content: center;
