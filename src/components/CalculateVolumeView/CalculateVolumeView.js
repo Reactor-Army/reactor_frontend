@@ -31,10 +31,10 @@ export const CalculateVolumeView = ({
     <>
       <PageTitle title={"Cálculo del volumen del reactor"} />
       <Typography>
-        En esta página podes calcular el volumen del efluente que necesita
-        cubrir el reactor a construir que use este sistema, en base a
-        concentración de entrada del adsorbato, concentración de salida deseado,
-        y caudal del medio.
+        En esta página podés calcular el volumen efectivo que necesita tener el
+        reactor a construir par el sistema propuesto, en base a la concentración
+        de entrada del asdorbato (concentración en el efluente), la
+        concentración de salida deseada y el caudal medio.
       </Typography>
       <SectionHeader>
         Seleccioná el sistema para el cual querés calcular el volumen
