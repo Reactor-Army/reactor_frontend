@@ -1,6 +1,6 @@
 import TextField from "@material-ui/core/TextField";
 import React from "react";
-import {getTextFieldStyles} from "../Styles";
+import {getTextFieldStyles} from "../SearchbarStyles";
 import {useScreenWidth} from "../../../customHooks/useScreenWidth";
 import {ADSORBENT_FIELDS} from "../../../common/fields";
 
