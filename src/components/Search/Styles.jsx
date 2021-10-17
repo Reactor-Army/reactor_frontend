@@ -44,6 +44,26 @@ export const FlexContainer = styled.div`
   align-items: center;
 `;
 
+export const SearchBar = styled.div`
+  display: flex;
+  margin: 0 15px;
+  background: ${appColors.white};
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  align-items: center;
+  padding: 16px;
+  flex-wrap: wrap;
+
+  @media (max-width: 800px) {
+    padding: 50px 16px 0;
+    justify-content: center;
+  }
+
+  @media (max-width: 500px) {
+    margin: initial;
+    margin-bottom: 15px;
+  }
+`;
+
 export const useStyles = makeStyles({
   button: {
     borderRadius: 3,
