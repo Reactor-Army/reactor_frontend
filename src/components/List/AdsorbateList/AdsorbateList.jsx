@@ -6,7 +6,11 @@ import {AdsorbateCardContainer} from "../../Card/AdsorbateCard/AdsorbateCardCont
 
 export function AdsorbateList({adsorbates, loading}) {
   if (!adsorbates || loading) {
-    return <CircularProgress />;
+    return (
+      <ListContainer>
+        <CircularProgress />
+      </ListContainer>
+    );
   }
   if (adsorbates.length === 0) {
     return (
