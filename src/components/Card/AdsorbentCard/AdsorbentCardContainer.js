@@ -7,7 +7,7 @@ export const AdsorbentCardContainer = ({adsorbent}) => {
   return (
     <AdsorbentCard
       headerBackgroundColor={appColors.adsorbentCardHeader}
-      bodyBackgroundColor={appColors.adsorbentCardBody}
+      bodyBackgroundColor={appColors.pageBackground}
       header={nombre}
       particleSize={particulaT}
       sBet={sBet}

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import {FlexContainer, useStyles} from "./Styles";
+import {FlexContainer, useStyles} from "./SearchbarStyles";
 import Button from "@material-ui/core/Button";
 
 export function IdealAdsorbentSearch() {

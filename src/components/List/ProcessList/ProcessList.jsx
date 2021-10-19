@@ -3,10 +3,15 @@ import React from "react";
 import {CircularProgress} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {InnerProcessList} from "./InnerProcessList";
+import {ListContainer} from "../ListStyles";
 
 export function ProcessList({loading, processes}) {
   if (loading || !processes) {
-    return <CircularProgress />;
+    return (
+      <ListContainer>
+        <CircularProgress />
+      </ListContainer>
+    );
   }
 
   if (processes.length === 0) {

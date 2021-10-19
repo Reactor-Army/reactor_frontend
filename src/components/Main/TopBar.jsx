@@ -4,6 +4,7 @@ import {Toolbar} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import {makeStyles} from "@material-ui/core/styles";
+import {appColors} from "../../common/styles";
 
 const drawerWidth = 240;
 
@@ -16,12 +17,11 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      alignItems: "flex-end",
+      display: "none",
     },
   },
   menuButton: {
+    color: appColors.primary,
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
+    background: appColors.pageBackground,
     [theme.breakpoints.up("sm")]: {
       justifyContent: "flex-end",
     },

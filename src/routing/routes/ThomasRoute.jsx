@@ -157,15 +157,14 @@ export const ThomasRoute = () => {
         ) : (
           <>
             <HelpText>
-              Calcula la constante de Thomas (Kth) y la concentración máxima del
-              soluto (q₀) en base a un archivo de datos. Los datos deben ser
-              subidas como un archivo CSV o XLSX (Excel), con dos columnas:
-              &quot;volumenEfluente&quot; medido en mililitros y
-              &quot;C/C₀&quot;. Se pueden subir varios archivos, y el modelo se
-              calculará para cada uno de manera independiente, y se graficarán y
-              mostraran resultados para todos al mismo tiempo. La máxima
-              cantidad de modelos que se pueden ejecutar son{" "}
-              {settings.MAX_MODELS}.
+              Calcula la constante de Thomas (K<sub>Th</sub>) y la concentración
+              máxima del soluto (q₀) en base a un archivo de datos. Los datos
+              deben ser subidos como un archivo CSV o XLSX (Excel), con dos
+              columnas: &quot;volumenEfluente&quot; medido en mililitros y
+              &quot;C/C₀&quot;. Se pueden subir hasta {settings.MAX_MODELS}
+              &nbsp;archivos. El programa calculará los parámetros del modelo
+              para cada archivo en forma independiente. Se graficarán y
+              mostrarán todos los resultados al mismo tiempo.
             </HelpText>
 
             <ContentWrapper>

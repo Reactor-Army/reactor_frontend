@@ -47,7 +47,7 @@ export const EffectiveVolumeStyledButton = styled(SmallButton)`
   width: 280px;
 
   &:disabled {
-    background: ${appColors.gray};
+    background: ${appColors.darkGray};
     cursor: arrow;
   }
 `;

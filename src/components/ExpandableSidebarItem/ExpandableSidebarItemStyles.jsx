@@ -9,8 +9,8 @@ export const expandableSidebarItemStyles = {
 
 export const ListItemButton = styled.div`
   cursor: pointer;
-  background: ${appColors.primary};
-  color: ${appFontColors.fontColorMenu};
+  background: ${appColors.pageBackground};
+  color: ${appFontColors.primary};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,14 +28,14 @@ export const ListItem = styled.div`
   font-family: ${appFontFamily.card};
   font-size: 15px;
   padding-left: 10px;
-  color: ${appFontColors.fontColorMenu};
+  color: ${appFontColors.primary};
   cursor: pointer;
   height: 50px;
   display: flex;
   align-items: center;
 
   &:hover {
-    background: ${appColors.darkBlue};
+    background: ${appColors.lightGray};
     border-radius: 10px;
   }
 `;

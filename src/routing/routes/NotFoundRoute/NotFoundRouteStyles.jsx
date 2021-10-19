@@ -3,8 +3,8 @@ import {appFontFamily, appColors} from "../../../common/styles";
 import {Link} from "../../../common/styles";
 
 export const Image = styled.img`
-  max-width: 100%;
-  height: 100%;
+  width: 75vw;
+  max-width: 380px;
 `;
 
 export const ImageContainer = styled.div`

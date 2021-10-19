@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core";
 
 export const helpTextStyles = makeStyles(() => ({
   typography: {
-    color: appColors.lightGray,
+    color: appColors.gray,
   },
 }));
 

@@ -28,9 +28,9 @@ export const Button = styled.button`
     background-color: ${appColors.primary};
   }
 
-  @media (max-width: 847px) {
+  @media (max-width: 850px) {
     height: 50px;
-    width: 65vw;
+    width: 100%;
     position: relative;
     top: 22%;
     transform: translateY(-50%);
@@ -42,6 +42,27 @@ export const FlexContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const SearchBar = styled.div`
+  display: flex;
+  margin: 15px;
+  background: ${appColors.white};
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 20%);
+  align-items: center;
+  padding: 16px;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    padding: 50px 16px 0;
+    justify-content: center;
+    max-width: 450px;
+  }
+
+  @media (max-width: 500px) {
+    margin: initial;
+    margin-bottom: 15px;
+  }
 `;
 
 export const useStyles = makeStyles({
@@ -63,7 +84,7 @@ export const getTextFieldStyles = (responsiveMode) => {
       top: "50%",
       transform: "translateY(-50%)",
       marginBottom: "5px",
-      width: "65vw",
+      width: "100%",
     };
   }
   return {marginRight: "20px"};
@@ -79,8 +100,8 @@ export const getAutoCompleteFieldStyles = (responsiveMode) => {
       position: "relative",
       top: "50%",
       transform: "translateY(-50%)",
+      width: "100%",
       marginBottom: "5px",
-      width: "65vw",
     };
   }
   return {width: "260px", marginRight: "20px"};

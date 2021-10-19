@@ -10,15 +10,15 @@ import {
   CardsContainer,
   HeaderContainer,
 } from "./HomeRouteStyles";
-import iqaiLogo from "../../../resources/images/iqai.png";
-import laquisiheLogo from "../../../resources/images/laquisihe.png";
-import fiubaLogo from "../../../resources/images/fiuba.png";
-import light from "../../../resources/images/light.png";
-import glass from "../../../resources/images/glass.png";
-import systems from "../../../resources/images/quimica.png";
-import adsorbate from "../../../resources/images/violetVial.png";
-import adsorbent from "../../../resources/images/greenVial.png";
-import plot from "../../../resources/images/plot.png";
+import iqaiLogo from "../../../resources/images/iqai.svg";
+import laquisiheLogo from "../../../resources/images/laquisihe.svg";
+import fiubaLogo from "../../../resources/images/fiubaLogo.svg";
+import project from "../../../resources/images/project.svg";
+import glass from "../../../resources/images/glass.svg";
+import systems from "../../../resources/images/systems.svg";
+import adsorbate from "../../../resources/images/adsorbates.svg";
+import adsorbent from "../../../resources/images/adsorbents.svg";
+import plot from "../../../resources/images/plot.svg";
 
 export const HomeRoute = () => {
   const history = useHistory();
@@ -31,7 +31,7 @@ export const HomeRoute = () => {
 
       <CardsContainer>
         <ExpandableCard
-          icon={light}
+          icon={project}
           text="Sobre el proyecto"
           onClick={() => {
             history.push(URLS.ABOUT_US);
@@ -82,9 +82,9 @@ export const HomeRoute = () => {
         />
       </CardsContainer>
       <ImageContainer>
-        <Image src={laquisiheLogo} alt="Logo Fiuba" />
         <Image src={fiubaLogo} alt="Logo Fiuba" />
-        <Image src={iqaiLogo} alt="Logo Fiuba" />
+        <Image src={iqaiLogo} alt="Logo Iqai" />
+        <Image src={laquisiheLogo} alt="Logo Laquisihe" />
       </ImageContainer>
     </HomePageContainer>
   );

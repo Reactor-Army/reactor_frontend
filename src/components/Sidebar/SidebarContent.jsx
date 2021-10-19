@@ -72,7 +72,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
     />,
     <SidebarTitle text="Reactores continuos" key={10} />,
     <SidebarItem
-      text="Volumen efluente"
+      text="Cálculo de volumen"
       onClick={() => navigateTo(URLS.PROCESS_EFFLUENT_VOLUME)}
       key={11}
     />,
