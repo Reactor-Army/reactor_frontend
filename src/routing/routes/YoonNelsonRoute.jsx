@@ -9,43 +9,24 @@ import {
 } from "../../common/fields";
 import {
   PageLayout,
-  ButtonWrapper,
   FormContainer,
   ContentWrapper,
   TemplateHelpWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
-import {Button} from "../../components/Button/Button";
 import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHelp";
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {YoonNelsonInputFields} from "../../components/ChemicalModels/Models/YoonNelsonInputFields.jsx";
-import {YoonNelsonModelPlot} from "../../components/ChemicalModels/Models/Plots/YoonNelsonModelPlot";
-import {
-  DataFrame,
-  Title,
-} from "../../components/ChemicalModels/Models/ModelsStyles";
-import {YoonNelsonResultFields} from "../../components/ChemicalModels/Models/YoonNelsonResultFields";
 import {appColors} from "../../common/styles";
-import {
-  generateEquation,
-  yoonNelsonCoefficients,
-} from "../../components/ChemicalModels/Models/equations";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
+import {YoonNelsonResults} from "../../components/ChemicalModels/Results/YoonNelsonResults";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
-};
-
-const yoonNelsonEquation = (data) => {
-  const exponential = "e^{firstV{ef}-second}";
-  const template = `$$\\frac{C}{C0} = \\frac{${exponential}}{1 + ${exponential}}$$`;
-  return generateEquation(template, yoonNelsonCoefficients(data));
 };
 
 export const YoonNelsonRoute = () => {
@@ -113,42 +94,15 @@ export const YoonNelsonRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <>
-            <Results
-              inputFields={
-                <YoonNelsonInputFields F={inputValues.caudalVolumetrico} />
-              }
-              resultsInfo={responses.map((response, index) => (
-                <DataFrame key={index}>
-                  <Title color={colors[index % colors.length]}>
-                    Resultados gráfico {++index}
-                  </Title>
-                  <YoonNelsonResultFields
-                    Kyn={response.Kyn}
-                    t={response.t}
-                    R2={response.R2}
-                    equation={yoonNelsonEquation(response)}
-                  />
-                </DataFrame>
-              ))}
-              plot={
-                <YoonNelsonModelPlot
-                  points={responses.map((response) => response.points)}
-                  expressions={responses}
-                />
-              }
-            />
-            <ButtonWrapper>
-              <Button
-                size="medium"
-                text="Volver a graficar"
-                onClick={() => {
-                  setResponses([]);
-                  setNewFiles([]);
-                }}
-              />
-            </ButtonWrapper>
-          </>
+          <YoonNelsonResults
+            inputValues={inputValues}
+            responses={responses}
+            colors={colors}
+            onClick={() => {
+              setResponses([]);
+              setNewFiles([]);
+            }}
+          />
         ) : (
           <>
             <HelpText>
