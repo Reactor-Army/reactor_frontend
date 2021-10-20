@@ -21,8 +21,8 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoModals/InfoAdamsBohartModal";
-import {appColors} from "../../common/styles";
-import {AdamsBohartResults} from "../../components/ChemicalModels/Results/AdamsBohartResults";
+import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
@@ -81,7 +81,6 @@ export const AdamsBohartRoute = () => {
     }
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -97,10 +96,10 @@ export const AdamsBohartRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <AdamsBohartResults
+          <ModelResults
             inputValues={inputValues}
             responses={responses}
-            colors={colors}
+            modelType={MODEL_TYPES.ADAMS_BOHART}
             onClick={() => {
               setResponses([]);
               setNewFiles([]);

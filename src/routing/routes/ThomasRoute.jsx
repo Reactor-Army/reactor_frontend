@@ -21,8 +21,8 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoThomasModal} from "../../components/ChemicalModels/InfoModals/InfoThomasModal";
-import {appColors} from "../../common/styles";
-import {ThomasResults} from "../../components/ChemicalModels/Results/ThomasResults";
+import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
@@ -80,7 +80,6 @@ export const ThomasRoute = () => {
     }
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -96,10 +95,10 @@ export const ThomasRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <ThomasResults
+          <ModelResults
             inputValues={inputValues}
             responses={responses}
-            colors={colors}
+            modelType={MODEL_TYPES.THOMAS}
             onClick={() => {
               setResponses([]);
               setNewFiles([]);

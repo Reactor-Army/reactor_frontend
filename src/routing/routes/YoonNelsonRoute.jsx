@@ -20,9 +20,9 @@ import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHe
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {appColors} from "../../common/styles";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
-import {YoonNelsonResults} from "../../components/ChemicalModels/Results/YoonNelsonResults";
+import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
@@ -78,7 +78,6 @@ export const YoonNelsonRoute = () => {
     }
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -94,10 +93,10 @@ export const YoonNelsonRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <YoonNelsonResults
+          <ModelResults
+            modelType={MODEL_TYPES.YOON_NELSON}
             inputValues={inputValues}
             responses={responses}
-            colors={colors}
             onClick={() => {
               setResponses([]);
               setNewFiles([]);
