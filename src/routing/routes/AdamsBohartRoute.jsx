@@ -23,7 +23,7 @@ import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHe
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoAdamsBohartModal";
+import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoModals/InfoAdamsBohartModal";
 import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
 import {AdamsBohartModelPlot} from "../../components/ChemicalModels/Models/Plots/AdamsBohartModelPlot";
 import {

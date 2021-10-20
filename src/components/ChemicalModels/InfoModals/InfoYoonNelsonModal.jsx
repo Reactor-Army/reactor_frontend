@@ -1,4 +1,4 @@
-import {Button} from "../Button/Button";
+import {Button} from "../../Button/Button";
 import React from "react";
 import {
   InfoContainer,
@@ -8,8 +8,8 @@ import {
   ButtonInfoContainer,
   VariableExplanationWrapper,
 } from "./InfoStyles";
-import {Modal} from "../Modals/Modal";
-import yoonNelson from "../../resources/images/yoon-nelson.png";
+import {Modal} from "../../Modals/Modal";
+import yoonNelson from "../../../resources/images/yoon-nelson.png";
 import {Variable} from "./Variables/Variable";
 
 export const InfoYoonNelsonModal = ({closeModal, openModal}) => {

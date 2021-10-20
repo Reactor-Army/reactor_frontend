@@ -23,7 +23,6 @@ import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHe
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoYoonNelsonModal";
 import {YoonNelsonInputFields} from "../../components/ChemicalModels/Models/YoonNelsonInputFields.jsx";
 import {YoonNelsonModelPlot} from "../../components/ChemicalModels/Models/Plots/YoonNelsonModelPlot";
 import {
@@ -36,6 +35,7 @@ import {
   generateEquation,
   yoonNelsonCoefficients,
 } from "../../components/ChemicalModels/Models/equations";
+import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
 
 const INITIAL_ERROR = {
   message: null,

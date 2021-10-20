@@ -23,7 +23,7 @@ import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHe
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
+import {InfoThomasModal} from "../../components/ChemicalModels/InfoModals/InfoThomasModal";
 import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
 import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
 import {
