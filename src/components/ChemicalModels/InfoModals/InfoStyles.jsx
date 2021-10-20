@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appFontFamily} from "../../common/styles";
+import {appFontFamily} from "../../../common/styles";
 
 export const Info = styled.div`
   font-family: ${appFontFamily.primary};

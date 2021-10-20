@@ -9,42 +9,24 @@ import {
 } from "../../common/fields";
 import {
   PageLayout,
-  ButtonWrapper,
   FormContainer,
   ContentWrapper,
   TemplateHelpWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
-import {Button} from "../../components/Button/Button";
 import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHelp";
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
-import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
-import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
-import {
-  DataFrame,
-  Title,
-} from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
-import {appColors} from "../../common/styles";
-import {
-  generateEquation,
-  thomasCoefficients,
-} from "../../components/ChemicalModels/Models/equations";
+import {InfoThomasModal} from "../../components/ChemicalModels/InfoModals/InfoThomasModal";
+import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
-};
-
-const thomasEquation = (data) => {
-  const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
-  return generateEquation(template, thomasCoefficients(data));
 };
 
 export const ThomasRoute = () => {
@@ -98,7 +80,6 @@ export const ThomasRoute = () => {
     }
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -114,46 +95,15 @@ export const ThomasRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <>
-            <Results
-              inputFields={
-                <ThomasInputFields
-                  F={inputValues.caudalVolumetrico}
-                  C0={inputValues.concentracionInicial}
-                  W={inputValues.sorbenteReactor}
-                />
-              }
-              resultsInfo={responses.map((response, index) => (
-                <DataFrame key={index}>
-                  <Title color={colors[index % colors.length]}>
-                    Resultados gráfico {++index}
-                  </Title>
-                  <ThomasResultFields
-                    kth={response.Kth}
-                    q0={response.q0}
-                    R2={response.R2}
-                    equation={thomasEquation(response)}
-                  />
-                </DataFrame>
-              ))}
-              plot={
-                <ThomasModelPlot
-                  points={responses.map((response) => response.points)}
-                  expressions={responses}
-                />
-              }
-            />
-            <ButtonWrapper>
-              <Button
-                size="medium"
-                text="Volver a graficar"
-                onClick={() => {
-                  setResponses([]);
-                  setNewFiles([]);
-                }}
-              />
-            </ButtonWrapper>
-          </>
+          <ModelResults
+            inputValues={inputValues}
+            responses={responses}
+            modelType={MODEL_TYPES.THOMAS}
+            onClick={() => {
+              setResponses([]);
+              setNewFiles([]);
+            }}
+          />
         ) : (
           <>
             <HelpText>
