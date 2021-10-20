@@ -9,42 +9,24 @@ import {
 } from "../../common/fields";
 import {
   PageLayout,
-  ButtonWrapper,
   FormContainer,
   ContentWrapper,
   TemplateHelpWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
-import {Button} from "../../components/Button/Button";
 import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHelp";
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoModals/InfoAdamsBohartModal";
-import {AdamsBohartInputFields} from "../../components/ChemicalModels/Models/AdamsBohartInputFields";
-import {AdamsBohartModelPlot} from "../../components/ChemicalModels/Models/Plots/AdamsBohartModelPlot";
-import {
-  DataFrame,
-  Title,
-} from "../../components/ChemicalModels/Models/ModelsStyles";
-import {AdamsBohartResultFields} from "../../components/ChemicalModels/Models/AdamsBohartResultFields";
-import {appColors} from "../../common/styles";
-import {
-  adamsBohartCofficients,
-  generateEquation,
-} from "../../components/ChemicalModels/Models/equations";
+import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
-};
-
-const adamsEquation = (data) => {
-  const template = `$$\\frac{C}{C0} = e^{firstV_{ef}-second}$$`;
-  return generateEquation(template, adamsBohartCofficients(data));
 };
 
 export const AdamsBohartRoute = () => {
@@ -99,7 +81,6 @@ export const AdamsBohartRoute = () => {
     }
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -115,47 +96,15 @@ export const AdamsBohartRoute = () => {
       />
       <PageLayout>
         {responses.length > 0 && responses.length === files.length ? (
-          <>
-            <Results
-              inputFields={
-                <AdamsBohartInputFields
-                  F={inputValues.caudalVolumetrico}
-                  C0={inputValues.concentracionInicial}
-                  Z={inputValues.alturaLechoReactor}
-                  U0={inputValues.velocidadLineal}
-                />
-              }
-              resultsInfo={responses.map((response, index) => (
-                <DataFrame key={index}>
-                  <Title color={colors[index % colors.length]}>
-                    Resultados gráfico {++index}
-                  </Title>
-                  <AdamsBohartResultFields
-                    Kab={response.Kab}
-                    N0={response.N0}
-                    R2={response.R2}
-                    equation={adamsEquation(response)}
-                  />
-                </DataFrame>
-              ))}
-              plot={
-                <AdamsBohartModelPlot
-                  points={responses.map((response) => response.points)}
-                  expressions={responses}
-                />
-              }
-            />
-            <ButtonWrapper>
-              <Button
-                size="medium"
-                text="Volver a graficar"
-                onClick={() => {
-                  setResponses([]);
-                  setNewFiles([]);
-                }}
-              />
-            </ButtonWrapper>
-          </>
+          <ModelResults
+            inputValues={inputValues}
+            responses={responses}
+            modelType={MODEL_TYPES.ADAMS_BOHART}
+            onClick={() => {
+              setResponses([]);
+              setNewFiles([]);
+            }}
+          />
         ) : (
           <>
             <HelpText>
