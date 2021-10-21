@@ -9,16 +9,18 @@ import {FileCard} from "./FileCard";
 import Typography from "@material-ui/core/Typography";
 import {helpTextStyles} from "./Models/ModelsStyles";
 import {settings} from "../../config/settings";
+import {useSelector} from "react-redux";
 
 export const FileUpload = ({
   files,
   setNewFiles,
   maxFiles = settings.MAX_MODELS,
 }) => {
+  const {loggedIn} = useSelector((state) => state.auth);
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
     maxFiles: maxFiles - files.length,
     multiple: true,
-    disabled: files.length === maxFiles,
+    disabled: files.length === maxFiles || !loggedIn,
   });
 
   useEffect(() => {

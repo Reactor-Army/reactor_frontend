@@ -9,9 +9,11 @@ import {
 } from "../../../common/fields";
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
 export const AdamsBohartModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
+  const {loggedIn} = useSelector((state) => state.auth);
 
   const _onSubmit = (values) => {
     onSubmit(values);
@@ -28,6 +30,7 @@ export const AdamsBohartModelForm = ({forceDisable, onSubmit}) => {
       forceDisable={forceDisable}
       fields={[
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${ADAMS_BOHART_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}
           key={1}
           name={ADAMS_BOHART_REQUEST_FIELDS.FLOW}
@@ -43,6 +46,7 @@ export const AdamsBohartModelForm = ({forceDisable, onSubmit}) => {
           }}
         />,
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${ADAMS_BOHART_FIELDS.INITIAL_CONCENTRATION} [${MODEL_UNITS.INITIAL_CONCENTRATION}]`}
           key={2}
           name={ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION}
@@ -58,6 +62,7 @@ export const AdamsBohartModelForm = ({forceDisable, onSubmit}) => {
           }}
         />,
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${ADAMS_BOHART_FIELDS.REACTOR_HEIGHT} [${MODEL_UNITS.REACTOR_HEIGHT}]`}
           key={3}
           name={ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT}
@@ -73,6 +78,7 @@ export const AdamsBohartModelForm = ({forceDisable, onSubmit}) => {
           }}
         />,
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${ADAMS_BOHART_FIELDS.LIQUID_VELOCITY} [${MODEL_UNITS.LIQUID_VELOCITY}]`}
           key={4}
           name={ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY}

@@ -44,6 +44,7 @@ export const FileUploadContainer = styled.div`
   overflow-x: hidden;
   width: 100%;
   width: calc(260px + 10vw);
+  cursor: pointer;
 `;
 
 export const FileCardsContainer = styled.div`
