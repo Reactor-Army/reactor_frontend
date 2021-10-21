@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import {appColors, appFontFamily} from "../../common/styles";
 
 export const Label = styled.div`
-  background: #fa7d7d;
+  background: ${appColors.lightRed};
   display: flex;
   justify-content: center;
   align-items: center;

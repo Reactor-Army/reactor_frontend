@@ -13,6 +13,7 @@ export const appColors = {
   black: "#000",
   lightGreen: "#21d133",
   green: "#00a811",
+  lightRed: "#fa7d7d",
   red: "#f51707",
   lightBlue: "#1072c7",
   darkBlue: "#0f6ebf",
