@@ -7,15 +7,13 @@ export const Label = styled.div`
   justify-content: center;
   align-items: center;
   height: 50px;
-  font-family: ${appFontFamily.card};
   font-size: calc(12px + 0.3vw);
-  color: ${appColors.white};
-  font-weight: 500;
-  text-align: center;
   position: fixed;
   width: calc(100% - 240px);
   z-index: 2;
   padding: 0 20px;
+  overflow: hidden;
+  text-align: center;
 
   @media (max-width: 600px) {
     top: initial;
@@ -23,4 +21,14 @@ export const Label = styled.div`
     width: 100%;
     overflow-x: hidden;
   }
+`;
+
+export const Link = styled.a`
+  color: ${appColors.white};
+`;
+
+export const Content = styled.p`
+  font-family: ${appFontFamily.card};
+  color: ${appColors.white};
+  font-weight: 500;
 `;
