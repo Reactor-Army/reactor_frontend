@@ -6,7 +6,7 @@ export const Label = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 35px;
   font-size: calc(12px + 0.3vw);
   position: fixed;
   width: calc(100% - 240px);
