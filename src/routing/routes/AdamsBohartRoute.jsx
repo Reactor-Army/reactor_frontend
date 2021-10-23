@@ -82,7 +82,7 @@ export const AdamsBohartRoute = () => {
       }
     }
 
-    if (success) history.push(modelResultsUrlFor(1));
+    if (success) history.push(modelResultsUrlFor("resultado"));
     setShowLoader(false);
   };
 
