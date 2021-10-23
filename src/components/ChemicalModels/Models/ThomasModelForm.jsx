@@ -11,7 +11,7 @@ import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
 import {useSelector} from "react-redux";
 
-export const ThomasModelForm = ({forceDisable, onSubmit, initialValues}) => {
+export const ThomasModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
   const {loggedIn} = useSelector((state) => state.auth);
 
@@ -23,7 +23,7 @@ export const ThomasModelForm = ({forceDisable, onSubmit, initialValues}) => {
     <Form
       layout={FORM_LAYOUTS.SINGLE_COLUMN}
       singleColumn={true}
-      initialValues={initialValues || THOMAS_FORM_INITIAL_VALUES}
+      initialValues={THOMAS_FORM_INITIAL_VALUES}
       onSubmit={_onSubmit}
       buttonLabel={"Calcular"}
       errors={filterBlank(errorValues)}
