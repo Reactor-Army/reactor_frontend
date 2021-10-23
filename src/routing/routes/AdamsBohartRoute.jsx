@@ -74,13 +74,15 @@ export const AdamsBohartRoute = () => {
 
   const onSubmit = async (values) => {
     dispatch(reset());
+    let success;
     for (let index = 0; index < files.length; index++) {
-      const success = await submitFile(files[index], values, index + 1);
+      success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }
     }
-    if (!error.message) history.push(modelResultsUrlFor(1));
+
+    if (success) history.push(modelResultsUrlFor(1));
     setShowLoader(false);
   };
 
