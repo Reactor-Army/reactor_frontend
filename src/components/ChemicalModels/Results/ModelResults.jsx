@@ -2,11 +2,12 @@ import {ThomasResults} from "./ThomasResults";
 import {AdamsBohartResults} from "./AdamsBohartResults";
 import {YoonNelsonResults} from "./YoonNelsonResults";
 import React from "react";
-import {appColors} from "../../../common/styles";
+import {appColors, Row} from "../../../common/styles";
 import {MODEL_TYPES} from "../../../common/constants";
 import {ButtonWrapper} from "../Models/ModelsStyles";
 import {Button} from "../../Button/Button";
 import {useHistory} from "react-router-dom";
+import {ModelTitle} from "../../../common/ModelTitle";
 
 export const ModelResults = ({inputValues, responses, modelType}) => {
   const colors = [appColors.primary, appColors.red, appColors.green];
@@ -19,6 +20,9 @@ export const ModelResults = ({inputValues, responses, modelType}) => {
   const ResultComponent = components[modelType];
   return (
     <>
+      <Row>
+        <ModelTitle title={modelType} />
+      </Row>
       <ResultComponent
         inputValues={inputValues}
         responses={responses}

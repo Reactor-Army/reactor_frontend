@@ -25,6 +25,7 @@ import {useDispatch} from "react-redux";
 import {addModel, reset} from "../../redux/modelDataSlice";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
@@ -62,6 +63,7 @@ export const ThomasRoute = () => {
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
+        modelType: MODEL_TYPES.THOMAS,
       }),
     );
     setError(INITIAL_ERROR);
@@ -77,7 +79,7 @@ export const ThomasRoute = () => {
       }
     }
 
-    history.push(modelResultsUrlFor(1));
+    if (!error.message) history.push(modelResultsUrlFor(1));
     setShowLoader(false);
   };
 
