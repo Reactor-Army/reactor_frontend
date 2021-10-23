@@ -11,16 +11,10 @@ const thomasEquation = (data) => {
   return generateEquation(template, thomasCoefficients(data));
 };
 
-export const ThomasResults = ({inputValues, responses, colors}) => {
+export const ThomasResults = ({responses, colors}) => {
   return (
     <Results
-      inputFields={
-        <ThomasInputFields
-          F={inputValues.caudalVolumetrico}
-          C0={inputValues.concentracionInicial}
-          W={inputValues.sorbenteReactor}
-        />
-      }
+      inputFields={<ThomasInputFields {...responses[0]} />}
       resultsInfo={responses.map((response, index) => (
         <DataFrame key={index}>
           <Title color={colors[index % colors.length]}>
