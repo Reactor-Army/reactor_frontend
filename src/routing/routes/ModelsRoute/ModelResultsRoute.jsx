@@ -11,17 +11,13 @@ export const ModelResultsRoute = () => {
   if (!modelData) {
     return null;
   }
-  console.log(modelData);
   return (
     <>
       <Row>
         <ModelTitle title={"Modelo de Thomas"} />
       </Row>
       <PageLayout>
-        <ModelResults
-          responses={modelData.map((data) => data.response)}
-          modelType={MODEL_TYPES.THOMAS}
-        />
+        <ModelResults responses={modelData} modelType={MODEL_TYPES.THOMAS} />
       </PageLayout>
     </>
   );

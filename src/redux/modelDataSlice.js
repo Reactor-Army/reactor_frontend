@@ -7,10 +7,7 @@ const modelDataSlice = createSlice({
   },
   reducers: {
     addModel: (state, action) => {
-      state.models = [
-        ...state.models,
-        {request: action.payload.request, response: action.payload.response},
-      ];
+      state.models = [...state.models, action.payload];
     },
     reset: (state) => {
       state.models = [];

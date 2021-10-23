@@ -51,20 +51,17 @@ export const ThomasRoute = () => {
     }
     dispatch(
       addModel({
-        request: values,
-        response: {
-          // eslint-disable-next-line id-length
-          F: values[THOMAS_REQUEST_FIELDS.FLOW],
-          // eslint-disable-next-line id-length
-          W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
-          C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
-          Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
-          q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
-          R2: apiResponse[THOMAS_RESPONSE_FIELDS.R2],
-          points: apiResponse[
-            THOMAS_RESPONSE_FIELDS.OBSERVATIONS
-          ].map((observation) => [observation.x, observation.y]),
-        },
+        // eslint-disable-next-line id-length
+        F: values[THOMAS_REQUEST_FIELDS.FLOW],
+        // eslint-disable-next-line id-length
+        W: values[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
+        C0: values[THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION],
+        Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
+        q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
+        R2: apiResponse[THOMAS_RESPONSE_FIELDS.R2],
+        points: apiResponse[
+          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
       }),
     );
     setError(INITIAL_ERROR);
