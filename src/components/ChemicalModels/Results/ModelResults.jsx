@@ -9,7 +9,7 @@ import {Button} from "../../Button/Button";
 import {useHistory} from "react-router-dom";
 import {ModelTitle} from "../../../common/ModelTitle";
 
-export const ModelResults = ({inputValues, responses, modelType}) => {
+export const ModelResults = ({responses, modelType}) => {
   const colors = [appColors.primary, appColors.red, appColors.green];
   const components = {
     [MODEL_TYPES.THOMAS]: ThomasResults,
@@ -23,11 +23,7 @@ export const ModelResults = ({inputValues, responses, modelType}) => {
       <Row>
         <ModelTitle title={modelType} />
       </Row>
-      <ResultComponent
-        inputValues={inputValues}
-        responses={responses}
-        colors={colors}
-      />
+      <ResultComponent responses={responses} colors={colors} />
       <ButtonWrapper>
         <Button
           size="medium"

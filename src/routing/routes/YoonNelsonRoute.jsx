@@ -21,8 +21,11 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
-import {ModelResults} from "../../components/ChemicalModels/Results/ModelResults";
 import {MODEL_TYPES} from "../../common/constants";
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
+import {addModel, reset} from "../../redux/modelDataSlice";
+import {modelResultsUrlFor} from "../urls";
 
 const INITIAL_ERROR = {
   message: null,
@@ -30,15 +33,14 @@ const INITIAL_ERROR = {
 };
 
 export const YoonNelsonRoute = () => {
-  const [responses, setResponses] = useState([]);
   const [error, setError] = useState(INITIAL_ERROR);
   const [files, setNewFiles] = useState([]);
-  const [inputValues, setInputValues] = useState();
   const [showLoader, setShowLoader] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const submitFile = async (file, values, index) => {
-    setInputValues(values);
     let apiResponse;
     try {
       apiResponse = await applyYoonNelsonModel(file, values);
@@ -47,12 +49,10 @@ export const YoonNelsonRoute = () => {
         message: error.response.data.message,
         index: index,
       });
-      setResponses([]);
       return false;
     }
-    setResponses((prev) => [
-      ...prev,
-      {
+    dispatch(
+      addModel({
         // eslint-disable-next-line id-length
         F: values[YOON_NELSON_REQUEST_FIELDS.FLOW],
         Kyn: apiResponse[YOON_NELSON_RESPONSE_FIELDS.KYN],
@@ -62,20 +62,22 @@ export const YoonNelsonRoute = () => {
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-      },
-    ]);
+        modelType: MODEL_TYPES.YOON_NELSON,
+      }),
+    );
     setError(INITIAL_ERROR);
     return true;
   };
 
   const onSubmit = async (values) => {
-    setResponses([]);
+    dispatch(reset());
     for (let index = 0; index < files.length; index++) {
       const success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }
     }
+    if (!error.message) history.push(modelResultsUrlFor(1));
     setShowLoader(false);
   };
 
@@ -92,56 +94,41 @@ export const YoonNelsonRoute = () => {
         openModal={openModal}
       />
       <PageLayout>
-        {responses.length > 0 && responses.length === files.length ? (
-          <ModelResults
-            modelType={MODEL_TYPES.YOON_NELSON}
-            inputValues={inputValues}
-            responses={responses}
-            onClick={() => {
-              setResponses([]);
-              setNewFiles([]);
-            }}
-          />
-        ) : (
-          <>
-            <HelpText>
-              Calcula la constante de velocidad de Yoon-Nelson (K<sub>YN</sub>)
-              y el tiempo requerido para retener el 50% de la C₀ (𝜏) en base a
-              un archivo de datos. Los datos deben ser subidos como un archivo
-              CSV o XLSX (Excel), con dos columnas: &quot;volumenEfluente&quot;
-              medido en mililitros y &quot;C/C₀&quot;. Se pueden subir
-              hasta&nbsp;
-              {settings.MAX_MODELS} archivos. El programa calculará los
-              parámetros del modelo para cada archivo en forma independiente. Se
-              graficarán y mostrarán todos los resultados al mismo tiempo.
-            </HelpText>
-            <ContentWrapper>
-              {showLoader ? (
-                <LoaderWrapper>
-                  <CircularProgress />
-                </LoaderWrapper>
-              ) : (
-                <>
-                  <FormContainer>
-                    <FileUpload files={files} setNewFiles={setNewFiles} />
-                    <YoonNelsonModelForm
-                      forceDisable={files.length === 0}
-                      onSubmit={(values) => {
-                        onSubmit(values);
-                        setShowLoader(true);
-                      }}
-                    />
-                  </FormContainer>
-                  <TemplateHelpWrapper>
-                    <TemplateFileHelp
-                      url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
-                    />
-                  </TemplateHelpWrapper>
-                </>
-              )}
-            </ContentWrapper>
-          </>
-        )}
+        <HelpText>
+          Calcula la constante de velocidad de Yoon-Nelson (K<sub>YN</sub>) y el
+          tiempo requerido para retener el 50% de la C₀ (𝜏) en base a un archivo
+          de datos. Los datos deben ser subidos como un archivo CSV o XLSX
+          (Excel), con dos columnas: &quot;volumenEfluente&quot; medido en
+          mililitros y &quot;C/C₀&quot;. Se pueden subir hasta&nbsp;
+          {settings.MAX_MODELS} archivos. El programa calculará los parámetros
+          del modelo para cada archivo en forma independiente. Se graficarán y
+          mostrarán todos los resultados al mismo tiempo.
+        </HelpText>
+        <ContentWrapper>
+          {showLoader ? (
+            <LoaderWrapper>
+              <CircularProgress />
+            </LoaderWrapper>
+          ) : (
+            <>
+              <FormContainer>
+                <FileUpload files={files} setNewFiles={setNewFiles} />
+                <YoonNelsonModelForm
+                  forceDisable={files.length === 0}
+                  onSubmit={(values) => {
+                    onSubmit(values);
+                    setShowLoader(true);
+                  }}
+                />
+              </FormContainer>
+              <TemplateHelpWrapper>
+                <TemplateFileHelp
+                  url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
+                />
+              </TemplateHelpWrapper>
+            </>
+          )}
+        </ContentWrapper>
       </PageLayout>
       <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
     </>
