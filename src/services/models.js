@@ -21,3 +21,11 @@ export const applyYoonNelsonModel = async (file, body) => {
   const client = getHttpClient();
   return (await client.multiPartPost(endpoint, file, body)).data;
 };
+
+
+export const getThomasModelData = async (file, body) => {
+  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/thomas/`;
+
+  const client = getHttpClient();
+  return (await client.get(endpoint)).data;
+};
