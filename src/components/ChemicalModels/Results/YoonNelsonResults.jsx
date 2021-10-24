@@ -12,10 +12,10 @@ const yoonNelsonEquation = (data) => {
   return generateEquation(template, yoonNelsonCoefficients(data));
 };
 
-export const YoonNelsonResults = ({inputValues, responses, colors}) => {
+export const YoonNelsonResults = ({responses, colors}) => {
   return (
     <Results
-      inputFields={<YoonNelsonInputFields F={inputValues.caudalVolumetrico} />}
+      inputFields={<YoonNelsonInputFields {...responses[0]} />}
       resultsInfo={responses.map((response, index) => (
         <DataFrame key={index}>
           <Title color={colors[index % colors.length]}>

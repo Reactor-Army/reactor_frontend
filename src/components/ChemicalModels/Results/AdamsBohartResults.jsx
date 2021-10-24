@@ -11,17 +11,10 @@ const adamsEquation = (data) => {
   return generateEquation(template, adamsBohartCofficients(data));
 };
 
-export const AdamsBohartResults = ({inputValues, responses, colors}) => {
+export const AdamsBohartResults = ({responses, colors}) => {
   return (
     <Results
-      inputFields={
-        <AdamsBohartInputFields
-          F={inputValues.caudalVolumetrico}
-          C0={inputValues.concentracionInicial}
-          Z={inputValues.alturaLechoReactor}
-          U0={inputValues.velocidadLineal}
-        />
-      }
+      inputFields={<AdamsBohartInputFields {...responses[0]} />}
       resultsInfo={responses.map((response, index) => (
         <DataFrame key={index}>
           <Title color={colors[index % colors.length]}>
