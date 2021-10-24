@@ -18,6 +18,7 @@ export const URLS = {
   ADAMS_BOHART: "/modelos/adams-bohart",
   YOON_NELSON: "/modelos/yoon-nelson",
   MODEL_SELECTION: "/modelos",
+  MODEL_RESULTS: "/modelos/:id",
   NOT_FOUND: "/not-found",
   ABOUT_US: "/about-us",
   LOGIN: "/login",
@@ -57,4 +58,8 @@ export const adsorbentEditUrlFor = (adsorbentId) => {
 
 export const userEditUrlFor = (userId) => {
   return processUrlId(URLS.USER_EDIT, userId);
+};
+
+export const modelResultsUrlFor = (modelId) => {
+  return processUrlId(URLS.MODEL_RESULTS, modelId);
 };

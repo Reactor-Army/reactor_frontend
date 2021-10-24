@@ -5,7 +5,7 @@ import {VariableName} from "./VariableName";
 export const Variable = ({letter, subletters, info}) => {
   return (
     <VariableContainer>
-      <VariableName letter={letter} subLetters={subletters}></VariableName>
+      <VariableName letter={letter} subLetters={subletters} />
       <InfoVariable>{info}</InfoVariable>
     </VariableContainer>
   );

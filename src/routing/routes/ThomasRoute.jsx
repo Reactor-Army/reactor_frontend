@@ -9,54 +9,37 @@ import {
 } from "../../common/fields";
 import {
   PageLayout,
-  ButtonWrapper,
   FormContainer,
   ContentWrapper,
   TemplateHelpWrapper,
   LoaderWrapper,
 } from "../../components/ChemicalModels/Models/ModelsStyles";
-import {Results} from "../../components/ChemicalModels/Models/Results";
 import {ErrorModal} from "../../components/ChemicalModels/ErrorModal";
 import {FileUpload} from "../../components/ChemicalModels/FileUpload";
-import {Button} from "../../components/Button/Button";
 import {TemplateFileHelp} from "../../components/TemplateFileHelp/TemplateFileHelp";
 import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
-import {InfoThomasModal} from "../../components/ChemicalModels/InfoThomasModal";
-import {ThomasInputFields} from "../../components/ChemicalModels/Models/ThomasInputFields";
-import {ThomasModelPlot} from "../../components/ChemicalModels/Models/Plots/ThomasModelPlot";
-import {
-  DataFrame,
-  Title,
-} from "../../components/ChemicalModels/Models/ModelsStyles";
-import {ThomasResultFields} from "../../components/ChemicalModels/Models/ThomasResultFields";
-import {appColors} from "../../common/styles";
-import {
-  generateEquation,
-  thomasCoefficients,
-} from "../../components/ChemicalModels/Models/equations";
+import {InfoThomasModal} from "../../components/ChemicalModels/InfoModals/InfoThomasModal";
+import {useDispatch} from "react-redux";
+import {addModel, reset} from "../../redux/modelDataSlice";
+import {useHistory} from "react-router-dom";
+import {modelResultsUrlFor} from "../urls";
+import {MODEL_TYPES} from "../../common/constants";
 
 const INITIAL_ERROR = {
   message: null,
   index: null,
 };
 
-const thomasEquation = (data) => {
-  const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
-  return generateEquation(template, thomasCoefficients(data));
-};
-
 export const ThomasRoute = () => {
-  const [responses, setResponses] = useState([]);
   const [error, setError] = useState(INITIAL_ERROR);
   const [files, setNewFiles] = useState([]);
-  const [inputValues, setInputValues] = useState();
   const [showLoader, setShowLoader] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-
+  const dispatch = useDispatch();
+  const history = useHistory();
   const submitFile = async (file, values, index) => {
-    setInputValues(values);
     let apiResponse;
     try {
       apiResponse = await applyThomasModel(file, values);
@@ -65,12 +48,10 @@ export const ThomasRoute = () => {
         message: error.response.data.message,
         index: index,
       });
-      setResponses([]);
       return false;
     }
-    setResponses((prev) => [
-      ...prev,
-      {
+    dispatch(
+      addModel({
         // eslint-disable-next-line id-length
         F: values[THOMAS_REQUEST_FIELDS.FLOW],
         // eslint-disable-next-line id-length
@@ -82,23 +63,26 @@ export const ThomasRoute = () => {
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-      },
-    ]);
+        modelType: MODEL_TYPES.THOMAS,
+      }),
+    );
     setError(INITIAL_ERROR);
     return true;
   };
 
   const onSubmit = async (values) => {
-    setResponses([]);
+    dispatch(reset());
+    let success;
     for (let index = 0; index < files.length; index++) {
-      const success = await submitFile(files[index], values, index + 1);
+      success = await submitFile(files[index], values, index + 1);
       if (!success) {
         break;
       }
     }
+
+    if (success) history.push(modelResultsUrlFor("resultado"));
     setShowLoader(false);
   };
-  const colors = [appColors.primary, appColors.red, appColors.green];
 
   return (
     <>
@@ -113,87 +97,44 @@ export const ThomasRoute = () => {
         openModal={openModal}
       />
       <PageLayout>
-        {responses.length > 0 && responses.length === files.length ? (
-          <>
-            <Results
-              inputFields={
-                <ThomasInputFields
-                  F={inputValues.caudalVolumetrico}
-                  C0={inputValues.concentracionInicial}
-                  W={inputValues.sorbenteReactor}
-                />
-              }
-              resultsInfo={responses.map((response, index) => (
-                <DataFrame key={index}>
-                  <Title color={colors[index % colors.length]}>
-                    Resultados gráfico {++index}
-                  </Title>
-                  <ThomasResultFields
-                    kth={response.Kth}
-                    q0={response.q0}
-                    R2={response.R2}
-                    equation={thomasEquation(response)}
-                  />
-                </DataFrame>
-              ))}
-              plot={
-                <ThomasModelPlot
-                  points={responses.map((response) => response.points)}
-                  expressions={responses}
-                />
-              }
-            />
-            <ButtonWrapper>
-              <Button
-                size="medium"
-                text="Volver a graficar"
-                onClick={() => {
-                  setResponses([]);
-                  setNewFiles([]);
-                }}
-              />
-            </ButtonWrapper>
-          </>
-        ) : (
-          <>
-            <HelpText>
-              Calcula la constante de Thomas (K<sub>Th</sub>) y la concentración
-              máxima del soluto (q₀) en base a un archivo de datos. Los datos
-              deben ser subidos como un archivo CSV o XLSX (Excel), con dos
-              columnas: &quot;volumenEfluente&quot; medido en mililitros y
-              &quot;C/C₀&quot;. Se pueden subir hasta {settings.MAX_MODELS}
-              &nbsp;archivos. El programa calculará los parámetros del modelo
-              para cada archivo en forma independiente. Se graficarán y
-              mostrarán todos los resultados al mismo tiempo.
-            </HelpText>
+        <>
+          <HelpText>
+            Calcula la constante de Thomas (K<sub>Th</sub>) y la concentración
+            máxima del soluto (q₀) en base a un archivo de datos. Los datos
+            deben ser subidos como un archivo CSV o XLSX (Excel), con dos
+            columnas: &quot;volumenEfluente&quot; medido en mililitros y
+            &quot;C/C₀&quot;. Se pueden subir hasta {settings.MAX_MODELS}
+            &nbsp;archivos. El programa calculará los parámetros del modelo para
+            cada archivo en forma independiente. Se graficarán y mostrarán todos
+            los resultados al mismo tiempo.
+          </HelpText>
 
-            <ContentWrapper>
-              {showLoader ? (
-                <LoaderWrapper>
-                  <CircularProgress />
-                </LoaderWrapper>
-              ) : (
-                <>
-                  <FormContainer>
-                    <FileUpload files={files} setNewFiles={setNewFiles} />
-                    <ThomasModelForm
-                      forceDisable={files.length === 0}
-                      onSubmit={(values) => {
-                        onSubmit(values);
-                        setShowLoader(true);
-                      }}
-                    />
-                  </FormContainer>
-                  <TemplateHelpWrapper>
-                    <TemplateFileHelp
-                      url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
-                    />
-                  </TemplateHelpWrapper>
-                </>
-              )}
-            </ContentWrapper>
-          </>
-        )}
+          <ContentWrapper>
+            {showLoader ? (
+              <LoaderWrapper>
+                <CircularProgress />
+              </LoaderWrapper>
+            ) : (
+              <>
+                <FormContainer>
+                  <FileUpload files={files} setNewFiles={setNewFiles} />
+                  <ThomasModelForm
+                    forceDisable={files.length === 0}
+                    onSubmit={(values) => {
+                      onSubmit(values);
+                      setShowLoader(true);
+                    }}
+                  />
+                </FormContainer>
+                <TemplateHelpWrapper>
+                  <TemplateFileHelp
+                    url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
+                  />
+                </TemplateHelpWrapper>
+              </>
+            )}
+          </ContentWrapper>
+        </>
       </PageLayout>
       <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
     </>
