@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {applyAdamsBohartModel} from "../../services/models";
@@ -22,10 +22,11 @@ import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoAdamsBohartModal} from "../../components/ChemicalModels/InfoModals/InfoAdamsBohartModal";
 import {addModel, reset} from "../../redux/modelDataSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
 import {MODEL_TYPES} from "../../common/constants";
+import {fetchModelData} from "../../redux/modelDataSlice";
 
 const INITIAL_ERROR = {
   message: null,
@@ -39,6 +40,49 @@ export const AdamsBohartRoute = () => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [freeDataReady, setFreeDataReady] = useState(false);
+  const {loggedIn} = useSelector((state) => state.auth);
+
+  const getFreeModelData = async () => {
+    let apiResponse;
+    try {
+      apiResponse = await dispatch(fetchModelData("adams-bohart"));
+    } catch (error) {
+      setError({
+        message: error.response.data.message,
+      });
+      return false;
+    }
+    dispatch(
+      addModel({
+        // eslint-disable-next-line id-length
+        F: apiResponse.payload.request[ADAMS_BOHART_REQUEST_FIELDS.FLOW],
+        // eslint-disable-next-line id-length
+        Z:
+          apiResponse.payload.request[
+            ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT
+          ],
+        C0:
+          apiResponse.payload.request[
+            ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION
+          ],
+        U0:
+          apiResponse.payload.request[
+            ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY
+          ],
+        Kab: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
+        N0: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.N0],
+        R2: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.R2],
+        points: apiResponse.payload.response[
+          ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
+        modelType: MODEL_TYPES.ADAMS_BOHART,
+      }),
+    );
+    setError(INITIAL_ERROR);
+    setFreeDataReady(true);
+    return true;
+  };
 
   const submitFile = async (file, values, index) => {
     let apiResponse;
@@ -85,6 +129,17 @@ export const AdamsBohartRoute = () => {
     if (success) history.push(modelResultsUrlFor("resultado"));
     setShowLoader(false);
   };
+
+  useEffect(() => {
+    if (!loggedIn) {
+      if (!freeDataReady) {
+        dispatch(reset());
+        getFreeModelData();
+      } else {
+        history.push(modelResultsUrlFor("resultado"));
+      }
+    }
+  }, [freeDataReady]);
 
   return (
     <>

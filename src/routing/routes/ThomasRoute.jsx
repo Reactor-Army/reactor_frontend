@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {applyThomasModel} from "../../services/models";
@@ -21,11 +21,12 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoThomasModal} from "../../components/ChemicalModels/InfoModals/InfoThomasModal";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addModel, reset} from "../../redux/modelDataSlice";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
 import {MODEL_TYPES} from "../../common/constants";
+import {fetchModelData} from "../../redux/modelDataSlice";
 
 const INITIAL_ERROR = {
   message: null,
@@ -37,8 +38,45 @@ export const ThomasRoute = () => {
   const [files, setNewFiles] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const {loggedIn} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [freeDataReady, setFreeDataReady] = useState(false);
+
+  const getFreeModelData = async () => {
+    let apiResponse;
+    try {
+      apiResponse = await dispatch(fetchModelData("thomas"));
+    } catch (error) {
+      setError({
+        message: error.response.data.message,
+      });
+      return false;
+    }
+    dispatch(
+      addModel({
+        // eslint-disable-next-line id-length
+        F: apiResponse.payload.request[THOMAS_REQUEST_FIELDS.FLOW],
+        // eslint-disable-next-line id-length
+        W: apiResponse.payload.request[THOMAS_REQUEST_FIELDS.ADSORBENT_MASS],
+        C0:
+          apiResponse.payload.request[
+            THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION
+          ],
+        Kth: apiResponse.payload.response[THOMAS_RESPONSE_FIELDS.KTH],
+        q0: apiResponse.payload.response[THOMAS_RESPONSE_FIELDS.Q0],
+        R2: apiResponse.payload.response[THOMAS_RESPONSE_FIELDS.R2],
+        points: apiResponse.payload.response[
+          THOMAS_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
+        modelType: MODEL_TYPES.THOMAS,
+      }),
+    );
+    setError(INITIAL_ERROR);
+    setFreeDataReady(true);
+    return true;
+  };
+
   const submitFile = async (file, values, index) => {
     let apiResponse;
     try {
@@ -83,6 +121,17 @@ export const ThomasRoute = () => {
     if (success) history.push(modelResultsUrlFor("resultado"));
     setShowLoader(false);
   };
+
+  useEffect(() => {
+    if (!loggedIn) {
+      if (!freeDataReady) {
+        dispatch(reset());
+        getFreeModelData();
+      } else {
+        history.push(modelResultsUrlFor("resultado"));
+      }
+    }
+  }, [freeDataReady]);
 
   return (
     <>

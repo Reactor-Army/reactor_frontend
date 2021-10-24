@@ -22,10 +22,19 @@ export const applyYoonNelsonModel = async (file, body) => {
   return (await client.multiPartPost(endpoint, file, body)).data;
 };
 
+export const getModelData = async (model) => {
+  let endpoint = "";
 
-export const getThomasModelData = async (file, body) => {
-  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/thomas/`;
-
+  switch (model) {
+    case "thomas":
+      endpoint = `${settings.BACKEND_URL}curvas-ruptura/thomas/`;
+      break;
+    case "adams-bohart":
+      endpoint = `${settings.BACKEND_URL}curvas-ruptura/adams-bohart/`;
+      break;
+    default:
+      endpoint = `${settings.BACKEND_URL}curvas-ruptura/yoon-nelson/`;
+  }
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
 };

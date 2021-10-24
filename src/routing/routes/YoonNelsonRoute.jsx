@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {ModelTitle} from "../../common/ModelTitle";
 import {Row} from "../../common/styles";
 import {applyYoonNelsonModel} from "../../services/models";
@@ -22,10 +22,11 @@ import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
 import {MODEL_TYPES} from "../../common/constants";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {addModel, reset} from "../../redux/modelDataSlice";
 import {modelResultsUrlFor} from "../urls";
+import {fetchModelData} from "../../redux/modelDataSlice";
 
 const INITIAL_ERROR = {
   message: null,
@@ -39,6 +40,40 @@ export const YoonNelsonRoute = () => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [freeDataReady, setFreeDataReady] = useState(false);
+  const {loggedIn} = useSelector((state) => state.auth);
+
+  const getFreeModelData = async () => {
+    let apiResponse;
+    try {
+      apiResponse = await dispatch(fetchModelData("yoon-nelson"));
+    } catch (error) {
+      setError({
+        message: error.response.data.message,
+      });
+      return false;
+    }
+    dispatch(
+      addModel({
+        // eslint-disable-next-line id-length
+        F: apiResponse.payload.request[YOON_NELSON_REQUEST_FIELDS.FLOW],
+        Kyn: apiResponse.payload.response[YOON_NELSON_RESPONSE_FIELDS.KYN],
+        // eslint-disable-next-line id-length
+        t:
+          apiResponse.payload.response[
+            YOON_NELSON_RESPONSE_FIELDS.FIFTY_PERCENT_TIME
+          ],
+        R2: apiResponse.payload.response[YOON_NELSON_RESPONSE_FIELDS.R2],
+        points: apiResponse.payload.response[
+          YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
+        ].map((observation) => [observation.x, observation.y]),
+        modelType: MODEL_TYPES.YOON_NELSON,
+      }),
+    );
+    setError(INITIAL_ERROR);
+    setFreeDataReady(true);
+    return true;
+  };
 
   const submitFile = async (file, values, index) => {
     let apiResponse;
@@ -82,6 +117,17 @@ export const YoonNelsonRoute = () => {
     if (success) history.push(modelResultsUrlFor("resultado"));
     setShowLoader(false);
   };
+
+  useEffect(() => {
+    if (!loggedIn) {
+      if (!freeDataReady) {
+        dispatch(reset());
+        getFreeModelData();
+      } else {
+        history.push(modelResultsUrlFor("resultado"));
+      }
+    }
+  }, [freeDataReady]);
 
   return (
     <>
