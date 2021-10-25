@@ -23,18 +23,7 @@ export const applyYoonNelsonModel = async (file, body) => {
 };
 
 export const getModelData = async (model) => {
-  let endpoint = "";
-
-  switch (model) {
-    case "thomas":
-      endpoint = `${settings.BACKEND_URL}curvas-ruptura/thomas/`;
-      break;
-    case "adams-bohart":
-      endpoint = `${settings.BACKEND_URL}curvas-ruptura/adams-bohart/`;
-      break;
-    default:
-      endpoint = `${settings.BACKEND_URL}curvas-ruptura/yoon-nelson/`;
-  }
+  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/${model}/`;
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
 };

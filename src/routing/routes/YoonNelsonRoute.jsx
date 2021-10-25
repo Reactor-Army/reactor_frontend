@@ -21,7 +21,7 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
-import {MODEL_TYPES} from "../../common/constants";
+import {MODEL_TYPES, MODEL_ALIAS} from "../../common/constants";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {addModel, reset} from "../../redux/modelDataSlice";
@@ -47,7 +47,7 @@ export const YoonNelsonRoute = () => {
   const getFreeModelData = async () => {
     let apiResponse;
     try {
-      apiResponse = await dispatch(fetchModelData("yoon-nelson"));
+      apiResponse = await dispatch(fetchModelData(MODEL_ALIAS.YOON_NELSON));
     } catch (error) {
       setError({
         message: error.response.data.message,

@@ -25,7 +25,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addModel, reset} from "../../redux/modelDataSlice";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
-import {MODEL_TYPES} from "../../common/constants";
+import {MODEL_TYPES, MODEL_ALIAS} from "../../common/constants";
 import {fetchModelData} from "../../redux/modelDataSlice";
 import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
 
@@ -47,7 +47,7 @@ export const ThomasRoute = () => {
   const getFreeModelData = async () => {
     let apiResponse;
     try {
-      apiResponse = await dispatch(fetchModelData("thomas"));
+      apiResponse = await dispatch(fetchModelData(MODEL_ALIAS.THOMAS));
     } catch (error) {
       setError({
         message: error.response.data.message,
