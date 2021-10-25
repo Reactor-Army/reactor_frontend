@@ -27,6 +27,7 @@ import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
 import {MODEL_TYPES} from "../../common/constants";
 import {fetchModelData} from "../../redux/modelDataSlice";
+import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
 
 const INITIAL_ERROR = {
   message: null,
@@ -143,57 +144,66 @@ export const AdamsBohartRoute = () => {
 
   return (
     <>
-      <Row>
-        <ModelTitle
-          title={"Modelo de Adams-Bohart"}
-          onInfoIconClick={() => setOpenModal(true)}
-        />
-      </Row>
-      <InfoAdamsBohartModal
-        closeModal={() => setOpenModal(false)}
-        openModal={openModal}
-      />
-      <PageLayout>
+      {loggedIn ? (
         <>
-          <HelpText>
-            Calcula el coeficiente de transferencia de masa (K<sub>AB</sub>) y
-            la capacidad máxima de adsorción (N₀) en base a un archivo de datos.
-            Los datos deben ser subidos como un archivo CSV o XLSX (Excel), con
-            dos columnas: &quot;volumenEfluente&quot; medido en mililitros y
-            &quot;C/C₀&quot;.Se pueden subir hasta&nbsp;
-            {settings.MAX_MODELS} archivos. El programa calculará los parámetros
-            del modelo para cada archivo en forma independiente. Se graficarán y
-            mostrarán todos los resultados al mismo tiempo.
-            {settings.MAX_MODELS}.
-          </HelpText>
-          <ContentWrapper>
-            {showLoader ? (
-              <LoaderWrapper>
-                <CircularProgress />
-              </LoaderWrapper>
-            ) : (
-              <>
-                <FormContainer>
-                  <FileUpload files={files} setNewFiles={setNewFiles} />
-                  <AdamsBohartModelForm
-                    forceDisable={files.length === 0}
-                    onSubmit={(values) => {
-                      onSubmit(values);
-                      setShowLoader(true);
-                    }}
-                  />
-                </FormContainer>
-                <TemplateHelpWrapper>
-                  <TemplateFileHelp
-                    url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
-                  />
-                </TemplateHelpWrapper>
-              </>
-            )}
-          </ContentWrapper>
+          <Row>
+            <ModelTitle
+              title={"Modelo de Adams-Bohart"}
+              onInfoIconClick={() => setOpenModal(true)}
+            />
+          </Row>
+          <InfoAdamsBohartModal
+            closeModal={() => setOpenModal(false)}
+            openModal={openModal}
+          />
+          <PageLayout>
+            <>
+              <HelpText>
+                Calcula el coeficiente de transferencia de masa (K<sub>AB</sub>)
+                y la capacidad máxima de adsorción (N₀) en base a un archivo de
+                datos. Los datos deben ser subidos como un archivo CSV o XLSX
+                (Excel), con dos columnas: &quot;volumenEfluente&quot; medido en
+                mililitros y &quot;C/C₀&quot;.Se pueden subir hasta&nbsp;
+                {settings.MAX_MODELS} archivos. El programa calculará los
+                parámetros del modelo para cada archivo en forma independiente.
+                Se graficarán y mostrarán todos los resultados al mismo tiempo.
+                {settings.MAX_MODELS}.
+              </HelpText>
+              <ContentWrapper>
+                {showLoader ? (
+                  <LoaderWrapper>
+                    <CircularProgress />
+                  </LoaderWrapper>
+                ) : (
+                  <>
+                    <FormContainer>
+                      <FileUpload files={files} setNewFiles={setNewFiles} />
+                      <AdamsBohartModelForm
+                        forceDisable={files.length === 0}
+                        onSubmit={(values) => {
+                          onSubmit(values);
+                          setShowLoader(true);
+                        }}
+                      />
+                    </FormContainer>
+                    <TemplateHelpWrapper>
+                      <TemplateFileHelp
+                        url={`${settings.BACKEND_URL}curvas-ruptura/ejemplo/`}
+                      />
+                    </TemplateHelpWrapper>
+                  </>
+                )}
+              </ContentWrapper>
+            </>
+          </PageLayout>
+          <ErrorModal
+            closeModal={() => setError(INITIAL_ERROR)}
+            error={error}
+          />
         </>
-      </PageLayout>
-      <ErrorModal closeModal={() => setError(INITIAL_ERROR)} error={error} />
+      ) : (
+        <LoadScreen loadingText="Redirigiendo a muestra para usuarios invitados" />
+      )}
     </>
   );
 };
