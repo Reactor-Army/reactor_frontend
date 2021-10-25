@@ -8,6 +8,7 @@ import {ButtonWrapper} from "../Models/ModelsStyles";
 import {Button} from "../../Button/Button";
 import {useHistory} from "react-router-dom";
 import {ModelTitle} from "../../../common/ModelTitle";
+import {useSelector} from "react-redux";
 
 export const ModelResults = ({responses, modelType}) => {
   const colors = [appColors.primary, appColors.red, appColors.green];
@@ -18,6 +19,8 @@ export const ModelResults = ({responses, modelType}) => {
   };
   const history = useHistory();
   const ResultComponent = components[modelType];
+  const {loggedIn} = useSelector((state) => state.auth);
+
   return (
     <>
       <Row>
@@ -25,11 +28,13 @@ export const ModelResults = ({responses, modelType}) => {
       </Row>
       <ResultComponent responses={responses} colors={colors} />
       <ButtonWrapper>
-        <Button
-          size="medium"
-          text={"Volver"}
-          onClick={() => history.goBack()}
-        />
+        {loggedIn && (
+          <Button
+            size="medium"
+            text={"Volver"}
+            onClick={() => history.goBack()}
+          />
+        )}
       </ButtonWrapper>
     </>
   );

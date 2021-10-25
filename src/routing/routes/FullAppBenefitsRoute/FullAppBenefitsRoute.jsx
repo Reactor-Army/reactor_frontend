@@ -31,7 +31,7 @@ export const FullAppBenefitsRoute = () => {
           de volumen efectivo, en caso de que quieras consultar el tamaño de un
           reactor a construir, así como el uso de los modelos de curvas de
           rupturas para obtener los parámetros característicos de cada modelo
-          para el sistema estudiado y el R2 correspondiente.
+          para el sistema estudiado y el R<sup>2</sup> correspondiente.
         </Paragraph>
         <br />
         <SmallSubtitle>¿Cómo puedo convertirme en usuario?</SmallSubtitle>
