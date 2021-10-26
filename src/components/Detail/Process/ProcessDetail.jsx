@@ -2,8 +2,8 @@ import React from "react";
 import {Cards} from "../Cards";
 import {DetailHeader} from "../DetailHeader";
 import {processEditUrlFor} from "../../../routing/urls";
-import {DetailGrid} from "./DetailGrid";
 import {Container} from "../Styles";
+import {DetailTabs} from "./DetailTabs";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
@@ -16,7 +16,7 @@ export const ProcessDetail = ({process, onDeleteClick}) => {
       />
       <Cards adsorbent={process.adsorbente} adsorbate={process.adsorbato} />
 
-      <DetailGrid process={process} />
+      <DetailTabs process={process} />
     </Container>
   );
 };
