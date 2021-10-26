@@ -5,6 +5,7 @@ import TabPanel from "@material-ui/lab/TabPanel";
 import TabContext from "@material-ui/lab/TabContext";
 import {DetailGrid} from "./DetailGrid";
 import {appColors} from "../../../common/styles";
+import {CurvesTable} from "./Curves/CurvesTable";
 
 export const DetailTabs = () => {
   const [value, setValue] = React.useState("one");
@@ -27,7 +28,7 @@ export const DetailTabs = () => {
         <DetailGrid process={process} />
       </TabPanel>
       <TabPanel value={"two"} index={"two"}>
-        curvas
+        <CurvesTable />
       </TabPanel>
     </TabContext>
   );
