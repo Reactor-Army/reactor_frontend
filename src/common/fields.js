@@ -160,6 +160,7 @@ export const YOON_NELSON_REQUEST_FIELDS = {
 
 export const COMMON_RESPONSE_FIELDS = {
   R2: "R2",
+  DATA_ID: "dataId",
 };
 
 export const THOMAS_RESPONSE_FIELDS = {

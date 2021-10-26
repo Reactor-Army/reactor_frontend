@@ -4,7 +4,7 @@ import {YoonNelsonResults} from "./YoonNelsonResults";
 import React from "react";
 import {appColors, Row} from "../../../common/styles";
 import {MODEL_TYPES} from "../../../common/constants";
-import {ButtonWrapper} from "../Models/ModelsStyles";
+import {ButtonWrapper, ButtonsContainer} from "../Models/ModelsStyles";
 import {Button} from "../../Button/Button";
 import {useHistory} from "react-router-dom";
 import {ModelTitle} from "../../../common/ModelTitle";
@@ -20,7 +20,6 @@ export const ModelResults = ({responses, modelType}) => {
   const history = useHistory();
   const ResultComponent = components[modelType];
   const {loggedIn} = useSelector((state) => state.auth);
-
   return (
     <>
       <Row>
@@ -29,11 +28,18 @@ export const ModelResults = ({responses, modelType}) => {
       <ResultComponent responses={responses} colors={colors} />
       <ButtonWrapper>
         {loggedIn && (
-          <Button
-            size="medium"
-            text={"Volver"}
-            onClick={() => history.goBack()}
-          />
+          <ButtonsContainer>
+            <Button
+              size="medium"
+              text="Guardar Resultados"
+              onClick={() => {}}
+            />
+            <Button
+              size="medium"
+              text="Volver"
+              onClick={() => history.goBack()}
+            />
+          </ButtonsContainer>
         )}
       </ButtonWrapper>
     </>

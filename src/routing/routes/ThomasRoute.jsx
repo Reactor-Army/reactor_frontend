@@ -99,6 +99,7 @@ export const ThomasRoute = () => {
         Kth: apiResponse[THOMAS_RESPONSE_FIELDS.KTH],
         q0: apiResponse[THOMAS_RESPONSE_FIELDS.Q0],
         R2: apiResponse[THOMAS_RESPONSE_FIELDS.R2],
+        dataId: apiResponse[THOMAS_RESPONSE_FIELDS.DATA_ID],
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),

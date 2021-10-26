@@ -65,6 +65,7 @@ export const YoonNelsonRoute = () => {
             YOON_NELSON_RESPONSE_FIELDS.FIFTY_PERCENT_TIME
           ],
         R2: apiResponse.payload.response[YOON_NELSON_RESPONSE_FIELDS.R2],
+        dataId: apiResponse[YOON_NELSON_RESPONSE_FIELDS.DATA_ID],
         points: apiResponse.payload.response[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
