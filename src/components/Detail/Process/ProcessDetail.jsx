@@ -1,13 +1,13 @@
 import React from "react";
-import {Cards} from "./Cards";
-import {PROCESS_FIELDS} from "../../common/fields";
-import {DetailHeader} from "./DetailHeader";
-import {processEditUrlFor} from "../../routing/urls";
-import {UNITS} from "../../common/fields";
-import {getKineticConstantUnits} from "../../common/UnitsUtils";
-import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
-import {DetailTableGrid, Container} from "./Styles";
-import {DetailsTooltip} from "./DetailsTooltip";
+import {Cards} from "../Cards";
+import {PROCESS_FIELDS} from "../../../common/fields";
+import {DetailHeader} from "../DetailHeader";
+import {processEditUrlFor} from "../../../routing/urls";
+import {UNITS} from "../../../common/fields";
+import {getKineticConstantUnits} from "../../../common/UnitsUtils";
+import {DetailTable, DetailTableRow} from "../../DetailTable/DetailTable";
+import {DetailTableGrid, Container} from "../Styles";
+import {DetailsTooltip} from "../DetailsTooltip";
 
 export const ProcessDetail = ({process, onDeleteClick}) => {
   return (
