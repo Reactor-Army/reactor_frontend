@@ -4,6 +4,7 @@ import Tab from "@material-ui/core/Tab";
 import TabPanel from "@material-ui/lab/TabPanel";
 import TabContext from "@material-ui/lab/TabContext";
 import {DetailGrid} from "./DetailGrid";
+import {appColors} from "../../../common/styles";
 
 export const DetailTabs = () => {
   const [value, setValue] = React.useState("one");
@@ -14,7 +15,11 @@ export const DetailTabs = () => {
 
   return (
     <TabContext value={value}>
-      <Tabs value={value} onChange={handleChange} centered>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        centered
+        TabIndicatorProps={{style: {background: appColors.primary}}}>
         <Tab label="Detalles" value={"one"} />
         <Tab label="Curvas de ruptura" value={"two"} />
       </Tabs>
