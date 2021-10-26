@@ -9,9 +9,11 @@ import {
 } from "../../../common/fields";
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
 export const YoonNelsonModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
+  const {loggedIn} = useSelector((state) => state.auth);
 
   const _onSubmit = (values) => {
     onSubmit(values);
@@ -28,6 +30,7 @@ export const YoonNelsonModelForm = ({forceDisable, onSubmit}) => {
       forceDisable={forceDisable}
       fields={[
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${COMMON_MODEL_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}
           key={1}
           name={YOON_NELSON_REQUEST_FIELDS.FLOW}

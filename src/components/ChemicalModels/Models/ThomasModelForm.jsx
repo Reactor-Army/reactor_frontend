@@ -9,9 +9,11 @@ import {
 } from "../../../common/fields";
 import {isPositive, isSet} from "../../Form/Validation/formValidations";
 import React, {useState} from "react";
+import {useSelector} from "react-redux";
 
 export const ThomasModelForm = ({forceDisable, onSubmit}) => {
   const [errorValues, setErrorValues] = useState({});
+  const {loggedIn} = useSelector((state) => state.auth);
 
   const _onSubmit = (values) => {
     onSubmit(values);
@@ -28,6 +30,7 @@ export const ThomasModelForm = ({forceDisable, onSubmit}) => {
       forceDisable={forceDisable}
       fields={[
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${THOMAS_FIELDS.FLOW} [${MODEL_UNITS.FLOW}]`}
           key={1}
           name={THOMAS_REQUEST_FIELDS.FLOW}
@@ -42,6 +45,7 @@ export const ThomasModelForm = ({forceDisable, onSubmit}) => {
           }}
         />,
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${THOMAS_FIELDS.INITIAL_CONCENTRATION} [${MODEL_UNITS.INITIAL_CONCENTRATION}]`}
           key={2}
           name={THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION}
@@ -57,6 +61,7 @@ export const ThomasModelForm = ({forceDisable, onSubmit}) => {
           }}
         />,
         <FormNumericField
+          disabled={!loggedIn}
           placeholder={`${THOMAS_FIELDS.ADSORBENT_MASS} [${MODEL_UNITS.ADSORBENT_MASS}]`}
           key={3}
           name={THOMAS_REQUEST_FIELDS.ADSORBENT_MASS}

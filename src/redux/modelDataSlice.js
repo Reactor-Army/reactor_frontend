@@ -1,9 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {getModelData} from "../services/models";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+
+export const fetchModelData = createAsyncThunk("fetchModelData", getModelData);
 
 const modelDataSlice = createSlice({
   name: "modelData",
   initialState: {
     models: [],
+    loading: false,
   },
   reducers: {
     addModel: (state, action) => {

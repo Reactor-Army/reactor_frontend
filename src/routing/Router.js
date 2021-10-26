@@ -27,6 +27,7 @@ import {LoginRoute} from "./routes/LoginRoute/LoginRoute";
 import {UsersRoute} from "./routes/UsersRoute/UsersRoute";
 import {UserCreateRoute} from "./routes/UserCreateRoute";
 import {UserEditRoute} from "./routes/UserEditRoute";
+import {FullAppBenefitsRoute} from "./routes/FullAppBenefitsRoute/FullAppBenefitsRoute";
 import {ModelResultsRoute} from "./routes/ModelsRoute/ModelResultsRoute";
 
 export const Router = () => {
@@ -182,10 +183,17 @@ export const Router = () => {
       />
       <PrivateRoute
         authed={0}
+        path={URLS.FULL_APP_DETAIL}
+        component={FullAppBenefitsRoute}
+        exact
+      />
+      <PrivateRoute
+        authed={0}
         component={LoginRoute}
         path={URLS.LOGIN}
         showSideBar={false}
         showTopBar={false}
+        exact
       />
       <PrivateRoute
         authed={0}

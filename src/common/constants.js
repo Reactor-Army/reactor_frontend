@@ -92,3 +92,9 @@ export const MODEL_TYPES = {
   ADAMS_BOHART: "Modelo de Adams-Bohart",
   YOON_NELSON: "Modelo de Yoon-Nelson",
 };
+
+export const MODEL_ALIAS = {
+  THOMAS: "thomas",
+  ADAMS_BOHART: "adams-bohart",
+  YOON_NELSON: "yoon-nelson",
+};

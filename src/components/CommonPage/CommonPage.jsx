@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../redux/userSlice";
 import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
 import {SessionTracker} from "../SessionTracker/SessionTracker";
+import {FreeAccountLabel} from "../FreeAccountLabel/FreeAccountLabel";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,7 +17,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
   };
   const classes = useStyles();
 
-  const {userData} = useSelector((state) => state.auth);
+  const {loggedIn, userData} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
         </SidebarWrapper>
       )}
       <Container>
+        {showSideBar && !loggedIn && <FreeAccountLabel />}
         <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
           <SessionTracker />

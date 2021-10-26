@@ -9,6 +9,8 @@ import {ExpandableSidebarItem} from "../ExpandableSidebarItem/ExpandableSidebarI
 import {URLS} from "../../routing/urls";
 import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/auth";
+import {userHasRole} from "../../utils/userHasRole";
+import {settings} from "../../config/settings";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
@@ -48,6 +50,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       text="Usuarios"
       onClick={() => navigateTo(URLS.USERS)}
       key={4}
+      userProtected
     />,
     <SidebarTitle text="Reactores discontinuos" key={5} />,
     <SidebarItem
@@ -90,7 +93,13 @@ export const SidebarContent = ({handleDrawerToggle}) => {
     <Container>
       <Title>Reactor App</Title>
       {sideBarItems.map((item) => {
-        return item;
+        if (
+          !item.props.userProtected ||
+          (item.props.userProtected &&
+            userHasRole(userData, settings.ADMIN_ROLE))
+        ) {
+          return item;
+        }
       })}
     </Container>
   );

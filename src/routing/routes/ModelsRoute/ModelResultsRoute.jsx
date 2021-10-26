@@ -7,7 +7,6 @@ import {URLS} from "../../urls";
 
 export const ModelResultsRoute = () => {
   const modelData = useSelector((state) => state.modelData.models);
-
   if (!modelData.length) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
