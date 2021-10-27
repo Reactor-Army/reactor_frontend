@@ -6,6 +6,7 @@ import {Redirect, useParams} from "react-router-dom";
 import {URLS} from "../../urls";
 import {getModelData} from "../../../services/models";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {errorCodes} from "../../../utils/errorStatusCodes";
 
 export const ModelResultsRoute = () => {
   let {id} = useParams();
@@ -15,7 +16,7 @@ export const ModelResultsRoute = () => {
 
   useEffect(async () => {
     const data = await getModelData(id);
-    if (data.status === 400 || data.status === 404) {
+    if (data && errorCodes.includes(data.status)) {
       setGetReturned404(true);
       return;
     }
