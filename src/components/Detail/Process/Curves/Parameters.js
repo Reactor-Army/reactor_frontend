@@ -20,11 +20,11 @@ export const parameters = (curveData) => {
 
 const thomasParameters = (curveData) => {
   const {
-    [THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION]: conc,
+    [THOMAS_REQUEST_FIELDS.INITIAL_CONCENTRATION]: concentration,
     [THOMAS_REQUEST_FIELDS.FLOW]: flow,
     [THOMAS_REQUEST_FIELDS.ADSORBENT_MASS]: mass,
   } = curveData.request;
-  return `F=${flow}; C0=${conc}; W=${mass}`;
+  return `F=${flow}; C0=${concentration}; W=${mass}`;
 };
 
 const yoonNelsonParameters = (curveData) => {
@@ -35,10 +35,10 @@ const yoonNelsonParameters = (curveData) => {
 const adamsBohartParameters = (curveData) => {
   const {
     [ADAMS_BOHART_REQUEST_FIELDS.FLOW]: flow,
-    [ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION]: conc,
+    [ADAMS_BOHART_REQUEST_FIELDS.INITIAL_CONCENTRATION]: concentration,
     [ADAMS_BOHART_REQUEST_FIELDS.LIQUID_VELOCITY]: velocity,
     [ADAMS_BOHART_REQUEST_FIELDS.REACTOR_HEIGHT]: height,
   } = curveData.request;
 
-  return `F=${flow}; Z=${height}; C0=${conc}; U0=${velocity}`;
+  return `F=${flow}; Z=${height}; C0=${concentration}; U0=${velocity}`;
 };
