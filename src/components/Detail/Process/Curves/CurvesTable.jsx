@@ -18,7 +18,7 @@ export const CurvesTable = ({processId}) => {
         curve.nombre,
         parameters(curve),
         formatDate(curve.fecha),
-        <CurvesActions curveId={curve.id} key={index} />,
+        <CurvesActions curveData={curve} key={index} />,
       ]),
     );
   }, [processId]);

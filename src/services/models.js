@@ -27,3 +27,9 @@ export const getModelData = async (model) => {
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
 };
+
+export const deleteModel = async (model) => {
+  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/${model}/`;
+  const client = getHttpClient();
+  return (await client.delete(endpoint)).data;
+};
