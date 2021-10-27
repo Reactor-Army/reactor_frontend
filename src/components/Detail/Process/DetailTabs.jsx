@@ -7,7 +7,7 @@ import {DetailGrid} from "./DetailGrid";
 import {appColors} from "../../../common/styles";
 import {CurvesTable} from "./Curves/CurvesTable";
 
-export const DetailTabs = () => {
+export const DetailTabs = ({process}) => {
   const [value, setValue] = React.useState("one");
 
   const handleChange = (event, newValue) => {
@@ -28,7 +28,7 @@ export const DetailTabs = () => {
         <DetailGrid process={process} />
       </TabPanel>
       <TabPanel value={"two"} index={"two"}>
-        <CurvesTable />
+        <CurvesTable processId={process.id} />
       </TabPanel>
     </TabContext>
   );

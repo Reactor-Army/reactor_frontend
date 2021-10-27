@@ -94,7 +94,7 @@ export const MODEL_TYPES = {
 };
 
 export const MODEL_ALIAS = {
-  THOMAS: "thomas",
-  ADAMS_BOHART: "adams-bohart",
-  YOON_NELSON: "yoon-nelson",
+  THOMAS: "THOMAS",
+  ADAMS_BOHART: "ADAMS-BOHART",
+  YOON_NELSON: "YOON-NELSON",
 };
