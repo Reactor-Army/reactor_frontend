@@ -25,7 +25,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addModel, reset} from "../../redux/modelDataSlice";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
-import {MODEL_TYPES, MODEL_ALIAS} from "../../common/constants";
+import {MODEL_ALIAS} from "../../common/constants";
 import {fetchModelData} from "../../redux/modelDataSlice";
 import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
 
@@ -70,7 +70,7 @@ export const ThomasRoute = () => {
         points: apiResponse.payload.response[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.THOMAS,
+        modelType: MODEL_ALIAS.THOMAS,
       }),
     );
     setError(INITIAL_ERROR);
@@ -102,7 +102,7 @@ export const ThomasRoute = () => {
         points: apiResponse[
           THOMAS_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.THOMAS,
+        modelType: MODEL_ALIAS.THOMAS,
       }),
     );
     setError(INITIAL_ERROR);

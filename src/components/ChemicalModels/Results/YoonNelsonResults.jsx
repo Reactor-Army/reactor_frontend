@@ -5,6 +5,8 @@ import {YoonNelsonResultFields} from "../Models/YoonNelsonResultFields";
 import {YoonNelsonModelPlot} from "../Models/Plots/YoonNelsonModelPlot";
 import React from "react";
 import {generateEquation, yoonNelsonCoefficients} from "../Models/equations";
+import {Row} from "../../../common/styles";
+import {ModelTitle} from "../../../common/ModelTitle";
 
 const yoonNelsonEquation = (data) => {
   const exponential = "e^{firstV{ef}-second}";
@@ -14,27 +16,32 @@ const yoonNelsonEquation = (data) => {
 
 export const YoonNelsonResults = ({responses, colors}) => {
   return (
-    <Results
-      inputFields={<YoonNelsonInputFields {...responses[0]} />}
-      resultsInfo={responses.map((response, index) => (
-        <DataFrame key={index}>
-          <Title color={colors[index % colors.length]}>
-            Resultados gráfico {++index}
-          </Title>
-          <YoonNelsonResultFields
-            Kyn={response.Kyn}
-            t={response.t}
-            R2={response.R2}
-            equation={yoonNelsonEquation(response)}
+    <>
+      <Row>
+        <ModelTitle title={"Modelo de Thomas"} />
+      </Row>
+      <Results
+        inputFields={<YoonNelsonInputFields {...responses[0]} />}
+        resultsInfo={responses.map((response, index) => (
+          <DataFrame key={index}>
+            <Title color={colors[index % colors.length]}>
+              Resultados gráfico {++index}
+            </Title>
+            <YoonNelsonResultFields
+              Kyn={response.Kyn}
+              t={response.t}
+              R2={response.R2}
+              equation={yoonNelsonEquation(response)}
+            />
+          </DataFrame>
+        ))}
+        plot={
+          <YoonNelsonModelPlot
+            points={responses.map((response) => response.points)}
+            expressions={responses}
           />
-        </DataFrame>
-      ))}
-      plot={
-        <YoonNelsonModelPlot
-          points={responses.map((response) => response.points)}
-          expressions={responses}
-        />
-      }
-    />
+        }
+      />
+    </>
   );
 };
