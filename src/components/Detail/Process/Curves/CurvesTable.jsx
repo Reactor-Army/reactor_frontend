@@ -21,7 +21,7 @@ export const CurvesTable = ({processId}) => {
         <CurvesActions curveId={curve.id} key={index} />,
       ]),
     );
-  });
+  }, [processId]);
   const headerItems = [
     "Tipo de Curva",
     "Nombre",
