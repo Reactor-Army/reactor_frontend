@@ -19,18 +19,6 @@ export const ModelResultsRoute = () => {
       setGetReturned404(true);
       return;
     }
-    //{
-    //     "F": 1,
-    //     "W": 3,
-    //     "C0": 2,
-    //     "Kth": 99.80361,
-    //     "q0": 0.04544,
-    //     "R2": 0.99484,
-    //     "points": []
-    //
-    //     "modelType": "Modelo de Thomas"
-    // }
-    console.log(data);
     setModelData(modelResultToComponent(data));
   }, [id]);
 
@@ -56,6 +44,8 @@ export const ModelResultsRoute = () => {
 };
 
 const modelResultToComponent = (data) => {
+  // Básicamente mapear la response del backend a lo esperado por nuestros
+  // Components
   return [
     {
       // eslint-disable-next-line id-length
