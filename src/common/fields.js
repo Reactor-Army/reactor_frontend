@@ -137,6 +137,14 @@ export const ADAMS_BOHART_FIELDS = {
   LIQUID_VELOCITY: "Velocidad lineal del líquido (U₀)",
 };
 
+export const MODEL_PERSISTENCE_FIELDS = {
+  NAME: "Título",
+};
+
+export const MODEL_PERSISTENCE_REQUEST_FIELDS = {
+  NAME: "nombre",
+};
+
 const COMMON_MODEL_REQUEST_FIELDS = {
   FILE: "observaciones",
   FLOW: "caudalVolumetrico",

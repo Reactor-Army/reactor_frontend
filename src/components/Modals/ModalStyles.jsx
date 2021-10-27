@@ -11,6 +11,10 @@ export const ModalContent = styled.div`
   padding: 16px 32px 24px;
   border-radius: 8px;
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
+
+  @media (max-width: 500px) {
+    width: 90vw;
+  }
 `;
 
 export const BodyContainer = styled.div`

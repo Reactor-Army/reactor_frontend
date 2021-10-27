@@ -98,3 +98,7 @@ export const MODEL_ALIAS = {
   ADAMS_BOHART: "adams-bohart",
   YOON_NELSON: "yoon-nelson",
 };
+
+export const MODEL_FORM_INITIAL_VALUES = {
+  nombre: "",
+};
