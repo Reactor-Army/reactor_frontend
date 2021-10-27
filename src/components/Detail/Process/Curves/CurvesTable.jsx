@@ -2,14 +2,10 @@ import React, {useEffect, useState} from "react";
 import {DataGrid} from "../../../DataGrid/DataGrid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {getCurves} from "../../../../services/processes";
-import {
-  ActionsContainer,
-  LoaderContainer,
-} from "../../../../routing/routes/UsersRoute/UsersRouteStyles";
-import {DeleteButton} from "../../../List/common/DeleteButton";
-import {ViewChartIcon} from "../../../List/common/ViewButton";
+import {LoaderContainer} from "../../../../routing/routes/UsersRoute/UsersRouteStyles";
 import {parameters} from "./Parameters";
 import {formatDate} from "../../../../common/FormatUtils";
+import {CurvesActions} from "./CurvesActions";
 
 export const CurvesTable = ({processId}) => {
   const [curves, setCurves] = useState(null);
@@ -22,10 +18,7 @@ export const CurvesTable = ({processId}) => {
         curve.nombre,
         parameters(curve),
         formatDate(curve.fecha),
-        <ActionsContainer key={index}>
-          <ViewChartIcon />
-          <DeleteButton />
-        </ActionsContainer>,
+        <CurvesActions curveId={curve.id} key={index} />,
       ]),
     );
   });
