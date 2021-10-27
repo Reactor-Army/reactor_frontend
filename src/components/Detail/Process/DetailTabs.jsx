@@ -23,13 +23,13 @@ export const DetailTabs = ({process}) => {
           onChange={handleChange}
           centered
           TabIndicatorProps={{style: {background: appColors.primary}}}>
-          <Tab label="Detalles" value={"one"} />
-          <Tab label="Curvas de ruptura" value={"two"} />
+          <Tab label="Detalles" value={0} />
+          <Tab label="Curvas de ruptura" value={1} />
         </Tabs>
-        <TabPanel value={"one"} index={"one"}>
+        <TabPanel value={0}>
           <DetailGrid process={process} />
         </TabPanel>
-        <TabPanel value={"two"} index={"two"}>
+        <TabPanel value={1}>
           <CurvesTable processId={process.id} />
         </TabPanel>
       </TabContext>
