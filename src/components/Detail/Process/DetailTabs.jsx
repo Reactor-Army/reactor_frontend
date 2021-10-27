@@ -6,6 +6,7 @@ import TabContext from "@material-ui/lab/TabContext";
 import {DetailGrid} from "./DetailGrid";
 import {appColors} from "../../../common/styles";
 import {CurvesTable} from "./Curves/CurvesTable";
+import {DetailTabsContainer} from "./Styles";
 
 export const DetailTabs = ({process}) => {
   const [value, setValue] = React.useState("one");
@@ -15,21 +16,23 @@ export const DetailTabs = ({process}) => {
   };
 
   return (
-    <TabContext value={value}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        centered
-        TabIndicatorProps={{style: {background: appColors.primary}}}>
-        <Tab label="Detalles" value={"one"} />
-        <Tab label="Curvas de ruptura" value={"two"} />
-      </Tabs>
-      <TabPanel value={"one"} index={"one"}>
-        <DetailGrid process={process} />
-      </TabPanel>
-      <TabPanel value={"two"} index={"two"}>
-        <CurvesTable processId={process.id} />
-      </TabPanel>
-    </TabContext>
+    <DetailTabsContainer>
+      <TabContext value={value}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          centered
+          TabIndicatorProps={{style: {background: appColors.primary}}}>
+          <Tab label="Detalles" value={"one"} />
+          <Tab label="Curvas de ruptura" value={"two"} />
+        </Tabs>
+        <TabPanel value={"one"} index={"one"}>
+          <DetailGrid process={process} />
+        </TabPanel>
+        <TabPanel value={"two"} index={"two"}>
+          <CurvesTable processId={process.id} />
+        </TabPanel>
+      </TabContext>
+    </DetailTabsContainer>
   );
 };
