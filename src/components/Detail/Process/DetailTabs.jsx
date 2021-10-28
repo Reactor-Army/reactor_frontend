@@ -9,7 +9,7 @@ import {CurvesTable} from "./Curves/CurvesTable";
 import {DetailTabsContainer} from "./Styles";
 
 export const DetailTabs = ({process}) => {
-  const [value, setValue] = React.useState("one");
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
