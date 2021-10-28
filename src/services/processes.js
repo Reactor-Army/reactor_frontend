@@ -41,3 +41,9 @@ export const deleteProcess = async (processId) => {
   const client = getHttpClient();
   return (await client.delete(endpoint)).data;
 };
+
+export const getCurves = async (processId) => {
+  const endpoint = `${settings.BACKEND_URL}proceso/${processId}/curvas`;
+  const client = getHttpClient();
+  return (await client.get(endpoint)).data;
+};

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProcess} from "../../redux/processSlice";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {ProcessDetail} from "../../components/Detail/ProcessDetail";
+import {ProcessDetail} from "../../components/Detail/Process/ProcessDetail";
 import {DeleteProcessModal} from "../../components/Modals/DeleteProcessModal";
 import {Redirect} from "react-router-dom";
 import {URLS} from "../../routing/urls";

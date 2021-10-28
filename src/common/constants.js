@@ -87,14 +87,8 @@ export const LOGIN_FORM_INITIAL_VALUES = {
   password: "",
 };
 
-export const MODEL_TYPES = {
-  THOMAS: "Modelo de Thomas",
-  ADAMS_BOHART: "Modelo de Adams-Bohart",
-  YOON_NELSON: "Modelo de Yoon-Nelson",
-};
-
 export const MODEL_ALIAS = {
-  THOMAS: "thomas",
-  ADAMS_BOHART: "adams-bohart",
-  YOON_NELSON: "yoon-nelson",
+  THOMAS: "THOMAS",
+  ADAMS_BOHART: "ADAMS_BOHART",
+  YOON_NELSON: "YOON_NELSON",
 };
