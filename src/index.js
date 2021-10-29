@@ -5,12 +5,16 @@ import {Provider} from "react-redux";
 import {PersistGate} from "redux-persist/integration/react";
 
 import store, {persistor} from "./redux/store";
-import {TokenSetter} from "./components/TokenSetter";
+
+import {buildHttpClient} from "./utils/buildHttpClient";
+const token = localStorage.getItem("token");
+if (token) {
+  buildHttpClient(token);
+}
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <TokenSetter />
       <App />
     </PersistGate>
   </Provider>,
