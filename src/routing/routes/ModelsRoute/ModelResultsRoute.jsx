@@ -15,7 +15,7 @@ export const ModelResultsRoute = () => {
   const [modelData, setModelData] = useState(null);
 
   useEffect(async () => {
-    if (id === "resultado") {
+    if (!id) {
       return;
     }
     const data = await getModelData(id);

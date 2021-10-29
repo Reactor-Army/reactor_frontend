@@ -119,7 +119,7 @@ export const ThomasRoute = () => {
       }
     }
 
-    if (success) history.push(modelResultsUrlFor("resultado"));
+    if (success) history.push(modelResultsUrlFor(""));
     setShowLoader(false);
   };
 
@@ -129,7 +129,7 @@ export const ThomasRoute = () => {
         dispatch(reset());
         getFreeModelData();
       } else {
-        history.push(modelResultsUrlFor("resultado"));
+        history.push(modelResultsUrlFor(""));
       }
     }
   }, [freeDataReady]);
