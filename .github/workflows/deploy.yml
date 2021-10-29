@@ -15,5 +15,5 @@ jobs:
           pass: ${{ secrets.SERVER_PASS }}
           port: ${{ secrets.SERVER_PORT }}
           run: |
-            echo "Running deploy script!
+            echo "Running deploy script!"
             cat /home/llavandeira/hola
