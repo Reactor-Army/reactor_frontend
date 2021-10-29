@@ -23,6 +23,7 @@ export const applyYoonNelsonModel = async (file, body) => {
 };
 
 export const getModelData = async (model) => {
+  model = model.replace("_", "-").toLowerCase();
   const endpoint = `${settings.BACKEND_URL}curvas-ruptura/${model}/`;
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
