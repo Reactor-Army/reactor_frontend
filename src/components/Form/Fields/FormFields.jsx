@@ -56,6 +56,7 @@ export const FormSelectorField = ({
   items,
   name,
   error,
+  onChangeCallback,
   ...props
 }) => {
   return (
@@ -67,6 +68,7 @@ export const FormSelectorField = ({
       formComponentName={name}
       error={error ? true : false}
       helperText={error && error}
+      onChangeCallback={onChangeCallback}
       {...props}
     />
   );
@@ -116,6 +118,7 @@ const SelectorField = ({
   error,
   helperText,
   field,
+  onChangeCallback,
   ...props
 }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -137,6 +140,7 @@ const SelectorField = ({
         } else {
           form.setFieldValue(formComponentName, null);
         }
+        onChangeCallback && onChangeCallback(newValue);
       }}
       value={selectedItem}
       renderInput={(params) => (

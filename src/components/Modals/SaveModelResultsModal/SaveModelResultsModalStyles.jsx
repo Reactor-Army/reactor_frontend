@@ -12,6 +12,7 @@ export const Title = styled.div`
 
 export const FormWrapper = styled.div`
   padding: 30px 40px;
+  min-width: 30vw;
 
   @media (max-width: 700px) {
     padding: initial;

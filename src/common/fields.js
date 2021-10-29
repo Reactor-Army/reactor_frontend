@@ -139,10 +139,16 @@ export const ADAMS_BOHART_FIELDS = {
 
 export const MODEL_PERSISTENCE_FIELDS = {
   NAME: "Título",
+  ADSORBATE: "Adsorbato",
+  ADSORBENT: "Adsorbente",
+  SYSTEM: "Sistema",
 };
 
 export const MODEL_PERSISTENCE_REQUEST_FIELDS = {
   NAME: "nombre",
+  ADSORBATE_ID: "adsorbatoId",
+  ADSORBENT_ID: "adsorbenteId",
+  SYSTEM_ID: "sistemaId",
 };
 
 const COMMON_MODEL_REQUEST_FIELDS = {
