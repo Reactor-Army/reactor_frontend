@@ -21,6 +21,9 @@ import {DetailTable, DetailTableRow} from "../../DetailTable/DetailTable";
 import {UNITS} from "../../../common/fields";
 import {PROCESS_FIELDS} from "../../../common/fields";
 import {getKineticConstantUnits} from "../../../common/UnitsUtils";
+import {saveBreakCurveData} from "../../../services/models";
+import {displayUpdateMessage} from "../../../utils/displayUpdateMessage";
+import {displayErrorMessage} from "../../../utils/displayErrorMessage";
 
 export const SaveModelResultsModal = ({
   closeModal,
@@ -38,8 +41,29 @@ export const SaveModelResultsModal = ({
   const selectedSystem =
     useSelector((store) => store.process.process) || undefined;
 
+  const errorsSet = Object.keys(errorValues).some((key) => {
+    return errorValues[key] !== undefined;
+  });
+
   const onSubmit = async (values) => {
-    alert(values, modelId, systems, setAdsorbateId);
+    if (!errorsSet) {
+      try {
+        const result = await saveBreakCurveData(
+          modelId,
+          values.nombre,
+          values.sistemaId,
+        );
+        if (result.status) {
+          displayErrorMessage(result.response.message);
+        } else {
+          displayUpdateMessage();
+          reset();
+          closeModal();
+        }
+      } catch (error) {
+        return error.response.data;
+      }
+    }
   };
 
   const adsorbateSelectItems = adsorbates.map((adsorbate) => {
@@ -81,13 +105,17 @@ export const SaveModelResultsModal = ({
     dispatch(fetchProcess(selectedSystemId));
   }, [selectedSystemId]);
 
+  const reset = () => {
+    setAdsorbateId();
+    setAdsorbentId();
+    setSystems();
+  };
+
   return (
     <Modal
       open={open}
       onClose={() => {
-        setAdsorbateId();
-        setAdsorbentId();
-        setSystems();
+        reset();
         closeModal();
       }}>
       <Title>Guardar Resultado</Title>
@@ -136,7 +164,6 @@ export const SaveModelResultsModal = ({
           onSubmit={onSubmit}
           buttonLabel="Aceptar"
           errors={filterBlank(errorValues)}
-          forceDisable={errorValues}
           fields={[
             <FormTextField
               placeholder={MODEL_PERSISTENCE_FIELDS.NAME}

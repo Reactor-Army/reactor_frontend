@@ -27,3 +27,9 @@ export const getModelData = async (model) => {
   const client = getHttpClient();
   return (await client.get(endpoint)).data;
 };
+
+export const saveBreakCurveData = async (modelId, nombre, sistemaId) => {
+  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/${modelId}`;
+  const client = getHttpClient();
+  return (await client.post(endpoint, {nombre, sistemaId})).data;
+};

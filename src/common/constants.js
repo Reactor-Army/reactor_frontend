@@ -101,4 +101,7 @@ export const MODEL_ALIAS = {
 
 export const MODEL_FORM_INITIAL_VALUES = {
   nombre: "",
+  adsorbatoId: null,
+  adsorbenteId: null,
+  sistemaId: null,
 };
