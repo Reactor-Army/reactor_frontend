@@ -3,15 +3,15 @@ import {AdamsBohartResults} from "./AdamsBohartResults";
 import {YoonNelsonResults} from "./YoonNelsonResults";
 import React, {useState, useEffect} from "react";
 import {appColors, Row} from "../../../common/styles";
-import {MODEL_TYPES} from "../../../common/constants";
 import {ButtonWrapper, ButtonsContainer} from "../Models/ModelsStyles";
-import {Button} from "../../Button/Button";
 import {useHistory} from "react-router-dom";
 import {ModelTitle} from "../../../common/ModelTitle";
 import {useSelector, useDispatch} from "react-redux";
 import {SaveModelResultsModal} from "../../Modals/SaveModelResultsModal/SaveModelResultsModal";
 import {fetchAdsorbates} from "../../../redux/adsorbatesSlice";
 import {fetchAdsorbents} from "../../../redux/adsorbentsSlice";
+import {MODEL_ALIAS} from "../../../common/constants";
+import {Button} from "../../Button/Button";
 
 export const ModelResults = ({responses, modelType}) => {
   const history = useHistory();
@@ -31,9 +31,9 @@ export const ModelResults = ({responses, modelType}) => {
   }, []);
 
   const components = {
-    [MODEL_TYPES.THOMAS]: ThomasResults,
-    [MODEL_TYPES.ADAMS_BOHART]: AdamsBohartResults,
-    [MODEL_TYPES.YOON_NELSON]: YoonNelsonResults,
+    [MODEL_ALIAS.THOMAS]: ThomasResults,
+    [MODEL_ALIAS.ADAMS_BOHART]: AdamsBohartResults,
+    [MODEL_ALIAS.YOON_NELSON]: YoonNelsonResults,
   };
   const ResultComponent = components[modelType];
   const {loggedIn} = useSelector((state) => state.auth);

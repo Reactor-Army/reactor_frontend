@@ -25,7 +25,7 @@ import {addModel, reset} from "../../redux/modelDataSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {modelResultsUrlFor} from "../urls";
-import {MODEL_TYPES, MODEL_ALIAS} from "../../common/constants";
+import {MODEL_ALIAS} from "../../common/constants";
 import {fetchModelData} from "../../redux/modelDataSlice";
 import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
 
@@ -78,7 +78,7 @@ export const AdamsBohartRoute = () => {
         points: apiResponse.payload.response[
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.ADAMS_BOHART,
+        modelType: MODEL_ALIAS.ADAMS_BOHART,
       }),
     );
     setError(INITIAL_ERROR);
@@ -111,7 +111,7 @@ export const AdamsBohartRoute = () => {
         points: apiResponse[
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.ADAMS_BOHART,
+        modelType: MODEL_ALIAS.ADAMS_BOHART,
       }),
     );
     setError(INITIAL_ERROR);
@@ -128,7 +128,7 @@ export const AdamsBohartRoute = () => {
       }
     }
 
-    if (success) history.push(modelResultsUrlFor("resultado"));
+    if (success) history.push(modelResultsUrlFor(""));
     setShowLoader(false);
   };
 
@@ -138,7 +138,7 @@ export const AdamsBohartRoute = () => {
         dispatch(reset());
         getFreeModelData();
       } else {
-        history.push(modelResultsUrlFor("resultado"));
+        history.push(modelResultsUrlFor(""));
       }
     }
   }, [freeDataReady]);

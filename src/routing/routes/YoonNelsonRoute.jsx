@@ -21,7 +21,7 @@ import {CircularProgress} from "@material-ui/core";
 import {HelpText} from "../../components/ChemicalModels/ChemicalModelStyles";
 import {settings} from "../../config/settings";
 import {InfoYoonNelsonModal} from "../../components/ChemicalModels/InfoModals/InfoYoonNelsonModal";
-import {MODEL_TYPES, MODEL_ALIAS} from "../../common/constants";
+import {MODEL_ALIAS} from "../../common/constants";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {addModel, reset} from "../../redux/modelDataSlice";
@@ -43,7 +43,6 @@ export const YoonNelsonRoute = () => {
   const history = useHistory();
   const [freeDataReady, setFreeDataReady] = useState(false);
   const {loggedIn} = useSelector((state) => state.auth);
-
   const getFreeModelData = async () => {
     let apiResponse;
     try {
@@ -69,7 +68,7 @@ export const YoonNelsonRoute = () => {
         points: apiResponse.payload.response[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.YOON_NELSON,
+        modelType: MODEL_ALIAS.YOON_NELSON,
       }),
     );
     setError(INITIAL_ERROR);
@@ -99,7 +98,7 @@ export const YoonNelsonRoute = () => {
         points: apiResponse[
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
-        modelType: MODEL_TYPES.YOON_NELSON,
+        modelType: MODEL_ALIAS.YOON_NELSON,
       }),
     );
     setError(INITIAL_ERROR);
@@ -116,7 +115,7 @@ export const YoonNelsonRoute = () => {
       }
     }
 
-    if (success) history.push(modelResultsUrlFor("resultado"));
+    if (success) history.push(modelResultsUrlFor(""));
     setShowLoader(false);
   };
 
@@ -126,7 +125,7 @@ export const YoonNelsonRoute = () => {
         dispatch(reset());
         getFreeModelData();
       } else {
-        history.push(modelResultsUrlFor("resultado"));
+        history.push(modelResultsUrlFor(""));
       }
     }
   }, [freeDataReady]);

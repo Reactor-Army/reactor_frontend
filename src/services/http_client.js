@@ -1,9 +1,14 @@
 import axios from "axios";
+import {setForceLogout} from "../redux/auth";
 
 // Regalito de Contame
 export class HttpClient {
   constructor(token) {
     this.token = token;
+  }
+
+  injectStore(store) {
+    this.store = store;
   }
 
   async get(url, params) {
@@ -14,6 +19,9 @@ export class HttpClient {
       undefined,
       params,
     ).catch((error) => {
+      if ([401, 403].includes(error.response.status)) {
+        this.store.dispatch(setForceLogout());
+      }
       return {
         data: {
           status: error.response.status,
@@ -26,6 +34,10 @@ export class HttpClient {
 
   async post(url, body) {
     return await this.request(url, "POST", body).catch((error) => {
+      if ([401, 403].includes(error.response.status)) {
+        this.store.dispatch(setForceLogout());
+      }
+
       return {
         data: {
           status: error.response.status,
@@ -37,6 +49,10 @@ export class HttpClient {
 
   async delete(url, params) {
     return await this.request(url, "DELETE", params).catch((error) => {
+      if ([401, 403].includes(error.response.status)) {
+        this.store.dispatch(setForceLogout());
+      }
+
       return {
         data: {
           status: error.response.status,
@@ -48,6 +64,10 @@ export class HttpClient {
 
   async put(url, body) {
     return await this.request(url, "PUT", body).catch((error) => {
+      if ([401, 403].includes(error.response.status)) {
+        this.store.dispatch(setForceLogout());
+      }
+
       return {
         data: {
           status: error.response.status,

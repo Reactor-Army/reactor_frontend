@@ -6,8 +6,8 @@ import {Container} from "./CommonPageStyles";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../redux/userSlice";
 import {CrudSnackbar} from "../CrudSnackbar/CrudSnackbar";
-import {SessionTracker} from "../SessionTracker/SessionTracker";
 import {FreeAccountLabel} from "../FreeAccountLabel/FreeAccountLabel";
+import {resetForceLogout} from "../../redux/auth";
 
 export const CommonPage = ({children, showSideBar, showTopBar}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,7 +17,7 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
   };
   const classes = useStyles();
 
-  const {loggedIn, userData} = useSelector((state) => state.auth);
+  const {loggedIn, userData, forceLogout} = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +25,13 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
       dispatch(fetchUser(userData.id));
     }
   }, []);
+
+  useEffect(() => {
+    if (forceLogout) {
+      dispatch(resetForceLogout());
+    }
+  });
+
   return (
     <>
       {showTopBar && <TopBar handleDrawerToggle={handleDrawerToggle} />}
@@ -40,7 +47,6 @@ export const CommonPage = ({children, showSideBar, showTopBar}) => {
         {showSideBar && !loggedIn && <FreeAccountLabel />}
         <main className={showTopBar && showSideBar ? classes.content : ""}>
           {children}
-          <SessionTracker />
           <CrudSnackbar />
         </main>
       </Container>
