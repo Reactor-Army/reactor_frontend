@@ -15,6 +15,9 @@ export const ModelResultsRoute = () => {
   const [modelData, setModelData] = useState(null);
 
   useEffect(async () => {
+    if (!id) {
+      return;
+    }
     const data = await getModelData(id);
     if (data && errorCodes.includes(data.status)) {
       setGetReturned404(true);
