@@ -9,8 +9,18 @@ import {
 } from "../../../common/fields";
 import {filterBlank} from "../../CustomForms/validations";
 import {isSet} from "../../Form/Validation/formValidations";
-import {Title, FormWrapper} from "./SaveModelResultsModalStyles";
+import {
+  Title,
+  FormWrapper,
+  TableContainer,
+} from "./SaveModelResultsModalStyles";
 import {searchProcesses} from "../../../services/processes";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProcess} from "../../../redux/processSlice";
+import {DetailTable, DetailTableRow} from "../../DetailTable/DetailTable";
+import {UNITS} from "../../../common/fields";
+import {PROCESS_FIELDS} from "../../../common/fields";
+import {getKineticConstantUnits} from "../../../common/UnitsUtils";
 
 export const SaveModelResultsModal = ({
   closeModal,
@@ -19,10 +29,14 @@ export const SaveModelResultsModal = ({
   adsorbents,
   modelId,
 }) => {
+  const dispatch = useDispatch();
   const [errorValues, setErrorValues] = useState({});
   const [adsorbateId, setAdsorbateId] = useState();
   const [adsorbentId, setAdsorbentId] = useState();
   const [systems, setSystems] = useState([]);
+  const [selectedSystemId, setSelectedSystemId] = useState();
+  const selectedSystem =
+    useSelector((store) => store.process.process) || undefined;
 
   const onSubmit = async (values) => {
     alert(values, modelId, systems, setAdsorbateId);
@@ -56,11 +70,16 @@ export const SaveModelResultsModal = ({
       const processes = await searchProcesses(adsorbateId, adsorbentId);
       setSystems(processes);
     };
+    setSelectedSystemId();
     setSystems();
     if (adsorbateId && adsorbentId) {
       getProcesses();
     }
   }, [adsorbateId, adsorbentId]);
+
+  useEffect(() => {
+    dispatch(fetchProcess(selectedSystemId));
+  }, [selectedSystemId]);
 
   return (
     <Modal
@@ -72,9 +91,46 @@ export const SaveModelResultsModal = ({
         closeModal();
       }}>
       <Title>Guardar Resultado</Title>
+      {selectedSystemId && selectedSystem && (
+        <TableContainer>
+          <DetailTable title="Características">
+            <DetailTableRow
+              label={PROCESS_FIELDS.QMAX}
+              value={selectedSystem.qmax}
+              units={UNITS.QMAX}
+            />
+            <DetailTableRow
+              label={PROCESS_FIELDS.EQUILIBRIUM_TIME}
+              value={selectedSystem.tiempoEquilibrio}
+              units={UNITS.EQUILIBRIUM_TIME}
+            />
+            <DetailTableRow
+              label={PROCESS_FIELDS.TEMPERATURE}
+              value={selectedSystem.temperatura}
+              units={UNITS.TEMPERATURE}
+            />
+            <DetailTableRow
+              label={PROCESS_FIELDS.INITIAL_PH}
+              value={selectedSystem.phinicial}
+            />
+            <DetailTableRow
+              label={PROCESS_FIELDS.KINETIC_CONSTANT}
+              value={selectedSystem.constanteCinetica}
+              units={
+                selectedSystem.constanteCinetica &&
+                getKineticConstantUnits(selectedSystem.ordenReaccion)
+              }
+            />
+            <DetailTableRow
+              label={PROCESS_FIELDS.REACTION_ORDER}
+              value={selectedSystem.ordenReaccion}
+            />
+          </DetailTable>
+        </TableContainer>
+      )}
       <FormWrapper>
         <Form
-          layout={FORM_LAYOUTS.SINGLE_COLUMN}
+          layout={FORM_LAYOUTS.ROWS}
           singleColumn={true}
           initialValues={MODEL_FORM_INITIAL_VALUES}
           onSubmit={onSubmit}
@@ -139,7 +195,7 @@ export const SaveModelResultsModal = ({
             <FormSelectorField
               key={4}
               onChangeCallback={(value) => {
-                setAdsorbateId(value.value);
+                setSelectedSystemId(value.value);
               }}
               placeholder={MODEL_PERSISTENCE_FIELDS.SYSTEM}
               items={systemSelectItems}

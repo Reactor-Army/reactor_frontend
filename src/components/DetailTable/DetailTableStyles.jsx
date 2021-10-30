@@ -20,6 +20,12 @@ export const Title = styled.div`
   font-size: 20px;
   margin: 0 0 10px 10px;
   font-weight: bold;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    text-align: center;
+    font-size: 16px;
+  }
 `;
 
 export const Value = styled.td`

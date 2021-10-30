@@ -18,3 +18,7 @@ export const FormWrapper = styled.div`
     padding: initial;
   }
 `;
+
+export const TableContainer = styled.div`
+  margin: 30px 0;
+`;
