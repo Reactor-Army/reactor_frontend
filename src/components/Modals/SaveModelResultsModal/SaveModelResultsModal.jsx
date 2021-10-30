@@ -155,7 +155,7 @@ export const SaveModelResultsModal = ({
             <FormSelectorField
               key={2}
               onChangeCallback={(value) => {
-                setAdsorbateId(value.value);
+                setAdsorbateId(value && value.value);
               }}
               placeholder={MODEL_PERSISTENCE_FIELDS.ADSORBATE}
               items={adsorbateSelectItems}
@@ -174,7 +174,7 @@ export const SaveModelResultsModal = ({
             />,
             <FormSelectorField
               onChangeCallback={(value) => {
-                setAdsorbentId(value.value);
+                setAdsorbentId(value && value.value);
               }}
               key={3}
               placeholder={MODEL_PERSISTENCE_FIELDS.ADSORBENT}
@@ -195,7 +195,7 @@ export const SaveModelResultsModal = ({
             <FormSelectorField
               key={4}
               onChangeCallback={(value) => {
-                setSelectedSystemId(value.value);
+                setSelectedSystemId(value && value.value);
               }}
               placeholder={MODEL_PERSISTENCE_FIELDS.SYSTEM}
               items={systemSelectItems}

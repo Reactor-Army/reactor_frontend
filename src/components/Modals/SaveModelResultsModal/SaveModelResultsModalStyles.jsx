@@ -7,7 +7,6 @@ export const Title = styled.div`
   font-size: calc(14px + 1vw);
   text-align: center;
   font-weight: 700;
-  padding: 15px 0;
 `;
 
 export const FormWrapper = styled.div`
@@ -20,5 +19,5 @@ export const FormWrapper = styled.div`
 `;
 
 export const TableContainer = styled.div`
-  margin: 30px 0;
+  margin: 20px 0;
 `;
