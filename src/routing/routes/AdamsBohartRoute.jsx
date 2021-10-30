@@ -74,7 +74,6 @@ export const AdamsBohartRoute = () => {
         Kab: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.KAB],
         N0: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.N0],
         R2: apiResponse.payload.response[ADAMS_BOHART_RESPONSE_FIELDS.R2],
-        dataId: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.DATA_ID],
         points: apiResponse.payload.response[
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
@@ -112,6 +111,7 @@ export const AdamsBohartRoute = () => {
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
         modelType: MODEL_ALIAS.ADAMS_BOHART,
+        dataId: apiResponse[ADAMS_BOHART_RESPONSE_FIELDS.DATA_ID],
       }),
     );
     setError(INITIAL_ERROR);
