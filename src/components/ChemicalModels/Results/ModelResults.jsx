@@ -4,7 +4,7 @@ import {YoonNelsonResults} from "./YoonNelsonResults";
 import React, {useState, useEffect} from "react";
 import {appColors} from "../../../common/styles";
 import {ButtonWrapper, ButtonsContainer} from "../Models/ModelsStyles";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 import {SaveModelResultsModal} from "../../Modals/SaveModelResultsModal/SaveModelResultsModal";
 import {fetchAdsorbates} from "../../../redux/adsorbatesSlice";
@@ -15,6 +15,7 @@ import {Button} from "../../Button/Button";
 export const ModelResults = ({responses, modelType}) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const {id} = useParams();
 
   const colors = [appColors.primary, appColors.red, appColors.green];
 
@@ -49,13 +50,15 @@ export const ModelResults = ({responses, modelType}) => {
       <ButtonWrapper>
         {loggedIn && (
           <ButtonsContainer>
-            <Button
-              size="medium"
-              text="Guardar Resultados"
-              onClick={() => {
-                setOpenModal(true);
-              }}
-            />
+            {!id && (
+              <Button
+                size="medium"
+                text="Guardar Resultados"
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              />
+            )}
             <Button
               size="medium"
               text="Volver"
