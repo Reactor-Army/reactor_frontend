@@ -92,3 +92,10 @@ export const MODEL_ALIAS = {
   ADAMS_BOHART: "ADAMS_BOHART",
   YOON_NELSON: "YOON_NELSON",
 };
+
+export const MODEL_FORM_INITIAL_VALUES = {
+  nombre: "",
+  adsorbatoId: null,
+  adsorbenteId: null,
+  sistemaId: null,
+};

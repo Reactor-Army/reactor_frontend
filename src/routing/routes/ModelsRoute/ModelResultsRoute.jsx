@@ -33,7 +33,7 @@ export const ModelResultsRoute = () => {
     setModelData(storeModelData);
   }, [storeModelData]);
 
-  if (getReturned404 && !storeModelData.lenght) {
+  if (getReturned404 && !storeModelData.length) {
     return <Redirect to={URLS.NOT_FOUND} />;
   }
 

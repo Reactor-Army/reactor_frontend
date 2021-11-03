@@ -137,6 +137,20 @@ export const ADAMS_BOHART_FIELDS = {
   LIQUID_VELOCITY: "Velocidad lineal del líquido (U₀)",
 };
 
+export const MODEL_PERSISTENCE_FIELDS = {
+  NAME: "Título",
+  ADSORBATE: "Adsorbato",
+  ADSORBENT: "Adsorbente",
+  SYSTEM: "Sistema",
+};
+
+export const MODEL_PERSISTENCE_REQUEST_FIELDS = {
+  NAME: "nombre",
+  ADSORBATE_ID: "adsorbatoId",
+  ADSORBENT_ID: "adsorbenteId",
+  SYSTEM_ID: "sistemaId",
+};
+
 const COMMON_MODEL_REQUEST_FIELDS = {
   FILE: "observaciones",
   FLOW: "caudalVolumetrico",
@@ -160,6 +174,7 @@ export const YOON_NELSON_REQUEST_FIELDS = {
 
 export const COMMON_RESPONSE_FIELDS = {
   R2: "R2",
+  DATA_ID: "dataId",
 };
 
 export const THOMAS_RESPONSE_FIELDS = {

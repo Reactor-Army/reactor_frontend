@@ -118,3 +118,14 @@ export const LoaderWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 60px;
+  margin-bottom: 20px;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;

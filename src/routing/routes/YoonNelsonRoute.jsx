@@ -98,6 +98,7 @@ export const YoonNelsonRoute = () => {
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
         modelType: MODEL_ALIAS.YOON_NELSON,
+        dataId: apiResponse[YOON_NELSON_RESPONSE_FIELDS.DATA_ID],
       }),
     );
     setError(INITIAL_ERROR);
