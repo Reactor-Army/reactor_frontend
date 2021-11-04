@@ -59,7 +59,7 @@ export const AdsorbentForm = ({
           }}
         />,
         <FormTextField
-          placeholder={ADSORBENT_FIELDS.PARTICLE_SIZE}
+          placeholder={`${ADSORBENT_FIELDS.PARTICLE_SIZE} (${UNITS.PARTICLE_SIZE})`}
           key={2}
           name={ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE}
           error={errorValues[ADSORBENT_REQUEST_FIELDS.PARTICLE_SIZE]}

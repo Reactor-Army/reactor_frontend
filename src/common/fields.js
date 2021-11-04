@@ -59,6 +59,7 @@ export const UNITS = {
   DISCHARGE: "mL/min",
   CONCENTRATION: "mmol/L",
   VOLUME: "mL",
+  PARTICLE_SIZE: "µm",
 };
 
 export const ADSORBATE_REQUEST_FIELDS = {
