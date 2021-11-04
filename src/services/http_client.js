@@ -19,7 +19,7 @@ export class HttpClient {
       undefined,
       params,
     ).catch((error) => {
-      if ([401, 403].includes(error.response.status)) {
+      if (this.token && [401, 403].includes(error.response.status)) {
         this.store.dispatch(setForceLogout());
       }
       return {
@@ -34,7 +34,7 @@ export class HttpClient {
 
   async post(url, body) {
     return await this.request(url, "POST", body).catch((error) => {
-      if ([401, 403].includes(error.response.status)) {
+      if (this.token && [401, 403].includes(error.response.status)) {
         this.store.dispatch(setForceLogout());
       }
 
@@ -49,7 +49,7 @@ export class HttpClient {
 
   async delete(url, params) {
     return await this.request(url, "DELETE", params).catch((error) => {
-      if ([401, 403].includes(error.response.status)) {
+      if (this.token && [401, 403].includes(error.response.status)) {
         this.store.dispatch(setForceLogout());
       }
 
