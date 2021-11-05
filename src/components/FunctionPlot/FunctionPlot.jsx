@@ -13,7 +13,6 @@ export const FunctionPlot = ({
   yAxisLabel = "",
 }) => {
   const wrapperRef = useRef(null);
-  const plotRef = useRef(null);
   const [wrapperWidth, setWrapperWidth] = useState(0);
   const [maxAbscissa, setMaxAbscissa] = useState(10);
   const [maxOrdinate, setMaxOrdinate] = useState(1);
@@ -85,7 +84,7 @@ export const FunctionPlot = ({
     // y le disparamos un evento de mouse wheel, exactamente en el centro
     // del elemento (el mismo gráfico). El delta es la "intensidad" del
     // mousewheel, qué tanto le das, cuanto mayor sea, más zoom
-    const targetNode = plotRef.current.querySelector(".zoom-and-drag");
+    const targetNode = wrapperRef.current.querySelector(".zoom-and-drag");
     const domRect = targetNode.getBoundingClientRect();
     const centerX = (domRect.left + domRect.right) / 2;
     const centerY = (domRect.top + domRect.bottom) / 2;
@@ -109,7 +108,7 @@ export const FunctionPlot = ({
         <AddIcon onClick={zoomIn} />
         <RemoveIcon onClick={zoomOut} />
       </ZoomIconsContainer>
-      <Plot id="plot" ref={plotRef} />
+      <Plot id="plot" />
     </PlotWrapper>
   );
 };
