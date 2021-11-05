@@ -1,5 +1,10 @@
 import styled from "styled-components/macro";
 
+export const ZoomIconsContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const PlotWrapper = styled.div`
   width: 100%;
 `;

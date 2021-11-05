@@ -1,7 +1,10 @@
 import React, {useRef, useState, useEffect} from "react";
 import functionPlot from "function-plot";
-import {Plot, PlotWrapper} from "./FunctionPlotStyles";
+import {Plot, PlotWrapper, ZoomIconsContainer} from "./FunctionPlotStyles";
 import {appColors} from "../../common/styles";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+import {settings} from "../../config/settings";
 
 export const FunctionPlot = ({
   expressions,
@@ -10,6 +13,7 @@ export const FunctionPlot = ({
   yAxisLabel = "",
 }) => {
   const wrapperRef = useRef(null);
+  const plotRef = useRef(null);
   const [wrapperWidth, setWrapperWidth] = useState(0);
   const [maxAbscissa, setMaxAbscissa] = useState(10);
   const [maxOrdinate, setMaxOrdinate] = useState(1);
@@ -76,9 +80,36 @@ export const FunctionPlot = ({
     };
   }, []);
 
+  const zoom = (delta) => {
+    // Buscamos el elemento dentro de la librería que handlea el evento de zoom
+    // y le disparamos un evento de mouse wheel, exactamente en el centro
+    // del elemento (el mismo gráfico). El delta es la "intensidad" del
+    // mousewheel, qué tanto le das, cuanto mayor sea, más zoom
+    const targetNode = plotRef.current.querySelector(".zoom-and-drag");
+    const domRect = targetNode.getBoundingClientRect();
+    const centerX = (domRect.left + domRect.right) / 2;
+    const centerY = (domRect.top + domRect.bottom) / 2;
+    const wheelEvt = new WheelEvent("wheel", {
+      deltaY: delta,
+      clientX: centerX,
+      clientY: centerY,
+    });
+    targetNode.dispatchEvent(wheelEvt);
+  };
+  const zoomIn = () => {
+    zoom(-settings.CHART_ZOOM_INTENSITY);
+  };
+  const zoomOut = () => {
+    zoom(settings.CHART_ZOOM_INTENSITY);
+  };
+
   return (
     <PlotWrapper ref={wrapperRef}>
-      <Plot id="plot" />
+      <ZoomIconsContainer>
+        <AddIcon onClick={zoomIn} />
+        <RemoveIcon onClick={zoomOut} />
+      </ZoomIconsContainer>
+      <Plot id="plot" ref={plotRef} />
     </PlotWrapper>
   );
 };
