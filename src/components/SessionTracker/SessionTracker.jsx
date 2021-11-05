@@ -8,7 +8,7 @@ import {getHttpClient} from "../../utils/buildHttpClient";
 
 export const SessionTracker = () => {
   const dispatch = useDispatch();
-  const {forceLogout, userData} = useSelector((store) => store.auth);
+  const {forceLogout, userData, loggedIn} = useSelector((store) => store.auth);
 
   const token = localStorage.getItem("token");
   const parseJwt = (token) => {
@@ -25,7 +25,10 @@ export const SessionTracker = () => {
   useEffect(() => {
     const decodedJwt = parseJwt(token);
     // Multiplico por 1000 para hacer la conversion a milisegundos
-    if (!decodedJwt || (decodedJwt && decodedJwt.exp * 1000 < Date.now())) {
+    if (
+      (!decodedJwt && loggedIn) ||
+      (decodedJwt && decodedJwt.exp * 1000 < Date.now())
+    ) {
       dispatch(logout());
       displaySessionExpiredMessage();
     }
