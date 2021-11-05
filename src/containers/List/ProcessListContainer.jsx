@@ -1,28 +1,32 @@
-import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import React, {useEffect, useState} from "react";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
-import {createSearchProcessesThunk} from "../../redux/processesSlice";
 import {useQuery} from "../../routing/hooks/useQuery";
 import {ProcessSearchContainer} from "./Search/ProcessSearchContainer";
 import {ProcessList} from "../../components/List/ProcessList/ProcessList";
 import {ListHeader} from "../../components/List/common/ListHeader";
 import {URLS} from "../../routing/urls";
+import {searchProcesses} from "../../services/processes";
 
-export function ProcessListContainer() {
-  const loading = useSelector((state) => state.loading);
-  const {processes} = useSelector((state) => state.processes);
+export const ProcessListContainer = () => {
+  const [loading, setLoading] = useState(false);
+  const [processes, setProcesses] = useState(null);
   const dispatch = useDispatch();
 
   let query = useQuery();
 
-  useEffect(() => {
-    dispatch(
-      createSearchProcessesThunk(
-        query.get("adsorbato"),
-        query.get("adsorbente"),
-      )(),
+  useEffect(async () => {
+    setLoading(true);
+    const processesResponse = await searchProcesses(
+      query.get("adsorbato"),
+      query.get("adsorbente"),
     );
+
+    if (!processesResponse.status) {
+      setProcesses(processesResponse);
+    }
+    setLoading(false);
     dispatch(fetchAdsorbatesWithIupacNotation());
     dispatch(fetchAdsorbentsWithParticleSize());
   }, []);
@@ -33,8 +37,9 @@ export function ProcessListContainer() {
       <ProcessSearchContainer
         selectedAdsorbateId={query.get("adsorbato")}
         selectedAdsorbentId={query.get("adsorbente")}
+        setProcesses={setProcesses}
       />
       <ProcessList loading={loading} processes={processes} />
     </>
   );
-}
+};
