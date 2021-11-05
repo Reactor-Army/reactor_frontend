@@ -11,6 +11,10 @@ export class HttpClient {
     this.store = store;
   }
 
+  resetToken() {
+    this.token = null;
+  }
+
   async get(url, params) {
     const response = await this.request(
       url,

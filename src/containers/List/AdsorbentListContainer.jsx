@@ -1,16 +1,20 @@
-import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
-import {fetchAdsorbents} from "../../redux/adsorbentsSlice";
+import React, {useEffect, useState} from "react";
 import {AdsorbentSearchContainer} from "./Search/AdsorbentSearchContainer";
 import {AdsorbentList} from "../../components/List/AdsorbentList/AdsorbentList";
 import {ListHeader} from "../../components/List/common/ListHeader";
 import {URLS} from "../../routing/urls";
+import {getAdsorbents} from "../../services/adsorbents";
 
 export function AdsorbentListContainer() {
-  const {adsorbents, loading} = useSelector((state) => state.adsorbents);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAdsorbents());
+  const [loading, setLoading] = useState(false);
+  const [adsorbents, setAdsorbents] = useState(null);
+  useEffect(async () => {
+    setLoading(true);
+    const response = await getAdsorbents();
+    if (!response.status) {
+      setAdsorbents(response);
+    }
+    setLoading(false);
   }, []);
 
   return (

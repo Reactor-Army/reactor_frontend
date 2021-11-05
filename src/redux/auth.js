@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {buildHttpClient} from "../utils/buildHttpClient";
+import {buildHttpClient, getHttpClient} from "../utils/buildHttpClient";
 
 const initialState = {
   userData: null,
@@ -21,6 +21,8 @@ const authSlice = createSlice({
     logout(state) {
       state.loggedIn = false;
       state.userData = null;
+      localStorage.removeItem("token");
+      getHttpClient().resetToken();
     },
     setForceLogout(state) {
       state.forceLogout = true;
