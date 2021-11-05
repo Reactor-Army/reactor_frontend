@@ -1,16 +1,21 @@
-import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
-import {fetchAdsorbates} from "../../redux/adsorbatesSlice";
+import React, {useEffect, useState} from "react";
 import {AdsorbateSearchContainer} from "./Search/AdsorbateSearchContainer";
 import {AdsorbateList} from "../../components/List/AdsorbateList/AdsorbateList";
 import {ListHeader} from "../../components/List/common/ListHeader";
 import {URLS} from "../../routing/urls";
+import {getAdsorbates} from "../../services/adsorbates";
 
 export function AdsorbateListContainer() {
-  const {adsorbates, loading} = useSelector((state) => state.adsorbates);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAdsorbates());
+  const [loading, setLoading] = useState(false);
+  const [adsorbates, setAdsorbates] = useState(null);
+
+  useEffect(async () => {
+    setLoading(true);
+    const response = await getAdsorbates();
+    if (!response.status) {
+      setAdsorbates(response);
+    }
+    setLoading(false);
   }, []);
 
   return (
