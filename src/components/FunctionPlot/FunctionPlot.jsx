@@ -2,9 +2,10 @@ import React, {useRef, useState, useEffect} from "react";
 import functionPlot from "function-plot";
 import {Plot, PlotWrapper, ZoomIconsContainer} from "./FunctionPlotStyles";
 import {appColors} from "../../common/styles";
+import {settings} from "../../config/settings";
+import {ZoomButtonWrapper} from "./FunctionPlotStyles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import {settings} from "../../config/settings";
 
 export const FunctionPlot = ({
   expressions,
@@ -105,8 +106,12 @@ export const FunctionPlot = ({
   return (
     <PlotWrapper ref={wrapperRef}>
       <ZoomIconsContainer>
-        <AddIcon onClick={zoomIn} />
-        <RemoveIcon onClick={zoomOut} />
+        <ZoomButtonWrapper>
+          <AddIcon onClick={zoomIn} />
+        </ZoomButtonWrapper>
+        <ZoomButtonWrapper>
+          <RemoveIcon onClick={zoomOut} />
+        </ZoomButtonWrapper>
       </ZoomIconsContainer>
       <Plot id="plot" />
     </PlotWrapper>
