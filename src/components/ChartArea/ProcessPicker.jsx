@@ -6,10 +6,9 @@ import {ProcessSearchContainer} from "../CalculateVolumeView/ProcessSearchContai
 import {ProcessPickerResults} from "../CalculateVolumeView/ProcessPickerResults";
 import {ProcessList} from "../List/ProcessList/ProcessList";
 
-export const ProcessPicker = () => {
+export const ProcessPicker = ({setProcessId}) => {
   const [processes, setProcesses] = useState(null);
   const [process, setProcess] = useState(null);
-  const [processId, setProcessId] = useState(null);
   const [loading, setLoading] = useState(false);
   const _setProcesses = (newProcesses) => {
     setProcess(null);
@@ -27,9 +26,6 @@ export const ProcessPicker = () => {
     setLoading(false);
   };
 
-  if (loading) {
-    console.log(processId);
-  }
   return (
     <>
       <SectionHeader>

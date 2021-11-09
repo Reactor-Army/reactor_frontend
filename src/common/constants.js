@@ -2,6 +2,7 @@ import {
   THOMAS_REQUEST_FIELDS,
   ADAMS_BOHART_REQUEST_FIELDS,
   YOON_NELSON_REQUEST_FIELDS,
+  CHART_AREA_FIELDS,
 } from "./fields";
 
 export const ENTER_KEY = "Enter";
@@ -98,4 +99,9 @@ export const MODEL_FORM_INITIAL_VALUES = {
   adsorbatoId: null,
   adsorbenteId: null,
   sistemaId: null,
+};
+
+export const CHART_AREA_FORM_INITIAL_VALUES = {
+  [CHART_AREA_FIELDS.CHART_ID]: null,
+  [CHART_AREA_FIELDS.BASE_LINE_ID]: null,
 };
