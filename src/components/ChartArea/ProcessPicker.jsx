@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {getProcess} from "../../services/processes";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {SectionHeader} from "../Detail/SectionHeader";
-import {ProcessSearchContainer} from "../../containers/List/Search/ProcessSearchContainer";
+import {ProcessSearchContainer} from "../CalculateVolumeView/ProcessSearchContainer";
 import {ProcessPickerResults} from "../CalculateVolumeView/ProcessPickerResults";
 import {ProcessList} from "../List/ProcessList/ProcessList";
 
