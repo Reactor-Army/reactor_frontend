@@ -1,11 +1,19 @@
 import {ProcessSearch} from "../Search/ProcessSearch";
-import React, {useState} from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {getAdsorbentsWithParticleSize} from "../../services/adsorbents";
 import {searchProcesses} from "../../services/processes";
 import {idFromName} from "../../utils/idFromName";
+import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
+import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 
 export const ProcessSearchContainer = ({setProcesses}) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAdsorbatesWithIupacNotation());
+    dispatch(fetchAdsorbentsWithParticleSize());
+  }, []);
+
   const [adsorbent, setAdsorbent] = useState("");
   const handleAdsorbentChange = async (event) => {
     setAdsorbent(event.target.innerText);
