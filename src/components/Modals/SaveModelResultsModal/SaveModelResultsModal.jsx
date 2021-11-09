@@ -102,7 +102,9 @@ export const SaveModelResultsModal = ({
   }, [adsorbateId, adsorbentId]);
 
   useEffect(() => {
-    dispatch(fetchProcess(selectedSystemId));
+    if (selectedSystemId) {
+      dispatch(fetchProcess(selectedSystemId));
+    }
   }, [selectedSystemId]);
 
   const reset = () => {
