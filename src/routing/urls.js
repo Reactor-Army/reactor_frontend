@@ -26,6 +26,7 @@ export const URLS = {
   USER_CREATE: "/usuarios/agregar",
   USER_EDIT: "/usuarios/:id/modificar",
   FULL_APP_DETAIL: "/aplicacion-completa",
+  CHART_AREA: "/area",
 };
 
 const processUrlId = (url, id) => {

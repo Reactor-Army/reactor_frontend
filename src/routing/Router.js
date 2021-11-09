@@ -29,6 +29,7 @@ import {UserCreateRoute} from "./routes/UserCreateRoute";
 import {UserEditRoute} from "./routes/UserEditRoute";
 import {FullAppBenefitsRoute} from "./routes/FullAppBenefitsRoute/FullAppBenefitsRoute";
 import {ModelResultsRoute} from "./routes/ModelsRoute/ModelResultsRoute";
+import {ChartAreaRoute} from "./routes/ChartAreaRoute";
 
 export const Router = () => {
   return (
@@ -199,6 +200,11 @@ export const Router = () => {
         authed={0}
         component={ModelResultsRoute}
         path={URLS.MODEL_RESULTS}
+      />
+      <PrivateRoute
+        authed={0}
+        component={ChartAreaRoute}
+        path={URLS.CHART_AREA}
       />
       <PrivateRoute
         authed={0}
