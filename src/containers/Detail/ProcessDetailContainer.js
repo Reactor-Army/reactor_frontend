@@ -11,7 +11,6 @@ export const ProcessDetailContainer = ({processId}) => {
   const [process, setProcess] = useState(null);
   useEffect(async () => {
     const response = await getProcess(processId);
-    console.log(response);
     setProcess(response);
   }, []);
 
