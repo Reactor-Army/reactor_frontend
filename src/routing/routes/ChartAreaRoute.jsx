@@ -30,7 +30,6 @@ export const ChartAreaRoute = () => {
 
   if (loading) {
     console.log(processId);
-    return <CircularProgress />;
   }
   return (
     <>
@@ -39,13 +38,15 @@ export const ChartAreaRoute = () => {
         Seleccioná el sistema para el cual querés calcular el área
       </SectionHeader>
       <ProcessSearchContainer setProcesses={_setProcesses} />
-      {process === null && (
+      {loading && <CircularProgress />}
+
+      {!loading && process === null && (
         <ProcessPickerResults
           processes={processes}
           setProcess={changeProcess}
         />
       )}
-      {processId && <ProcessList processes={[process]} />}
+      {process && <ProcessList processes={[process]} />}
     </>
   );
 };
