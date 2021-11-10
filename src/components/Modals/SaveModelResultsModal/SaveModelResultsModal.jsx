@@ -24,6 +24,8 @@ import {getKineticConstantUnits} from "../../../common/UnitsUtils";
 import {saveBreakCurveData} from "../../../services/models";
 import {displayUpdateMessage} from "../../../utils/displayUpdateMessage";
 import {displayErrorMessage} from "../../../utils/displayErrorMessage";
+import {useHistory} from "react-router-dom";
+import {modelResultsUrlFor} from "../../../routing/urls";
 
 export const SaveModelResultsModal = ({
   closeModal,
@@ -33,6 +35,7 @@ export const SaveModelResultsModal = ({
   modelId,
 }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [errorValues, setErrorValues] = useState({});
   const [adsorbateId, setAdsorbateId] = useState();
   const [adsorbentId, setAdsorbentId] = useState();
@@ -59,6 +62,7 @@ export const SaveModelResultsModal = ({
           displayUpdateMessage();
           reset();
           closeModal();
+          history.push(modelResultsUrlFor(modelId));
         }
       } catch (error) {
         return error.response.data;
