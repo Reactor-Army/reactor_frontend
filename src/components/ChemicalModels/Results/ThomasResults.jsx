@@ -29,7 +29,7 @@ export const ThomasResults = ({responses, colors}) => {
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(responses);
+  
   return (
     <>
       <Row>
