@@ -147,3 +147,8 @@ export const StyledTabPanel = styled(TabPanel)`
     width: 100%;
   }
 `;
+
+export const SystemTitle = styled(Title)`
+  color: ${(props) => (props.color ? props.color : appColors.black)};
+  font-size: calc(13px + 0.4vw);
+`;

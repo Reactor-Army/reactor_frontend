@@ -5,6 +5,7 @@ import {
   Title,
   TabsContainer,
   StyledTabPanel,
+  SystemTitle,
 } from "../Models/ModelsStyles";
 import {ThomasResultFields} from "../Models/ThomasResultFields";
 import {ThomasModelPlot} from "../Models/Plots/ThomasModelPlot";
@@ -28,26 +29,38 @@ export const ThomasResults = ({responses, colors}) => {
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log(responses);
   return (
     <>
       <Row>
         <ModelTitle title={"Modelo de Thomas"} />
+        {responses[0].adsorbateName && responses[0].adsorbentName && (
+          <SystemTitle>
+            {responses[0].adsorbateName} - {responses[0].adsorbentName}
+          </SystemTitle>
+        )}
       </Row>
+
       <TabContext value={value}>
-        <TabsContainer>
-          <Tabs
-            value={value}
-            onChange={handleTabChange}
-            centered
-            TabIndicatorProps={{style: {background: appColors.primary}}}>
-            {responses.map((response, index) => {
-              return (
-                <Tab label={`Grafico ${index + 1}`} key={index} value={index} />
-              );
-            })}
-          </Tabs>
-        </TabsContainer>
+        {responses.length > 1 && (
+          <TabsContainer>
+            <Tabs
+              value={value}
+              onChange={handleTabChange}
+              centered
+              TabIndicatorProps={{style: {background: appColors.primary}}}>
+              {responses.map((response, index) => {
+                return (
+                  <Tab
+                    label={`Grafico ${index + 1}`}
+                    key={index}
+                    value={index}
+                  />
+                );
+              })}
+            </Tabs>
+          </TabsContainer>
+        )}
         <Results
           inputFields={<ThomasInputFields {...responses[0]} />}
           resultsInfo={responses.map((response, index) => (

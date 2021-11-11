@@ -36,6 +36,7 @@ export const ModelResults = ({responses, modelType}) => {
   };
   const ResultComponent = components[modelType];
   const {loggedIn} = useSelector((state) => state.auth);
+  console.log("Model Data: ", responses);
 
   return (
     <>
