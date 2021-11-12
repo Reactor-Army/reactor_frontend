@@ -28,6 +28,7 @@ import {modelResultsUrlFor} from "../urls";
 import {MODEL_ALIAS} from "../../common/constants";
 import {fetchModelData} from "../../redux/modelDataSlice";
 import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
+import {UNITS} from "../../common/fields";
 
 const INITIAL_ERROR = {
   message: null,
@@ -54,6 +55,7 @@ export const AdamsBohartRoute = () => {
       });
       return false;
     }
+
     dispatch(
       addModel({
         // eslint-disable-next-line id-length
@@ -78,6 +80,12 @@ export const AdamsBohartRoute = () => {
           ADAMS_BOHART_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
         modelType: MODEL_ALIAS.ADAMS_BOHART,
+        adsorbateName:
+          apiResponse.payload &&
+          apiResponse.payload.sistema.adsorbato.nombreIUPAC,
+        adsorbentName:
+          apiResponse.payload &&
+          `${apiResponse.payload.sistema.adsorbente.nombre} (${apiResponse.payload.sistema.adsorbente.particulaT})${UNITS.PARTICLE_SIZE}`,
       }),
     );
     setError(INITIAL_ERROR);

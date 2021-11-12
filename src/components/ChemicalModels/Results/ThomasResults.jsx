@@ -17,6 +17,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabContext from "@material-ui/lab/TabContext";
 import {appColors} from "../../../common/styles";
+import {MODEL_RESULT_TABS} from "./ModelResultsConstants";
 
 const thomasEquation = (data) => {
   const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
@@ -24,12 +25,12 @@ const thomasEquation = (data) => {
 };
 
 export const ThomasResults = ({responses, colors}) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(MODEL_RESULT_TABS[0]);
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
-  
+
   return (
     <>
       <Row>
@@ -54,7 +55,7 @@ export const ThomasResults = ({responses, colors}) => {
                   <Tab
                     label={`Grafico ${index + 1}`}
                     key={index}
-                    value={index}
+                    value={MODEL_RESULT_TABS[index]}
                   />
                 );
               })}
@@ -64,7 +65,7 @@ export const ThomasResults = ({responses, colors}) => {
         <Results
           inputFields={<ThomasInputFields {...responses[0]} />}
           resultsInfo={responses.map((response, index) => (
-            <StyledTabPanel value={index} key={index}>
+            <StyledTabPanel value={MODEL_RESULT_TABS[index]} key={index}>
               <DataFrame>
                 <Title color={colors[index % colors.length]}>
                   Resultados gráfico {++index}
