@@ -19,7 +19,7 @@ export const ChartPicker = ({onSubmit, processId}) => {
 
     setCharts(
       response
-        .filter((chart) => !chart.lineaBase)
+        .filter((chart) => !chart.esLineaBase)
         .map((chart) => {
           return {
             label: chart.nombre,
@@ -29,7 +29,7 @@ export const ChartPicker = ({onSubmit, processId}) => {
     );
     setBaseLines(
       response
-        .filter((chart) => chart.lineaBase)
+        .filter((chart) => chart.esLineaBase)
         .map((chart) => {
           return {
             label: chart.nombre,
