@@ -7,6 +7,7 @@ import {URLS} from "../../urls";
 import {getModelData} from "../../../services/models";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {errorCodes} from "../../../utils/errorStatusCodes";
+import {UNITS} from "../../../common/fields";
 
 export const ModelResultsRoute = () => {
   let {id} = useParams();
@@ -73,6 +74,8 @@ const modelResultToComponent = (data) => {
       N0: data.response.capacidadMaximaAbsorcion,
       modelType: data.modelo.modelo,
       modelName: data.modelo.nombreVerbose,
+      adsorbateName: data.sistema.adsorbato.nombreIUPAC,
+      adsorbentName: `${data.sistema.adsorbente.nombre} (${data.sistema.adsorbente.particulaT})${UNITS.PARTICLE_SIZE}`,
     },
   ];
 };

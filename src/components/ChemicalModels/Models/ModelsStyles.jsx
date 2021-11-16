@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import {appColors} from "../../../common/styles";
 import {makeStyles} from "@material-ui/core";
+import TabPanel from "@material-ui/lab/TabPanel";
 
 export const helpTextStyles = makeStyles(() => ({
   typography: {
@@ -37,12 +38,12 @@ export const PlotFrame = styled.div`
 `;
 
 export const DataFrame = styled.div`
-  width: calc(51% - 22px);
+  width: 49%;
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
   display: inline-flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 20px 8px;
+  gap: 5px;
+  padding: 20px 16px;
   margin-bottom: 25px;
 
   @media (max-width: 800px) {
@@ -66,9 +67,9 @@ export const Title = styled.div`
 
 export const DataFramesWrapper = styled.div`
   display: inline-flex;
-  gap: 15px;
   width: 100%;
   flex-wrap: wrap;
+  gap: 15px;
 `;
 
 const FormContainerWidth = 500;
@@ -128,4 +129,26 @@ export const ButtonsContainer = styled.div`
     flex-direction: column;
     gap: 20px;
   }
+`;
+
+export const TabsContainer = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const StyledTabPanel = styled(TabPanel)`
+  width: 49%;
+  padding: initial;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  & > div {
+    width: 100%;
+  }
+`;
+
+export const SystemTitle = styled(Title)`
+  color: ${(props) => (props.color ? props.color : appColors.black)};
+  font-size: calc(13px + 0.4vw);
 `;
