@@ -39,7 +39,7 @@ export const ChartPicker = ({onSubmit, processId}) => {
     );
   }, [processId]);
 
-  if (baseLines && baseLines.length === 0) {
+  if (!baseLines || baseLines.length === 0) {
     return (
       <MessageContainer>
         <Typography>
