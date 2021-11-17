@@ -8,7 +8,6 @@ export const Plot = ({curve, baseLine}) => {
     modelResultToComponent(curve)[0],
     modelResultToComponent(baseLine)[0],
   ];
-  console.log(responses);
   return (
     <PlotComponent
       points={responses.map((response) => response.points)}
