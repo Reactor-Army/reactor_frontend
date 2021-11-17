@@ -12,6 +12,8 @@ export const FunctionPlot = ({
   points = [],
   xAxisLabel = "",
   yAxisLabel = "",
+  // eslint-disable-next-line no-unused-vars
+  area = false,
 }) => {
   const wrapperRef = useRef(null);
   const [wrapperWidth, setWrapperWidth] = useState(0);
@@ -32,16 +34,28 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     const functions = expressions.map((formula, index) => {
+      let color = colors[index % colors.length].dark;
+      if (area) {
+        color = {
+          0: appColors.lightBlue,
+          1: appColors.white,
+          2: appColors.white,
+        }[index];
+      }
       return {
         fn: formula,
-        color: colors[index % colors.length].dark,
-        graphType: "polyline",
+        color: color,
+        closed: area,
       };
     });
 
     const plotPoints = points.map((set, index) => {
+      let points = set;
+      if (area && index !== 0) {
+        points = [];
+      }
       return {
-        points: set,
+        points: points,
         fnType: "points",
         graphType: "scatter",
         color: colors[index % colors.length].light,

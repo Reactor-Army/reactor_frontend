@@ -45,7 +45,7 @@ export const DataFrame = styled.div`
   gap: 5px;
   padding: 20px 16px;
   margin-bottom: 25px;
-
+  margin-top: 5px;
   @media (max-width: 800px) {
     width: 100%;
     padding: 20px;
