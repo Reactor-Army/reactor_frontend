@@ -4,6 +4,7 @@ import {CircularProgress} from "@material-ui/core";
 import {PageTitle} from "../../common/PageTitle";
 import {useHistory} from "react-router-dom";
 import {URLS} from "../urls";
+import {Plot} from "../../components/ChartArea/Plot";
 
 export const ChartAreaResultsRoute = () => {
   const {loading, results} = useSelector((state) => state.areaResults);
@@ -17,7 +18,7 @@ export const ChartAreaResultsRoute = () => {
     <>
       <PageTitle title={"Resultados"} />
       {loading && <CircularProgress />}
-      {results && <p>{results.reactorQ}</p>}
+      <Plot curve={results.curva} baseLine={results.lineaBase} />
     </>
   );
 };
