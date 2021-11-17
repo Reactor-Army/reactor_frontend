@@ -12,7 +12,12 @@ const areaResultsSlice = createSlice({
     results: null,
     loading: false,
   },
-  reducers: {},
+  reducers: {
+    setNull(state) {
+      state.loading = false;
+      state.results = null;
+    },
+  },
   extraReducers: {
     [calculateArea.pending]: (state) => {
       state.loading = true;
@@ -30,3 +35,4 @@ const areaResultsSlice = createSlice({
 });
 
 export default areaResultsSlice.reducer;
+export const {setNull} = areaResultsSlice.actions;
