@@ -20,7 +20,6 @@ export const Plot = ({curve, baseLine}) => {
     <PlotComponent
       points={responses.map((response) => response.points)}
       expressions={responses}
-      area={true}
     />
   );
 };

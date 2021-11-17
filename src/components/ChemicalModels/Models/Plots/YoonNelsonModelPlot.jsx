@@ -4,10 +4,7 @@ import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
 import {MODEL_AXIS_LABELS} from "../../../../common/fields";
 import {yoonNelsonCoefficients} from "../equations";
 
-export const YoonNelsonModelPlot = (
-  {expressions, points = []},
-  area = false,
-) => {
+export const YoonNelsonModelPlot = ({expressions, points = []}) => {
   const [validParamters, setValidParameters] = useState();
   const [functions, setFunctions] = useState();
 
@@ -42,7 +39,6 @@ export const YoonNelsonModelPlot = (
           points={points}
           xAxisLabel={MODEL_AXIS_LABELS.X_LABEL}
           yAxisLabel={MODEL_AXIS_LABELS.Y_LABEL}
-          area={area}
         />
       ) : (
         <ErrorMessageContainer>

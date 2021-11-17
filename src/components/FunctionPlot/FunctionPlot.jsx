@@ -1,9 +1,13 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import functionPlot from "function-plot";
-import {Plot, PlotWrapper, ZoomIconsContainer} from "./FunctionPlotStyles";
+import {
+  Plot,
+  PlotWrapper,
+  ZoomButtonWrapper,
+  ZoomIconsContainer,
+} from "./FunctionPlotStyles";
 import {appColors} from "../../common/styles";
 import {settings} from "../../config/settings";
-import {ZoomButtonWrapper} from "./FunctionPlotStyles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
@@ -12,8 +16,6 @@ export const FunctionPlot = ({
   points = [],
   xAxisLabel = "",
   yAxisLabel = "",
-  // eslint-disable-next-line no-unused-vars
-  area = false,
 }) => {
   const wrapperRef = useRef(null);
   const [wrapperWidth, setWrapperWidth] = useState(0);
@@ -34,28 +36,16 @@ export const FunctionPlot = ({
 
   useEffect(() => {
     const functions = expressions.map((formula, index) => {
-      let color = colors[index % colors.length].dark;
-      if (area) {
-        color = {
-          0: appColors.lightBlue,
-          1: appColors.white,
-          2: appColors.white,
-        }[index];
-      }
       return {
         fn: formula,
-        color: color,
-        closed: area,
+        color: colors[index % colors.length].dark,
+        graphType: "polyline",
       };
     });
 
     const plotPoints = points.map((set, index) => {
-      let points = set;
-      if (area && index !== 0) {
-        points = [];
-      }
       return {
-        points: points,
+        points: set,
         fnType: "points",
         graphType: "scatter",
         color: colors[index % colors.length].light,

@@ -4,11 +4,7 @@ import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
 import {MODEL_AXIS_LABELS} from "../../../../common/fields";
 import {adamsBohartCofficients} from "../equations";
 
-export const AdamsBohartModelPlot = ({
-  expressions,
-  points = [],
-  area = false,
-}) => {
+export const AdamsBohartModelPlot = ({expressions, points = []}) => {
   const [validParamters, setValidParameters] = useState();
   const [functions, setFunctions] = useState();
 
@@ -42,7 +38,6 @@ export const AdamsBohartModelPlot = ({
           points={points}
           xAxisLabel={MODEL_AXIS_LABELS.X_LABEL}
           yAxisLabel={MODEL_AXIS_LABELS.Y_LABEL}
-          area={area}
         />
       ) : (
         <ErrorMessageContainer>
