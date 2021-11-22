@@ -47,7 +47,9 @@ export const StyledSubmit = styled.button.attrs({
   width: 100px;
   border: none;
   font-weight: bold;
-  height: 40px;
+  height: 50px;
+  width: 120px;
+  margin-top: 20px;
 
   &:disabled {
     background: ${appColors.darkGray};
