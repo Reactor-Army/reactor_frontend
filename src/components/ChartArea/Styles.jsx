@@ -7,3 +7,9 @@ export const ChartPickerContainer = styled.div`
 export const TitleContainer = styled.div`
   margin-bottom: 15px;
 `;
+
+export const GoBackButtonContainer = styled.div`
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+`;

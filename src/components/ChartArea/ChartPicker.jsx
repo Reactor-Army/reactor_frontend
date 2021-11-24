@@ -16,27 +16,23 @@ export const ChartPicker = ({onSubmit, processId}) => {
   const [baseLines, setBaseLines] = useState(null);
   useEffect(async () => {
     const response = await getCurves(processId);
+    const [charts, baseLines] = [[], []];
 
-    setCharts(
-      response
-        .filter((chart) => !chart.esLineaBase)
-        .map((chart) => {
-          return {
-            label: chart.nombre,
-            value: chart.id,
-          };
-        }),
-    );
-    setBaseLines(
-      response
-        .filter((chart) => chart.esLineaBase)
-        .map((chart) => {
-          return {
-            label: chart.nombre,
-            value: chart.id,
-          };
-        }),
-    );
+    response
+      .map((curve) => {
+        return {
+          label: curve.nombre,
+          value: curve.id,
+          esLineaBase: curve.esLineaBase,
+        };
+      })
+      .forEach((curve) => {
+        curve.esLineaBase ? baseLines.push(curve) : charts.push(curve);
+      });
+
+    console.log(charts);
+    setCharts(charts);
+    setBaseLines(baseLines);
   }, [processId]);
 
   if (!baseLines || baseLines.length === 0) {

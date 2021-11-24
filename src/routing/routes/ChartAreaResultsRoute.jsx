@@ -7,8 +7,8 @@ import {URLS} from "../urls";
 import {Plot} from "../../components/ChartArea/Plot";
 import {AreaDataFrame} from "../../components/ChartArea/AreaDataFrame";
 import {SystemTitle} from "../../components/ChartArea/SystemTitle";
-import {Button} from "../../components/Button/Button";
 import {setNull} from "../../redux/areaResults";
+import {GoBackButton} from "../../components/ChartArea/GoBackButton";
 
 export const ChartAreaResultsRoute = () => {
   const {loading, results} = useSelector((state) => state.areaResults);
@@ -30,7 +30,7 @@ export const ChartAreaResultsRoute = () => {
       <SystemTitle response={results} />
       <AreaDataFrame results={results} />
       <Plot curve={results.curva} baseLine={results.lineaBase} />
-      <Button size="medium" text="Volver" onClick={goBack} />
+      <GoBackButton onClick={goBack} />
     </>
   );
 };
