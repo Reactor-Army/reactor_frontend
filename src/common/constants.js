@@ -98,4 +98,5 @@ export const MODEL_FORM_INITIAL_VALUES = {
   adsorbatoId: null,
   adsorbenteId: null,
   sistemaId: null,
+  esLineaBase: false,
 };

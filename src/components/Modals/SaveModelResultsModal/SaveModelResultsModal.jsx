@@ -1,7 +1,11 @@
 import {Modal} from "../Modal";
 import React, {useState, useEffect} from "react";
 import {Form, FORM_LAYOUTS} from "../../Form/Form";
-import {FormTextField, FormSelectorField} from "../../Form/Fields/FormFields";
+import {
+  FormTextField,
+  FormSelectorField,
+  FormBooleanField,
+} from "../../Form/Fields/FormFields";
 import {MODEL_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {
   MODEL_PERSISTENCE_FIELDS,
@@ -55,6 +59,7 @@ export const SaveModelResultsModal = ({
           modelId,
           values.nombre,
           values.sistemaId,
+          values.esLineaBase,
         );
         if (result.status) {
           displayErrorMessage(result.response.message);
@@ -243,6 +248,11 @@ export const SaveModelResultsModal = ({
                   };
                 });
               }}
+            />,
+            <FormBooleanField
+              key={5}
+              name={MODEL_PERSISTENCE_REQUEST_FIELDS.BASE_LINE}
+              title={MODEL_PERSISTENCE_FIELDS.BASE_LINE}
             />,
           ]}
         />

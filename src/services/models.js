@@ -29,10 +29,15 @@ export const getModelData = async (model) => {
   return (await client.get(endpoint)).data;
 };
 
-export const saveBreakCurveData = async (modelId, nombre, sistemaId) => {
+export const saveBreakCurveData = async (
+  modelId,
+  nombre,
+  sistemaId,
+  esLineaBase,
+) => {
   const endpoint = `${settings.BACKEND_URL}curvas-ruptura/${modelId}`;
   const client = getHttpClient();
-  return (await client.post(endpoint, {nombre, sistemaId})).data;
+  return (await client.post(endpoint, {nombre, sistemaId, esLineaBase})).data;
 };
 
 export const deleteModel = async (model) => {
