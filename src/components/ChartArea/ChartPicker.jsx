@@ -30,7 +30,6 @@ export const ChartPicker = ({onSubmit, processId}) => {
         curve.esLineaBase ? baseLines.push(curve) : charts.push(curve);
       });
 
-    console.log(charts);
     setCharts(charts);
     setBaseLines(baseLines);
   }, [processId]);

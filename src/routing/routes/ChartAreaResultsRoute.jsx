@@ -21,6 +21,7 @@ export const ChartAreaResultsRoute = () => {
   if (results === null) {
     // Redirect to chart area root route if user accesses by URL
     history.push(URLS.CHART_AREA);
+    return null;
   }
 
   return (
