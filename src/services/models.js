@@ -45,3 +45,10 @@ export const deleteModel = async (model) => {
   const client = getHttpClient();
   return (await client.delete(endpoint)).data;
 };
+
+export const calculateReactorQ = async (values) => {
+  const {idCurva, idLineaBase} = values;
+  const endpoint = `${settings.BACKEND_URL}curvas-ruptura/reactor-q`;
+  const client = getHttpClient();
+  return (await client.post(endpoint, {idCurva, idLineaBase})).data;
+};

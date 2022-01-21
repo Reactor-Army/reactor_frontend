@@ -1,9 +1,13 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import functionPlot from "function-plot";
-import {Plot, PlotWrapper, ZoomIconsContainer} from "./FunctionPlotStyles";
+import {
+  Plot,
+  PlotWrapper,
+  ZoomButtonWrapper,
+  ZoomIconsContainer,
+} from "./FunctionPlotStyles";
 import {appColors} from "../../common/styles";
 import {settings} from "../../config/settings";
-import {ZoomButtonWrapper} from "./FunctionPlotStyles";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 

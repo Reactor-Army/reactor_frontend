@@ -11,6 +11,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {logout} from "../../redux/auth";
 import {userHasRole} from "../../utils/userHasRole";
 import {settings} from "../../config/settings";
+import {AreaSidebarItem} from "./AreaSidebarItem";
 
 export const SidebarContent = ({handleDrawerToggle}) => {
   const history = useHistory();
@@ -79,13 +80,18 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       onClick={() => navigateTo(URLS.PROCESS_EFFLUENT_VOLUME)}
       key={11}
     />,
+    <AreaSidebarItem
+      text="Calcular área"
+      onClick={() => navigateTo(URLS.CHART_AREA)}
+      key={12}
+    />,
     <ExpandableSidebarItem
       title="Curvas de Ruptura"
       items={modelItems}
       onItemClick={(path) => {
         navigateTo(path);
       }}
-      key={12}
+      key={13}
     />,
   ];
 

@@ -214,3 +214,8 @@ export const MODEL_UNITS = {
   FIFTY_PERCENT_TIME: "min",
   KYN: "1/min",
 };
+
+export const CHART_AREA_FIELDS = {
+  CHART_ID: "idCurva",
+  BASE_LINE_ID: "idLineaBase",
+};
