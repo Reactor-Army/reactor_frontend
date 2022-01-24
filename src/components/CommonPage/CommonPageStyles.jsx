@@ -24,4 +24,5 @@ export const SidebarWrapper = styled.div`
 
 export const Container = styled.div`
   width: 100vw;
+  overflow-x: hidden;
 `;
