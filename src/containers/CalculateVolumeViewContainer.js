@@ -1,20 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {CalculateVolumeView} from "../components/CalculateVolumeView/CalculateVolumeView";
-import {useDispatch} from "react-redux";
 import {calculateVolume} from "../services/calculateVolume";
-import {fetchAdsorbatesWithIupacNotation} from "../redux/adsorbatesSlice";
-import {fetchAdsorbentsWithParticleSize} from "../redux/adsorbentsSlice";
 import {getProcess} from "../services/processes";
 
 export const CalculateVolumeViewContainer = () => {
-  const dispatch = useDispatch();
   const [processId, setProcessId] = useState(null);
   const [process, setProcess] = useState(null);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    dispatch(fetchAdsorbatesWithIupacNotation());
-    dispatch(fetchAdsorbentsWithParticleSize());
-  }, []);
 
   const changeProcess = async (id) => {
     setProcessId(id);

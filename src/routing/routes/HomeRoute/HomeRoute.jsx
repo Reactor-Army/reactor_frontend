@@ -80,6 +80,13 @@ export const HomeRoute = () => {
             history.push(URLS.MODEL_SELECTION);
           }}
         />
+        <ExpandableCard
+          icon={plot}
+          text="Cálculo de áreas de curvas"
+          onClick={() => {
+            history.push(URLS.CHART_AREA);
+          }}
+        />
       </CardsContainer>
       <ImageContainer>
         <Image src={fiubaLogo} alt="Logo Fiuba" />

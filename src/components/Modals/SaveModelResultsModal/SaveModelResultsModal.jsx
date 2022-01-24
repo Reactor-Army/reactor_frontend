@@ -1,7 +1,11 @@
 import {Modal} from "../Modal";
 import React, {useState, useEffect} from "react";
 import {Form, FORM_LAYOUTS} from "../../Form/Form";
-import {FormTextField, FormSelectorField} from "../../Form/Fields/FormFields";
+import {
+  FormTextField,
+  FormSelectorField,
+  FormBooleanField,
+} from "../../Form/Fields/FormFields";
 import {MODEL_FORM_INITIAL_VALUES} from "../../../common/constants";
 import {
   MODEL_PERSISTENCE_FIELDS,
@@ -24,6 +28,8 @@ import {getKineticConstantUnits} from "../../../common/UnitsUtils";
 import {saveBreakCurveData} from "../../../services/models";
 import {displayUpdateMessage} from "../../../utils/displayUpdateMessage";
 import {displayErrorMessage} from "../../../utils/displayErrorMessage";
+import {useHistory} from "react-router-dom";
+import {modelResultsUrlFor} from "../../../routing/urls";
 
 export const SaveModelResultsModal = ({
   closeModal,
@@ -33,6 +39,7 @@ export const SaveModelResultsModal = ({
   modelId,
 }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [errorValues, setErrorValues] = useState({});
   const [adsorbateId, setAdsorbateId] = useState();
   const [adsorbentId, setAdsorbentId] = useState();
@@ -52,6 +59,7 @@ export const SaveModelResultsModal = ({
           modelId,
           values.nombre,
           values.sistemaId,
+          values.esLineaBase,
         );
         if (result.status) {
           displayErrorMessage(result.response.message);
@@ -59,6 +67,7 @@ export const SaveModelResultsModal = ({
           displayUpdateMessage();
           reset();
           closeModal();
+          history.push(modelResultsUrlFor(modelId));
         }
       } catch (error) {
         return error.response.data;
@@ -102,7 +111,9 @@ export const SaveModelResultsModal = ({
   }, [adsorbateId, adsorbentId]);
 
   useEffect(() => {
-    dispatch(fetchProcess(selectedSystemId));
+    if (selectedSystemId) {
+      dispatch(fetchProcess(selectedSystemId));
+    }
   }, [selectedSystemId]);
 
   const reset = () => {
@@ -237,6 +248,11 @@ export const SaveModelResultsModal = ({
                   };
                 });
               }}
+            />,
+            <FormBooleanField
+              key={5}
+              name={MODEL_PERSISTENCE_REQUEST_FIELDS.BASE_LINE}
+              title={MODEL_PERSISTENCE_FIELDS.BASE_LINE}
             />,
           ]}
         />

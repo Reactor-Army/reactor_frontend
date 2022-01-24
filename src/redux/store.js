@@ -11,6 +11,7 @@ import usersReducer from "./usersSlice";
 import userReducer from "./userSlice";
 import rolesReducer from "./rolesSlice";
 import modelDataReducer from "./modelDataSlice";
+import areaResultsReducer from "./areaResults";
 
 import thunkMiddleware from "redux-thunk";
 
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   roles: rolesReducer,
   modelData: modelDataReducer,
+  areaResults: areaResultsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

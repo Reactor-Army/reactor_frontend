@@ -9,7 +9,9 @@ import {CurvesTable} from "./Curves/CurvesTable";
 import {DetailTabsContainer} from "./Styles";
 
 export const DetailTabs = ({process}) => {
-  const [value, setValue] = React.useState(0);
+  const TAB_DETAILS = "Details";
+  const TAB_CHARTS = "Charts";
+  const [value, setValue] = React.useState(TAB_DETAILS);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -23,13 +25,13 @@ export const DetailTabs = ({process}) => {
           onChange={handleChange}
           centered
           TabIndicatorProps={{style: {background: appColors.primary}}}>
-          <Tab label="Detalles" value={0} />
-          <Tab label="Curvas de ruptura" value={1} />
+          <Tab label="Detalles" value={TAB_DETAILS} />
+          <Tab label="Curvas de ruptura" value={TAB_CHARTS} />
         </Tabs>
-        <TabPanel value={0}>
+        <TabPanel value={TAB_DETAILS}>
           <DetailGrid process={process} />
         </TabPanel>
-        <TabPanel value={1}>
+        <TabPanel value={TAB_CHARTS}>
           <CurvesTable processId={process.id} />
         </TabPanel>
       </TabContext>

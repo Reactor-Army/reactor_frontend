@@ -143,6 +143,7 @@ export const MODEL_PERSISTENCE_FIELDS = {
   ADSORBATE: "Adsorbato",
   ADSORBENT: "Adsorbente",
   SYSTEM: "Sistema",
+  BASE_LINE: "Es línea base",
 };
 
 export const MODEL_PERSISTENCE_REQUEST_FIELDS = {
@@ -150,6 +151,7 @@ export const MODEL_PERSISTENCE_REQUEST_FIELDS = {
   ADSORBATE_ID: "adsorbatoId",
   ADSORBENT_ID: "adsorbenteId",
   SYSTEM_ID: "sistemaId",
+  BASE_LINE: "esLineaBase",
 };
 
 const COMMON_MODEL_REQUEST_FIELDS = {
@@ -211,4 +213,9 @@ export const MODEL_UNITS = {
   N0: "mmol/cm³",
   FIFTY_PERCENT_TIME: "min",
   KYN: "1/min",
+};
+
+export const CHART_AREA_FIELDS = {
+  CHART_ID: "idCurva",
+  BASE_LINE_ID: "idLineaBase",
 };

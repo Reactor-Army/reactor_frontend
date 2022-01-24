@@ -28,6 +28,7 @@ import {addModel, reset} from "../../redux/modelDataSlice";
 import {modelResultsUrlFor} from "../urls";
 import {fetchModelData} from "../../redux/modelDataSlice";
 import {LoadScreen} from "../../components/LoadScreen/LoadScreen";
+import {UNITS} from "../../common/fields";
 
 const INITIAL_ERROR = {
   message: null,
@@ -68,6 +69,12 @@ export const YoonNelsonRoute = () => {
           YOON_NELSON_RESPONSE_FIELDS.OBSERVATIONS
         ].map((observation) => [observation.x, observation.y]),
         modelType: MODEL_ALIAS.YOON_NELSON,
+        adsorbateName:
+          apiResponse.payload &&
+          apiResponse.payload.sistema.adsorbato.nombreIUPAC,
+        adsorbentName:
+          apiResponse.payload &&
+          `${apiResponse.payload.sistema.adsorbente.nombre} (${apiResponse.payload.sistema.adsorbente.particulaT})${UNITS.PARTICLE_SIZE}`,
       }),
     );
     setError(INITIAL_ERROR);
