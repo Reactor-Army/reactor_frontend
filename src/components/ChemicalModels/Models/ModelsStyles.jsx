@@ -54,7 +54,6 @@ export const DataFrame = styled.div`
 
 export const DataFrameContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-row-gap: 10px;
 `;
 
@@ -83,6 +82,7 @@ export const FormContainer = styled.div`
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
   border-radius: 8px;
   padding: 15px;
+  margin-bottom: 20px;
 
   @media (max-width: 700px) {
     background: ${appColors.pageBackground};

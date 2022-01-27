@@ -18,6 +18,9 @@ export const AreaDataFrame = ({results}) => {
         <Field>
           <b>Capacidad máxima de adsorción (q):</b> {results.reactorQ}
         </Field>
+        <Field>
+          <b>Contaminante Adsorbido (mmol):</b> {results.contaminanteAdsorbido}
+        </Field>
       </DataFrameContent>
     </DataFrame>
   );

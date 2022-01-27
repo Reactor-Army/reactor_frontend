@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
 import {SectionHeaderContainer} from "../Detail/Styles";
 import {Title} from "../ChemicalModels/Models/ModelsStyles";
 
 export const CalculateVolumeFormContainer = styled.div`
-  margin-top: 20px;
   width: 400px;
+  margin-bottom: 10px;
   @media (max-width: 412px) {
     width: 250px;
   }
