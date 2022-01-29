@@ -2,19 +2,20 @@ import React from "react";
 import {Label} from "../Detail/Label";
 import {getKineticConstantUnits} from "../../common/UnitsUtils";
 import {ProcessList} from "../List/ProcessList/ProcessList";
-import {SelectedProcessContainer, SelectedProcessTitle} from "./Styles";
 import {
-  DataFrame,
-  DataFrameContent,
-  Title,
-} from "../ChemicalModels/Models/ModelsStyles";
+  SelectedProcessContainer,
+  SelectedProcessTitle,
+  StyledDataFrame,
+  StyledTitle,
+} from "./Styles";
+import {DataFrameContent} from "../ChemicalModels/Models/ModelsStyles";
 
 export const SelectedProcess = ({process}) => {
   return (
     <SelectedProcessContainer>
-      <Title>Sistema seleccionado</Title>
+      <StyledTitle>Sistema seleccionado</StyledTitle>
       <ProcessList processes={[process]} />
-      <DataFrame>
+      <StyledDataFrame>
         <DataFrameContent>
           <SelectedProcessTitle>Datos relevantes</SelectedProcessTitle>
           <Label
@@ -32,7 +33,7 @@ export const SelectedProcess = ({process}) => {
             value={process.ordenReaccion ? process.ordenReaccion : "-"}
           />
         </DataFrameContent>
-      </DataFrame>
+      </StyledDataFrame>
     </SelectedProcessContainer>
   );
 };

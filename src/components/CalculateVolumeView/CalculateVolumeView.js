@@ -53,7 +53,7 @@ export const CalculateVolumeView = ({
           </InvalidFormMessage>
         ) : (
           <VolumeFormContainer>
-            <FormContainer height={"500px"}>
+            <FormContainer>
               {volumeResult === null ? (
                 <>
                   <Title>Datos del efluente</Title>
