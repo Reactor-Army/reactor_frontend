@@ -39,15 +39,14 @@ export const InvalidFormMessage = styled.div`
 export const SelectedProcessContainer = styled.div`
   display: flex;
   gap: 20px;
-  align-items: left;
+  align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: 44vw;
+  width: 42vw;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 500px) {
     margin-top: 40px;
-    max-width: 100%;
-    align-items: flex-start;
+    width: 100%;
   }
 `;
 
@@ -55,7 +54,12 @@ export const VolumeFormContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
-  justify-content: space-evenly;
+  padding: 0 ${contentPadding};
+  gap: 30px;
+
+  @media (max-width: 500px) {
+    gap: initial;
+  }
 `;
 
 export const VolumeResultsTitle = styled(Title)`
