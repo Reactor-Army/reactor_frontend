@@ -6,6 +6,7 @@ import {
   DataFrame,
   Title as DataFrameTitle,
 } from "../ChemicalModels/Models/ModelsStyles";
+import {BigButton} from "../Button/ButtonStyles";
 
 const contentPadding = "15px";
 export const CalculateVolumeFormContainer = styled.div`
@@ -81,9 +82,8 @@ export const SelectedProcessTitle = styled(SectionHeaderContainer)`
 export const VolumeResultsContainer = styled(CalculateVolumeFormContainer)`
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: ${contentPadding};
-  gap: 20px;
+  gap: 50px;
 `;
 
 export const StyledDataFrame = styled(DataFrame)`
@@ -97,6 +97,20 @@ export const StyledDataFrame = styled(DataFrame)`
 export const StyledTitle = styled(DataFrameTitle)`
   padding: 0 ${contentPadding};
   font-family: ${appFontFamily.card};
-  font-size: 1.25rem;
+  font-size: 24px;
   font-weight: 700;
+`;
+
+export const Button = styled(BigButton)`
+  align-self: center;
+
+  @media (max-width: 500px) {
+    align-self: flex-start;
+  }
+`;
+
+export const VolumeResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
