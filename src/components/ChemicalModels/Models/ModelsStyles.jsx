@@ -54,7 +54,6 @@ export const DataFrame = styled.div`
 
 export const DataFrameContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-row-gap: 10px;
 `;
 

@@ -43,7 +43,6 @@ export const SelectedProcessContainer = styled.div`
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 42vw;
 
   @media (max-width: 500px) {
     margin-top: 40px;
@@ -88,8 +87,10 @@ export const VolumeResultsContainer = styled(CalculateVolumeFormContainer)`
 
 export const StyledDataFrame = styled(DataFrame)`
   margin: 0 ${contentPadding};
+  width: calc(100% - 2 * ${contentPadding});
 
   @media (max-width: 500px) {
+    width: 100%;
     margin: initial;
   }
 `;
