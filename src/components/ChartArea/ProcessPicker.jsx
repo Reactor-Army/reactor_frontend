@@ -35,7 +35,7 @@ export const ProcessPicker = ({setProcessId}) => {
         la cantidad de adsorbato removido.
         <br />
         <br />
-        El cálculo de las áreas fue realizado por el método (poner el método)
+        El cálculo de las áreas fue realizado por el método de los trapecios
         <br />
         <br />
         Seleccioná el sistema para el cual querés realizar estos cálculos.
