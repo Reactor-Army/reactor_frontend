@@ -19,9 +19,11 @@ import systems from "../../../resources/images/systems.svg";
 import adsorbate from "../../../resources/images/adsorbates.svg";
 import adsorbent from "../../../resources/images/adsorbents.svg";
 import plot from "../../../resources/images/plot.svg";
+import {useSelector} from "react-redux";
 
 export const HomeRoute = () => {
   const history = useHistory();
+  const {loggedIn} = useSelector((state) => state.auth);
 
   return (
     <HomePageContainer>
@@ -80,13 +82,15 @@ export const HomeRoute = () => {
             history.push(URLS.MODEL_SELECTION);
           }}
         />
-        <ExpandableCard
-          icon={plot}
-          text="Cálculo de áreas de curvas"
-          onClick={() => {
-            history.push(URLS.CHART_AREA);
-          }}
-        />
+        {loggedIn && (
+          <ExpandableCard
+            icon={plot}
+            text="Cálculo de áreas de curvas"
+            onClick={() => {
+              history.push(URLS.CHART_AREA);
+            }}
+          />
+        )}
       </CardsContainer>
       <ImageContainer>
         <Image src={fiubaLogo} alt="Logo Fiuba" />
