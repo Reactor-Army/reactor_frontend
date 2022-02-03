@@ -29,17 +29,21 @@ export const ProcessPicker = ({setProcessId}) => {
   return (
     <>
       <SectionHeader>
-        En esta página podés calcular el área sobre la curva para la curva de
-        ruptura del sistema en estudio y restarle el área sobre la curva para el
-        ensayo con relleno inerte (línea de base). Así, la cantidad de adsorbato
-        removido será el área encerrada entre ambas curvas, calculada como la
-        resta. Seleccioná el sistema para el cual querés calcular el área.
+        En esta página podés calcular el área bajo la curva para la curva de
+        ruptura del sistema en estudio y el área bajo la curva para el ensayo
+        con relleno inerte (línea de base). La resta de ambas es proporcional a
+        la cantidad de adsorbato removido.
         <br />
         <br />
-        <b>Nota o comentario</b>: para cargar las curvas de ruptura y la línea
-        de base se deben ingresar los datos mediante los archivos
-        correspondientes desde la solapa de alguno de los modelos de curva de
-        ruptura.
+        El cálculo de las áreas fue realizado por el método (poner el método)
+        <br />
+        <br />
+        Seleccioná el sistema para el cual querés realizar estos cálculos.
+        <br />
+        <br />
+        <b>Nota:</b> para cargar las curvas de ruptura y la línea de base se
+        deben ingresar los datos mediante los archivos correspondientes desde la
+        solapa de alguno de los modelos de curva de ruptura.
       </SectionHeader>
       <ProcessSearchContainer setProcesses={_setProcesses} />
       {loading && <CircularProgress />}
