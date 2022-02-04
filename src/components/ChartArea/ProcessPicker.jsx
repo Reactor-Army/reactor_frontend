@@ -32,13 +32,9 @@ export const ProcessPicker = ({setProcessId}) => {
         En esta página podés calcular el área bajo la curva para la curva de
         ruptura del sistema en estudio y el área bajo la curva para el ensayo
         con relleno inerte (línea de base). La resta de ambas es proporcional a
-        la cantidad de adsorbato removido.
-        <br />
-        <br />
-        El cálculo de las áreas fue realizado por el método de los trapecios
-        <br />
-        <br />
-        Seleccioná el sistema para el cual querés realizar estos cálculos.
+        la cantidad de adsorbato removido. El cálculo de las áreas fue realizado
+        por el <b>método de los trapecios</b>. Seleccioná el sistema para el
+        cual querés realizar estos cálculos.
         <br />
         <br />
         <b>Nota:</b> para cargar las curvas de ruptura y la línea de base se
