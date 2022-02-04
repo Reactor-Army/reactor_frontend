@@ -96,10 +96,6 @@ export const ContentWrapper = styled.div`
   margin-top: 3vh;
   flex-wrap: wrap;
   justify-content: center;
-
-  @media (min-width: 700px) {
-    padding: 15px;
-  }
 `;
 
 export const TemplateHelpWrapper = styled.div`
