@@ -5,7 +5,7 @@ import {MODEL_ALIAS} from "../../common/constants";
 import {AdamsBohartModelPlot} from "../ChemicalModels/Models/Plots/AdamsBohartModelPlot";
 import {YoonNelsonModelPlot} from "../ChemicalModels/Models/Plots/YoonNelsonModelPlot";
 
-export const Plot = ({curve, baseLine}) => {
+export const Plot = ({curve, baseLine, showArea = false}) => {
   const plotComponentsByModel = {
     [MODEL_ALIAS.THOMAS]: ThomasModelPlot,
     [MODEL_ALIAS.ADAMS_BOHART]: AdamsBohartModelPlot,
@@ -20,6 +20,7 @@ export const Plot = ({curve, baseLine}) => {
     <PlotComponent
       points={responses.map((response) => response.points)}
       expressions={responses}
+      showArea={showArea}
     />
   );
 };
