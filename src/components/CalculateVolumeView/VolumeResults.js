@@ -1,25 +1,17 @@
 import React from "react";
 import {UNITS} from "../../common/fields";
-import {
-  VolumeResultsContainer,
-  VolumeResultsText,
-  VolumeResultsTitle,
-  Button,
-  VolumeResult,
-} from "./Styles";
+import {Button, VolumeResultsContainer} from "./Styles";
+import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 
 export const VolumeResults = ({volume, onResetClick}) => {
   return (
     <VolumeResultsContainer>
-      <VolumeResultsTitle>Resultado</VolumeResultsTitle>
-      <VolumeResult>
-        <VolumeResultsText>Volumen del reactor:</VolumeResultsText>
-        <VolumeResultsText>
-          <b>
-            {volume} {UNITS.VOLUME}
-          </b>
-        </VolumeResultsText>
-      </VolumeResult>
+      <DetailTable title="Resultado">
+        <DetailTableRow
+          label="Volumen del reactor:"
+          value={`${volume} ${UNITS.VOLUME}`}
+        />
+      </DetailTable>
       <Button onClick={onResetClick}>Calcular otro volumen</Button>
     </VolumeResultsContainer>
   );
