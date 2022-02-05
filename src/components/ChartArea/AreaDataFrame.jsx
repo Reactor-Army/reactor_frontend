@@ -17,7 +17,7 @@ export const AreaDataFrame = ({results}) => {
           <b>Área de la línea base:</b> {results.areaLineaBase}
         </Field>
         <Field>
-          <b>Resta de areas:</b> {results.reactorQ}
+          <b>Resta de áreas:</b> {results.reactorQ}
         </Field>
         <Field>
           <b>Cantidad adsorbida:</b> {results.contaminanteAdsorbido}{" "}
