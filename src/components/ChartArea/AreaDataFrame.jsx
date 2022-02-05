@@ -4,6 +4,7 @@ import {
 } from "../ChemicalModels/Models/ModelsStyles";
 import {Field} from "../ChemicalModels/ChemicalModelStyles";
 import React from "react";
+import {UNITS} from "../../common/fields";
 
 export const AreaDataFrame = ({results}) => {
   return (
@@ -16,10 +17,11 @@ export const AreaDataFrame = ({results}) => {
           <b>Área de la línea base:</b> {results.areaLineaBase}
         </Field>
         <Field>
-          <b>Capacidad máxima de adsorción (q):</b> {results.reactorQ}
+          <b>Resta de áreas:</b> {results.reactorQ}
         </Field>
         <Field>
-          <b>Contaminante Adsorbido (mmol):</b> {results.contaminanteAdsorbido}
+          <b>Cantidad adsorbida:</b> {results.contaminanteAdsorbido}{" "}
+          {UNITS.MASS}
         </Field>
       </DataFrameContent>
     </DataFrame>

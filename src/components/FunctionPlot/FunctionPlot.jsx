@@ -16,6 +16,7 @@ export const FunctionPlot = ({
   points = [],
   xAxisLabel = "",
   yAxisLabel = "",
+  showArea = false,
 }) => {
   const wrapperRef = useRef(null);
   const [wrapperWidth, setWrapperWidth] = useState(0);
@@ -43,6 +44,16 @@ export const FunctionPlot = ({
       };
     });
 
+    const areas = expressions
+      .map((formula, index) => {
+        return {
+          fn: formula,
+          color: index % 2 ? colors[index % colors.length].dark : "white",
+          closed: true,
+        };
+      })
+      .reverse();
+
     const plotPoints = points.map((set, index) => {
       return {
         points: set,
@@ -59,7 +70,9 @@ export const FunctionPlot = ({
       yAxis: {domain: [0, maxOrdinate * scaleFactor], label: yAxisLabel},
       xAxis: {domain: [0, maxAbscissa * scaleFactor], label: xAxisLabel},
       grid: true,
-      data: [...functions, ...plotPoints],
+      data: showArea
+        ? [...functions, ...areas, ...plotPoints]
+        : [...functions, ...plotPoints],
     });
   }, [wrapperWidth, points, maxAbscissa, maxOrdinate, expressions]);
 

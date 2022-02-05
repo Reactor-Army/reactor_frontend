@@ -60,6 +60,7 @@ export const UNITS = {
   CONCENTRATION: "mmol/L",
   VOLUME: "mL",
   PARTICLE_SIZE: "µm",
+  MASS: "mmol",
 };
 
 export const ADSORBATE_REQUEST_FIELDS = {
