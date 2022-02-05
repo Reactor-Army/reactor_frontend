@@ -81,6 +81,7 @@ export const SidebarContent = ({handleDrawerToggle}) => {
       key={11}
     />,
     <AreaSidebarItem
+      show={loggedIn}
       text="Calcular área"
       onClick={() => navigateTo(URLS.CHART_AREA)}
       key={12}

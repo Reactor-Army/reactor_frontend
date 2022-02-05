@@ -211,6 +211,7 @@ export const Router = () => {
         authed={0}
         component={ChartAreaRoute}
         path={URLS.CHART_AREA}
+        userProtected
       />
       <PrivateRoute
         authed={0}

@@ -82,6 +82,7 @@ export const FormContainer = styled.div`
   box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
   border-radius: 8px;
   padding: 15px;
+  margin-bottom: 20px;
 
   @media (max-width: 700px) {
     background: ${appColors.pageBackground};
@@ -95,10 +96,6 @@ export const ContentWrapper = styled.div`
   margin-top: 3vh;
   flex-wrap: wrap;
   justify-content: center;
-
-  @media (min-width: 700px) {
-    padding: 15px;
-  }
 `;
 
 export const TemplateHelpWrapper = styled.div`

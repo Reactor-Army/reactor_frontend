@@ -30,7 +30,7 @@ export const ChartAreaResultsRoute = () => {
       {loading && <CircularProgress />}
       <SystemTitle response={results} />
       <AreaDataFrame results={results} />
-      <Plot curve={results.curva} baseLine={results.lineaBase} />
+      <Plot curve={results.curva} baseLine={results.lineaBase} showArea />
       <GoBackButton onClick={goBack} />
     </>
   );

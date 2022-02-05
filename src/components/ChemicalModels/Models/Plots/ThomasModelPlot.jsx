@@ -4,7 +4,11 @@ import {FunctionPlot} from "../../../FunctionPlot/FunctionPlot";
 import {MODEL_AXIS_LABELS} from "../../../../common/fields";
 import {thomasCoefficients} from "../equations";
 
-export const ThomasModelPlot = ({expressions, points = []}) => {
+export const ThomasModelPlot = ({
+  expressions,
+  showArea = false,
+  points = [],
+}) => {
   const [validParamters, setValidParameters] = useState();
   const [functions, setFunctions] = useState();
 
@@ -34,6 +38,7 @@ export const ThomasModelPlot = ({expressions, points = []}) => {
     <>
       {validParamters && expressions.length ? (
         <FunctionPlot
+          showArea={showArea}
           expressions={functions}
           points={points}
           xAxisLabel={MODEL_AXIS_LABELS.X_LABEL}

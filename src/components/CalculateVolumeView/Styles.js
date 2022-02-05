@@ -10,8 +10,8 @@ import {BigButton} from "../Button/ButtonStyles";
 
 const contentPadding = "15px";
 export const CalculateVolumeFormContainer = styled.div`
-  margin-top: 20px;
   width: 400px;
+  margin-bottom: 10px;
   @media (max-width: 412px) {
     width: 250px;
   }

@@ -45,6 +45,22 @@ export const YoonNelsonModelForm = ({forceDisable, onSubmit}) => {
             });
           }}
         />,
+        <FormNumericField
+          disabled={!loggedIn}
+          placeholder={`${COMMON_MODEL_FIELDS.INITIAL_CONCENTRATION} [${MODEL_UNITS.INITIAL_CONCENTRATION}]`}
+          key={2}
+          name={YOON_NELSON_REQUEST_FIELDS.INITIAL_CONCENTRATION}
+          error={errorValues[YOON_NELSON_REQUEST_FIELDS.INITIAL_CONCENTRATION]}
+          validate={(value) => {
+            setErrorValues((previousState) => {
+              return {
+                ...previousState,
+                [YOON_NELSON_REQUEST_FIELDS.INITIAL_CONCENTRATION]:
+                  isSet(value) || isPositive(value),
+              };
+            });
+          }}
+        />,
       ]}
     />
   );

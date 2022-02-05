@@ -1,4 +1,4 @@
-const NO_LIMIT = "No regulado";
+const NO_LIMIT = "Sin datos";
 import {UNITS} from "../fields";
 
 export const spillLimit = (limit) => {
