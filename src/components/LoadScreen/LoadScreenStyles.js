@@ -17,7 +17,7 @@ export const FiubaLogo = styled.img`
 `;
 
 export const LoadingText = styled.p`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-weight: 500;
   font-size: calc(14px + 1vw);
   text-align: center;

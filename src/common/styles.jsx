@@ -29,15 +29,15 @@ export const appFontColors = {
 };
 
 export const appFontFamily = {
-  primary: "Lato, sans-serif",
-  card: "Roboto, Helvetica, Arial, sans-serif",
+  lato: "Lato, sans-serif",
+  roboto: "Roboto, Helvetica, Arial, sans-serif",
 };
 
 export const Row = styled.div`
   display: block;
   margin: 15px 0;
   font-weight: bold;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: calc(25px + 0.7vw);
 `;
 

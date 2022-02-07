@@ -25,28 +25,28 @@ export const ContentFrame = styled.div`
 export const Paragraph = styled.p`
   font-size: calc(12px + 0.4vw);
   line-height: 1.5;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   margin: 10px 0;
 `;
 
 export const SmallSubtitle = styled.h2`
   color: ${appColors.lightBlue};
   font-size: calc(10px + 0.9vw);
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   margin-bottom: 0px;
 `;
 
 export const Subtitle = styled.h2`
   color: ${appColors.lightBlue};
   font-size: calc(15px + 0.9vw);
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   margin-bottom: 0px;
 `;
 
 export const Title = styled.h1`
   color: ${appColors.lightBlue};
   font-size: calc(20px + 1.4vw);
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;

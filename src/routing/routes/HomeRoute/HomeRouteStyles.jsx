@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div`
 export const Header = styled.div`
   display: flex;
   font-size: calc(35px + 1.5vw);
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-weight: bold;
   color: ${appColors.white};
   text-transform: uppercase;

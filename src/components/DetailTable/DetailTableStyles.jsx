@@ -16,7 +16,7 @@ export const TableTitleContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: 20px;
   margin: 0 0 10px 10px;
   font-weight: bold;
@@ -30,7 +30,7 @@ export const Title = styled.div`
 
 export const Value = styled.td`
   font-size: 16px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   white-space: pre-wrap;
 
   @media (max-width: 768px) {
@@ -44,7 +44,7 @@ export const Value = styled.td`
 export const Label = styled.td`
   font-weight: bold;
   font-size: 16px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
 `;
 
 export const Row = styled.tr`

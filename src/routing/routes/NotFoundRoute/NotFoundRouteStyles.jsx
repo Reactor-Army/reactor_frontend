@@ -22,7 +22,7 @@ export const PageContainer = styled.div`
 `;
 
 export const NotFoundText = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: 30px;
   text-align: center;
   padding: 60px 0 10px 0;
@@ -36,7 +36,7 @@ export const NotFoundText = styled.div`
 `;
 
 export const ErrorCodeText = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appColors.primary};
   font-size: 120px;
   text-align: center;
@@ -52,7 +52,7 @@ export const ErrorCodeText = styled.div`
 export const HomeLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   text-align: center;
 
   &:hover {

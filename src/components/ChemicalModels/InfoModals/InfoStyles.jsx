@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import {appFontFamily} from "../../../common/styles";
 
 export const Info = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: calc(11px + 0.5vw);
   margin-bottom: 10px;
 `;
@@ -14,7 +14,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: calc(12px + 1vw);
   margin-bottom: 10px;
   text-align: center;
@@ -39,13 +39,13 @@ export const VariableContainer = styled.div`
 `;
 
 export const InfoVariable = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: calc(10px + 0.5vw);
   margin-left: 5px;
 `;
 
 export const NameVariable = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: calc(10px + 0.5vw);
   margin: 0 5px;
   font-weight: bold;

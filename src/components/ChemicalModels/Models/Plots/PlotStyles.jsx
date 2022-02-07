@@ -15,7 +15,7 @@ export const ErrorMessageContainer = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appFontColors.warning};
   text-align: center;
   font-size: 20px;

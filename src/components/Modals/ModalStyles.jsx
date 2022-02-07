@@ -33,7 +33,7 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const Message = styled.div`
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-size: 16px;
   margin-bottom: 20px;
   font-weight: bold;
