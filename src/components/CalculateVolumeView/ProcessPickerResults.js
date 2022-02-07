@@ -1,7 +1,10 @@
 import {InnerProcessList} from "../List/ProcessList/InnerProcessList";
-import {InvalidFormMessage, ProcessPickerContainer} from "./Styles";
+import {
+  InvalidFormMessage,
+  ProcessPickerContainer,
+  SectionHeader,
+} from "./Styles";
 import React from "react";
-import {SectionHeader} from "../Detail/SectionHeader";
 
 export const ProcessPickerResults = ({processes, setProcess}) => {
   return (
