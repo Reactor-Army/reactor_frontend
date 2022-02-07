@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {CalculateVolumeView} from "../components/CalculateVolumeView/CalculateVolumeView";
-import {calculateVolume} from "../services/calculateVolume";
-import {getProcess} from "../services/processes";
+import {CalculateVolumeView} from "../../components/CalculateVolumeView/CalculateVolumeView";
+import {calculateVolume} from "../../services/calculateVolume";
+import {getProcess} from "../../services/processes";
 
-export const CalculateVolumeViewContainer = () => {
+export const CalculateVolumeRoute = () => {
   const [processId, setProcessId] = useState(null);
   const [process, setProcess] = useState(null);
   const [loading, setLoading] = useState(false);

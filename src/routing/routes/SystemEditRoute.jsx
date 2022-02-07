@@ -19,11 +19,10 @@ export const SystemEditRoute = () => {
   let {id} = useParams();
 
   const system = useSelector((store) => store.process.process);
+
   useEffect(() => {
-    if (!system) {
-      dispatch(fetchProcess(id));
-    }
-  }, [system]);
+    dispatch(fetchProcess(id));
+  }, [id]);
 
   const onSubmit = async (values) => {
     if (!errors) {

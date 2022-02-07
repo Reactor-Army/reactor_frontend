@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {AdsorbateSearchContainer} from "./Search/AdsorbateSearchContainer";
+import {AdsorbateSearchContainer} from "../../containers/List/Search/AdsorbateSearchContainer";
 import {AdsorbateList} from "../../components/List/AdsorbateList/AdsorbateList";
 import {ListHeader} from "../../components/List/common/ListHeader";
-import {URLS} from "../../routing/urls";
+import {URLS} from "../urls";
 import {getAdsorbates} from "../../services/adsorbates";
+import {useSelector} from "react-redux";
 
-export function AdsorbateListContainer() {
+export const AdsorbatesRoute = () => {
   const [loading, setLoading] = useState(false);
   const [adsorbates, setAdsorbates] = useState(null);
+  const storedAdsorbates = useSelector((state) => state.adsorbates.adsorbates);
 
   useEffect(async () => {
     setLoading(true);
@@ -18,6 +20,10 @@ export function AdsorbateListContainer() {
     setLoading(false);
   }, []);
 
+  useEffect(async () => {
+    setAdsorbates(storedAdsorbates);
+  }, [storedAdsorbates]);
+
   return (
     <>
       <ListHeader title={"Adsorbatos"} creationUrl={URLS.ADSORBATE_CREATE} />
@@ -25,4 +31,4 @@ export function AdsorbateListContainer() {
       <AdsorbateList loading={loading} adsorbates={adsorbates} />
     </>
   );
-}
+};
