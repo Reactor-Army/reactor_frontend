@@ -2,13 +2,18 @@ import {PageTitle} from "../../common/PageTitle";
 import React, {useState} from "react";
 import {Typography} from "@material-ui/core";
 import {CalculateVolumeForm} from "./CalculateVolumeForm";
-import {InvalidFormMessage, VolumeFormContainer} from "./Styles";
+import {
+  InvalidFormMessage,
+  VolumeFormContainer,
+  FormContainer,
+  ResultsContainer,
+} from "./Styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {SelectedProcess} from "./SelectedProcess";
 import {SectionHeader} from "../Detail/SectionHeader";
 import {ProcessPickerResults} from "./ProcessPickerResults";
 import {ProcessSearchContainer} from "./ProcessSearchContainer";
-import {FormContainer, Title} from "../ChemicalModels/Models/ModelsStyles";
+import {Title} from "../ChemicalModels/Models/ModelsStyles";
 import {VolumeResults} from "./VolumeResults";
 
 export const CalculateVolumeView = ({
@@ -51,24 +56,22 @@ export const CalculateVolumeView = ({
             que no tiene asignada una constante cinética y un orden de reacción.
             Probá buscar otra combinación.
           </InvalidFormMessage>
-        ) : (
+        ) : volumeResult === null ? (
           <VolumeFormContainer>
-            <FormContainer height={"550px"}>
-              {volumeResult === null ? (
-                <>
-                  <Title>Datos del efluente</Title>
-                  <CalculateVolumeForm onSubmit={onSubmit} />
-                </>
-              ) : (
-                <VolumeResults
-                  volume={volumeResult}
-                  onResetClick={onResetClick}
-                />
-              )}
+            <FormContainer>
+              <>
+                <Title>Datos del efluente</Title>
+                <CalculateVolumeForm onSubmit={onSubmit} />
+              </>
             </FormContainer>
 
             <SelectedProcess process={process} />
           </VolumeFormContainer>
+        ) : (
+          <ResultsContainer>
+            <SelectedProcess process={process} />
+            <VolumeResults volume={volumeResult} onResetClick={onResetClick} />
+          </ResultsContainer>
         ))}
     </>
   );

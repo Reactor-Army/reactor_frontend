@@ -1,12 +1,11 @@
 import React, {useEffect} from "react";
-import Container from "@material-ui/core/Container";
 import {IdealAdsorbentSearchContainer} from "../../containers/List/Search/IdealAdsorbentSearchContainer";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import {IdealAdsorbentList} from "../../components/IdealAdsorbentList/IdealAdsorbentList";
 import {
-  TittleContainer,
+  TitleContainer,
   IdealAdsorbentListContainer,
 } from "../../containers/List/Styles";
 import {resetIdealAdsorbents} from "../../redux/idealAdsorbentsSlice";
@@ -23,10 +22,10 @@ export const IdealAdsorbentRoute = () => {
   }, []);
 
   return (
-    <Container style={{paddingLeft: "0", paddingRight: "0"}}>
-      <TittleContainer>
+    <>
+      <TitleContainer>
         <Typography variant="h5">¿Qué adsorbatos querés remover?</Typography>
-      </TittleContainer>
+      </TitleContainer>
 
       <IdealAdsorbentSearchContainer />
       <IdealAdsorbentListContainer>
@@ -35,6 +34,6 @@ export const IdealAdsorbentRoute = () => {
           idealAdsorbents={idealAdsorbents}
         />
       </IdealAdsorbentListContainer>
-    </Container>
+    </>
   );
 };

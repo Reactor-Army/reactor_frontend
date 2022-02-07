@@ -1,14 +1,23 @@
 import styled from "styled-components/macro";
 import {appColors, appFontColors, appFontFamily} from "../../common/styles";
-import {SectionHeaderContainer} from "../Detail/Styles";
 import {Title} from "../ChemicalModels/Models/ModelsStyles";
+import {BigButton} from "../Button/ButtonStyles";
 
+const contentPadding = "15px";
+const widthStyles = `
+min-width: min(300px, 80vw);
+max-width: 800px;
+`;
 export const CalculateVolumeFormContainer = styled.div`
-  width: 400px;
   margin-bottom: 10px;
-  @media (max-width: 412px) {
-    width: 250px;
-  }
+`;
+
+export const SectionHeader = styled.div`
+  font-family: ${appFontFamily.card};
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 20px 0;
+  padding: 0 ${contentPadding};
 `;
 
 export const ProcessPickerContainer = styled.div`
@@ -20,21 +29,29 @@ export const InvalidFormMessage = styled.div`
   font-family: ${appFontFamily.lato};
   color: ${appFontColors.warning};
   font-size: 16px;
+  padding: 0 ${contentPadding};
 `;
 
 export const SelectedProcessContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex: 2;
+  ${widthStyles};
+  @media (max-width: 500px) {
+    margin-top: 40px;
+    width: 100%;
+  }
 `;
 
 export const VolumeFormContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
-  justify-content: space-evenly;
+  padding: 0 ${contentPadding};
+  gap: 50px;
+  flex: 1;
+
+  @media (max-width: 500px) {
+    gap: initial;
+  }
 `;
 
 export const VolumeResultsTitle = styled(Title)`
@@ -46,17 +63,50 @@ export const VolumeResultsText = styled.div`
   font-family: ${appFontFamily.lato};
 `;
 
-export const SelectedProcessTitle = styled(SectionHeaderContainer)`
-  margin-top: 0;
-  color: ${appColors.lightBlue};
-  font-size: calc(14px + 0.4vw);
-  font-weight: bold;
-`;
-
 export const VolumeResultsContainer = styled(CalculateVolumeFormContainer)`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: 10px;
+  flex: 1;
+  ${widthStyles};
+`;
+
+export const Button = styled(BigButton)`
+  align-self: center;
+`;
+
+export const VolumeResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-width: 320px;
+  max-width: 500px;
+  background: ${appColors.white};
+  box-shadow: 0 7px 16px 0 rgb(0 0 0 / 20%);
+  border-radius: 8px;
   padding: 15px;
-  justify-content: space-between;
+  margin-bottom: 20px;
+  flex: 1;
+
+  @media (max-width: 500px) {
+    min-width: initial;
+    align-items: center;
+  }
+`;
+
+export const ResultsContainer = styled.div`
+  display: flex;
+  padding: 15px;
+  flex-wrap: wrap-reverse;
+  gap: 50px;
+
+  @media (max-width: 768px) {
+    gap: initial;
+  }
 `;
