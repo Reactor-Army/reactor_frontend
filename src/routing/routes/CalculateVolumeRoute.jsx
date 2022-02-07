@@ -35,15 +35,13 @@ export const CalculateVolumeRoute = () => {
   };
 
   return (
-    <>
-      <CalculateVolumeView
-        onSubmit={onSubmit}
-        process={process}
-        setProcess={changeProcess}
-        loading={loading}
-        volumeResult={volume}
-        onResetClick={reset}
-      />
-    </>
+    <CalculateVolumeView
+      onSubmit={onSubmit}
+      process={process}
+      setProcess={changeProcess}
+      loading={loading}
+      volumeResult={volume}
+      onResetClick={reset}
+    />
   );
 };
