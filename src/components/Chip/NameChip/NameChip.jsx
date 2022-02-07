@@ -18,7 +18,7 @@ export const NameChip = ({
         overflowX: "ellipsis",
         overflow: "hidden",
         whiteSpace: "nowrap",
-        width: "300px",
+        maxWidth: "300px",
       }}
       label={name}></Chip>
   );
