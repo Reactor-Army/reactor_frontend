@@ -39,7 +39,7 @@ export const Chip = styled.div`
     props.background ? props.background : appColors.primary};
   border-radius: 20px;
   min-width: 200px;
-  max-width: 400px;
+  max-width: min(100vw, 400px);
   height: 30px;
   display: flex;
   justify-content: center;
@@ -48,6 +48,6 @@ export const Chip = styled.div`
   color: ${(props) => (props.color ? props.color : appColors.black)};
   padding: 20px;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: calc(0.8rem + 1px);
   text-align: center;
 `;
