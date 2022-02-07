@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: ${appColors.pageBackground};
+  background: ${appColors.softGray};
 `;
 
 export const FiubaLogo = styled.img`

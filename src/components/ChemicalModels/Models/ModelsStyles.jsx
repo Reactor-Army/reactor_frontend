@@ -85,7 +85,7 @@ export const FormContainer = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 700px) {
-    background: ${appColors.pageBackground};
+    background: ${appColors.softGray};
     box-shadow: none;
   }
 `;

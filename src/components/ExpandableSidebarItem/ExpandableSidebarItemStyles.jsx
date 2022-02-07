@@ -9,7 +9,7 @@ export const expandableSidebarItemStyles = {
 
 export const ListItemButton = styled.div`
   cursor: pointer;
-  background: ${appColors.pageBackground};
+  background: ${appColors.softGray};
   display: flex;
   justify-content: space-between;
   align-items: center;

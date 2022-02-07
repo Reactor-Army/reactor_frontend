@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    background: appColors.pageBackground,
+    background: appColors.softGray,
     "&::-webkit-scrollbar": {
       width: "10px",
     },

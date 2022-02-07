@@ -20,8 +20,8 @@ export const AdsorbateCardContainer = ({adsorbate}) => {
   } = adsorbate;
   return (
     <AdsorbateCard
-      headerBackgroundColor={appColors.adsorbateCardHeader}
-      bodyBackgroundColor={appColors.pageBackground}
+      headerBackgroundColor={appColors.purple}
+      bodyBackgroundColor={appColors.softGray}
       header={capitalize(formatAdsorbateName(nombreIon, nombreIUPAC))}
       ionCharge={cargaIon}
       ionRadius={radioIonico}

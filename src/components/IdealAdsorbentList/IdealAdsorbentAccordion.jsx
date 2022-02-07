@@ -25,7 +25,7 @@ export function IdealAdsorbentAccordion({
     <Accordion key={index}>
       <AccordionSummary
         style={{
-          backgroundColor: appColors.idealAdsorbentAccordionHeader,
+          backgroundColor: appColors.lightGray,
           minWidth: "360px",
         }}
         expandIcon={<ExpandMoreIcon />}
@@ -35,7 +35,7 @@ export function IdealAdsorbentAccordion({
           <Grid item xs>
             <NameChip
               name={nameAdsorbent(adsorbent)}
-              backgroundColor={appColors.adsorbentCardHeader}
+              backgroundColor={appColors.greenFluor}
               fontSize={15}
               margin={"0px"}
               fontWeight={"normal"}
@@ -44,7 +44,7 @@ export function IdealAdsorbentAccordion({
           <Grid item xs>
             <NameChip
               name={qmaxIdealAdsorbent(maxQmax)}
-              backgroundColor={appColors.idealAdsorbentQmaxChip}
+              backgroundColor={appColors.lightOrange}
               fontSize={15}
               margin={"0px"}
               fontWeight={"normal"}
@@ -56,7 +56,7 @@ export function IdealAdsorbentAccordion({
                 style={{
                   fontSize: 15,
                   margin: "2px",
-                  backgroundColor: appColors.idealAdsorbentRemoveAllChip,
+                  backgroundColor: appColors.purple,
                   whiteSpace: "no-wrap",
                   width: smallScreen && "300px",
                 }}
