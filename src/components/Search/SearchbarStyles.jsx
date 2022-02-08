@@ -10,7 +10,7 @@ export const Button = styled.button`
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%);
   background-color: ${appColors.primary};
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appFontColors.white};
   font-size: 16px;
   border-radius: 4px;

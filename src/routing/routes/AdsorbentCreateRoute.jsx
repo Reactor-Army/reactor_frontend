@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import {AdsorbentForm} from "../../components/CustomForms/AdsorbentForm";
-import {URLS} from "../../routing/urls";
+import {URLS} from "../urls";
 import {createAdsorbent} from "../../services/adsorbents";
 import {ADSORBENT_FORM_INITIAL_VALUES} from "../../common/constants";
 import {useHistory} from "react-router-dom";
 import {displayUpdateMessage} from "../../utils/displayUpdateMessage";
 import {FormErrorModal} from "../../components/Form/FormErrorModal";
 
-export const AdsorbentCreateContainer = () => {
+export const AdsorbentCreateRoute = () => {
   const history = useHistory();
   const [errors, setErrors] = useState(true);
   const [submitError, setSubmitError] = useState(null);

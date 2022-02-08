@@ -6,11 +6,14 @@ import {Redirect} from "react-router-dom";
 import {URLS} from "../../routing/urls";
 import {errorCodes} from "../../utils/errorStatusCodes";
 import {getProcess} from "../../services/processes";
+import {useParams} from "react-router-dom";
 
-export const ProcessDetailContainer = ({processId}) => {
+export const ProcessDetailRoute = () => {
+  let {id} = useParams();
+
   const [process, setProcess] = useState(null);
   useEffect(async () => {
-    const response = await getProcess(processId);
+    const response = await getProcess(id);
     setProcess(response);
   }, []);
 
@@ -29,7 +32,7 @@ export const ProcessDetailContainer = ({processId}) => {
       <>
         <ProcessDetail process={process} onDeleteClick={onDeleteClick} />
         <DeleteProcessModal
-          processId={processId}
+          processId={id}
           open={showModal}
           onClose={() => setShowModal(false)}
           error={false}

@@ -5,7 +5,7 @@ export const CardHeader = styled.div`
   display: flex;
   box-shadow: 0px 0px 5px #9ea3a1;
   font-size: 24px;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   padding-bottom: 4px;
   margin-bottom: 10px;
   background-color: ${(props) =>
@@ -34,7 +34,7 @@ export const CardBody = styled.div`
 
 export const HeaderText = styled.div`
   font-weight: bold;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   margin-left: 10px;
   padding: 0 65px 0 0;
   font-size: 19px;
@@ -48,7 +48,7 @@ export const BodyText = styled.div`
   display: flex;
   margin-left: 15px;
   font-size: 18px;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   @media (max-width: 350px) {
     flex-direction: column;
   }

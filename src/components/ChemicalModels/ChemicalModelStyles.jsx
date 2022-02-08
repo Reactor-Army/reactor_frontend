@@ -11,7 +11,7 @@ export const ResultsTitleContanier = styled(Paragraph)`
 
 const Text = styled.div`
   font-size: calc(10px + 0.2vw);
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.00938em;

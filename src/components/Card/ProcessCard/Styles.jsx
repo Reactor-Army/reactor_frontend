@@ -5,7 +5,7 @@ export const BodyText = styled.div`
   margin-left: 11px;
   font-size: 16px;
   padding-top: 10px;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
 
   @media (max-width: 520px) {
     font-size: 13px;

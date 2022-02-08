@@ -12,7 +12,7 @@ export const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 16,
-    fontFamily: appFontFamily.card,
+    fontFamily: appFontFamily.roboto,
   },
 }))(TableCell);
 

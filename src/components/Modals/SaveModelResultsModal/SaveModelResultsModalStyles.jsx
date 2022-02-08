@@ -3,7 +3,7 @@ import {appFontFamily, appColors} from "../../../common/styles";
 
 export const Title = styled.div`
   color: ${appColors.primary};
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: calc(14px + 1vw);
   text-align: center;
   font-weight: 700;

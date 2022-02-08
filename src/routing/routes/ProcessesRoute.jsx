@@ -3,13 +3,13 @@ import React, {useEffect, useState} from "react";
 import {fetchAdsorbentsWithParticleSize} from "../../redux/adsorbentsSlice";
 import {fetchAdsorbatesWithIupacNotation} from "../../redux/adsorbatesSlice";
 import {useQuery} from "../../routing/hooks/useQuery";
-import {ProcessSearchContainer} from "./Search/ProcessSearchContainer";
+import {ProcessSearchContainer} from "../../containers/List/Search/ProcessSearchContainer";
 import {ProcessList} from "../../components/List/ProcessList/ProcessList";
 import {ListHeader} from "../../components/List/common/ListHeader";
 import {URLS} from "../../routing/urls";
 import {searchProcesses} from "../../services/processes";
 
-export const ProcessListContainer = () => {
+export const ProcessesRoute = () => {
   const [loading, setLoading] = useState(false);
   const [processes, setProcesses] = useState(null);
   const dispatch = useDispatch();

@@ -30,5 +30,5 @@ export const Text = styled.div`
   font-size: calc(20px + 0.3vw);
   font-weight: bold;
   text-align: center;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
 `;

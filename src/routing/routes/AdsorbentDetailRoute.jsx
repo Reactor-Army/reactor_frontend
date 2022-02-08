@@ -4,14 +4,16 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {fetchAdsorbent} from "../../redux/adsorbentSlice";
 import {AdsorbentDetail} from "../../components/Detail/AdsorbentDetail";
 import {Redirect} from "react-router-dom";
-import {URLS} from "../../routing/urls";
+import {URLS} from "../urls";
 import {errorCodes} from "../../utils/errorStatusCodes";
+import {useParams} from "react-router-dom";
 
-export const AdsorbentDetailContainer = ({adsorbentId}) => {
+export const AdsorbentDetailRoute = () => {
+  let {id} = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAdsorbent(adsorbentId));
+    dispatch(fetchAdsorbent(id));
   }, []);
 
   const adsorbent = useSelector((store) => store.adsorbent.adsorbent);

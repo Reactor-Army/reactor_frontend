@@ -28,7 +28,7 @@ export const Link = styled.a`
 `;
 
 export const Content = styled.p`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   color: ${appColors.white};
   font-weight: 500;
 `;

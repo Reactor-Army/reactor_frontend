@@ -11,14 +11,14 @@ export const Frame = styled.div`
 `;
 
 export const Text = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: calc(12px + 0.5vw);
   font-weight: bold;
   text-align: center;
 `;
 
 export const Subtitle = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: calc(12px + 0.4vw);
   text-align: center;
   color: ${appColors.darkGray};

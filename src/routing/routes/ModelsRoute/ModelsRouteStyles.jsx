@@ -25,7 +25,7 @@ export const ModelPickCard = styled.div`
 export const Title = styled.h1`
   color: ${appColors.lightBlue};
   font-size: calc(12px + 0.8vw);
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   text-transform: uppercase;
   margin-bottom: 10px;
   width: 100%;

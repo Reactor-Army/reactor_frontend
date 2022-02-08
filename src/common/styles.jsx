@@ -3,20 +3,17 @@ import styled from "styled-components/macro";
 export const appColors = {
   primary: "#1177cf",
   white: "#fff",
-  adsorbentCardHeader: "#69f0ae",
-  adsorbateCardHeader: "#b388ff",
-  processCardHeader: "#9e9e9e",
-  idealAdsorbentAccordionHeader: "#e0e0e0",
-  idealAdsorbentQmaxChip: "#ffcc80",
-  idealAdsorbentRemoveAllChip: "#ce93d8",
-  pageBackground: "#f7f7f7",
+  purple: "#b388ff",
+  lightOrange: "#ffcc80",
   black: "#000",
   lightGreen: "#21d133",
+  greenFluor: "#69f0ae",
   green: "#00a811",
   lightRed: "#fa7d7d",
   red: "#f51707",
   lightBlue: "#1072c7",
   darkBlue: "#0f6ebf",
+  softGray: "#f7f7f7",
   lightGray: "#d1d1d1",
   gray: "#aaa",
   darkGray: "#666",
@@ -29,15 +26,15 @@ export const appFontColors = {
 };
 
 export const appFontFamily = {
-  primary: "Lato, sans-serif",
-  card: "Roboto, Helvetica, Arial, sans-serif",
+  lato: "Lato, sans-serif",
+  roboto: "Roboto, Helvetica, Arial, sans-serif",
 };
 
 export const Row = styled.div`
   display: block;
   margin: 15px 0;
   font-weight: bold;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: calc(25px + 0.7vw);
 `;
 

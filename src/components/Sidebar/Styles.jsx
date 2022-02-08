@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appColors, appFontColors, appFontFamily} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
 import {makeStyles} from "@material-ui/core/styles";
 const drawerWidth = 240;
 
@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    background: appColors.pageBackground,
+    background: appColors.softGray,
     "&::-webkit-scrollbar": {
       width: "10px",
     },
@@ -26,8 +26,7 @@ export const useStyles = makeStyles((theme) => ({
 }));
 
 export const SessionUser = styled.div`
-  font-family: ${appFontFamily.primary};
-  color: ${appFontColors.primary};
+  font-family: ${appFontFamily.lato};
   font-size: 14px;
   text-align: center;
   height: 30px;
@@ -63,7 +62,7 @@ export const TitleContainer = styled.div`
 export const LinkText = styled.p`
   text-align: left;
   padding-left: 10px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appColors.black};
   font-weight: 600;
   font-size: 15px;
@@ -72,7 +71,7 @@ export const LinkText = styled.p`
 
 export const TitleText = styled.p`
   margin-left: -12px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appColors.primary};
   font-weight: bold;
   font-size: 18px;
@@ -84,7 +83,7 @@ export const Title = styled.div`
   text-align: left;
   width: 200px;
   height: 50px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appColors.primary};
   font-weight: bold;
   font-size: 22px;

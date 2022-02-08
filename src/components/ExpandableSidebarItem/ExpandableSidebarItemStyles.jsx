@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import {appColors, appFontFamily, appFontColors} from "../../common/styles";
+import {appColors, appFontFamily} from "../../common/styles";
 
 export const expandableSidebarItemStyles = {
   width: "100%",
@@ -9,8 +9,7 @@ export const expandableSidebarItemStyles = {
 
 export const ListItemButton = styled.div`
   cursor: pointer;
-  background: ${appColors.pageBackground};
-  color: ${appFontColors.primary};
+  background: ${appColors.softGray};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,16 +18,15 @@ export const ListItemButton = styled.div`
 `;
 
 export const ListItemTitle = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: 15px;
   font-weight: bold;
 `;
 
 export const ListItem = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: 15px;
   padding-left: 10px;
-  color: ${appFontColors.primary};
   cursor: pointer;
   height: 50px;
   display: flex;

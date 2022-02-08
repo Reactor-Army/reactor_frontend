@@ -27,14 +27,14 @@ export function IdealAdsorbentAccordion({
         aria-controls="panel1a-content"
         id="panel1a-header">
         <ChipContainer>
-          <Chip background={appColors.adsorbentCardHeader}>
+          <Chip background={appColors.greenFluor}>
             {nameAdsorbent(adsorbent)}
           </Chip>
-          <Chip background={appColors.idealAdsorbentQmaxChip}>
+          <Chip background={appColors.lightOrange}>
             {qmaxIdealAdsorbent(maxQmax)}
           </Chip>
           {removeAllAdsorbates && (
-            <Chip background={appColors.idealAdsorbentRemoveAllChip}>
+            <Chip background={appColors.purple}>
               Remueve todos los adsorbatos
             </Chip>
           )}

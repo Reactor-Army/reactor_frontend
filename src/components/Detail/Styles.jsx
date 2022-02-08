@@ -5,12 +5,12 @@ import {appColors, appFontFamily} from "../../common/styles";
 export const Tag = styled.div`
   font-weight: bold;
   font-size: 1rem;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
 `;
 
 export const Value = styled.div`
   font-size: 1rem;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
 `;
 
 export const LabelContainer = styled.div`

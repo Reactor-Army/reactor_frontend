@@ -20,7 +20,7 @@ export const AccordionDetailsStyles = {
 };
 
 export const StyledAccordionSummary = styled(AccordionSummary)`
-  background: ${appColors.idealAdsorbentAccordionHeader};
+  background: ${appColors.lightGray};
 `;
 
 export const StyledExpandMoreIcon = styled(ExpandMoreIcon)`
@@ -44,7 +44,7 @@ export const Chip = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   color: ${(props) => (props.color ? props.color : appColors.black)};
   padding: 20px;
   font-weight: 500;

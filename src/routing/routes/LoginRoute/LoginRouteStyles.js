@@ -32,7 +32,7 @@ export const LoginContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-weight: 700;
   text-align: center;
   width: 100%;
@@ -42,7 +42,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: 18px;
   width: 100%;
   text-align: center;
@@ -53,7 +53,7 @@ export const FormContainer = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-  font-family: ${appFontFamily.card};
+  font-family: ${appFontFamily.roboto};
   font-size: 14px;
   color: ${appFontColors.warning};
   padding: 10px 0;

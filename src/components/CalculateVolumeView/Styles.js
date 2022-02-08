@@ -26,7 +26,7 @@ export const ProcessPickerContainer = styled.div`
 
 export const InvalidFormMessage = styled.div`
   margin-top: 10px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
   color: ${appFontColors.warning};
   font-size: 16px;
   padding: 0 ${contentPadding};
@@ -60,7 +60,7 @@ export const VolumeResultsTitle = styled(Title)`
 
 export const VolumeResultsText = styled.div`
   font-size: 24px;
-  font-family: ${appFontFamily.primary};
+  font-family: ${appFontFamily.lato};
 `;
 
 export const VolumeResultsContainer = styled(CalculateVolumeFormContainer)`
