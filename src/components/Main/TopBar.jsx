@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    background: appColors.pageBackground,
+    background: appColors.softGray,
     [theme.breakpoints.up("sm")]: {
       justifyContent: "flex-end",
     },

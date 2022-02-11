@@ -29,9 +29,12 @@ export const ProcessCard = ({
       selected={selected}
       backgroundColor={appColors.softGray}
       onClick={onClick}>
-      <CardHeader theme={{backgroundColor: appColors.gray}}>
+      <CardHeader theme={{backgroundColor: appColors.lightGray}}>
         <NameChip name={adsorbateName} backgroundColor={appColors.purple} />
-        <NameChip name={adsorbentName} backgroundColor={appColors.greenFluor} />
+        <NameChip
+          name={adsorbentName}
+          backgroundColor={appColors.opaqueGreen}
+        />
       </CardHeader>
       <CardBody>
         <ProcessSection>

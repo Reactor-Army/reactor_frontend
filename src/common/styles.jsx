@@ -3,11 +3,11 @@ import styled from "styled-components/macro";
 export const appColors = {
   primary: "#1177cf",
   white: "#fff",
-  purple: "#b388ff",
+  purple: "#ce93d8",
   lightOrange: "#ffcc80",
   black: "#000",
   lightGreen: "#21d133",
-  greenFluor: "#69f0ae",
+  opaqueGreen: "#4fd192",
   green: "#00a811",
   lightRed: "#fa7d7d",
   red: "#f51707",

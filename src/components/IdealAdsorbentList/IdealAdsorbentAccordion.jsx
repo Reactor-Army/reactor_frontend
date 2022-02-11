@@ -27,7 +27,7 @@ export function IdealAdsorbentAccordion({
         aria-controls="panel1a-content"
         id="panel1a-header">
         <ChipContainer>
-          <Chip background={appColors.greenFluor}>
+          <Chip background={appColors.opaqueGreen}>
             {nameAdsorbent(adsorbent)}
           </Chip>
           <Chip background={appColors.lightOrange}>
