@@ -18,6 +18,7 @@ import Tab from "@material-ui/core/Tab";
 import TabContext from "@material-ui/lab/TabContext";
 import {appColors} from "../../../common/styles";
 import {MODEL_RESULT_TABS} from "./ModelResultsConstants";
+import {InfoThomasModal} from "../InfoModals/InfoThomasModal";
 
 const thomasEquation = (data) => {
   const template = "$$\\frac{C}{C0} = \\frac{1}{1 + e^{first-secondV_{ef}}}$$";
@@ -26,6 +27,7 @@ const thomasEquation = (data) => {
 
 export const ThomasResults = ({responses, colors}) => {
   const [value, setValue] = useState(MODEL_RESULT_TABS[0]);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -34,13 +36,20 @@ export const ThomasResults = ({responses, colors}) => {
   return (
     <>
       <Row>
-        <ModelTitle title={"Modelo de Thomas"} />
+        <ModelTitle
+          title={"Modelo de Thomas"}
+          onInfoIconClick={() => setOpenModal(true)}
+        />
         {responses[0].adsorbateName && responses[0].adsorbentName && (
           <SystemTitle>
             {responses[0].adsorbateName} - {responses[0].adsorbentName}
           </SystemTitle>
         )}
       </Row>
+      <InfoThomasModal
+        closeModal={() => setOpenModal(false)}
+        openModal={openModal}
+      />
 
       <TabContext value={value}>
         {responses.length > 1 && (
