@@ -18,6 +18,7 @@ import Tab from "@material-ui/core/Tab";
 import TabContext from "@material-ui/lab/TabContext";
 import {appColors} from "../../../common/styles";
 import {MODEL_RESULT_TABS} from "./ModelResultsConstants";
+import {InfoYoonNelsonModal} from "../InfoModals/InfoYoonNelsonModal";
 
 const yoonNelsonEquation = (data) => {
   const exponential = "e^{firstV{ef}-second}";
@@ -27,6 +28,7 @@ const yoonNelsonEquation = (data) => {
 
 export const YoonNelsonResults = ({responses, colors}) => {
   const [value, setValue] = useState(MODEL_RESULT_TABS[0]);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -34,13 +36,20 @@ export const YoonNelsonResults = ({responses, colors}) => {
   return (
     <>
       <Row>
-        <ModelTitle title={"Modelo de Yoon-Nelson"} />
+        <ModelTitle
+          title={"Modelo de Yoon-Nelson"}
+          onInfoIconClick={() => setOpenModal(true)}
+        />
         {responses[0].adsorbateName && responses[0].adsorbentName && (
           <SystemTitle>
             {responses[0].adsorbateName} - {responses[0].adsorbentName}
           </SystemTitle>
         )}
       </Row>
+      <InfoYoonNelsonModal
+        closeModal={() => setOpenModal(false)}
+        openModal={openModal}
+      />
       <TabContext value={value}>
         {responses.length > 1 && (
           <TabsContainer>
