@@ -18,6 +18,7 @@ import Tab from "@material-ui/core/Tab";
 import TabContext from "@material-ui/lab/TabContext";
 import {appColors} from "../../../common/styles";
 import {MODEL_RESULT_TABS} from "./ModelResultsConstants";
+import {InfoAdamsBohartModal} from "../InfoModals/InfoAdamsBohartModal";
 
 const adamsEquation = (data) => {
   const template = `$$\\frac{C}{C0} = e^{firstV_{ef}-second}$$`;
@@ -26,6 +27,7 @@ const adamsEquation = (data) => {
 
 export const AdamsBohartResults = ({responses, colors}) => {
   const [value, setValue] = useState(MODEL_RESULT_TABS[0]);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -34,13 +36,20 @@ export const AdamsBohartResults = ({responses, colors}) => {
   return (
     <>
       <Row>
-        <ModelTitle title={"Modelo de Adams-Bohart"} />
+        <ModelTitle
+          title={"Modelo de Adams-Bohart"}
+          onInfoIconClick={() => setOpenModal(true)}
+        />
         {responses[0].adsorbateName && responses[0].adsorbentName && (
           <SystemTitle>
             {responses[0].adsorbateName} - {responses[0].adsorbentName}
           </SystemTitle>
         )}
       </Row>
+      <InfoAdamsBohartModal
+        closeModal={() => setOpenModal(false)}
+        openModal={openModal}
+      />
       <TabContext value={value}>
         {responses.length > 1 && (
           <TabsContainer>
