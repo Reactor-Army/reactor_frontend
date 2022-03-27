@@ -15,7 +15,9 @@ export const SelectedProcess = ({process}) => {
         />
         <DetailTableRow
           label={PROCESS_FIELDS.ADSORBENT}
-          value={`${process.adsorbente.nombre} (${process.adsorbente.particulaT})`}
+          value={`${process.adsorbente.nombre} (${
+            process.adsorbente.particulaT
+          }) ${process.adsorbente.particulaT && UNITS.PARTICLE_SIZE}`}
         />
         <DetailTableRow
           label={PROCESS_FIELDS.EQUILIBRIUM_TIME}
