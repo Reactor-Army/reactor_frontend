@@ -4,6 +4,7 @@ import {SelectedProcessContainer} from "./Styles";
 import {DetailTable, DetailTableRow} from "../DetailTable/DetailTable";
 import {PROCESS_FIELDS} from "../../common/fields";
 import {UNITS} from "../../common/fields";
+import {nameAdsorbent} from "../../common/FormatUtils";
 
 export const SelectedProcess = ({process}) => {
   return (
@@ -15,7 +16,7 @@ export const SelectedProcess = ({process}) => {
         />
         <DetailTableRow
           label={PROCESS_FIELDS.ADSORBENT}
-          value={`${process.adsorbente.nombre} (${process.adsorbente.particulaT})`}
+          value={nameAdsorbent(process.adsorbente)}
         />
         <DetailTableRow
           label={PROCESS_FIELDS.EQUILIBRIUM_TIME}

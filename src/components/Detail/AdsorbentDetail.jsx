@@ -40,6 +40,7 @@ export const AdsorbentDetail = ({adsorbent}) => {
         <DetailTableRow
           label={ADSORBENT_FIELDS.PARTICLE_SIZE}
           value={adsorbent.particulaT}
+          units={adsorbent.particulaT && UNITS.PARTICLE_SIZE}
         />
         <DetailTableRow
           label={ADSORBENT_FIELDS.SBET}

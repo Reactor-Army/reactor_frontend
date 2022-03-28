@@ -8,7 +8,9 @@ export const ParticleSize = ({particleSize}) => {
   return (
     <BodyText>
       <FieldLabel>{ADSORBENT_FIELDS.PARTICLE_SIZE}:</FieldLabel>
-      <CardValue value={`${particleSize} ${UNITS.PARTICLE_SIZE}`} />
+      <CardValue
+        value={`${particleSize} ${particleSize && UNITS.PARTICLE_SIZE}`}
+      />
     </BodyText>
   );
 };
