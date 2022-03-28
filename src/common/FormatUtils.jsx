@@ -8,7 +8,7 @@ export const nameAdsorbent = (adsorbent) => {
   return adsorbent.particulaT
     ? `${adsorbent.nombre} (${adsorbent.particulaT}) ${
         adsorbent.particulaT && UNITS.PARTICLE_SIZE
-      } `
+      }`
     : adsorbent.nombre;
 };
 
