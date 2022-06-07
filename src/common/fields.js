@@ -47,7 +47,7 @@ export const USER_FIELDS = {
 
 export const UNITS = {
   ION_RADIUS: "Å",
-  SPILL_LIMIT: "L",
+  SPILL_LIMIT: "mg/L",
   MOLAR_MASS: "g/mol",
   SBET: "m²/g",
   VBET: "cm³/g",
